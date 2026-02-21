@@ -52,6 +52,21 @@ code {
   --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
   --sidebar-border: oklch(0.92 0.004 286.32);
   --sidebar-ring: oklch(0.871 0.006 286.286);
+
+  /* Edushade landing — prefix --es-* */
+  --es-brand:        #1a6bff;
+  --es-brand-hover:  #0040d4;
+  --es-brand-light:  #e8efff;
+  --es-text-1:       #0f172a;
+  --es-text-2:       #475569;
+  --es-text-3:       #94a3b8;
+  --es-surface:      #ffffff;
+  --es-surface-2:    #f8fafc;
+  --es-border-1:     #e2e8f0;
+  --es-border-2:     #cbd5e1;
+  --es-nav-h:        68px;
+  --es-max-w:        1280px;
+  --es-section-px:   clamp(1.25rem, 4vw, 3rem);
 }
 
 .dark {
