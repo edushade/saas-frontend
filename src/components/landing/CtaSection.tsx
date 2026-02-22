@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 
-/** Vertical stripes: medium/light blue at bottom → white at top. Varying widths, no gaps, seamless. */
 const STRIPES: { widthPx: number; bg: string }[] = [
 	{
 		widthPx: 58,
@@ -60,11 +59,9 @@ export default function CtaSection() {
 	return (
 		<section className="bg-white py-16">
 			<div className="mx-auto max-w-(--es-max-w) px-(--es-section-px)">
-				{/* Card */}
 				<div className="relative overflow-hidden rounded-3xl bg-white shadow-md">
 					<ColumnBg />
 
-					{/* Content — match image: heading #212121, paragraph #555555, spacing */}
 					<div className="relative z-10 px-8 py-14 text-center lg:py-20">
 						<h2 className="mx-auto mb-4 max-w-2xl text-4xl font-bold leading-tight text-[#212121] lg:text-5xl">
 							Start Building Learning Your Way

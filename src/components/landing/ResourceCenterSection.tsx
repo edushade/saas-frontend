@@ -1,14 +1,9 @@
-import {
-	BarChart3,
-	BookOpen,
-	FileText,
-	LayoutDashboard,
-	Plus,
-} from "lucide-react";
+import { BarChart3, BookOpen, LayoutDashboard, Plus } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { Typography } from "../ui-custom/typography";
 
 const NAV_ITEMS = [
 	{ label: "Dashboard", icon: LayoutDashboard, active: true },
@@ -18,22 +13,21 @@ const NAV_ITEMS = [
 	{ label: "Question Bank", icon: BookOpen, active: false },
 ];
 
-/** Image paths for right-column cards. Put dashboard/settings screenshots in public/resource-center/ */
 const SIDE_POSTS = [
 	{
 		headline: "Designing Learning Systems From the Educator's Perspective",
 		tag: "Posts",
-		tagClass: "bg-emerald-100 text-emerald-800 border-0",
+		tagClass: "bg-[#0E2D2A] text-white border-0",
 		date: "Jan 31, 2026",
-		imageSrc: "/resource-center/post-dashboard.jpg",
+		imageSrc: "/svgs/resource-center/3.svg",
 		imageAlt: "Dashboard UI preview",
 	},
 	{
 		headline: "Designing Learning Systems From the Educator's Perspective",
 		tag: "Update",
-		tagClass: "bg-teal-100 text-teal-800 border-0",
+		tagClass: "bg-[#2FC7B9] text-white border-0",
 		date: "Jan 31, 2026",
-		imageSrc: "/resource-center/post-settings.jpg",
+		imageSrc: "/svgs/resource-center/4.svg",
 		imageAlt: "Question Settings UI preview",
 	},
 ];
@@ -43,157 +37,156 @@ const FALLBACK_IMAGE =
 
 export default function ResourceCenterSection() {
 	return (
-		<section className="bg-white py-16">
+		<section className="bg-white py-10 md:py-16">
 			<div className="mx-auto max-w-(--es-max-w) px-(--es-section-px)">
 				{/* Header: title + subtitle (left), Browse All Posts (right) */}
-				<div className="mb-10 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-					<div>
-						<h2 className="text-3xl font-bold leading-tight text-(--es-text-1) lg:text-4xl">
+				<div className="mb-10 flex flex-col items-center gap-6 text-center sm:flex-row sm:items-end sm:justify-between sm:text-left">
+					<div className="min-w-0 max-w-[500px] sm:max-w-none">
+						<Typography
+							variant="h1"
+							className="font-medium text-text-primary leading-tight"
+						>
 							Resource Center & Insights
-						</h2>
-						<p className="mt-3 max-w-xl text-(--es-text-2) leading-relaxed">
+						</Typography>
+						<Typography
+							variant="small"
+							className="block font-normal max-w-[500px] text-text-secondary leading-relaxed sm:max-w-[500px]"
+						>
 							Thoughtful updates and practical insights on building and
 							delivering modern learning experiences.
-						</p>
+						</Typography>
 					</div>
-					<Button
+					<Badge
 						variant="outline"
-						className="w-fit shrink-0 rounded-lg border-(--es-border-1) bg-(--es-surface-2) text-(--es-text-1) hover:bg-(--es-border-1) gap-2"
+						className="rounded-lg px-6 text-text-primary h-10 text-sm font-medium"
 					>
-						<FileText className="size-4" />
 						Browse All Posts
-					</Button>
+					</Badge>
 				</div>
 
-				{/* Two columns: left = one large card, right = stacked cards with images */}
 				<div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:grid-rows-[auto]">
-					{/* Left column: single large card */}
-					<Card className="overflow-hidden rounded-2xl border border-(--es-border-1) bg-linear-to-b from-blue-50/80 to-white shadow-sm">
-						<CardContent className="flex flex-col p-0">
-							{/* Embedded UI mockup */}
-							<div className="border-b border-(--es-border-1) bg-(--es-surface-2)/80 p-5">
-								<Button
-									size="sm"
-									className="mb-4 w-fit rounded-md bg-(--es-brand) hover:bg-(--es-brand-hover) text-white gap-1.5"
-								>
-									<Plus className="size-4" />
-									Join New Class
-								</Button>
-								<nav className="flex flex-col gap-0.5">
-									{NAV_ITEMS.map((item) => (
-										<div
-											key={item.label}
-											className={
-												item.active
-													? "flex items-center gap-2 rounded-md bg-(--es-brand-light) px-2 py-1.5 text-(--es-brand)"
-													: "flex items-center gap-2 px-2 py-1.5 text-(--es-text-2)"
-											}
-										>
-											<item.icon className="size-4 shrink-0" />
-											<span className="text-sm">{item.label}</span>
-										</div>
-									))}
-								</nav>
+					<Card className="overflow-hidden rounded-2xl shadow-sm border border-(--es-border-1) bg-[rgba(248, 249, 252, 1)] md:rounded-4xl">
+						<CardContent className="">
+							<div className="bg-[#F5F5F5] rounded-xl md:rounded-4xl overflow-hidden">
+								<img
+									src="/svgs/resource-center/Sidebar.svg"
+									alt="Resource Center"
+									className="w-full h-auto min-h-[160px] md:min-h-0 object-cover"
+								/>
 							</div>
-							{/* Article details */}
-							<div className="flex flex-1 flex-col gap-3 p-6">
-								<h3 className="text-lg font-bold leading-tight text-(--es-text-1)">
+						</CardContent>
+						<CardContent className="">
+							<div className="flex flex-1 flex-col gap-3">
+								<Typography
+									variant="h5"
+									className="font-medium leading-tight text-(--es-text-1)"
+								>
 									Designing Learning Systems From the Educator&apos;s
 									Perspective
-								</h3>
-								<p className="line-clamp-2 text-sm text-(--es-text-2) leading-relaxed">
+								</Typography>
+								<Typography
+									variant="h6"
+									className="line-clamp-2 font-normal text-(--es-text-2) leading-relaxed"
+								>
 									Why starting with educator intent leads to better learning
 									outcomes and simpler platforms. A clear comparison of system
 									design, flexibility, and rol...
-								</p>
-								<div className="mt-auto flex items-center justify-between gap-4">
-									<div className="flex items-center gap-3">
-										<Badge className="rounded-full border-0 bg-(--es-brand-light) px-3 py-1 text-(--es-brand)">
+								</Typography>
+								<div className="flex items-center justify-between ">
+									<Badge className="mt-2 flex flex-wrap items-center bg-[#F5F5F5] px-2 py-2 rounded-xl gap-2">
+										<Badge
+											className={`text-base font-medium rounded-sm bg-[#0E2D2A] text-white border-0`}
+										>
 											News
 										</Badge>
-										<span className="text-sm text-(--es-text-2)">
+										<Typography
+											variant="h6"
+											className="font-normal text-(--es-text-2)"
+										>
 											Jan 31, 2026
-										</span>
-									</div>
+										</Typography>
+									</Badge>
 									<Button
-										variant="ghost"
+										variant="default"
 										size="icon"
-										className="size-9 rounded-full shrink-0"
+										className="bg-white text-text-primary shadow-sm"
 									>
 										<Plus className="size-4" />
-										<span className="sr-only">Read more</span>
+										<span className="sr-only">More</span>
 									</Button>
 								</div>
 							</div>
 						</CardContent>
 					</Card>
 
-					{/* Right column: stacked cards, each with image inside card */}
 					<div className="flex flex-col gap-4">
 						{SIDE_POSTS.map((post) => (
 							<Card
 								key={post.tag + post.imageSrc}
-								className="overflow-hidden rounded-xl border border-(--es-border-1) bg-card shadow-sm"
+								className="border-none rounded-4xl bg-[#F8F9FC] shadow-none"
 							>
-								<CardContent className="flex flex-row gap-4 p-4">
-									{/* Image inside card — use screenshot from public/resource-center/ */}
-									<div className="h-20 w-24 shrink-0 overflow-hidden rounded-lg border border-(--es-border-1) bg-muted">
-										<img
-											src={post.imageSrc}
-											alt={post.imageAlt}
-											className="h-full w-full object-cover"
-											onError={(e) => {
-												const el = e.currentTarget;
-												if (el.src !== FALLBACK_IMAGE) el.src = FALLBACK_IMAGE;
-											}}
-										/>
-									</div>
+								<CardContent className="flex flex-row gap-4">
+									{/* <div className="h-30 w-56 shrink-0 overflow-hidden rounded-4xl border border-(--es-border-1) bg-muted"> */}
+									<img
+										src={post.imageSrc}
+										alt={post.imageAlt}
+										className="h-30 w-56"
+										onError={(e) => {
+											const el = e.currentTarget;
+											if (el.src !== FALLBACK_IMAGE) el.src = FALLBACK_IMAGE;
+										}}
+									/>
+									{/* </div> */}
 									<div className="min-w-0 flex-1">
-										<h3 className="line-clamp-2 text-sm font-bold leading-tight text-(--es-text-1)">
+										<Typography
+											variant="h5"
+											className="line-clamp-2 font-medium leading-tight text-text-primary"
+										>
 											{post.headline}
-										</h3>
-										<div className="mt-2 flex flex-wrap items-center gap-2">
-											<Badge
-												className={`rounded-full text-xs ${post.tagClass}`}
-											>
-												{post.tag}
+										</Typography>
+										<div className="flex items-center justify-between">
+											<Badge className="mt-2 flex flex-wrap items-center px-2 py-2 rounded-xl gap-2 bg-white">
+												<Badge
+													className={`text-base font-medium rounded-sm ${post.tagClass}`}
+												>
+													{post.tag}
+												</Badge>
+												<span className="text-base font-normal text-(--es-text-2)">
+													{post.date}
+												</span>
 											</Badge>
-											<span className="text-xs text-(--es-text-2)">
-												{post.date}
-											</span>
+											<Button
+												variant="default"
+												size="icon"
+												className="bg-white text-text-primary shadow-sm"
+											>
+												<Plus className="size-4" />
+												<span className="sr-only">More</span>
+											</Button>
 										</div>
 									</div>
-									<Button
-										variant="ghost"
-										size="icon"
-										className="size-8 shrink-0 rounded-full"
-									>
-										<Plus className="size-4" />
-										<span className="sr-only">More</span>
-									</Button>
 								</CardContent>
 							</Card>
 						))}
 
-						{/* Newsletter CTA card */}
-						<Card className="overflow-hidden rounded-xl border-0 bg-linear-to-br from-indigo-600 to-purple-700 shadow-lg">
-							<CardContent className="flex flex-col gap-4 p-6">
-								<h3 className="text-base font-bold leading-tight text-white">
+						<Card className="overflow-hidden rounded-4xl border-0 bg-[#1A1918]">
+							<CardContent className="flex flex-col gap-4">
+								<Typography
+									variant="h4"
+									className="font-medium max-w-[399px] leading-tight text-white"
+								>
 									Get weekly updates straight to your inbox
-								</h3>
+								</Typography>
 								<form
-									className="flex flex-col gap-3 sm:flex-row"
+									className="flex items-center rounded-lg bg-white/15 px-2 py-1.5 focus-within:ring-2 focus-within:ring-white/30"
 									onSubmit={(e) => e.preventDefault()}
 								>
 									<Input
 										type="email"
 										placeholder="Enter your email"
-										className="min-w-0 flex-1 rounded-lg border-0 bg-white/15 text-white placeholder:text-white/70 focus-visible:ring-2 focus-visible:ring-white/30"
+										className="min-w-0 flex-1 border-0 bg-transparent text-white placeholder:text-white/70 shadow-none focus-visible:ring-0 focus-visible:ring-offset-0"
 									/>
-									<Button
-										type="submit"
-										className="shrink-0 rounded-lg bg-(--es-brand) hover:bg-(--es-brand-hover) text-white"
-									>
+									<Button type="submit" className="btn-brand-1">
 										Subscribe
 									</Button>
 								</form>

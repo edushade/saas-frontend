@@ -130,7 +130,7 @@ function FeaturesMenu() {
 								{FEATURES_CTA.text}
 							</p>
 							<Button
-								className="rounded-full bg-(--es-brand) text-white hover:bg-(--es-brand-hover)"
+								className="btn-brand-1 rounded-full"
 								onClick={() => setOpen(false)}
 							>
 								{FEATURES_CTA.button}
@@ -278,7 +278,7 @@ function MobileMenu() {
 					</Button>
 					<Button
 						asChild
-						className="w-full rounded-full bg-(--es-brand) text-white hover:bg-(--es-brand-hover) gap-1.5"
+						className="btn-brand-1 w-full rounded-full gap-1.5"
 					>
 						<Link to="/">
 							Request a Demo <ArrowUpRight size={14} />
@@ -344,15 +344,15 @@ export default function Header() {
 					>
 						<Link to="/">Sign In</Link>
 					</Button>
-					<Button
-						asChild
-						className="rounded-full bg-(--es-brand) text-white hover:bg-(--es-brand-hover) gap-1.5"
-					>
-						<Link to="/">
-							Request a Demo
-							<ArrowUpRight size={14} strokeWidth={2.5} />
-						</Link>
-					</Button>
+<Button
+					asChild
+					className="btn-brand-1 rounded-full gap-1.5"
+				>
+					<Link to="/">
+						Request a Demo
+						<ArrowUpRight size={14} strokeWidth={2.5} />
+					</Link>
+				</Button>
 				</div>
 
 				{/* Mobile hamburger */}

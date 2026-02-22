@@ -1,32 +1,50 @@
-import type { LucideIcon } from 'lucide-react';
-import {
-	Asterisk,
-	Globe,
-	Layers,
-	RefreshCw,
-	Signal,
-	Tornado,
-	Zap,
-	Cpu,
-	Flame,
-	Triangle,
-} from 'lucide-react';
-
 export interface PlatformItem {
 	name: string;
 	stat: string;
-	icon: LucideIcon;
+	logo: string;
 }
 
 export const PLATFORMS: PlatformItem[] = [
-	{ name: 'Stamina',  stat: '8x platform growth',  icon: RefreshCw  },
-	{ name: 'Vortex',   stat: '$5M+ funding raised',  icon: Tornado    },
-	{ name: 'Velocity', stat: '3x program growth',    icon: Zap        },
-	{ name: 'Synergy',  stat: '$2M+ revenue',         icon: Layers     },
-	{ name: 'Enigma',   stat: '150+ educators',       icon: Asterisk   },
-	{ name: 'Spectrum', stat: '20+ institutions',     icon: Signal     },
-	{ name: 'Apex',     stat: '500+ courses live',    icon: Triangle   },
-	{ name: 'Nexus',    stat: '12k+ learners',        icon: Globe      },
-	{ name: 'Fuse',     stat: '$1M+ in payouts',      icon: Flame      },
-	{ name: 'Orion',    stat: '99.9% uptime',         icon: Cpu        },
+	{
+		name: "Stamina",
+		stat: "8x platform growth",
+		logo: "/svgs/customer/velocity.svg",
+	},
+	{
+		name: "Vortex",
+		stat: "$5M+ funding raised",
+		logo: "/svgs/customer/velocity.svg",
+	},
+	{
+		name: "Velocity",
+		stat: "3x program growth",
+		logo: "/svgs/customer/velocity.svg",
+	},
+	{
+		name: "Synergy",
+		stat: "$2M+ revenue",
+		logo: "/svgs/customer/velocity.svg",
+	},
+	{
+		name: "Enigma",
+		stat: "150+ educators",
+		logo: "/svgs/customer/velocity.svg",
+	},
+	{
+		name: "Spectrum",
+		stat: "20+ institutions",
+		logo: "/svgs/customer/velocity.svg",
+	},
+	{
+		name: "Apex",
+		stat: "500+ courses live",
+		logo: "/svgs/customer/velocity.svg",
+	},
+	{ name: "Nexus", stat: "12k+ learners", logo: "/svgs/customer/velocity.svg" },
+	{
+		name: "Fuse",
+		stat: "$1M+ in payouts",
+		logo: "/svgs/customer/velocity.svg",
+	},
+	{ name: "Orion", stat: "99.9% uptime", logo: "/svgs/customer/velocity.svg" },
 ];

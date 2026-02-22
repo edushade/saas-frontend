@@ -2,6 +2,7 @@ import { Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Typography } from "../ui-custom/typography";
 
 /** Placeholder when image fails: keeps card shape and avoids broken icon. */
 const PLACEHOLDER_SRC =
@@ -9,23 +10,23 @@ const PLACEHOLDER_SRC =
 
 const TAB_CONTENT = {
 	creators: {
-		leftSrc: "/teach-left.png",
+		leftSrc: "/svgs/build-for-teach/1.svg",
 		leftAlt: "Create Learning Path — assign learners",
-		rightSrc: "/teach-video.jpg",
+		rightSrc: "/svgs/built-for-teach/2.svg",
 		rightAlt: "Watch Intro",
 		videoLabel: "Watch Intro",
 	},
 	academies: {
-		leftSrc: "/teach-academies.png",
+		leftSrc: "/svgs/built-for-teach/teach-academies.svg",
 		leftAlt: "For Academies — manage courses",
-		rightSrc: "/teach-academies-video.jpg",
+		rightSrc: "/svgs/built-for-teach/teach-academies-video.svg",
 		rightAlt: "Academy overview",
 		videoLabel: "Watch Overview",
 	},
 	schools: {
-		leftSrc: "/teach-schools.png",
+		leftSrc: "/svgs/built-for-teach/teach-schools.svg",
 		leftAlt: "For Schools — classroom tools",
-		rightSrc: "/teach-schools-video.jpg",
+		rightSrc: "/svgs/built-for-teach/teach-schools-video.svg",
 		rightAlt: "School intro",
 		videoLabel: "Watch Intro",
 	},
@@ -41,16 +42,18 @@ function ImageCard({
 	fallbackSrc?: string;
 }) {
 	return (
-		<div className="aspect-video w-full bg-muted">
-			<img
-				src={src}
-				alt={alt}
-				className="h-full w-full object-cover"
-				onError={(e) => {
-					const el = e.currentTarget;
-					if (el.src !== fallbackSrc) el.src = fallbackSrc;
-				}}
-			/>
+		<div className="w-full overflow-hidden shadow-xl">
+			<div className="h-full w-full overflow-hidden ">
+				<img
+					src={src}
+					alt={alt}
+					className="h-full w-full object-cover object-top"
+					onError={(e) => {
+						const el = e.currentTarget;
+						if (el.src !== fallbackSrc) el.src = fallbackSrc;
+					}}
+				/>
+			</div>
 		</div>
 	);
 }
@@ -67,7 +70,7 @@ function VideoCard({
 	fallbackSrc?: string;
 }) {
 	return (
-		<div className="relative aspect-video w-full bg-muted">
+		<div className="relative h-full min-h-0 w-full overflow-hidden bg-bg-tertiary">
 			<img
 				src={src}
 				alt={alt}
@@ -95,29 +98,40 @@ export default function BuiltForTeachSection() {
 		<section className="bg-white py-16">
 			<div className="mx-auto max-w-(--es-max-w) px-(--es-section-px)">
 				<Tabs defaultValue="creators">
-					{/* Row 1: heading (left) + tabs (right) — same row on desktop */}
 					<div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 lg:gap-12 items-start">
 						<div className="flex flex-col gap-4">
-							<h2 className="text-3xl lg:text-4xl font-bold leading-tight text-(--es-text-1)">
+							<Typography
+								variant="h1"
+								className="font-medium leading-tight text-text-primary"
+							>
 								Built for how you teach.
-							</h2>
-							<p className="text-(--es-text-2) leading-relaxed max-w-xl">
+							</Typography>
+							<Typography
+								variant="h6"
+								className="font-normal leading-relaxed text-text-secondary max-w-[728px]"
+							>
 								From solo creators to academies and universities, Edushade
 								supports diverse teaching models with flexibility, clarity, and
 								control.
-							</p>
+							</Typography>
 						</div>
-						<TabsList className="bg-muted rounded-lg p-1 h-9 w-full lg:w-auto">
+						<TabsList className="bg-bg-tertiary rounded-lg p-1 h-[52px] w-full lg:w-auto">
 							<TabsTrigger
 								value="creators"
-								className="data-[state=active]:bg-background data-[state=active]:shadow-sm rounded-md px-4"
+								className="data-[state=active]:bg-brand-300 data-[state=active]:text-white data-[state=active]:shadow-sm rounded-md px-4 h-full py-2 text-sm font-medium"
 							>
 								For Creators
 							</TabsTrigger>
-							<TabsTrigger value="academies" className="rounded-md px-4">
+							<TabsTrigger
+								value="academies"
+								className="rounded-md px-4 h-full py-2 text-sm font-medium"
+							>
 								For Academies
 							</TabsTrigger>
-							<TabsTrigger value="schools" className="rounded-md px-4">
+							<TabsTrigger
+								value="schools"
+								className="rounded-md px-4 h-full py-2 text-sm font-medium"
+							>
 								For Schools
 							</TabsTrigger>
 						</TabsList>
@@ -132,14 +146,14 @@ export default function BuiltForTeachSection() {
 								value={tab}
 								className="mt-10 outline-none data-[state=inactive]:hidden"
 							>
-								<div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-									<Card className="overflow-hidden rounded-xl border border-(--es-border-1) shadow-sm bg-card">
+								<div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
+									<Card className="overflow-hidden rounded-2xl border-none bg-bg-tertiary p-0">
 										<CardContent className="p-0">
 											<ImageCard src={c.leftSrc} alt={c.leftAlt} />
 										</CardContent>
 									</Card>
-									<Card className="overflow-hidden rounded-xl border border-(--es-border-1) shadow-sm bg-card">
-										<CardContent className="p-0 relative">
+									<Card className="flex overflow-hidden rounded-xl border border-(--es-border-1) shadow-sm bg-card p-0">
+										<CardContent className="relative flex min-h-0 flex-1 p-0">
 											<VideoCard
 												src={c.rightSrc}
 												alt={c.rightAlt}
