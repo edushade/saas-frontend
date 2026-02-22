@@ -6,6 +6,7 @@ import {
 	Scripts,
 } from '@tanstack/react-router';
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools';
+import Footer from '../components/Footer';
 import Header from '../components/Header';
 
 import TanStackQueryDevtools from '../integrations/tanstack-query/devtools';
@@ -50,6 +51,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 				<TanStackQueryProvider>
 					<Header />
 					{children}
+					<Footer />
 					<TanStackDevtools
 						config={{
 							position: 'bottom-right',

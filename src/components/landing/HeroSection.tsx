@@ -1,49 +1,55 @@
-import { ChevronRight, PlayCircle } from 'lucide-react';
-import { Avatar, AvatarFallback, AvatarGroup } from '@/components/ui/avatar';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
+import { ChevronRight, PlayCircle } from "lucide-react";
+import { Avatar, AvatarFallback, AvatarGroup } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const TAGS = [
-	'Courses',
-	'Analytics',
-	'Cohorts',
-	'Quizzes',
-	'Live Exam',
-	'Live Class',
-	'Recorded',
-	'Problem Solving',
-	'PDFs',
+	"Courses",
+	"Analytics",
+	"Cohorts",
+	"Quizzes",
+	"Live Exam",
+	"Live Class",
+	"Recorded",
+	"Problem Solving",
+	"PDFs",
 ];
 
 const SCORE_BARS = [
-	{ month: 'Jan', h: 40 }, { month: 'Feb', h: 55 }, { month: 'Mar', h: 35 },
-	{ month: 'Apr', h: 60 }, { month: 'May', h: 45 }, { month: 'Jun', h: 70 },
-	{ month: 'Jul', h: 50 }, { month: 'Aug', h: 65 }, { month: 'Sep', h: 55 },
-	{ month: 'Oct', h: 75 }, { month: 'Nov', h: 60 }, { month: 'Dec', h: 80 },
+	{ month: "Jan", h: 40 },
+	{ month: "Feb", h: 55 },
+	{ month: "Mar", h: 35 },
+	{ month: "Apr", h: 60 },
+	{ month: "May", h: 45 },
+	{ month: "Jun", h: 70 },
+	{ month: "Jul", h: 50 },
+	{ month: "Aug", h: 65 },
+	{ month: "Sep", h: 55 },
+	{ month: "Oct", h: 75 },
+	{ month: "Nov", h: 60 },
+	{ month: "Dec", h: 80 },
 ];
 
 const EXAM_BARS = [
-	{ month: 'Jan', h: 30 }, { month: 'Feb', h: 50 }, { month: 'Mar', h: 40 },
-	{ month: 'Apr', h: 65 }, { month: 'May', h: 55 }, { month: 'Jun', h: 80 },
+	{ month: "Jan", h: 30 },
+	{ month: "Feb", h: 50 },
+	{ month: "Mar", h: 40 },
+	{ month: "Apr", h: 65 },
+	{ month: "May", h: 55 },
+	{ month: "Jun", h: 80 },
 ];
 
 const TRUST_AVATARS = [
-	{ fallback: 'A', className: 'bg-orange-400 text-white' },
-	{ fallback: 'B', className: 'bg-blue-400 text-white' },
-	{ fallback: 'C', className: 'bg-green-500 text-white' },
+	{ fallback: "A", className: "bg-orange-400 text-white" },
+	{ fallback: "B", className: "bg-blue-400 text-white" },
+	{ fallback: "C", className: "bg-green-500 text-white" },
 ];
 
 export default function HeroSection() {
 	return (
-		<section
-			style={{ paddingTop: 'var(--es-nav-h)' }}
-			className="min-h-screen bg-white"
-		>
-			<div
-				style={{ maxWidth: 'var(--es-max-w)', padding: '4rem var(--es-section-px)' }}
-				className="mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-center"
-			>
+		<section className="bg-white pt-(--es-nav-h)">
+			<div className="mx-auto grid max-w-(--es-max-w) grid-cols-1 items-center gap-14 px-(--es-section-px) py-16 lg:grid-cols-2">
 				{/* ── Left column ── */}
 				<div className="flex flex-col gap-6">
 					{/* Trust badge — Badge (outline) + AvatarGroup */}
@@ -54,7 +60,9 @@ export default function HeroSection() {
 						<AvatarGroup>
 							{TRUST_AVATARS.map((a) => (
 								<Avatar key={a.fallback} size="sm">
-									<AvatarFallback className={a.className}>{a.fallback}</AvatarFallback>
+									<AvatarFallback className={a.className}>
+										{a.fallback}
+									</AvatarFallback>
 								</Avatar>
 							))}
 						</AvatarGroup>
@@ -98,10 +106,10 @@ export default function HeroSection() {
 									key={tag}
 									variant="outline"
 									className={cn(
-										'cursor-pointer rounded-full px-4 py-1.5 text-sm transition-colors',
-										tag === 'Analytics'
-											? 'border-(--es-brand) bg-(--es-brand-light) text-(--es-brand) font-medium'
-											: 'border-(--es-border-1) text-(--es-text-2) hover:border-(--es-brand) hover:text-(--es-brand)',
+										"cursor-pointer rounded-full px-4 py-1.5 text-sm transition-colors",
+										tag === "Analytics"
+											? "border-(--es-brand) bg-(--es-brand-light) text-(--es-brand) font-medium"
+											: "border-(--es-border-1) text-(--es-text-2) hover:border-(--es-brand) hover:text-(--es-brand)",
 									)}
 								>
 									{tag}
@@ -113,35 +121,50 @@ export default function HeroSection() {
 
 				{/* ── Right column — dashboard mockup ── */}
 				<div className="hidden lg:block">
-					<div className="rounded-2xl border border-(--es-border-1) bg-gradient-to-br from-blue-50 via-sky-50 to-indigo-50 p-5 shadow-2xl shadow-blue-100">
+					<div className="rounded-2xl border border-(--es-border-1) bg-linear-to-br from-blue-50 via-sky-50 to-indigo-50 p-5 shadow-2xl shadow-blue-100">
 						{/* Mockup top bar */}
 						<div className="mb-4 flex items-center justify-between">
-							<span className="text-sm font-semibold text-(--es-text-1)">My Study</span>
+							<span className="text-sm font-semibold text-(--es-text-1)">
+								My Study
+							</span>
 							<div className="flex gap-3 text-xs text-(--es-text-3)">
-								{['Overview', 'Ongoing Exams', 'Upcoming Exams', 'Past Exams', 'Leaderboard'].map(
-									(tab, i) => (
-										<span
-											key={tab}
-											className={
-												i === 0
-													? 'text-(--es-brand) font-semibold border-b border-(--es-brand) pb-0.5'
-													: ''
-											}
-										>
-											{tab}
-										</span>
-									),
-								)}
+								{[
+									"Overview",
+									"Ongoing Exams",
+									"Upcoming Exams",
+									"Past Exams",
+									"Leaderboard",
+								].map((tab, i) => (
+									<span
+										key={tab}
+										className={
+											i === 0
+												? "text-(--es-brand) font-semibold border-b border-(--es-brand) pb-0.5"
+												: ""
+										}
+									>
+										{tab}
+									</span>
+								))}
 							</div>
 						</div>
 
 						{/* Stat cards */}
 						<div className="grid grid-cols-2 gap-3 mb-4">
 							<div className="rounded-xl bg-white p-4 shadow-sm">
-								<p className="text-xs text-(--es-text-3) mb-1">Exams Completed</p>
+								<p className="text-xs text-(--es-text-3) mb-1">
+									Exams Completed
+								</p>
 								<p className="text-2xl font-bold text-(--es-text-1)">248</p>
-								<p className="mt-1 text-[11px] text-green-500">↑ 4.6% from last month</p>
-								<svg className="mt-2 h-8 w-full" viewBox="0 0 100 30" preserveAspectRatio="none" aria-hidden="true">
+								<p className="mt-1 text-[11px] text-green-500">
+									↑ 4.6% from last month
+								</p>
+								<svg
+									className="mt-2 h-8 w-full"
+									viewBox="0 0 100 30"
+									preserveAspectRatio="none"
+									aria-hidden="true"
+								>
 									<polyline
 										points="0,25 20,18 40,20 60,10 80,14 100,8"
 										fill="none"
@@ -151,9 +174,13 @@ export default function HeroSection() {
 								</svg>
 							</div>
 							<div className="rounded-xl bg-white p-4 shadow-sm">
-								<p className="text-xs text-(--es-text-3) mb-1">Average Exam Score</p>
+								<p className="text-xs text-(--es-text-3) mb-1">
+									Average Exam Score
+								</p>
 								<p className="text-2xl font-bold text-(--es-text-1)">30%</p>
-								<p className="mt-1 text-[11px] text-red-400">↓ 2.4% from last month</p>
+								<p className="mt-1 text-[11px] text-red-400">
+									↓ 2.4% from last month
+								</p>
 								<div className="mt-2 flex h-8 items-end gap-0.5">
 									{SCORE_BARS.map(({ month, h }) => (
 										<div
@@ -170,45 +197,77 @@ export default function HeroSection() {
 						<div className="grid grid-cols-2 gap-3">
 							{/* Donut */}
 							<div className="rounded-xl bg-white p-4 shadow-sm">
-								<p className="text-xs text-(--es-text-3) mb-3">Performance Factors</p>
+								<p className="text-xs text-(--es-text-3) mb-3">
+									Performance Factors
+								</p>
 								<div className="flex justify-center">
 									<div className="relative h-20 w-20">
-										<svg viewBox="0 0 36 36" className="h-full w-full -rotate-90" aria-hidden="true">
-											<circle cx="18" cy="18" r="14" fill="none" stroke="#e2e8f0" strokeWidth="4" />
+										<svg
+											viewBox="0 0 36 36"
+											className="h-full w-full -rotate-90"
+											aria-hidden="true"
+										>
 											<circle
-												cx="18" cy="18" r="14" fill="none"
-												stroke="#ef4444" strokeWidth="4"
+												cx="18"
+												cy="18"
+												r="14"
+												fill="none"
+												stroke="#e2e8f0"
+												strokeWidth="4"
+											/>
+											<circle
+												cx="18"
+												cy="18"
+												r="14"
+												fill="none"
+												stroke="#ef4444"
+												strokeWidth="4"
 												strokeDasharray="22 66"
 											/>
 											<circle
-												cx="18" cy="18" r="14" fill="none"
-												stroke="#22c55e" strokeWidth="4"
+												cx="18"
+												cy="18"
+												r="14"
+												fill="none"
+												stroke="#22c55e"
+												strokeWidth="4"
 												strokeDasharray="44 44"
 												strokeDashoffset="-22"
 											/>
 										</svg>
 										<div className="absolute inset-0 flex flex-col items-center justify-center">
-											<span className="text-base font-bold text-(--es-text-1)">60%</span>
-											<span className="text-[9px] text-(--es-text-3)">Correct</span>
+											<span className="text-base font-bold text-(--es-text-1)">
+												60%
+											</span>
+											<span className="text-[9px] text-(--es-text-3)">
+												Correct
+											</span>
 										</div>
 									</div>
 								</div>
 								<div className="mt-2 flex justify-center gap-3 text-[10px] text-(--es-text-3)">
 									<span className="flex items-center gap-1">
-										<span className="inline-block h-2 w-2 rounded-full bg-green-500" />Correct
+										<span className="inline-block h-2 w-2 rounded-full bg-green-500" />
+										Correct
 									</span>
 									<span className="flex items-center gap-1">
-										<span className="inline-block h-2 w-2 rounded-full bg-red-400" />Wrong
+										<span className="inline-block h-2 w-2 rounded-full bg-red-400" />
+										Wrong
 									</span>
 								</div>
 							</div>
 
 							{/* Bar chart */}
 							<div className="rounded-xl bg-white p-4 shadow-sm">
-								<p className="text-xs text-(--es-text-3) mb-3">Total Exam Taken</p>
+								<p className="text-xs text-(--es-text-3) mb-3">
+									Total Exam Taken
+								</p>
 								<div className="flex h-16 items-end gap-1">
 									{EXAM_BARS.map(({ month, h }) => (
-										<div key={month} className="flex flex-1 flex-col items-center gap-1">
+										<div
+											key={month}
+											className="flex flex-1 flex-col items-center gap-1"
+										>
 											<div
 												className="w-full rounded-t-sm bg-blue-400/80"
 												style={{ height: `${h}%` }}

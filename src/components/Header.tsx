@@ -143,9 +143,6 @@ function FeaturesMenu() {
 	);
 }
 
-/* ─────────────────────────────────────────────
-   Resources — NavigationMenu simple dropdown
-───────────────────────────────────────────── */
 function ResourcesMenu() {
 	return (
 		<NavigationMenu viewport={false}>
@@ -198,7 +195,7 @@ function MobileMenu() {
 				</Button>
 			</SheetTrigger>
 
-			<SheetContent side="left" className="w-72 p-0 flex flex-col">
+			<SheetContent side="right" className="w-72 p-0 flex flex-col">
 				<SheetHeader className="border-b border-(--es-border-1) px-5 py-4">
 					<SheetTitle className="flex items-center gap-2">
 						<div className="flex h-7 w-7 items-center justify-center rounded-full bg-(--es-brand) text-white text-xs font-bold select-none">
