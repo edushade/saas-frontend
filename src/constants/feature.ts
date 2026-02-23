@@ -1,5 +1,5 @@
-export const FEATURE_CARD_SHADE_OVERLAY_CLASS =
-	"backdrop-blur-[100px] bg-[repeating-linear-gradient(180deg,rgba(255,255,255,0)_0px,rgba(255,255,255,0.1)_47.15px,rgba(255,255,255,0.3)_85.33px)]";
+/** Shade overlay: use Figma CSS from styles.css (.feature-card-shade-overlay). */
+export const FEATURE_CARD_SHADE_OVERLAY_CLASS = "feature-card-shade-overlay";
 
 const FEATURE_GRADIENT_CLASSES = {
 	orange:
@@ -21,6 +21,7 @@ export const FEATURES = [
 			"Design learning around goals and outcomes before dealing with structure or settings",
 		image: "/svgs/educator-love/intent.svg",
 		gradientClassName: FEATURE_GRADIENT_CLASSES.orange,
+		cardShadowClassName: "feature-card-figma-shadow",
 	},
 	{
 		title: "Analytics dashboard",
@@ -28,6 +29,7 @@ export const FEATURES = [
 			"Gain insights into learner progress and engagement through real-time data visualizations.",
 		image: "/svgs/educator-love/2-analytics.svg",
 		gradientClassName: FEATURE_GRADIENT_CLASSES.blue,
+		cardShadowClassName: "feature-card-figma-shadow",
 	},
 	{
 		title: "Customizable course templates",
@@ -35,6 +37,7 @@ export const FEATURES = [
 			"Easily design and modify courses to fit specific educational goals and branding.",
 		image: "/svgs/educator-love/3-customizable.svg",
 		gradientClassName: FEATURE_GRADIENT_CLASSES.yellow,
+		cardShadowClassName: undefined,
 	},
 	{
 		title: "Integrated communication tools",
@@ -42,6 +45,7 @@ export const FEATURES = [
 			"Facilitate discussions and feedback seamlessly through built-in messaging and forums.",
 		image: "/svgs/educator-love/4-integrated.svg",
 		gradientClassName: FEATURE_GRADIENT_CLASSES.sky,
+		cardShadowClassName: undefined,
 	},
 	{
 		title: "Scalability for diverse needs",
@@ -49,6 +53,7 @@ export const FEATURES = [
 			"Support a growing number of users and courses without compromising performance.",
 		image: "/svgs/educator-love/5-scalability.svg",
 		gradientClassName: FEATURE_GRADIENT_CLASSES.purple,
+		cardShadowClassName: undefined,
 	},
 	{
 		title: "Mobile accessibility",
@@ -56,5 +61,6 @@ export const FEATURES = [
 			"Allow learners to access courses anytime and anywhere using their mobile devices.",
 		image: "/svgs/educator-love/6-mobile.svg",
 		gradientClassName: FEATURE_GRADIENT_CLASSES.green,
+		cardShadowClassName: undefined,
 	},
 ];

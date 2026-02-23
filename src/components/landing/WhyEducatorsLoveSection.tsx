@@ -31,8 +31,12 @@ export default function WhyEducatorsLoveSection() {
 					{FEATURES.map((feature) => (
 						<Card
 							key={feature.title}
-							className={`${feature.gradientClassName} border-none relative overflow-hidden rounded-xl h-[312px] flex flex-col transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-xl cursor-pointer`}
+							className={`bg-white border-none relative overflow-hidden rounded-xl h-[312px] flex flex-col transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-xl cursor-pointer ${feature.cardShadowClassName ?? ""}`}
 						>
+							<div
+								aria-hidden
+								className={`pointer-events-none absolute inset-0 z-0 rounded-xl ${feature.gradientClassName}`}
+							/>
 							<CardShadeOverlay className={FEATURE_CARD_SHADE_OVERLAY_CLASS} />
 							<CardContent className="relative z-10">
 								<Typography
