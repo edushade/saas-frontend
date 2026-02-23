@@ -1,6 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowUpRight, ChevronDown, Menu } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { ArrowUpRight, Menu } from "lucide-react";
 
 import {
 	Accordion,
@@ -9,6 +8,7 @@ import {
 	AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import {
 	NavigationMenu,
 	NavigationMenuContent,
@@ -31,115 +31,86 @@ import {
 	RESOURCES_ITEMS,
 } from "@/constants/nav";
 import { cn } from "@/lib/utils";
+import { Typography } from "./ui-custom/typography";
 
 function FeaturesMenu() {
-	const [open, setOpen] = useState(false);
-	const ref = useRef<HTMLDivElement>(null);
-
-	useEffect(() => {
-		function onClickOutside(e: MouseEvent) {
-			if (ref.current && !ref.current.contains(e.target as Node)) {
-				setOpen(false);
-			}
-		}
-		document.addEventListener("mousedown", onClickOutside);
-		return () => document.removeEventListener("mousedown", onClickOutside);
-	}, []);
-
 	return (
-		<div ref={ref}>
-			<button
-				type="button"
-				onClick={() => setOpen((v) => !v)}
-				className={cn(
-					navigationMenuTriggerStyle(),
-					"bg-transparent text-(--es-text-2)",
-					"hover:bg-(--es-surface-2) hover:text-(--es-text-1)",
-					open && "bg-(--es-surface-2) text-(--es-brand)",
-				)}
-			>
-				Features
-				<ChevronDown
-					size={13}
-					aria-hidden="true"
-					className={cn(
-						"ml-1 transition-transform duration-300",
-						open && "rotate-180",
-					)}
-				/>
-			</button>
-
-			{open && (
-				<div
-					className="fixed left-0 right-0 z-40 border-b border-(--es-border-1) bg-white shadow-lg"
-					style={{ top: "var(--es-nav-h)" }}
-				>
-					{/* 4-column grid */}
-					<div
-						className="mx-auto grid grid-cols-4 gap-x-8"
-						style={{
-							maxWidth: "var(--es-max-w)",
-							padding: "2rem var(--es-section-px)",
-						}}
+		<NavigationMenu viewport={false}>
+			<NavigationMenuList>
+				<NavigationMenuItem>
+					<NavigationMenuTrigger
+						className={cn(
+							"bg-transparent text-text-dark-2 rounded-full text-sm font-medium",
+							"hover:text-brand-300 hover:bg-bg-secondary",
+							"data-[state=open]:bg-bg-secondary data-[state=open]:text-brand-300",
+						)}
 					>
-						{FEATURES_GROUPS.map((group) => (
-							<div key={group.title}>
-								<p className="mb-3 text-xs font-semibold uppercase tracking-widest text-(--es-text-3)">
-									{group.title}
-								</p>
-								<ul className="space-y-0.5">
-									{group.items.map((item) => (
-										<li key={item.label}>
-											<Link
-												to={item.href}
-												onClick={() => setOpen(false)}
-												className="flex items-start gap-3 rounded-lg p-2 transition-colors hover:bg-(--es-surface-2)"
-											>
-												<div className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-(--es-brand-light)">
-													<item.icon size={14} className="text-(--es-brand)" />
-												</div>
-												<div>
-													<p className="text-sm font-medium leading-tight text-(--es-text-1)">
-														{item.label}
-													</p>
-													<p className="text-xs text-(--es-text-3)">
-														{item.description}
-													</p>
-												</div>
-											</Link>
-										</li>
-									))}
-								</ul>
-							</div>
-						))}
-					</div>
+						Features
+					</NavigationMenuTrigger>
+					<NavigationMenuContent className="w-(--es-max-w)! bg-bg-primary border-border-secondary shadow-[0px_0px_3px_-1px_#0A090B0A,0px_32px_33px_0px_#0A090B24]! fixed! left-1/2! -translate-x-1/2! top-(--es-nav-h)! p-0">
+						<Card className="border-none shadow-none bg-transparent gap-0 overflow-hidden">
+							<CardContent className="grid grid-cols-4 gap-8">
+								{FEATURES_GROUPS.map((group) => (
+									<div key={group.title}>
+										<Typography
+											variant="extraSmall"
+											className="mb-3 font-medium uppercase tracking-widest text-text-quaternary"
+										>
+											{group.title}
+										</Typography>
+										<ul className="space-y-0.5">
+											{group.items.map((item) => (
+												<li key={item.label}>
+													<Link
+														to={item.href}
+														className="flex items-start gap-3 rounded-lg py-2 transition-colors hover:bg-bg-secondary"
+													>
+														<div className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-bg-tertiary">
+															<item.icon size={14} className="text-brand" />
+														</div>
+														<div className="flex flex-col gap-1">
+															<Typography
+																variant="small"
+																className="leading-tight font-medium text-text-primary"
+															>
+																{item.label}
+															</Typography>
+															<Typography
+																variant="extraSmall"
+																className="font-normal leading-relaxed text-text-secondary mt-0.5"
+															>
+																{item.description}
+															</Typography>
+														</div>
+													</Link>
+												</li>
+											))}
+										</ul>
+									</div>
+								))}
+							</CardContent>
 
-					{/* CTA bar */}
-					<div
-						className="border-t border-(--es-border-1) bg-(--es-surface-2)"
-						style={{ padding: "0.875rem var(--es-section-px)" }}
-					>
-						<div
-							className="mx-auto flex items-center justify-between"
-							style={{ maxWidth: "var(--es-max-w)" }}
-						>
-							<p className="text-sm text-(--es-text-2)">
-								<span className="font-semibold text-(--es-text-1)">
-									{FEATURES_CTA.highlight}
-								</span>{" "}
-								{FEATURES_CTA.text}
-							</p>
-							<Button
-								className="btn-brand-1 rounded-full"
-								onClick={() => setOpen(false)}
-							>
-								{FEATURES_CTA.button}
-							</Button>
-						</div>
-					</div>
-				</div>
-			)}
-		</div>
+							{/* CTA bar */}
+							<CardFooter className="border-t border-border-secondary   items-center w-full">
+								<div className="bg-bg-secondary w-full px-3 py-2 flex items-center justify-between rounded-lg">
+									<Typography variant="small" className="leading-relaxed">
+										<span className="font-medium text-text-primary">
+											{FEATURES_CTA.highlight}
+										</span>{" "}
+										<span className="font-normal leading-relaxed text-text-secondary">
+											{FEATURES_CTA.text}
+										</span>
+									</Typography>
+									<Button className="btn-brand-1 rounded-full">
+										{FEATURES_CTA.button}
+									</Button>
+								</div>
+							</CardFooter>
+						</Card>
+					</NavigationMenuContent>
+				</NavigationMenuItem>
+			</NavigationMenuList>
+		</NavigationMenu>
 	);
 }
 
@@ -150,24 +121,24 @@ function ResourcesMenu() {
 				<NavigationMenuItem>
 					<NavigationMenuTrigger
 						className={cn(
-							"bg-transparent text-(--es-text-2)",
-							"hover:bg-(--es-surface-2) hover:text-(--es-text-1)",
-							"data-[state=open]:bg-(--es-surface-2) data-[state=open]:text-(--es-text-1)",
+							"bg-transparent text-text-dark-2 rounded-full text-sm font-medium",
+							"hover:text-brand-300 hover:bg-bg-secondary",
+							"data-[state=open]:bg-bg-secondary data-[state=open]:text-brand-300",
 						)}
 					>
 						Resources
 					</NavigationMenuTrigger>
-					<NavigationMenuContent className="w-52">
-						<ul className="p-1">
+					<NavigationMenuContent className="bg-bg-primary border-border-secondary shadow-[0px_0px_3px_-1px_#0A090B0A,0px_32px_33px_0px_#0A090B24]! p-1">
+						<ul>
 							{RESOURCES_ITEMS.map((item) => (
 								<li key={item.label}>
 									<Link
 										to={item.href}
-										className="flex items-center gap-2.5 rounded-md px-3 py-2 text-sm text-(--es-text-2) transition-colors hover:bg-(--es-surface-2) hover:text-(--es-text-1)"
+										className="flex items-center gap-2.5 rounded-md px-3 py-2 text-sm text-text-secondary transition-colors hover:bg-bg-secondary hover:text-text-primary"
 									>
 										<item.icon
 											size={15}
-											className="shrink-0 text-(--es-text-3)"
+											className="shrink-0 text-text-tertiary"
 										/>
 										{item.label}
 									</Link>
@@ -197,11 +168,8 @@ function MobileMenu() {
 
 			<SheetContent side="right" className="w-72 p-0 flex flex-col">
 				<SheetHeader className="border-b border-(--es-border-1) px-5 py-4">
-					<SheetTitle className="flex items-center gap-2">
-						<div className="flex h-7 w-7 items-center justify-center rounded-full bg-(--es-brand) text-white text-xs font-bold select-none">
-							S
-						</div>
-						<span className="text-(--es-text-1) font-semibold">Edushade</span>
+					<SheetTitle className="flex items-center">
+						<img src="/svgs/logo.svg" alt="Edushade" className="h-8" />
 					</SheetTitle>
 				</SheetHeader>
 
@@ -264,7 +232,7 @@ function MobileMenu() {
 						<Link
 							key={link.label}
 							to={link.href}
-							className="flex items-center rounded-md px-3 py-3 text-sm font-medium text-(--es-text-2) transition-colors hover:bg-(--es-surface-2) hover:text-(--es-text-1)"
+							className="flex items-center rounded-md  py-3 text-sm font-medium text-(--es-text-2) transition-colors hover:bg-(--es-surface-2) hover:text-(--es-text-1)"
 						>
 							{link.label}
 						</Link>
@@ -287,69 +255,54 @@ function MobileMenu() {
 	);
 }
 
-/* ─────────────────────────────────────────────
-   Header
-───────────────────────────────────────────── */
 export default function Header() {
 	return (
-		<header
-			style={{ height: "var(--es-nav-h)" }}
-			className="fixed top-0 left-0 right-0 z-50 flex items-center border-b border-(--es-border-1) bg-white/95 backdrop-blur-sm"
-		>
-			<div
-				style={{
-					maxWidth: "var(--es-max-w)",
-					padding: "0 var(--es-section-px)",
-				}}
-				className="mx-auto flex w-full items-center justify-between"
-			>
-				{/* Logo */}
-				<Link to="/" className="flex items-center gap-2 shrink-0">
-					<div className="flex h-8 w-8 items-center justify-center rounded-full bg-(--es-brand) text-white font-bold text-sm select-none">
-						S
-					</div>
-					<span className="text-(--es-text-1) font-semibold text-[17px] tracking-tight">
-						Edushade
-					</span>
+		<header className="fixed top-0 left-0 right-0 z-50 flex items-center h-(--es-nav-h) bg-bg-primary">
+			<div className="mx-auto w-full max-w-(--es-max-w) p-(--es-section-px) flex items-center justify-between">
+				<Link to="/" className="flex items-center shrink-0">
+					<img src="/svgs/logo.svg" alt="Edushade" className="h-10" />
 				</Link>
 
-				{/* Desktop nav */}
-				<nav className="hidden md:flex items-center gap-0.5">
-					<FeaturesMenu />
-					<ResourcesMenu />
-					{NAV_LINKS.map((link) => (
-						<Link
-							key={link.label}
-							to={link.href}
-							className={cn(
-								navigationMenuTriggerStyle(),
-								"bg-transparent text-(--es-text-2)",
-								"hover:bg-(--es-surface-2) hover:text-(--es-text-1)",
-							)}
-						>
-							{link.label}
-						</Link>
-					))}
-				</nav>
+				<div className="flex items-center gap-3 shrink-0">
+					<nav className="hidden md:flex items-center ">
+						<FeaturesMenu />
+						<ResourcesMenu />
+						{NAV_LINKS.map((link) => (
+							<Link
+								key={link.label}
+								to={link.href}
+								className={cn(
+									navigationMenuTriggerStyle(),
+									"bg-transparent text-text-dark-2 rounded-full text-sm font-medium",
+									"hover:text-brand-300 hover:bg-bg-secondary",
+								)}
+							>
+								{link.label}
+							</Link>
+						))}
+					</nav>
 
-				{/* Desktop actions */}
-				<div className="hidden md:flex items-center gap-3 shrink-0">
-					<Button
-						variant="ghost"
-						asChild
-						className="text-(--es-text-1) hover:text-(--es-brand) hover:bg-(--es-brand-light)"
-					>
-						<Link to="/">Sign In</Link>
-					</Button>
-					<Button asChild className="btn-brand-1 rounded-full gap-1.5">
-						<Link to="/">
-							Request a Demo
-							<ArrowUpRight size={14} strokeWidth={2.5} />
-						</Link>
-					</Button>
+					<div className="hidden md:flex items-center gap-3 shrink-0">
+						<Button
+							variant="outline"
+							size="sm"
+							asChild
+							className="text-text-dark-2 rounded-full text-sm font-medium hover:text-brand-300 hover:bg-bg-secondary"
+						>
+							<Link to="/">Sign In</Link>
+						</Button>
+						<Button
+							asChild
+							className="btn-brand-1 text-text-primary rounded-full gap-1.5 text-sm font-medium"
+						>
+							<Link to="/">
+								Request a Demo
+								<ArrowUpRight size={14} strokeWidth={2.5} />
+							</Link>
+						</Button>
+					</div>
 				</div>
 
-				{/* Mobile hamburger */}
 				<MobileMenu />
 			</div>
 		</header>

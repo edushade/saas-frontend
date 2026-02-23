@@ -78,6 +78,7 @@ code {
   --text-secondary:  #4B4B4B;
   --text-tertiary:   #7B7B7B;
   --text-quaternary: #9B9B9B;
+  --text-dark-2: #333333;
 
   /* Brand button variants (design-system tokens) */
   --brand-300: #0066FF;
@@ -185,6 +186,7 @@ code {
   --color-text-secondary: var(--text-secondary);
   --color-text-tertiary: var(--text-tertiary);
   --color-text-quaternary: var(--text-quaternary);
+  --color-text-dark-2: var(--text-dark-2);
 
   /* brand */
   --color-brand-300: var(--brand-300);
