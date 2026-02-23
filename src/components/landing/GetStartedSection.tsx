@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Card, CardContent } from "../ui/card";
+import { CardShadeOverlay } from "../ui-custom/card-shade-overlay";
 import { Typography } from "../ui-custom/typography";
 
 const STATS = [
@@ -13,33 +14,18 @@ const STATS = [
 export default function GetStartedSection() {
 	return (
 		<section className="bg-white py-16">
-			<div className="mx-auto max-w-(--es-max-w)  px-(--es-section-px)">
-				<Card
-					className="overflow-hidden py-0"
-					style={{
-						background:
-							"linear-gradient(67.68deg, rgba(195, 227, 255, 1) 0%, rgba(248, 249, 252, 0) 64.42%, rgba(255, 255, 255, 0) 100%)",
-						border: "1px solid rgba(233, 234, 235, 1)",
-						boxShadow: "0 1.5px 4px -1px rgba(10, 9, 11, 0.07)",
-					}}
-				>
-					<CardContent className="grid grid-cols-1 items-center gap-8 p-0 py-6 lg:grid-cols-2 lg:py-8">
-						{/* Left: CTA + copy — horizontal padding from edge and from divider */}
-						<div className="relative px-(--es-section-px) lg:pr-10">
-							<div
-								className="absolute inset-0 pointer-events-none"
-								style={{
-									background:
-										"radial-gradient(ellipse 80% 70% at 0% 100%, rgba(219,234,254,0.75) 0%, transparent 65%)",
-								}}
-								aria-hidden="true"
-							/>
+			<div className="mx-auto max-w-(--es-max-w) px-(--es-section-px)">
+				<Card className="relative overflow-hidden py-0 border-border-secondary shadow-[0_1.5px_4px_-1px_rgba(10,9,11,0.07)] bg-[linear-gradient(67.68deg,#C3E3FF_0%,rgba(248,249,252,0)_64.42%,rgba(255,255,255,0)_100%)]">
+					<CardShadeOverlay className="backdrop-blur-[100px] bg-[repeating-linear-gradient(180deg,rgba(255,255,255,0)_0px,rgba(255,255,255,0.1)_47.15px,rgba(255,255,255,0.3)_85.33px)]" />
 
-							<div className="relative z-10 flex flex-col items-start gap-6">
+					<CardContent className="relative z-10 grid grid-cols-1 items-center gap-8 p-0 py-6 lg:grid-cols-2 lg:py-8">
+						{/* Left: CTA + copy */}
+						<div className="px-(--es-section-px) lg:pr-10">
+							<div className="flex flex-col items-start gap-6">
 								<div className="flex flex-col gap-3">
 									<Typography
 										variant="h1"
-										className="font-medium  text-text-primary leading-tight max-w-md"
+										className="font-medium text-text-primary leading-tight max-w-md"
 									>
 										Get Started Today
 									</Typography>
@@ -57,10 +43,9 @@ export default function GetStartedSection() {
 							</div>
 						</div>
 
-						{/* Right: stats — horizontal padding from divider and from edge */}
+						{/* Right: stats */}
 						<div className="border-t border-(--es-border-1) px-(--es-section-px) pt-8 lg:border-t-0 lg:border-l lg:border-(--es-border-1) lg:pl-10 lg:pt-0">
 							<Separator className="mb-10 lg:hidden" />
-
 							<div className="grid grid-cols-2 gap-x-8 gap-y-10">
 								{STATS.map(({ value, label }) => (
 									<div key={label}>

@@ -1,5 +1,9 @@
-import { FEATURES } from "@/constants/feature";
+import {
+	FEATURE_CARD_SHADE_OVERLAY_CLASS,
+	FEATURES,
+} from "@/constants/feature";
 import { Card, CardContent } from "../ui/card";
+import { CardShadeOverlay } from "../ui-custom/card-shade-overlay";
 import { Typography } from "../ui-custom/typography";
 
 export default function WhyEducatorsLoveSection() {
@@ -27,10 +31,10 @@ export default function WhyEducatorsLoveSection() {
 					{FEATURES.map((feature) => (
 						<Card
 							key={feature.title}
-							className={`${feature.gradientClass} border-none relative overflow-hidden rounded-xl h-[312px] flex flex-col transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-xl cursor-pointer`}
+							className={`${feature.gradientClassName} border-none relative overflow-hidden rounded-xl h-[312px] flex flex-col transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-xl cursor-pointer`}
 						>
+							<CardShadeOverlay className={FEATURE_CARD_SHADE_OVERLAY_CLASS} />
 							<CardContent className="relative z-10">
-								<div className="feature-card-text-bg" />
 								<Typography
 									variant="h5"
 									className="relative z-10 font-medium text-text-primary leading-snug"
@@ -49,7 +53,7 @@ export default function WhyEducatorsLoveSection() {
 								src={feature.image}
 								alt={feature.title}
 								aria-hidden="true"
-								className="absolute bottom-0 right-0 h-[60%] w-auto object-contain pointer-events-none"
+								className="absolute bottom-0 right-0 z-20 h-[60%] w-auto object-contain pointer-events-none"
 							/>
 						</Card>
 					))}

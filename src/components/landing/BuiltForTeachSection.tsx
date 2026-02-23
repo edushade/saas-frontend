@@ -2,6 +2,7 @@ import { Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CardShadeOverlay } from "../ui-custom/card-shade-overlay";
 import { Typography } from "../ui-custom/typography";
 
 /** Placeholder when image fails: keeps card shape and avoids broken icon. */
@@ -137,7 +138,6 @@ export default function BuiltForTeachSection() {
 						</TabsList>
 					</div>
 
-					{/* Row 2: full-width two-column cards — below the heading row, updates per tab */}
 					{(["creators", "academies", "schools"] as const).map((tab) => {
 						const c = TAB_CONTENT[tab];
 						return (
@@ -147,8 +147,9 @@ export default function BuiltForTeachSection() {
 								className="mt-10 outline-none data-[state=inactive]:hidden"
 							>
 								<div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
-									<Card className="overflow-hidden rounded-2xl border-none bg-bg-tertiary p-0">
-										<CardContent className="p-0">
+									<Card className="relative overflow-hidden rounded-2xl border-none bg-bg-tertiary p-0">
+										<CardShadeOverlay className="backdrop-blur-[80px] bg-[linear-gradient(180deg,rgba(255,255,255,0)_0%,rgba(255,255,255,0.08)_55%,rgba(255,255,255,0.2)_100%)]" />
+										<CardContent className="relative z-10 p-0">
 											<ImageCard src={c.leftSrc} alt={c.leftAlt} />
 										</CardContent>
 									</Card>

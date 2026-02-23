@@ -1,11 +1,10 @@
 import { Link } from "@tanstack/react-router";
-import {
-	Facebook,
-	Instagram,
-	Linkedin,
-	MessageCircle,
-	Twitter,
-} from "lucide-react";
+import { DiscordIcon } from "@/assets/icons/discord-icon";
+import { FacebookIcon } from "@/assets/icons/facebook-icon";
+import { InstagramIcon } from "@/assets/icons/instagram-icon";
+import { LinkedinIcon } from "@/assets/icons/linkedin-icon";
+import { XIcon } from "@/assets/icons/X-icon";
+import { Typography } from "./ui-custom/typography";
 
 const FOOTER_COLUMNS = [
 	{
@@ -61,33 +60,39 @@ const BOTTOM_LINKS = [
 ];
 
 const SOCIAL_ICONS = [
-	{ Icon: Linkedin, label: "LinkedIn", href: "#" },
-	{ Icon: Instagram, label: "Instagram", href: "#" },
-	{ Icon: Twitter, label: "Twitter", href: "#" },
-	{ Icon: Facebook, label: "Facebook", href: "#" },
-	{ Icon: MessageCircle, label: "Discord", href: "#" },
+	{ Icon: LinkedinIcon, label: "LinkedIn", href: "#" },
+	{ Icon: InstagramIcon, label: "Instagram", href: "#" },
+	{ Icon: XIcon, label: "X", href: "#" },
+	{ Icon: FacebookIcon, label: "Facebook", href: "#" },
+	{ Icon: DiscordIcon, label: "Discord", href: "#" },
 ];
 
 export default function Footer() {
 	return (
-		<footer className="w-full bg-[linear-gradient(to_bottom,#222222,#07003D)] text-zinc-300">
-			{/* Figma: Width 1440px, Padding T=4xl R=80 B=0 L=80, Gap 40px */}
-			<div className="mx-auto flex max-w-[1440px] flex-col gap-10 px-20 pt-12 pb-0">
-				{/* Top: five columns */}
-				<nav className="grid grid-cols-5" aria-label="Footer navigation">
+		<footer className="w-full bg-[#222222]">
+			<div className="mx-auto flex max-w-(--es-max-w) flex-col gap-10 p-(--es-section-px) pt-12 pb-0">
+				<nav
+					className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 items-stretch gap-y-8"
+					aria-label="Footer navigation"
+				>
 					{FOOTER_COLUMNS.map((column) => (
 						<div key={column.heading} className="flex flex-col gap-2">
-							<h3 className="text-sm font-semibold tracking-wide text-white">
+							<Typography
+								variant="extraSmall"
+								className="font-semibold tracking-widest text-text-on-brand"
+							>
 								{column.heading}
-							</h3>
+							</Typography>
 							<ul className="flex flex-col gap-1">
 								{column.links.map((link) => (
 									<li key={link.label}>
-										<Link
-											to={link.to}
-											className="text-sm text-zinc-400 transition-colors hover:text-white"
-										>
-											{link.label}
+										<Link to={link.to}>
+											<Typography
+												variant="small"
+												className="text-text-quaternary font-normal transition-colors hover:text-text-on-brand"
+											>
+												{link.label}
+											</Typography>
 										</Link>
 									</li>
 								))}
@@ -96,46 +101,54 @@ export default function Footer() {
 					))}
 				</nav>
 
-				{/* Separator */}
-				<div className="border-t border-zinc-600" />
+				<div className="border-t border-text-white-alpha" />
 
-				{/* Bottom: legal links | copyright | social */}
-				<div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
-					<div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-1 text-sm">
-						{BOTTOM_LINKS.map((link) => (
-							<Link
-								key={link.label}
-								to={link.to}
-								className="text-zinc-400 transition-colors hover:text-white"
-							>
-								{link.label}
-							</Link>
-						))}
-					</div>
-					<p className="text-center text-sm text-zinc-400 sm:order-0">
-						Copyright © 2025 Edushade. All rights reserved.
-					</p>
-					<div className="flex items-center gap-4">
-						{SOCIAL_ICONS.map(({ Icon, label, href }) => (
-							<a
-								key={label}
-								href={href}
-								target="_blank"
-								rel="noopener noreferrer"
-								className="text-zinc-400 transition-colors hover:text-white"
-								aria-label={label}
-							>
-								<Icon className="size-5" />
-							</a>
-						))}
+				<div>
+					{/* Bottom: legal links | copyright | social */}
+					<div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
+						<div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-1 text-sm">
+							{BOTTOM_LINKS.map((link) => (
+								<Link key={link.label} to={link.to} className="hover:underline">
+									<Typography
+										variant="extraSmall"
+										className="text-text-quaternary font-normal transition-colors hover:text-text-on-brand"
+									>
+										{link.label}
+									</Typography>
+								</Link>
+							))}
+						</div>
+						<Typography
+							variant="extraSmall"
+							className="text-center text-text-quaternary font-normal sm:order-0"
+						>
+							<span className="font-medium text-text-quaternary">
+								Copyright © 2025 Edushade. All rights reserved.
+							</span>
+						</Typography>
+						<div className="flex items-center gap-1">
+							{SOCIAL_ICONS.map(({ Icon, label, href }) => (
+								<a
+									key={label}
+									href={href}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="flex items-center justify-center rounded-sm p-1.5 text-text-quaternary transition-all hover:text-text-on-brand hover:bg-white/10"
+									aria-label={label}
+								>
+									<Icon className="size-5" />
+								</a>
+							))}
+						</div>
 					</div>
 				</div>
-
+			</div>
+			<div className="w-full bg-[linear-gradient(180deg,#222222_0%,#07003D_100%)]">
 				<section
-					className="flex  w-full  items-center justify-center"
+					className="flex w-full items-center justify-center"
 					aria-hidden
 				>
-					<span className="block w-full text-center font-bold tracking-tighter text-[#FFFFFF29] text-[clamp(4rem,18vw,22rem)]">
+					<span className="block w-full text-center font-bold tracking-tighter text-text-white-alpha text-[clamp(4rem,18vw,22rem)]">
 						Edushade
 					</span>
 				</section>

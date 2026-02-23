@@ -79,6 +79,8 @@ code {
   --text-tertiary:   #7B7B7B;
   --text-quaternary: #9B9B9B;
   --text-dark-2: #333333;
+  --text-on-brand: #FFFFFF;
+  --text-white-alpha: #FFFFFF29;
 
   /* Brand button variants (design-system tokens) */
   --brand-300: #0066FF;
@@ -187,6 +189,8 @@ code {
   --color-text-tertiary: var(--text-tertiary);
   --color-text-quaternary: var(--text-quaternary);
   --color-text-dark-2: var(--text-dark-2);
+  --color-text-on-brand: var(--text-on-brand);
+  --color-text-white-alpha: var(--text-white-alpha);
 
   /* brand */
   --color-brand-300: var(--brand-300);
@@ -243,33 +247,9 @@ code {
 }
 
 @layer utilities {
-  /*
-   * Shade with linear-gradient — separate color, separate stop:
-   *   linear-gradient(angle, color1 stop1%, color2 stop2%, color3 stop3%)
-   * Example (top→bottom shade): transparent 0% → light 55% → stronger 100%
-   *   linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 55%, rgba(255,255,255,0.3) 100%);
-   */
+ 
   .feature-card-fade {
     background: linear-gradient(270deg, rgba(255,255,255,0.72) 0%, rgba(255,255,255,0) 55%);
-  }
-
-  .feature-card-orange {
-    background: linear-gradient(180deg, #ffffff 0%, #ffffff 34%, #fff0e6 34%, #fff0e6 51%, #ffd8b8 51%, #ffd8b8 67%, #ffbc82 67%, #ffbc82 83%, #ff9a4d 83%, #ff9a4d 100%);
-  }
-  .feature-card-blue {
-    background: linear-gradient(180deg, #ffffff 0%, #ffffff 34%, #e8f0ff 34%, #e8f0ff 51%, #c4d8ff 51%, #c4d8ff 67%, #93b8ff 67%, #93b8ff 83%, #6699ff 83%, #6699ff 100%);
-  }
-  .feature-card-yellow {
-    background: linear-gradient(180deg, #ffffff 0%, #ffffff 34%, #fffbe6 34%, #fffbe6 51%, #fef3a0 51%, #fef3a0 67%, #fde047 67%, #fde047 83%, #fbbf24 83%, #fbbf24 100%);
-  }
-  .feature-card-sky {
-    background: linear-gradient(180deg, #ffffff 0%, #ffffff 34%, #e0f5ff 34%, #e0f5ff 51%, #bae6fd 51%, #bae6fd 67%, #7dd3fc 67%, #7dd3fc 83%, #38bdf8 83%, #38bdf8 100%);
-  }
-  .feature-card-purple {
-    background: linear-gradient(180deg, #ffffff 0%, #ffffff 34%, #f5eeff 34%, #f5eeff 51%, #e9d5ff 51%, #e9d5ff 67%, #d8b4fe 67%, #d8b4fe 83%, #c084fc 83%, #c084fc 100%);
-  }
-  .feature-card-green {
-    background: linear-gradient(180deg, #ffffff 0%, #ffffff 34%, #e6fff0 34%, #e6fff0 51%, #bbf7d0 51%, #bbf7d0 67%, #86efac 67%, #86efac 83%, #4ade80 83%, #4ade80 100%);
   }
 
   .btn-brand-1 {

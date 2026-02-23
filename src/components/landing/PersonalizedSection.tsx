@@ -3,6 +3,7 @@ import { useState } from "react";
 import { ROLES, type RoleId } from "@/constants/roles";
 import { cn } from "@/lib/utils";
 import { Card, CardContent } from "../ui/card";
+import { CardShadeOverlay } from "../ui-custom/card-shade-overlay";
 import { Typography } from "../ui-custom/typography";
 
 function RoleCard({
@@ -88,14 +89,15 @@ export default function PersonalizedSection() {
 						</div>
 					</div>
 
-					<Card className="hidden h-full min-h-0 lg:block p-0 shadow-none border-border-tertiary">
-						<CardContent className="h-full min-h-0 p-0">
-							<div className="h-full min-h-0 rounded-2xl border border-(--es-border-1) bg-linear-to-br from-blue-50 via-sky-50 to-indigo-50 pt-5 pl-5 shadow-2xl shadow-blue-100">
+					<Card className="relative hidden h-full min-h-0 overflow-hidden border-border-tertiary p-0 shadow-none lg:block bg-[linear-gradient(0deg,#7ADEFF_0%,#DDF7FF_100%)]">
+						<CardShadeOverlay className="backdrop-blur-[100px] bg-[repeating-linear-gradient(180deg,rgba(255,255,255,0)_0px,rgba(255,255,255,0.1)_47.15px,rgba(255,255,255,0.3)_85.33px)]" />
+						<CardContent className="relative z-10 h-full min-h-0 p-0">
+							<div className="h-full min-h-0 rounded-2xl  pt-8 pl-8 shadow-2xl ">
 								{activeRole === "student" && (
 									<img
 										src="/svgs/hero/banner.svg"
 										alt="Dashboard"
-										className="h-full w-full object-cover object-top"
+										className="h-full w-full object-cover object-top rounded-2xl"
 									/>
 								)}
 								{activeRole === "teacher" && (

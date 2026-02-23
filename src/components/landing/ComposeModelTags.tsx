@@ -5,14 +5,13 @@ import { cn } from "@/lib/utils";
 
 const RADIO_GROUP_NAME = "compose-model-tags";
 const AUTO_ROTATE_INTERVAL_MS = 2500;
-/** Delay before starting auto-rotate so SSG/ISR first paint and crawlers see stable content. */
 const AUTO_ROTATE_DELAY_MS = 2000;
 
 const LABEL_SELECTED =
 	"[&:has(input:checked)>*]:border-brand-300 [&:has(input:checked)>*]:bg-brand-light [&:has(input:checked)>*]:text-brand-300 [&:has(input:checked)>*]:font-medium";
 
 const BADGE_BASE =
-	"cursor-pointer rounded-full border-border-primary px-4 py-1.5 text-sm text-text-secondary transition-colors hover:border-brand-300 hover:text-brand-300";
+	"cursor-pointer rounded-full border-border-primary px-2 py-1	 text-sm text-text-secondary transition-colors hover:border-brand-300 hover:text-brand-300";
 
 export interface ComposeModelTagsProps {
 	tags: string[];
