@@ -16,7 +16,6 @@ code {
     source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
@@ -68,13 +67,11 @@ code {
   --es-max-w:        1280px;
   --es-section-px:   clamp(1.25rem, 4vw, 3rem);
 
-
   /* background color */
   --bg-primary: #ffffff;
   --bg-secondary: #f8fafc;
   --bg-tertiary: #f1f5f9;
   --bg-quaternary: #e2e8f0;
-
 
   /* Text color scale — use with text-text-primary, bg-text-primary, etc. */
   --text-primary:    #2B2B2B;
@@ -91,6 +88,12 @@ code {
   --border-secondary: #E9EAEB;
   --border-tertiary: #F5F5F5;
   --border-quaternary: #e2e8f0;
+  /* Rainbow border — pastel neon (pink → lavender → sky blue → cyan → mint) */
+  --color-1: #F08CFF;
+  --color-2: #C6BFFF;
+  --color-3: #A8E4FF;
+  --color-4: #A8FFF5;
+  --color-5: #A0FFC0;
 }
 
 .dark {
@@ -126,6 +129,11 @@ code {
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+  --color-1: #F08CFF;
+  --color-2: #C6BFFF;
+  --color-3: #A8E4FF;
+  --color-4: #A8FFF5;
+  --color-5: #A0FFC0;
 }
 
 @theme inline {
@@ -193,6 +201,20 @@ code {
   --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
   /* role mockup switcher */
   --animate-fade-in-up: fade-in-up 0.28s ease both;
+  --animate-rainbow: rainbow var(--speed, 2s) infinite linear;
+  --color-color-5: var(--color-5);
+  --color-color-4: var(--color-4);
+  --color-color-3: var(--color-3);
+  --color-color-2: var(--color-2);
+  --color-color-1: var(--color-1);
+  @keyframes rainbow {
+  0% {
+    background-position: 0%;
+    }
+  100% {
+    background-position: 200%;
+    }
+  }
 }
 
 /* @keyframes must live at global scope — NOT inside @theme inline */
@@ -248,7 +270,6 @@ code {
     background: linear-gradient(180deg, #ffffff 0%, #ffffff 34%, #e6fff0 34%, #e6fff0 51%, #bbf7d0 51%, #bbf7d0 67%, #86efac 67%, #86efac 83%, #4ade80 83%, #4ade80 100%);
   }
 
-
   .btn-brand-1 {
     --btn-brand-bg: var(--brand-300, #0066FF);
     background: var(--btn-brand-bg);
@@ -272,7 +293,6 @@ code {
     filter: brightness(1.06);
   }
 
- 
   .btn-brand-2 {
     --btn-brand-bg: var(--brand-200, #2B80FF);
     background: var(--btn-brand-bg);
@@ -292,5 +312,47 @@ code {
 
   .btn-brand-2:hover {
     filter: brightness(1.06);
+  }
+
+  /* RoleCard active: ::before = gradient border ring, ::after = main card background (light gradient), subtle shadow */
+  .role-card-active {
+    position: relative;
+    isolation: isolate;
+    border: none;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow:
+      0px 0px 0px 1px #0A090B08,
+      0px 2px 7px 0px #0A090B0D,
+      0px 2px 5px -2px #0A090B0F;
+  }
+
+  /* Gradient border: 1px ring only */
+  .role-card-active::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: 1rem;
+    background: linear-gradient(180deg, #E6F0FF 0%, #96C0FF 100%);
+    pointer-events: none;
+  }
+
+  /* Main card background: light gradient (top white → bottom light blue) so it clearly shows */
+  .role-card-active::after {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    z-index: 0;
+    border-radius: calc(1rem - 1px);
+    background:
+      linear-gradient(180deg, #FFFFFF 0%, #E6F0FF 100%),
+      linear-gradient(0deg, var(--bg-secondary, #F8F9FC), var(--bg-secondary, #F8F9FC));
+    pointer-events: none;
+  }
+
+  .role-card-active > * {
+    position: relative;
+    z-index: 1;
   }
 }

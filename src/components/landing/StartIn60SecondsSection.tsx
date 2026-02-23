@@ -10,19 +10,19 @@ const BENEFITS = [
 
 export default function StartIn60SecondsSection() {
 	return (
-		<section className="bg-white py-16">
+		<section className="bg-bg-primary py-16">
 			<div className="mx-auto max-w-(--es-max-w) px-(--es-section-px)">
-				<div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+				<div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-14 items-center">
 					<div className="flex flex-col gap-6">
 						<Typography
-							variant="h2"
-							className="font-bold text-text-primary leading-tight max-w-md"
+							variant="h1"
+							className="font-medium leading-snug text-text-primary"
 						>
 							Start Your EdTech Platform in 60 Seconds
 						</Typography>
 						<Typography
-							variant="base"
-							className="font-normal text-text-secondary"
+							variant="h6"
+							className="font-normal leading-snug text-text-secondary"
 						>
 							Set up your own learning platform without technical setup or long
 							onboarding. Edushade gives you the structure so you can focus on
@@ -34,7 +34,7 @@ export default function StartIn60SecondsSection() {
 									<CheckRightIcon className="size-3" />
 									<Typography
 										variant="base"
-										className="font-normal text-text-tertiary"
+										className="font-normal leading-snug text-text-tertiary"
 									>
 										{benefit}
 									</Typography>
@@ -48,7 +48,6 @@ export default function StartIn60SecondsSection() {
 						</div>
 					</div>
 
-					{/* Right: BG image */}
 					<div className="flex items-center justify-center">
 						<img
 							src="/svgs/BG.svg"

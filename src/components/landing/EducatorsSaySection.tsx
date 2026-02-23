@@ -1,72 +1,14 @@
-import { Link } from "@tanstack/react-router";
+import { useState } from "react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
-
-const TESTIMONIALS = [
-	{
-		quote:
-			"Edushade's data insights have revolutionized our teaching methods. We've moved from guesswork to strategies.",
-		name: "Anya Petrova",
-		role: "Director of Innovation, GlobalEd Initi...",
-		initial: "AP",
-		variant: "white" as const,
-		rowSpan: 1,
-	},
-	{
-		quote:
-			"Edushade's custom reports gave us key insights into our performance and helped us improve our business.",
-		name: "Jane Cooper",
-		role: "Founder of Velocity",
-		initial: "JC",
-		variant: "gradient-pink" as const,
-		rowSpan: 2,
-	},
-	{
-		quote:
-			"I highly recommend Edushade! It's streamlined operations and created clear growth paths.",
-		name: "Anya Petrova",
-		role: "Director of Innovation, GlobalEd Initi...",
-		initial: "AP",
-		variant: "white" as const,
-		rowSpan: 1,
-	},
-	{
-		quote:
-			"Edushade has transformed our curriculum planning. The customization is amazing! Now, we're more connected with our students!",
-		name: "Clara Johnson",
-		role: "Curriculum Developer, BrightFuture...",
-		initial: "CJ",
-		variant: "white" as const,
-		rowSpan: 1,
-	},
-	{
-		quote:
-			"Edushade has boosted our student engagement. We're more connected with our students than ever!",
-		name: "Markus Lee",
-		role: "Director of Student Success, LearnW...",
-		initial: "ML",
-		variant: "white" as const,
-		rowSpan: 1,
-	},
-	{
-		quote:
-			"Edushade's custom reports gave us key insights into our performance and helped us improve our business.",
-		name: "Jane Cooper",
-		role: "Founder of Velocity",
-		initial: "JC",
-		variant: "gradient-green" as const,
-		rowSpan: 2,
-	},
-	{
-		quote:
-			"I highly recommend Edushade! It's streamlined operations and created clear growth paths.",
-		name: "Sofia Patel",
-		role: "Founder, NextGen Education",
-		initial: "SP",
-		variant: "white" as const,
-		rowSpan: 1,
-	},
-];
+import type { Testimonial } from "@/constants/testimonials";
+import {
+	TESTIMONIALS,
+	TESTIMONIALS_INITIAL_COUNT,
+	TESTIMONIALS_LOAD_MORE_COUNT,
+} from "@/constants/testimonials";
+import { Button } from "../ui/button";
+import { Typography } from "../ui-custom/typography";
 
 function TestimonialCard({
 	quote,
@@ -75,55 +17,64 @@ function TestimonialCard({
 	initial,
 	variant,
 	rowSpan,
-}: (typeof TESTIMONIALS)[number]) {
-	const isGradient = variant !== "white";
+	gradientKind,
+	company,
+}: Testimonial) {
+	const isGradient = variant === "gradient";
+	const gradientClass =
+		gradientKind === "purple-pink"
+			? "bg-linear-to-br from-purple-600 to-pink-500"
+			: gradientKind === "green"
+				? "bg-linear-to-br from-emerald-600 to-teal-500"
+				: "";
 
 	return (
 		<Card
-			className={`flex h-full min-h-0 flex-col overflow-hidden rounded-xl border border-(--es-border-1) py-0 shadow-sm ${rowSpan === 2 ? "lg:row-span-2" : ""} ${isGradient ? "border-0 text-white" : "bg-card text-card-foreground"}`}
+			className={`flex h-full min-h-0 flex-col overflow-hidden rounded-3xl py-0 border-none shadow-none ${rowSpan === 2 ? "md:row-span-2" : ""} ${isGradient ? "border-0 text-white" : "bg-bg-tertiary shadow-sm text-card-foreground"}`}
 		>
 			<div
-				className={`relative flex min-h-0 flex-1 flex-col gap-4 p-6 ${variant === "gradient-pink" ? "bg-linear-to-br from-pink-500 to-purple-600" : ""} ${variant === "gradient-green" ? "bg-linear-to-br from-emerald-500 to-teal-600" : ""}`}
+				className={`relative flex min-h-0 flex-1 flex-col gap-4 p-6 ${gradientClass}`}
 			>
-				{/* Subtle grid pattern overlay for gradient cards */}
 				{isGradient && (
 					<div
-						className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.15)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.15)_1px,transparent_1px)] bg-size-[20px_20px] opacity-[0.08]"
+						className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.15)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.15)_1px,transparent_1px)] bg-size-[20px_20px] opacity-[0.12]"
 						aria-hidden
 					/>
 				)}
-				{isGradient && (
+				{isGradient && company && (
 					<p className="relative z-10 text-sm font-semibold tracking-wide text-white/95">
-						Velocity
+						{company}
 					</p>
 				)}
 				<CardContent className="relative z-10 flex flex-1 flex-col gap-4 p-0">
-					<blockquote className="flex-1 text-sm leading-relaxed">
+					<blockquote className="flex-1 text-base font-normal text-text-primary leading-snug">
 						&quot;{quote}&quot;
 					</blockquote>
 					<div className="mt-auto flex items-center gap-3">
-						<Avatar size="sm" className="size-9 shrink-0">
+						<Avatar size="lg" className="size-16 shrink-0">
 							<AvatarFallback
-								className={
+								className={`size-16 ${
 									isGradient
-										? "bg-white/20 text-white"
-										: "bg-muted text-(--es-text-2)"
-								}
+										? "bg-bg-tertiary text-white"
+										: "bg-bg-tertiary text-text-secondary"
+								}`}
 							>
 								{initial}
 							</AvatarFallback>
 						</Avatar>
 						<div className="min-w-0">
-							<p
-								className={`truncate text-sm font-semibold ${isGradient ? "text-white" : "text-(--es-text-1)"}`}
+							<Typography
+								variant="base"
+								className={`truncate font-semibold ${isGradient ? "text-white" : "text-text-primary"}`}
 							>
 								{name}
-							</p>
-							<p
-								className={`truncate text-xs ${isGradient ? "text-white/90" : "text-(--es-text-2)"}`}
+							</Typography>
+							<Typography
+								variant="base"
+								className={`truncate font-normal text-text-secondary ${isGradient ? "text-white/90" : "text-text-secondary"}`}
 							>
 								{role}
-							</p>
+							</Typography>
 						</div>
 					</div>
 				</CardContent>
@@ -133,34 +84,67 @@ function TestimonialCard({
 }
 
 export default function EducatorsSaySection() {
+	const [visibleCount, setVisibleCount] = useState(TESTIMONIALS_INITIAL_COUNT);
+	const visible = TESTIMONIALS.slice(0, visibleCount);
+	const hasMore = visibleCount < TESTIMONIALS.length;
+	const isExpanded = visibleCount > TESTIMONIALS_INITIAL_COUNT;
+
+	const handleSeeMore = () => {
+		setVisibleCount((c) =>
+			Math.min(c + TESTIMONIALS_LOAD_MORE_COUNT, TESTIMONIALS.length),
+		);
+	};
+
+	const handleSeeLess = () => {
+		setVisibleCount(TESTIMONIALS_INITIAL_COUNT);
+	};
+
 	return (
-		<section className="bg-white py-16">
+		<section className="bg-bg-primary py-16">
 			<div className="mx-auto max-w-(--es-max-w) px-(--es-section-px)">
 				<div className="mb-10 text-center">
-					<h2 className="text-3xl font-bold leading-tight text-(--es-text-1) lg:text-4xl">
+					<Typography
+						variant="h1"
+						className="font-medium leading-snug text-text-primary"
+					>
 						What educators say about Edushade
-					</h2>
-					<p className="mx-auto mt-4 max-w-2xl text-(--es-text-2) leading-relaxed">
+					</Typography>
+					<Typography
+						variant="h6"
+						className="font-normal leading-snug text-text-secondary"
+					>
 						Edushade is built for educators, focusing on how they plan, teach,
 						and support students. The platform is tailored to instructional
 						needs, not software.
-					</p>
+					</Typography>
 				</div>
 
-				{/* SSR-safe staggered grid: CSS Grid + row-span, no JS */}
-				<div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:auto-rows-[minmax(200px,auto)]">
-					{TESTIMONIALS.map((t) => (
-						<TestimonialCard key={`${t.name}-${t.quote.slice(0, 20)}`} {...t} />
+				<div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:auto-rows-[minmax(200px,1fr)]">
+					{visible.map((t) => (
+						<TestimonialCard key={t.id} {...t} />
 					))}
 				</div>
 
 				<div className="mt-10 flex justify-center">
-					<Link
-						to="/"
-						className="text-sm font-medium text-(--es-text-1) underline-offset-4 hover:underline"
-					>
-						See More
-					</Link>
+					{isExpanded ? (
+						<Button
+							variant="secondary"
+							className="rounded-lg bg-bg-tertiary px-6 font-medium text-sm leading-snug text-text-primary hover:bg-bg-tertiary/80"
+							onClick={handleSeeLess}
+						>
+							See Less
+						</Button>
+					) : (
+						hasMore && (
+							<Button
+								variant="secondary"
+								className="rounded-lg bg-bg-tertiary px-6 font-medium text-sm leading-snug text-text-primary hover:bg-bg-tertiary/80"
+								onClick={handleSeeMore}
+							>
+								See More
+							</Button>
+						)
+					)}
 				</div>
 			</div>
 		</section>

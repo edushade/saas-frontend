@@ -276,10 +276,7 @@ function MobileMenu() {
 					<Button variant="outline" asChild className="w-full">
 						<Link to="/">Sign In</Link>
 					</Button>
-					<Button
-						asChild
-						className="btn-brand-1 w-full rounded-full gap-1.5"
-					>
+					<Button asChild className="btn-brand-1 w-full rounded-full gap-1.5">
 						<Link to="/">
 							Request a Demo <ArrowUpRight size={14} />
 						</Link>
@@ -344,15 +341,12 @@ export default function Header() {
 					>
 						<Link to="/">Sign In</Link>
 					</Button>
-<Button
-					asChild
-					className="btn-brand-1 rounded-full gap-1.5"
-				>
-					<Link to="/">
-						Request a Demo
-						<ArrowUpRight size={14} strokeWidth={2.5} />
-					</Link>
-				</Button>
+					<Button asChild className="btn-brand-1 rounded-full gap-1.5">
+						<Link to="/">
+							Request a Demo
+							<ArrowUpRight size={14} strokeWidth={2.5} />
+						</Link>
+					</Button>
 				</div>
 
 				{/* Mobile hamburger */}

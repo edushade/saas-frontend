@@ -28,8 +28,7 @@ export const Route = createFileRoute("/")({
 	head: () => ({
 		meta: [
 			{
-				title:
-					"Edushade — The Platform Built for How You Actually Teach",
+				title: "Edushade — The Platform Built for How You Actually Teach",
 			},
 			{
 				name: "description",

@@ -1,0 +1,109 @@
+import { useEffect, useRef } from "react";
+import { Badge } from "@/components/ui/badge";
+import { Typography } from "@/components/ui-custom/typography";
+import { cn } from "@/lib/utils";
+
+const RADIO_GROUP_NAME = "compose-model-tags";
+const AUTO_ROTATE_INTERVAL_MS = 2500;
+/** Delay before starting auto-rotate so SSG/ISR first paint and crawlers see stable content. */
+const AUTO_ROTATE_DELAY_MS = 2000;
+
+const LABEL_SELECTED =
+	"[&:has(input:checked)>*]:border-brand-300 [&:has(input:checked)>*]:bg-brand-light [&:has(input:checked)>*]:text-brand-300 [&:has(input:checked)>*]:font-medium";
+
+const BADGE_BASE =
+	"cursor-pointer rounded-full border-border-primary px-4 py-1.5 text-sm text-text-secondary transition-colors hover:border-brand-300 hover:text-brand-300";
+
+export interface ComposeModelTagsProps {
+	tags: string[];
+	defaultSelected?: string;
+	name?: string;
+	description?: string;
+	className?: string;
+	autoRotate?: boolean;
+	autoRotateIntervalMs?: number;
+	autoRotateDelayMs?: number;
+}
+
+export function ComposeModelTags({
+	tags,
+	defaultSelected,
+	name = RADIO_GROUP_NAME,
+	description = "You can compose your own learning model",
+	className,
+	autoRotate = true,
+	autoRotateIntervalMs = AUTO_ROTATE_INTERVAL_MS,
+	autoRotateDelayMs = AUTO_ROTATE_DELAY_MS,
+}: ComposeModelTagsProps) {
+	const fieldsetRef = useRef<HTMLFieldSetElement>(null);
+	const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+	const selected = defaultSelected ?? tags[0];
+
+	useEffect(() => {
+		if (!autoRotate || tags.length <= 1) return;
+		const el = fieldsetRef.current;
+		if (!el) return;
+
+		const radios = el.querySelectorAll<HTMLInputElement>('input[type="radio"]');
+		if (radios.length === 0) return;
+
+		const startId = window.setTimeout(() => {
+			const id = setInterval(() => {
+				let currentIndex = -1;
+				for (let i = 0; i < radios.length; i++) {
+					if (radios[i].checked) {
+						currentIndex = i;
+						break;
+					}
+				}
+				const nextIndex = (currentIndex + 1) % radios.length;
+				radios[nextIndex].checked = true;
+			}, autoRotateIntervalMs);
+			intervalRef.current = id;
+		}, autoRotateDelayMs);
+
+		return () => {
+			window.clearTimeout(startId);
+			if (intervalRef.current !== null) clearInterval(intervalRef.current);
+		};
+	}, [autoRotate, autoRotateIntervalMs, autoRotateDelayMs, tags.length]);
+
+	if (tags.length === 0) return null;
+
+	return (
+		<fieldset
+			ref={fieldsetRef}
+			className={cn("border-0 p-0", className)}
+			aria-label="Learning model options"
+		>
+			{description ? (
+				<Typography
+					as="legend"
+					variant="small"
+					className="mb-3 font-normal text-text-tertiary"
+				>
+					{description}
+				</Typography>
+			) : null}
+			<ul className="flex flex-wrap gap-2 list-none p-0 m-0">
+				{tags.map((tag) => (
+					<li key={tag}>
+						<label className={`cursor-pointer ${LABEL_SELECTED}`}>
+							<input
+								type="radio"
+								name={name}
+								value={tag}
+								defaultChecked={tag === selected}
+								className="sr-only"
+								aria-label={`Learning model: ${tag}`}
+							/>
+							<Badge variant="outline" className={BADGE_BASE}>
+								{tag}
+							</Badge>
+						</label>
+					</li>
+				))}
+			</ul>
+		</fieldset>
+	);
+}

@@ -124,13 +124,13 @@ export default function BuiltForTeachSection() {
 							</TabsTrigger>
 							<TabsTrigger
 								value="academies"
-								className="rounded-md px-4 h-full py-2 text-sm font-medium"
+								className="data-[state=active]:bg-brand-300 data-[state=active]:text-white data-[state=active]:shadow-sm rounded-md px-4 h-full py-2 text-sm font-medium"
 							>
 								For Academies
 							</TabsTrigger>
 							<TabsTrigger
 								value="schools"
-								className="rounded-md px-4 h-full py-2 text-sm font-medium"
+								className="data-[state=active]:bg-brand-300 data-[state=active]:text-white data-[state=active]:shadow-sm rounded-md px-4 h-full py-2 text-sm font-medium"
 							>
 								For Schools
 							</TabsTrigger>
