@@ -8,6 +8,9 @@ import {
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import { NotFoundView } from "../components/route-states/NotFoundView";
+import { RouteErrorView } from "../components/route-states/RouteErrorView";
+import { RouteLoadingView } from "../components/route-states/RouteLoadingView";
 
 import TanStackQueryDevtools from "../integrations/tanstack-query/devtools";
 import TanStackQueryProvider from "../integrations/tanstack-query/root-provider";
@@ -76,6 +79,9 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 		],
 	}),
 	shellComponent: RootDocument,
+	notFoundComponent: NotFoundView,
+	errorComponent: RouteErrorView,
+	pendingComponent: RouteLoadingView,
 });
 
 function RootDocument({ children }: { children: React.ReactNode }) {
