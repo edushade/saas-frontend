@@ -2,7 +2,7 @@ export const PLATFORM_FEATURES = [
 	{
 		title: "Smart Course Builder",
 		description: "Create engaging lessons with quizzes and assignments",
-		imageSrc: "/svgs/platforms/1-Sidebar.svg",
+		imageSrc: "/svgs/platforms/1-sidebar.svg",
 		imageAlt: "Smart Course Builder",
 	},
 	{

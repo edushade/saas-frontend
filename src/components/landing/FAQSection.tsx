@@ -11,8 +11,8 @@ import { Typography } from "../ui-custom/typography";
 
 export default function FAQSection() {
 	return (
-		<section className="bg-white py-16">
-			<div className="mx-auto max-w-(--es-max-w) px-(--es-section-px)">
+		<section className="bg-white py-8 md:py-(--es-section-py)">
+			<div className="mx-auto max-w-(--es-max-w) px-4 md:px-(--es-section-px)">
 				<div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
 					<div className="flex flex-col gap-6 lg:sticky lg:top-24">
 						<Typography
@@ -51,22 +51,22 @@ export default function FAQSection() {
 							<AccordionItem
 								key={item.question}
 								value={`faq-${index}`}
-								className="rounded-2xl border border-(--es-border-1) bg-white px-4 shadow-none data-[state=open]:bg-[#F8F9FC]"
+								className="rounded-2xl border border-border-primary bg-white px-4 shadow-none data-[state=open]:bg-[#F8F9FC]"
 							>
 								<AccordionTrigger className="group/faq [&>svg]:hidden items-center py-4 text-left hover:no-underline">
-									<span className="flex-1 text-left text-sm font-medium text-(--es-text-1)">
+									<span className="flex-1 text-left text-sm font-medium text-text-primary">
 										{item.question}
 									</span>
 									<span className="flex shrink-0 items-center gap-2">
-										<span className="flex size-7 items-center justify-center rounded-md text-(--es-text-2) group-data-[state=open]/faq:hidden">
+										<span className="flex size-7 items-center justify-center rounded-md bg-bg-tertiary text-text-secondary group-data-[state=open]/faq:hidden">
 											<Plus className="size-4" />
 										</span>
-										<span className="hidden size-7 items-center justify-center rounded-md bg-(--es-brand) text-white group-data-[state=open]/faq:flex">
+										<span className="hidden size-7 items-center justify-center rounded-md bg-brand-300 text-white group-data-[state=open]/faq:flex">
 											<Minus className="size-4" />
 										</span>
 									</span>
 								</AccordionTrigger>
-								<AccordionContent className="text-left text-(--es-text-2) pb-4 pt-0">
+								<AccordionContent className="text-left text-text-secondary pb-4 pt-0">
 									{item.answer}
 								</AccordionContent>
 							</AccordionItem>

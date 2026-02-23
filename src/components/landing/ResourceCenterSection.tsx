@@ -1,17 +1,9 @@
-import { BarChart3, BookOpen, LayoutDashboard, Plus } from "lucide-react";
+import { Plus } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Typography } from "../ui-custom/typography";
-
-const NAV_ITEMS = [
-	{ label: "Dashboard", icon: LayoutDashboard, active: true },
-	{ label: "Learning Pathway", icon: BookOpen, active: false },
-	{ label: "My Study", icon: BookOpen, active: false },
-	{ label: "Exams", icon: BarChart3, active: false },
-	{ label: "Question Bank", icon: BookOpen, active: false },
-];
 
 const SIDE_POSTS = [
 	{
@@ -37,8 +29,8 @@ const FALLBACK_IMAGE =
 
 export default function ResourceCenterSection() {
 	return (
-		<section className="bg-white py-10 md:py-16">
-			<div className="mx-auto max-w-(--es-max-w) px-(--es-section-px)">
+		<section className="bg-white py-8 md:py-(--es-section-py)">
+			<div className="mx-auto max-w-(--es-max-w) px-4 md:px-(--es-section-px)">
 				{/* Header: title + subtitle (left), Browse All Posts (right) */}
 				<div className="mb-10 flex flex-col items-center gap-6 text-center sm:flex-row sm:items-end sm:justify-between sm:text-left">
 					<div className="min-w-0 max-w-[500px] sm:max-w-none">
@@ -64,9 +56,10 @@ export default function ResourceCenterSection() {
 					</Badge>
 				</div>
 
-				<div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:grid-rows-[auto]">
-					<Card className="overflow-hidden rounded-2xl shadow-sm border border-(--es-border-1) bg-[rgba(248, 249, 252, 1)] md:rounded-4xl">
-						<CardContent className="">
+				<div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:items-stretch">
+					{/* Left: single tall card — fills column height */}
+					<Card className="flex flex-col rounded-2xl shadow-sm border border-border-primary bg-[rgba(248,249,252,1)] md:rounded-4xl lg:min-h-0 lg:h-full">
+						<CardContent className="shrink-0">
 							<div className="bg-[#F5F5F5] rounded-xl md:rounded-4xl overflow-hidden">
 								<img
 									src="/svgs/resource-center/Sidebar.svg"
@@ -75,33 +68,31 @@ export default function ResourceCenterSection() {
 								/>
 							</div>
 						</CardContent>
-						<CardContent className="">
-							<div className="flex flex-1 flex-col gap-3">
+						<CardContent className="flex flex-1 min-h-0 flex-col gap-3 pt-0">
+							<div className="flex flex-1 min-h-0 flex-col gap-3">
 								<Typography
 									variant="h5"
-									className="font-medium leading-tight text-(--es-text-1)"
+									className="font-medium leading-tight text-text-primary"
 								>
 									Designing Learning Systems From the Educator&apos;s
 									Perspective
 								</Typography>
 								<Typography
-									variant="h6"
-									className="line-clamp-2 font-normal text-(--es-text-2) leading-relaxed"
+									variant="base"
+									className="line-clamp-2 font-normal text-text-secondary leading-snug"
 								>
 									Why starting with educator intent leads to better learning
 									outcomes and simpler platforms. A clear comparison of system
 									design, flexibility, and rol...
 								</Typography>
-								<div className="flex items-center justify-between ">
-									<Badge className="mt-2 flex flex-wrap items-center bg-[#F5F5F5] px-2 py-2 rounded-xl gap-2">
-										<Badge
-											className={`text-base font-medium rounded-sm bg-[#0E2D2A] text-white border-0`}
-										>
+								<div className="mt-auto flex items-center justify-between">
+									<Badge className="flex flex-wrap items-center bg-[#F5F5F5] px-2 py-2 rounded-xl gap-2">
+										<Badge className="text-base font-medium rounded-sm bg-[#0E2D2A] text-white border-0">
 											News
 										</Badge>
 										<Typography
 											variant="h6"
-											className="font-normal text-(--es-text-2)"
+											className="font-normal text-text-secondary"
 										>
 											Jan 31, 2026
 										</Typography>
@@ -119,24 +110,23 @@ export default function ResourceCenterSection() {
 						</CardContent>
 					</Card>
 
-					<div className="flex flex-col gap-4">
+					{/* Right: posts + subscribe — same column height, subscribe at bottom */}
+					<div className="flex min-h-0 flex-col gap-4 lg:h-full">
 						{SIDE_POSTS.map((post) => (
 							<Card
 								key={post.tag + post.imageSrc}
-								className="border-none rounded-4xl bg-[#F8F9FC] shadow-none"
+								className="shrink-0 border-none rounded-4xl bg-[#F8F9FC] shadow-none"
 							>
-								<CardContent className="flex flex-row gap-4">
-									{/* <div className="h-30 w-56 shrink-0 overflow-hidden rounded-4xl border border-(--es-border-1) bg-muted"> */}
+								<CardContent className="flex flex-col gap-4 sm:flex-row sm:gap-4">
 									<img
 										src={post.imageSrc}
 										alt={post.imageAlt}
-										className="h-30 w-56"
+										className="h-40 w-full shrink-0 object-cover rounded-xl sm:h-30 sm:w-56 sm:rounded-none"
 										onError={(e) => {
 											const el = e.currentTarget;
 											if (el.src !== FALLBACK_IMAGE) el.src = FALLBACK_IMAGE;
 										}}
 									/>
-									{/* </div> */}
 									<div className="min-w-0 flex-1">
 										<Typography
 											variant="h5"
@@ -151,7 +141,7 @@ export default function ResourceCenterSection() {
 												>
 													{post.tag}
 												</Badge>
-												<span className="text-base font-normal text-(--es-text-2)">
+												<span className="text-base font-normal text-text-secondary">
 													{post.date}
 												</span>
 											</Badge>
@@ -169,7 +159,7 @@ export default function ResourceCenterSection() {
 							</Card>
 						))}
 
-						<Card className="overflow-hidden rounded-4xl border-0 bg-[#1A1918]">
+						<Card className="mt-auto shrink-0 overflow-hidden rounded-4xl border-0 bg-[#1A1918]">
 							<CardContent className="flex flex-col gap-4">
 								<Typography
 									variant="h4"

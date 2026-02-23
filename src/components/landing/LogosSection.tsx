@@ -4,12 +4,12 @@ import { Typography } from "../ui-custom/typography";
 
 function PlatformCard({ name, stat, logo }: (typeof PLATFORMS)[number]) {
 	return (
-		<div className="flex flex-col items-center justify-center  px-6">
+		<div className="flex flex-col items-center justify-center px-2  md:px-6">
 			<div className="flex items-center justify-center gap-1">
 				<img
 					src={logo}
 					alt={name}
-					className="h-[60px] w-[180px] object-contain"
+					className="h-[40px] w-[120px] md:h-[60px] md:w-[180px] object-contain"
 				/>
 			</div>
 			<Typography variant="small" className="font-normal text-text-tertiary">
@@ -21,7 +21,7 @@ function PlatformCard({ name, stat, logo }: (typeof PLATFORMS)[number]) {
 
 export default function LogosSection() {
 	return (
-		<section className="relative flex w-full flex-col items-center gap-4 overflow-hidden py-20">
+		<section className="relative flex w-full flex-col items-center gap-4 overflow-hidden py-8 md:py-(--es-section-py)">
 			<Typography
 				variant="h6"
 				className="font-normal text-center text-text-tertiary"

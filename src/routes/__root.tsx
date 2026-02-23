@@ -86,9 +86,12 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 			</head>
 			<body>
 				<TanStackQueryProvider>
-					<Header />
-					{children}
-					<Footer />
+					<div className="flex min-h-screen flex-col">
+						<Header />
+						<main className="flex flex-1 flex-col">{children}</main>
+						<Footer />
+					</div>
+
 					<TanStackDevtools
 						config={{
 							position: "bottom-right",

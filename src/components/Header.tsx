@@ -159,7 +159,7 @@ function MobileMenu() {
 				<Button
 					variant="ghost"
 					size="icon"
-					className="md:hidden text-(--es-text-1)"
+					className="md:hidden text-text-primary"
 					aria-label="Open menu"
 				>
 					<Menu size={22} />
@@ -167,7 +167,7 @@ function MobileMenu() {
 			</SheetTrigger>
 
 			<SheetContent side="right" className="w-72 p-0 flex flex-col">
-				<SheetHeader className="border-b border-(--es-border-1) px-5 py-4">
+				<SheetHeader className="border-b border-border-primary px-5 py-4">
 					<SheetTitle className="flex items-center">
 						<img src="/svgs/logo.svg" alt="Edushade" className="h-8" />
 					</SheetTitle>
@@ -177,24 +177,24 @@ function MobileMenu() {
 					<Accordion type="single" collapsible>
 						{/* Features */}
 						<AccordionItem value="features" className="border-none">
-							<AccordionTrigger className="py-3 text-sm font-medium text-(--es-text-2) hover:text-(--es-text-1) hover:no-underline">
+							<AccordionTrigger className="py-3 text-sm font-medium text-text-secondary hover:text-text-primary hover:no-underline">
 								Features
 							</AccordionTrigger>
 							<AccordionContent>
 								{FEATURES_GROUPS.map((group) => (
 									<div key={group.title} className="mb-4">
-										<p className="mb-1.5 px-2 text-[11px] font-semibold uppercase tracking-wider text-(--es-text-3)">
+										<p className="mb-1.5 px-2 text-[11px] font-semibold uppercase tracking-wider text-text-tertiary">
 											{group.title}
 										</p>
 										{group.items.map((item) => (
 											<Link
 												key={item.label}
 												to={item.href}
-												className="flex items-center gap-2.5 rounded-md px-2 py-2 text-sm text-(--es-text-2) transition-colors hover:bg-(--es-surface-2) hover:text-(--es-text-1)"
+												className="flex items-center gap-2.5 rounded-md px-2 py-2 text-sm text-text-secondary transition-colors hover:bg-bg-secondary hover:text-text-primary"
 											>
 												<item.icon
 													size={14}
-													className="shrink-0 text-(--es-text-3)"
+													className="shrink-0 text-text-tertiary"
 												/>
 												{item.label}
 											</Link>
@@ -206,7 +206,7 @@ function MobileMenu() {
 
 						{/* Resources */}
 						<AccordionItem value="resources" className="border-none">
-							<AccordionTrigger className="py-3 text-sm font-medium text-(--es-text-2) hover:text-(--es-text-1) hover:no-underline">
+							<AccordionTrigger className="py-3 text-sm font-medium text-text-secondary hover:text-text-primary hover:no-underline">
 								Resources
 							</AccordionTrigger>
 							<AccordionContent>
@@ -214,11 +214,11 @@ function MobileMenu() {
 									<Link
 										key={item.label}
 										to={item.href}
-										className="flex items-center gap-2.5 rounded-md px-2 py-2 text-sm text-(--es-text-2) transition-colors hover:bg-(--es-surface-2) hover:text-(--es-text-1)"
+										className="flex items-center gap-2.5 rounded-md px-2 py-2 text-sm text-text-secondary transition-colors hover:bg-bg-secondary hover:text-text-primary"
 									>
 										<item.icon
 											size={14}
-											className="shrink-0 text-(--es-text-3)"
+											className="shrink-0 text-text-tertiary"
 										/>
 										{item.label}
 									</Link>
@@ -232,7 +232,7 @@ function MobileMenu() {
 						<Link
 							key={link.label}
 							to={link.href}
-							className="flex items-center rounded-md  py-3 text-sm font-medium text-(--es-text-2) transition-colors hover:bg-(--es-surface-2) hover:text-(--es-text-1)"
+							className="flex items-center rounded-md  py-3 text-sm font-medium text-text-secondary transition-colors hover:bg-bg-secondary hover:text-text-primary"
 						>
 							{link.label}
 						</Link>
@@ -240,7 +240,7 @@ function MobileMenu() {
 				</nav>
 
 				{/* Footer CTA */}
-				<div className="border-t border-(--es-border-1) px-4 py-4 flex flex-col gap-2">
+				<div className="border-t border-border-primary px-4 py-4 flex flex-col gap-2">
 					<Button variant="outline" asChild className="w-full">
 						<Link to="/">Sign In</Link>
 					</Button>

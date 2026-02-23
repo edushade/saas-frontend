@@ -12,12 +12,12 @@ import { ComposeModelTags } from "./ComposeModelTags";
 export default function HeroSection() {
 	return (
 		<section className="bg-white pt-(--es-nav-h)">
-			<div className="mx-auto grid max-w-(--es-max-w) grid-cols-1 items-stretch gap-14 px-(--es-section-px) pt-16 pb-8 lg:grid-cols-2">
+			<div className="mx-auto grid max-w-(--es-max-w) grid-cols-1 items-stretch gap-14 px-4 md:px-(--es-section-px) pt-8 pb-6  md:pt-16 md:pb-8 lg:grid-cols-2">
 				<div className="flex min-h-0 flex-col justify-between gap-2">
-					<div className="flex flex-col gap-4">
+					<div className="flex flex-col items-center md:items-start gap-4">
 						<RainbowButton
 							variant="outline"
-							className="w-fit gap-3 shadow rounded-full px-4 py-2 text-sm text-(--es-text-2)"
+							className="w-fit gap-3 shadow rounded-full px-4 py-2 text-sm text-text-secondary"
 						>
 							<AvatarGroup>
 								{TRUST_AVATARS.map((a) => (
@@ -39,7 +39,7 @@ export default function HeroSection() {
 
 						<Typography
 							variant="h1"
-							className="font-medium lg:max-w-[500px] leading-[1.3] tracking-tight"
+							className="font-medium w-full lg:max-w-[500px] leading-[1.3] tracking-tight"
 						>
 							One platform for how you actually teach
 						</Typography>
@@ -52,13 +52,13 @@ export default function HeroSection() {
 							One platform that adapts to how you teach and scale.
 						</Typography>
 
-						<div className="flex items-center gap-5">
-							<Button className="btn-brand-1 font-medium text-lg rounded-full  text-white h-auto">
+						<div className="flex flex-row items-center gap-2 md:gap-5">
+							<Button className="btn-brand-1 font-medium md:text-lg rounded-full  text-white h-auto">
 								Build Your Academy
 							</Button>
 							<Button
 								variant="ghost"
-								className="text-text-primary font-medium text-lg hover:bg-transparent h-auto py-3 px-5 gap-2"
+								className="text-text-primary font-medium md:text-lg hover:bg-transparent h-auto py-3 px-5 gap-2"
 							>
 								<VideoWahtIcon className="text-text-primary size-8 shrink-0" />
 								Watch Demo
@@ -66,7 +66,7 @@ export default function HeroSection() {
 						</div>
 					</div>
 
-					<div className="flex flex-col gap-6 pt-2">
+					<div className="flex flex-col items-center md:items-start gap-2 md:gap-6 pt-2">
 						<ComposeModelTags
 							tags={TAGS}
 							defaultSelected="Analytics"
@@ -75,7 +75,7 @@ export default function HeroSection() {
 					</div>
 				</div>
 
-				<Card className="relative hidden h-full min-h-0 overflow-hidden rounded-3xl p-0 shadow-none border-none lg:block bg-bg-primary">
+				<Card className="relative  h-full min-h-0 overflow-hidden rounded-3xl p-0 shadow-none border-none lg:block bg-bg-primary">
 					<div
 						aria-hidden
 						className="pointer-events-none absolute -top-24 -left-24 z-0 h-[300px] w-[300px] rounded-full bg-brand-300/60 blur-[100px]"

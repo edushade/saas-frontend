@@ -69,8 +69,8 @@ const SOCIAL_ICONS = [
 
 export default function Footer() {
 	return (
-		<footer className="w-full bg-[#222222]">
-			<div className="mx-auto flex max-w-(--es-max-w) flex-col gap-10 p-(--es-section-px) pt-12 pb-0">
+		<footer className="relative w-full overflow-hidden bg-[linear-gradient(180deg,#222222_0%,#07003D_100%)]">
+			<div className="relative mx-auto flex max-w-(--es-max-w) flex-col gap-10 px-4 pb-0 pt-8 md:px-(--es-section-px) md:pt-12">
 				<nav
 					className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 items-stretch gap-y-8"
 					aria-label="Footer navigation"
@@ -105,8 +105,8 @@ export default function Footer() {
 
 				<div>
 					{/* Bottom: legal links | copyright | social */}
-					<div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
-						<div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-1 text-sm">
+					<div className="flex flex-col items-center justify-between gap-3 md:gap-6 sm:flex-row">
+						<div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-sm md:gap-x-6">
 							{BOTTOM_LINKS.map((link) => (
 								<Link key={link.label} to={link.to} className="hover:underline">
 									<Typography
@@ -142,16 +142,18 @@ export default function Footer() {
 						</div>
 					</div>
 				</div>
-			</div>
-			<div className="w-full bg-[linear-gradient(180deg,#222222_0%,#07003D_100%)]">
-				<section
-					className="flex w-full items-center justify-center"
-					aria-hidden
-				>
-					<span className="block w-full text-center font-bold tracking-tighter text-text-white-alpha text-[clamp(4rem,18vw,22rem)]">
-						Edushade
-					</span>
-				</section>
+
+				{/* Large decorative "Edushade" — full width band, text contained in max-width */}
+				<div className="relative w-full min-h-56 max-h-[220px]  md:min-h-72">
+					<section
+						className="mx-auto flex w-full max-w-(--es-max-w) items-end justify-center "
+						aria-hidden
+					>
+						<span className="block w-full  text-center font-medium leading-none tracking-tighter text-text-white-alpha text-[clamp(4rem,18vw,18rem)]">
+							Edushade
+						</span>
+					</section>
+				</div>
 			</div>
 		</footer>
 	);

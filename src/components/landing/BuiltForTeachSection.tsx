@@ -96,8 +96,8 @@ function VideoCard({
 
 export default function BuiltForTeachSection() {
 	return (
-		<section className="bg-white py-16">
-			<div className="mx-auto max-w-(--es-max-w) px-(--es-section-px)">
+		<section className="bg-white py-8 md:py-(--es-section-py)">
+			<div className="mx-auto max-w-(--es-max-w) px-4 md:px-(--es-section-px)">
 				<Tabs defaultValue="creators">
 					<div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 lg:gap-12 items-start">
 						<div className="flex flex-col gap-4">
@@ -153,7 +153,7 @@ export default function BuiltForTeachSection() {
 											<ImageCard src={c.leftSrc} alt={c.leftAlt} />
 										</CardContent>
 									</Card>
-									<Card className="flex overflow-hidden rounded-xl border border-(--es-border-1) shadow-sm bg-card p-0">
+									<Card className="flex overflow-hidden rounded-xl border border-border-primary shadow-sm bg-card p-0">
 										<CardContent className="relative flex min-h-0 flex-1 p-0">
 											<VideoCard
 												src={c.rightSrc}

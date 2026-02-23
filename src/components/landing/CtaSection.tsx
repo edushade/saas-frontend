@@ -5,8 +5,8 @@ import { Typography } from "../ui-custom/typography";
 
 export default function CtaSection() {
 	return (
-		<section className="bg-bg-primary py-16">
-			<div className="mx-auto max-w-(--es-max-w) px-(--es-section-px)">
+		<section className="bg-bg-primary py-8 md:py-(--es-section-py)">
+			<div className="mx-auto max-w-(--es-max-w) px-4 md:px-(--es-section-px)">
 				<Card className="relative border-border-secondary shadow-none overflow-hidden rounded-3xl bg-bg-primary">
 					{/* Bottom-left glow — must be before shade so shade overlays it */}
 					<div

@@ -100,8 +100,8 @@ export default function EducatorsSaySection() {
 	};
 
 	return (
-		<section className="bg-bg-primary py-16">
-			<div className="mx-auto max-w-(--es-max-w) px-(--es-section-px)">
+		<section className="bg-bg-primary py-8 md:py-(--es-section-py)">
+			<div className="mx-auto max-w-(--es-max-w) px-4 md:px-(--es-section-px)">
 				<div className="mb-10 text-center">
 					<Typography
 						variant="h1"

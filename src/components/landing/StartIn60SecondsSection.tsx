@@ -10,8 +10,8 @@ const BENEFITS = [
 
 export default function StartIn60SecondsSection() {
 	return (
-		<section className="bg-bg-primary py-16">
-			<div className="mx-auto max-w-(--es-max-w) px-(--es-section-px)">
+		<section className="bg-bg-primary py-8 md:py-(--es-section-py)">
+			<div className="mx-auto max-w-(--es-max-w) px-4 md:px-(--es-section-px)">
 				<div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-14 items-center">
 					<div className="flex flex-col gap-6">
 						<Typography
