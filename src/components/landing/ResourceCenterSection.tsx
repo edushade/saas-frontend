@@ -29,20 +29,20 @@ const FALLBACK_IMAGE =
 
 export default function ResourceCenterSection() {
 	return (
-		<section className="bg-white py-8 md:py-(--es-section-py)">
-			<div className="mx-auto max-w-(--es-max-w) px-4 md:px-(--es-section-px)">
+		<section className="bg-bg-primary py-8 md:py-(--es-section-py) px-4 md:px-(--es-section-px)">
+			<div className="mx-auto max-w-(--es-max-w) ">
 				{/* Header: title + subtitle (left), Browse All Posts (right) */}
 				<div className="mb-10 flex flex-col items-center gap-6 text-center sm:flex-row sm:items-end sm:justify-between sm:text-left">
 					<div className="min-w-0 max-w-[500px] sm:max-w-none">
 						<Typography
 							variant="h1"
-							className="font-medium text-text-primary leading-tight"
+							className="text-2xl md:text-[2rem] lg:text-[2.75rem] leading-tight font-medium text-text-primary"
 						>
 							Resource Center & Insights
 						</Typography>
 						<Typography
 							variant="small"
-							className="block font-normal max-w-[500px] text-text-secondary leading-relaxed sm:max-w-[500px]"
+							className="block font-normal w-full sm:max-w-[500px] text-text-secondary leading-relaxed"
 						>
 							Thoughtful updates and practical insights on building and
 							delivering modern learning experiences.

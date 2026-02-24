@@ -22,6 +22,20 @@ const typographyVariants = cva("", {
 	},
 });
 
+/** Variant styles without font-size — use when className provides size (text-*, etc.) so it overrides. */
+const variantStyleOnly: Record<string, string> = {
+	h1: "font-extrabold tracking-tight leading-snug",
+	h2: "font-bold tracking-tight leading-tight",
+	h3: "font-semibold tracking-tight text-light",
+	h4: "font-semibold text-light leading-normal",
+	h5: "font-semibold leading-relaxed",
+	h6: "font-medium leading-snug",
+	base: "font-normal leading-relaxed",
+	small: "font-normal leading-normal",
+	extraSmall: "font-normal leading-snug",
+	tinY: "font-normal leading-tight",
+};
+
 const variantToTag: Record<string, React.ElementType> = {
 	h1: "h1",
 	h2: "h2",
@@ -35,6 +49,16 @@ const variantToTag: Record<string, React.ElementType> = {
 	tiny: "span",
 };
 
+/** True if className sets font-size (text-7xl, text-[44px], etc.) so we skip variant font-size. */
+function hasSizeInClass(className?: string): boolean {
+	if (!className) return false;
+	return (
+		/\btext-(xs|sm|base|lg|xl|2xl|3xl|4xl|5xl|6xl|7xl|8xl|9xl)\b/.test(
+			className,
+		) || /text-\[[^\]]+\]/.test(className)
+	);
+}
+
 export interface TypographyProps
 	extends React.HTMLAttributes<HTMLElement>,
 		VariantProps<typeof typographyVariants> {
@@ -47,13 +71,16 @@ const Typography = React.forwardRef<HTMLElement, TypographyProps>(
 		ref,
 	) {
 		const Tag = as || (variant && variantToTag[variant]) || "p";
+		const base =
+			className &&
+			hasSizeInClass(className) &&
+			variant &&
+			variant in variantStyleOnly
+				? variantStyleOnly[variant]
+				: typographyVariants({ variant });
 
 		return (
-			<Tag
-				className={cn(typographyVariants({ variant, className }))}
-				ref={ref}
-				{...props}
-			>
+			<Tag className={cn(base, className)} ref={ref} {...props}>
 				{children}
 			</Tag>
 		);

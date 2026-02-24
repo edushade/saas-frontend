@@ -13,25 +13,24 @@ const STATS = [
 
 export default function GetStartedSection() {
 	return (
-		<section className="bg-white py-8 md:py-(--es-section-py)">
-			<div className="mx-auto max-w-(--es-max-w) px-4 md:px-(--es-section-px)">
-				<Card className="relative overflow-hidden py-0 border-border-secondary shadow-[0_1.5px_4px_-1px_rgba(10,9,11,0.07)] bg-[linear-gradient(67.68deg,#C3E3FF_0%,rgba(248,249,252,0)_64.42%,rgba(255,255,255,0)_100%)]">
+		<section className="bg-bg-primary py-8 md:py-(--es-section-py) px-4 md:px-(--es-section-px)">
+			<div className="mx-auto max-w-(--es-max-w) ">
+				<Card className="relative overflow-hidden  border-border-secondary shadow-[0_1.5px_4px_-1px_rgba(10,9,11,0.07)] bg-[linear-gradient(67.68deg,#C3E3FF_0%,rgba(248,249,252,0)_64.42%,rgba(255,255,255,0)_100%)]">
 					<CardShadeOverlay className="backdrop-blur-[100px] bg-[repeating-linear-gradient(180deg,rgba(255,255,255,0)_0px,rgba(255,255,255,0.1)_47.15px,rgba(255,255,255,0.3)_85.33px)]" />
 
 					<CardContent className="relative z-10 grid grid-cols-1 items-center gap-8 p-0 py-6 lg:grid-cols-2 lg:py-8">
-						{/* Left: CTA + copy */}
 						<div className="px-4 md:px-(--es-section-px) lg:pr-10">
 							<div className="flex flex-col items-start gap-6">
 								<div className="flex flex-col gap-3">
 									<Typography
 										variant="h1"
-										className="font-medium text-text-primary leading-tight max-w-md"
+										className="text-2xl md:text-[2rem] lg:text-[2.75rem] leading-tight font-medium text-text-primary"
 									>
 										Get Started Today
 									</Typography>
 									<Typography
 										variant="h6"
-										className="font-normal text-text-secondary leading-relaxed"
+										className="font-normal text-text-secondary leading-tight"
 									>
 										Create your Edushade account and start building learning
 										programs with clarity, structure, and control from day one.
@@ -43,7 +42,6 @@ export default function GetStartedSection() {
 							</div>
 						</div>
 
-						{/* Right: stats */}
 						<div className="border-t border-border-primary px-4 md:px-(--es-section-px) pt-8 lg:border-t-0 lg:border-l lg:border-border-primary lg:pl-10 lg:pt-0">
 							<Separator className="mb-10 lg:hidden" />
 							<div className="grid grid-cols-2 gap-x-8 gap-y-10">

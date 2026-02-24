@@ -5,8 +5,8 @@ import { Typography } from "../ui-custom/typography";
 
 export default function CtaSection() {
 	return (
-		<section className="bg-bg-primary py-8 md:py-(--es-section-py)">
-			<div className="mx-auto max-w-(--es-max-w) px-4 md:px-(--es-section-px)">
+		<section className="bg-bg-primary py-8 md:py-(--es-section-py) px-4 md:px-(--es-section-px)">
+			<div className="mx-auto max-w-(--es-max-w) ">
 				<Card className="relative border-border-secondary shadow-none overflow-hidden rounded-3xl bg-bg-primary">
 					{/* Bottom-left glow — must be before shade so shade overlays it */}
 					<div
@@ -25,7 +25,7 @@ export default function CtaSection() {
 					<CardContent className="relative z-10 px-8 py-14 text-center lg:py-20">
 						<Typography
 							variant="h1"
-							className="mx-auto mb-4  font-medium leading-snug text-text-primary"
+							className="mx-auto mb-4 text-2xl md:text-[2rem] lg:text-[2.75rem] leading-tight font-medium text-text-primary"
 						>
 							Start Building Learning Your Way
 						</Typography>

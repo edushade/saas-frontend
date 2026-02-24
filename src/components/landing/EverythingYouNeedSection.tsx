@@ -11,57 +11,53 @@ import { PLATFORM_FEATURES } from "@/constants/platforms-features";
 import { cn } from "@/lib/utils";
 
 export default function EverythingYouNeedSection() {
-	const CAROUSEL_ITEM_CLASS = "pl-4 basis-[min(100%,336px)] sm:basis-[336px]";
-
 	return (
-		<section className="bg-bg-primary py-8 md:py-(--es-section-py)">
-			<div className="mx-auto max-w-(--es-max-w) px-4 md:px-(--es-section-px)">
-				<div className="overflow-hidden rounded-xl bg-bg-secondary p-4 md:p-6">
-					<div>
-						<div className="mb-10 grid grid-cols-1 items-end gap-8 lg:grid-cols-[1fr_1fr] lg:gap-12">
-							<Typography
-								variant="h1"
-								className="font-medium leading-tight text-text-primary"
-							>
-								Everything you need for your platform
-							</Typography>
-							<Typography
-								variant="h6"
-								className="max-w-[728px]  font-normal leading-relaxed text-text-secondary"
-							>
-								We replaced the messy tech stack with a clean, all-in-one
-								engine. Create, market, and sell your courses without the 3 a.m.
-								tech panic.
-							</Typography>
-						</div>
+		<section className="bg-bg-primary py-8 md:py-(--es-section-py) px-4 md:px-(--es-section-px)">
+			<div className="mx-auto max-w-(--es-max-w)">
+				<Card className="overflow-hidden shadow-none border-none	gap-0 rounded-4xl bg-bg-secondary">
+					<CardHeader className="grid grid-cols-1 items-end gap-6 md:gap-8 lg:grid-cols-2 lg:gap-24">
+						<Typography
+							variant="h1"
+							className="text-2xl md:text-[2rem] lg:text-[2.75rem] leading-tight font-medium text-text-primary"
+						>
+							Everything you need for your platform
+						</Typography>
+						<Typography
+							variant="h6"
+							className="font-normal leading-relaxed text-text-secondary"
+						>
+							We replaced the messy tech stack with a clean, all-in-one engine.
+							Create, market, and sell your courses without the 3 a.m. tech
+							panic.
+						</Typography>
+					</CardHeader>
 
-						<div className="relative -mx-4 md:-mx-6 overflow-hidden">
-							<Carousel
-								opts={{ align: "start", loop: true, dragFree: false }}
-								className="w-full"
-							>
-								<CarouselContent className="-ml-4 md:-ml-6 pl-4 md:pl-6 pr-4 md:pr-6">
-									{PLATFORM_FEATURES.map((feature, index) => (
-										<CarouselItem
-											key={feature.title}
-											className={CAROUSEL_ITEM_CLASS}
-										>
-											<PlatformFeatureCard
-												title={feature.title}
-												description={feature.description}
-												imageSrc={feature.imageSrc}
-												imageAlt={feature.imageAlt}
-												cardClassName={
-													CARD_VARIANT_CLASSNAMES[index] ?? undefined
-												}
-											/>
-										</CarouselItem>
-									))}
-								</CarouselContent>
-							</Carousel>
-						</div>
-					</div>
-				</div>
+					<CardContent className="relative -mr-4 md:-mr-6 overflow-hidden pt-0">
+						<Carousel
+							opts={{ align: "start", loop: true, dragFree: false }}
+							className="w-full"
+						>
+							<CarouselContent className="-ml-6 md:-ml-8 pl-6 md:pl-8 pr-6 md:pr-8">
+								{PLATFORM_FEATURES.map((feature, index) => (
+									<CarouselItem
+										key={feature.title}
+										className="pl-6 basis-[min(100%,336px)] sm:basis-[336px]"
+									>
+										<PlatformFeatureCard
+											title={feature.title}
+											description={feature.description}
+											imageSrc={feature.imageSrc}
+											imageAlt={feature.imageAlt}
+											cardClassName={
+												CARD_VARIANT_CLASSNAMES[index] ?? undefined
+											}
+										/>
+									</CarouselItem>
+								))}
+							</CarouselContent>
+						</Carousel>
+					</CardContent>
+				</Card>
 			</div>
 		</section>
 	);

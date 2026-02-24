@@ -100,18 +100,18 @@ export default function EducatorsSaySection() {
 	};
 
 	return (
-		<section className="bg-bg-primary py-8 md:py-(--es-section-py)">
-			<div className="mx-auto max-w-(--es-max-w) px-4 md:px-(--es-section-px)">
-				<div className="mb-10 text-center">
+		<section className="bg-bg-primary py-8 md:py-(--es-section-py) px-4 md:px-(--es-section-px)">
+			<div className="mx-auto max-w-(--es-max-w)  flex flex-col gap-10 lg:gap-14">
+				<div className="flex flex-col gap-4 items-center justify-center">
 					<Typography
 						variant="h1"
-						className="font-medium leading-snug text-text-primary"
+						className="text-2xl md:text-[2rem] lg:text-[2.75rem] leading-tight font-medium text-text-primary"
 					>
 						What educators say about Edushade
 					</Typography>
 					<Typography
 						variant="h6"
-						className="font-normal leading-snug text-text-secondary"
+						className="font-normal leading-snug text-text-secondary max-w-[960px] text-center"
 					>
 						Edushade is built for educators, focusing on how they plan, teach,
 						and support students. The platform is tailored to instructional

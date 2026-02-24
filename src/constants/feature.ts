@@ -19,7 +19,7 @@ export const FEATURES = [
 		title: "Intent before setup",
 		description:
 			"Design learning around goals and outcomes before dealing with structure or settings",
-		image: "/svgs/educator-love/intent.svg",
+		image: "/svgs/educator-love/1-intent.png",
 		gradientClassName: FEATURE_GRADIENT_CLASSES.orange,
 		cardShadowClassName: "feature-card-figma-shadow",
 	},

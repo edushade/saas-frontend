@@ -257,8 +257,8 @@ function MobileMenu() {
 
 export default function Header() {
 	return (
-		<header className="fixed top-0 left-0 right-0 z-50 flex items-center h-(--es-nav-h) bg-bg-primary">
-			<div className="mx-auto w-full max-w-(--es-max-w) p-(--es-section-px) flex items-center justify-between">
+		<header className="fixed top-0 left-0 right-0 z-50 flex items-center px-(--es-section-px) h-(--es-nav-h) bg-bg-primary">
+			<div className="mx-auto w-full max-w-(--es-max-w) flex items-center justify-between">
 				<Link to="/" className="flex items-center shrink-0">
 					<img src="/svgs/logo.svg" alt="Edushade" className="h-10" />
 				</Link>

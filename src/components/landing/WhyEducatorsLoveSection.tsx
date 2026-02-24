@@ -8,8 +8,8 @@ import { Typography } from "../ui-custom/typography";
 
 export default function WhyEducatorsLoveSection() {
 	return (
-		<section className="py-8 md:py-(--es-section-py)">
-			<div className="mx-auto w-full max-w-(--es-max-w) px-4 md:px-(--es-section-px)">
+		<section className="py-8 md:py-(--es-section-py) px-4 md:px-(--es-section-px)">
+			<div className="mx-auto w-full max-w-(--es-max-w)">
 				<div className="mb-10 max-w-4xl mx-auto flex flex-col gap-4 items-center text-center justify-center">
 					<Typography
 						variant="h1"
@@ -27,7 +27,7 @@ export default function WhyEducatorsLoveSection() {
 					</Typography>
 				</div>
 
-				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 					{FEATURES.map((feature) => (
 						<Card
 							key={feature.title}

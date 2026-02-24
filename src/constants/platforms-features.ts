@@ -21,7 +21,7 @@ export const PLATFORM_FEATURES = [
 	{
 		title: "Learner Community",
 		description: "Enable learner interaction, discussions and groups",
-		imageSrc: "/svgs/platforms/4-learner-community.svg",
+		imageSrc: "/svgs/platforms/4-message.png",
 		imageAlt: "Learner Community",
 	},
 ];

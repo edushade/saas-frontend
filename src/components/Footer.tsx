@@ -69,8 +69,8 @@ const SOCIAL_ICONS = [
 
 export default function Footer() {
 	return (
-		<footer className="relative w-full overflow-hidden bg-[linear-gradient(180deg,#222222_0%,#07003D_100%)]">
-			<div className="relative mx-auto flex max-w-(--es-max-w) flex-col gap-10 px-4 pb-0 pt-8 md:px-(--es-section-px) md:pt-12">
+		<footer className="relative w-full overflow-hidden bg-[linear-gradient(180deg,#222222_0%,#07003D_100%)] px-4 md:px-(--es-section-px)">
+			<div className="relative mx-auto flex max-w-(--es-max-w) flex-col gap-10  pb-0 pt-8  md:pt-12">
 				<nav
 					className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 items-stretch gap-y-8"
 					aria-label="Footer navigation"

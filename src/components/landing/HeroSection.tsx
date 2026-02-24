@@ -11,13 +11,13 @@ import { ComposeModelTags } from "./ComposeModelTags";
 
 export default function HeroSection() {
 	return (
-		<section className="bg-white pt-(--es-nav-h)">
-			<div className="mx-auto grid max-w-(--es-max-w) grid-cols-1 items-stretch gap-14 px-4 md:px-(--es-section-px) pt-8 pb-6  md:pt-16 md:pb-8 lg:grid-cols-2">
+		<section className="bg-bg-primary pt-(--es-nav-h) px-4 md:px-(--es-section-px)">
+			<div className="mx-auto grid max-w-(--es-max-w) grid-cols-1 items-stretch gap-6  pt-8 pb-6  md:pt-16 md:pb-8 lg:grid-cols-2">
 				<div className="flex min-h-0 flex-col justify-between gap-2">
 					<div className="flex flex-col items-center md:items-start gap-4">
 						<RainbowButton
 							variant="outline"
-							className="w-fit gap-3 shadow rounded-full px-4 py-2 text-sm text-text-secondary"
+							className="w-fit gap-3 shadow rounded-full px-2 py-2 text-sm text-text-secondary"
 						>
 							<AvatarGroup>
 								{TRUST_AVATARS.map((a) => (
@@ -39,7 +39,7 @@ export default function HeroSection() {
 
 						<Typography
 							variant="h1"
-							className="font-medium w-full lg:max-w-[500px] leading-[1.3] tracking-tight"
+							className="w-full text-3xl md:text-[50px] lg:text-[60px] font-medium tracking-tight leading-tight text-text-primary"
 						>
 							One platform for how you actually teach
 						</Typography>
@@ -75,7 +75,7 @@ export default function HeroSection() {
 					</div>
 				</div>
 
-				<Card className="relative  h-full min-h-0 overflow-hidden rounded-3xl p-0 shadow-none border-none lg:block bg-bg-primary">
+				<Card className="relative  max-h-[642px]  max-w-[610px] h-full min-h-0 overflow-hidden rounded-3xl p-0 shadow-none border-none lg:block bg-bg-primary">
 					<div
 						aria-hidden
 						className="pointer-events-none absolute -top-24 -left-24 z-0 h-[300px] w-[300px] rounded-full bg-brand-300/60 blur-[100px]"

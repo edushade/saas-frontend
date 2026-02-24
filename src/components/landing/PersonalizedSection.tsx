@@ -20,7 +20,7 @@ function RoleCard({
 		<button
 			type="button"
 			className={cn(
-				"w-full flex items-center gap-4 rounded-2xl border px-5 py-4 text-left transition-all duration-200 cursor-pointer",
+				"w-full max-w-xl flex items-center gap-4 rounded-2xl border px-5 py-4 text-left transition-all duration-200 cursor-pointer",
 				isActive
 					? "role-card-active"
 					: "border-transparent bg-bg-primary hover:bg-bg-secondary",
@@ -34,7 +34,9 @@ function RoleCard({
 					isActive ? "bg-brand-200" : "bg-bg-tertiary",
 				)}
 			>
-				<Icon size={20} className={isActive ? "text-white" : "text-gray-400"} />
+				<Icon
+					className={isActive ? "text-text-on-brand" : "text-text-secondary"}
+				/>
 			</div>
 			<div>
 				<Typography
@@ -58,13 +60,13 @@ export default function PersonalizedSection() {
 	const [activeRole, setActiveRole] = useState<RoleId>("student");
 
 	return (
-		<section className="bg-bg-primary py-8 md:py-(--es-section-py)">
-			<div className="mx-auto max-w-(--es-max-w) px-4 md:px-(--es-section-px)">
-				<div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-14 items-stretch">
+		<section className="bg-bg-primary py-8 md:py-(--es-section-py) px-4 md:px-(--es-section-px)">
+			<div className="mx-auto max-w-(--es-max-w) ">
+				<div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-stretch">
 					<div className="flex flex-col items-stretch gap-4">
 						<Typography
 							variant="h1"
-							className="font-medium leading-snug  text-text-primary mb-2"
+							className="text-2xl md:text-[2rem] lg:text-[2.75rem] max-w-xl leading-snug font-medium text-text-primary mb-2"
 						>
 							Personalized Experiences for Everyone
 						</Typography>
@@ -89,7 +91,7 @@ export default function PersonalizedSection() {
 						</div>
 					</div>
 
-					<Card className="relative hidden h-full min-h-0 overflow-hidden border-border-tertiary p-0 shadow-none lg:block bg-[linear-gradient(0deg,#7ADEFF_0%,#DDF7FF_100%)]">
+					<Card className="relative  h-full min-h-0 overflow-hidden border-border-tertiary p-0 shadow-none lg:block bg-[linear-gradient(0deg,#7ADEFF_0%,#DDF7FF_100%)]">
 						<CardShadeOverlay className="backdrop-blur-[100px] bg-[repeating-linear-gradient(180deg,rgba(255,255,255,0)_0px,rgba(255,255,255,0.1)_47.15px,rgba(255,255,255,0.3)_85.33px)]" />
 						<CardContent className="relative z-10 h-full min-h-0 p-0">
 							<div className="h-full min-h-0 rounded-2xl  pt-8 pl-8 shadow-2xl ">

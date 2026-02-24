@@ -10,15 +10,15 @@ const BENEFITS = [
 
 export default function StartIn60SecondsSection() {
 	return (
-		<section className="bg-bg-primary py-8 md:py-(--es-section-py)">
-			<div className="mx-auto max-w-(--es-max-w) px-4 md:px-(--es-section-px)">
-				<div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-14 items-center">
+		<section className="bg-bg-primary py-8 md:py-(--es-section-py) px-4 md:px-(--es-section-px)">
+			<div className="mx-auto max-w-(--es-max-w) ">
+				<div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 					<div className="flex flex-col gap-6">
 						<Typography
 							variant="h1"
-							className="font-medium leading-snug text-text-primary"
+							className="text-2xl md:text-[2rem] lg:text-[2.75rem] leading-tight font-medium text-text-primary"
 						>
-							Start Your EdTech Platform in 60 Seconds
+							Start Your EdTech <br /> Platform in 60 Seconds
 						</Typography>
 						<Typography
 							variant="h6"
