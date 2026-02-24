@@ -1,4 +1,4 @@
-import { CheckRightIcon } from "@/assets/icons/check-icons";
+import { CheckPlainIcon } from "@/assets/icons/check-icons";
 import { Button } from "@/components/ui/button";
 import { Typography } from "../ui-custom/typography";
 
@@ -31,7 +31,7 @@ export default function StartIn60SecondsSection() {
 						<ul className="flex flex-col gap-3">
 							{BENEFITS.map((benefit) => (
 								<li key={benefit} className="flex items-center gap-3">
-									<CheckRightIcon className="size-3" />
+									<CheckPlainIcon className="size-3" />
 									<Typography
 										variant="base"
 										className="font-normal leading-snug text-text-tertiary"

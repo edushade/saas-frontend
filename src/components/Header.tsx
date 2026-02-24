@@ -65,8 +65,10 @@ function FeaturesMenu() {
 														to={item.href}
 														className="flex items-start gap-3 rounded-lg py-2 transition-colors hover:bg-bg-secondary"
 													>
-														<div className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-bg-tertiary">
-															<item.icon size={14} className="text-brand" />
+														<div className="bg-bg-tertiary rounded-md p-0.5 hover:bg-bg-secondary">
+															<div className=" flex p-1 shrink-0 items-center justify-center rounded-md bg-bg-primary hover:bg-bg-secondary">
+																<item.icon className="text-brand-200 size-7 hover:text-brand-300" />
+															</div>
 														</div>
 														<div className="flex flex-col gap-1">
 															<Typography
@@ -134,13 +136,12 @@ function ResourcesMenu() {
 								<li key={item.label}>
 									<Link
 										to={item.href}
-										className="flex items-center gap-2.5 rounded-md px-3 py-2 text-sm text-text-secondary transition-colors hover:bg-bg-secondary hover:text-text-primary"
+										className="flex items-center gap-2.5 rounded-md px-3 py-2 transition-colors hover:bg-bg-secondary hover:text-text-on-brand"
 									>
-										<item.icon
-											size={15}
-											className="shrink-0 text-text-tertiary"
-										/>
-										{item.label}
+										<item.icon className="shrink-0 text-brand-200" />
+										<span className="text-text-secondary text-sm font-medium">
+											{item.label}
+										</span>
 									</Link>
 								</li>
 							))}
