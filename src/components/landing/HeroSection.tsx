@@ -1,5 +1,5 @@
 import { ChevronRight } from "lucide-react";
-import { VideoWahtIcon } from "@/assets/icons/video-icon";
+import { VideoWatchIcon } from "@/assets/icons";
 import { Avatar, AvatarFallback, AvatarGroup } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { TAGS, TRUST_AVATARS } from "@/constants/hero";
@@ -60,7 +60,7 @@ export default function HeroSection() {
 								variant="ghost"
 								className="text-text-primary font-medium md:text-lg hover:bg-transparent h-auto py-3 px-5 gap-2"
 							>
-								<VideoWahtIcon className="text-text-primary size-8 shrink-0" />
+								<VideoWatchIcon className="text-text-primary size-8 shrink-0" />
 								Watch Demo
 							</Button>
 						</div>

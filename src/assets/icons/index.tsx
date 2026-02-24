@@ -30,7 +30,7 @@ export {
 	UserSpeakRoundedIcon,
 	UsersGroupTwoRoundedIcon,
 } from "./user-icon";
-export { VideoIcon, VideoWahtIcon } from "./video-icon";
+export { VideoIcon, VideoWatchIcon } from "./video-icon";
 export { Widget6Icon } from "./widget-icons";
 export { WindowFrameIcon } from "./window-icons";
 export { XIcon } from "./X-icon";

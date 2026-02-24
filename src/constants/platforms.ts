@@ -23,12 +23,12 @@ export const PLATFORMS: PlatformItem[] = [
 	{
 		name: "Synergy",
 		stat: "$2M+ revenue",
-		logo: "/svgs/customer/velocity.svg",
+		logo: "/svgs/customer/synergy.svg",
 	},
 	{
 		name: "Enigma",
 		stat: "150+ educators",
-		logo: "/svgs/customer/velocity.svg",
+		logo: "/svgs/customer/engima.svg",
 	},
 	{
 		name: "Spectrum",

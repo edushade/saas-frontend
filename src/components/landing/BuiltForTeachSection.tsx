@@ -1,15 +1,14 @@
-import { Play } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CardShadeOverlay } from "../ui-custom/card-shade-overlay";
 import { Typography } from "../ui-custom/typography";
+import { VideoCard } from "./VideoCard";
 
 const TAB_CONTENT = {
 	creators: {
 		leftSrc: "/svgs/build-for-teach/1.svg",
 		leftAlt: "Create Learning Path — assign learners",
-		rightSrc: "/svgs/build-for-teach/2.svg",
+		rightSrc: "/videos/intro.mp4",
 		rightAlt: "Watch Intro",
 		videoLabel: "Watch Intro",
 	},
@@ -27,7 +26,7 @@ const TAB_CONTENT = {
 		rightAlt: "School intro",
 		videoLabel: "Watch Intro",
 	},
-} as const;
+};
 
 function ImageCard({ src, alt }: { src: string; alt: string }) {
 	return (
@@ -38,31 +37,6 @@ function ImageCard({ src, alt }: { src: string; alt: string }) {
 					alt={alt}
 					className="h-full w-full object-cover object-top"
 				/>
-			</div>
-		</div>
-	);
-}
-
-function VideoCard({
-	src,
-	alt,
-	label,
-}: {
-	src: string;
-	alt: string;
-	label: string;
-}) {
-	return (
-		<div className="relative h-full min-h-0 w-full overflow-hidden bg-bg-tertiary">
-			<img src={src} alt={alt} className="h-full w-full object-cover" />
-			<div className="absolute inset-0 flex items-center justify-center bg-black/30">
-				<Button
-					size="lg"
-					className="rounded-lg bg-black/70 hover:bg-black/80 text-white gap-2 h-auto px-5 py-3"
-				>
-					<Play className="size-5" />
-					{label}
-				</Button>
 			</div>
 		</div>
 	);

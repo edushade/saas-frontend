@@ -130,13 +130,13 @@ function ResourcesMenu() {
 					>
 						Resources
 					</NavigationMenuTrigger>
-					<NavigationMenuContent className="bg-bg-primary border-border-secondary shadow-[0px_0px_3px_-1px_#0A090B0A,0px_32px_33px_0px_#0A090B24]! p-1">
+					<NavigationMenuContent className="bg-bg-primary w-[212px] min-w-[212px] border-border-secondary shadow-[0px_0px_3px_-1px_#0A090B0A,0px_32px_33px_0px_#0A090B24]! p-1">
 						<ul>
 							{RESOURCES_ITEMS.map((item) => (
-								<li key={item.label}>
+								<li key={item.label} className="w-full">
 									<Link
 										to={item.href}
-										className="flex items-center gap-2.5 rounded-md px-3 py-2 transition-colors hover:bg-bg-secondary hover:text-text-on-brand"
+										className="flex items-center gap-2.5 rounded-md px-3 py-2 transition-colors hover:bg-bg-secondary hover:text-text-on-brand w-full"
 									>
 										<item.icon className="shrink-0 text-brand-200" />
 										<span className="text-text-secondary text-sm font-medium">
@@ -260,8 +260,14 @@ export default function Header() {
 	return (
 		<header className="fixed top-0 left-0 right-0 z-50 flex items-center px-(--es-section-px) h-(--es-nav-h) bg-bg-primary">
 			<div className="mx-auto w-full max-w-(--es-max-w) flex items-center justify-between">
-				<Link to="/" className="flex items-center shrink-0">
-					<img src="/svgs/logo.svg" alt="Edushade" className="h-10" />
+				<Link to="/" className="flex items-center w-[155px] h-[44px]">
+					<img
+						src="/svgs/logo.svg"
+						alt="Edushade"
+						width={155}
+						height={44}
+						className="h-full w-full object-contain"
+					/>
 				</Link>
 
 				<div className="flex items-center gap-3 shrink-0">
@@ -286,15 +292,14 @@ export default function Header() {
 					<div className="hidden md:flex items-center gap-3 shrink-0">
 						<Button
 							variant="outline"
-							size="sm"
 							asChild
-							className="text-text-dark-2 rounded-full text-sm font-medium hover:text-brand-300 hover:bg-bg-secondary"
+							className="text-text-dark-2 rounded-full text-sm font-medium hover:text-brand-300 hover:bg-bg-secondary py-3"
 						>
 							<Link to="/">Sign In</Link>
 						</Button>
 						<Button
 							asChild
-							className="btn-brand-1 text-text-primary rounded-full gap-1.5 text-sm font-medium"
+							className="btn-brand-1 py-3 text-text-primary rounded-full gap-1.5 text-sm font-medium"
 						>
 							<Link to="/">
 								Request a Demo

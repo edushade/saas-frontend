@@ -48,7 +48,18 @@ export const Route = createFileRoute("/")({
 				property: "og:url",
 				content: "https://edushade.com",
 			},
+			{
+				property: "og:image",
+				content: "https://edushade.com/og-image.png",
+			},
+			{ property: "og:image:width", content: "1200" },
+			{ property: "og:image:height", content: "630" },
+			{
+				name: "twitter:image",
+				content: "https://edushade.com/og-image.png",
+			},
 		],
+		links: [{ rel: "canonical", href: "https://edushade.com" }],
 		scripts: [
 			{
 				type: "application/ld+json",

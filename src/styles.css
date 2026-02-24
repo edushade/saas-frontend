@@ -172,13 +172,11 @@ code {
   --spacing-section-px: var(--es-section-px);
   --spacing-section-py: var(--es-section-py);
 
-  /* background */
   --color-bg-primary: var(--bg-primary);
   --color-bg-secondary: var(--bg-secondary);
   --color-bg-tertiary: var(--bg-tertiary);
   --color-bg-quaternary: var(--bg-quaternary);
 
-  /* custome colors */
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
   --color-text-tertiary: var(--text-tertiary);
@@ -187,11 +185,9 @@ code {
   --color-text-on-brand: var(--text-on-brand);
   --color-text-white-alpha: var(--text-white-alpha);
 
-  /* brand */
   --color-brand-300: var(--brand-300);
   --color-brand-200: var(--brand-200);
 
-  /* border */
   --color-border-primary: var(--border-primary);
   --color-border-secondary: var(--border-secondary);
   --color-border-tertiary: var(--border-tertiary);

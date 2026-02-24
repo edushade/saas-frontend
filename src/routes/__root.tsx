@@ -52,6 +52,15 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 				content:
 					"Design, launch, and grow your online courses — starting from intent, not setup.",
 			},
+			{ property: "og:locale", content: "en_US" },
+			// og:image — override per route if needed
+			{
+				property: "og:image",
+				content: "https://edushade.com/og-image.png",
+			},
+			{ property: "og:image:width", content: "1200" },
+			{ property: "og:image:height", content: "630" },
+			{ property: "og:image:alt", content: "Edushade — The Platform Built for How You Actually Teach" },
 			// Twitter Card defaults
 			{ name: "twitter:card", content: "summary_large_image" },
 			{
@@ -63,8 +72,15 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 				content:
 					"Design, launch, and grow your online courses — starting from intent, not setup.",
 			},
+			{
+				name: "twitter:image",
+				content: "https://edushade.com/og-image.png",
+			},
 		],
 		links: [
+			{ rel: "icon", href: "/favicon.ico", sizes: "any" },
+			{ rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
+			{ rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
 			{ rel: "preconnect", href: "https://fonts.googleapis.com" },
 			{
 				rel: "preconnect",
@@ -94,7 +110,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 				<TanStackQueryProvider>
 					<div className="flex min-h-screen flex-col">
 						<Header />
-						<main className="flex flex-1 flex-col">{children}</main>
+						<div className="flex flex-1 flex-col">{children}</div>
 						<Footer />
 					</div>
 
