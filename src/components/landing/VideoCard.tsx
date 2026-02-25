@@ -1,15 +1,18 @@
 import { useRef, useState } from "react";
 import { VideoWatchIcon } from "@/assets/icons";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 export function VideoCard({
 	src,
 	alt,
 	label,
+	className,
 }: {
 	src: string;
 	alt: string;
 	label: string;
+	className?: string;
 }) {
 	const videoRef = useRef<HTMLVideoElement>(null);
 	const [playing, setPlaying] = useState(false);
@@ -19,7 +22,12 @@ export function VideoCard({
 	}
 
 	return (
-		<div className="relative h-full min-h-0 w-full overflow-hidden bg-bg-tertiary">
+		<div
+			className={cn(
+				"relative h-full min-h-0 w-full overflow-hidden bg-bg-tertiary rounded-lg",
+				className,
+			)}
+		>
 			<video
 				ref={videoRef}
 				controls

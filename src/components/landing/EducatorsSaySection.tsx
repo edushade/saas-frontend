@@ -21,6 +21,7 @@ function TestimonialCard({
 	variant,
 	company,
 	avatarSrc,
+	profileSrc,
 	logoSrc,
 }: Testimonial) {
 	const isGradient = variant === "gradient";
@@ -101,11 +102,11 @@ function TestimonialCard({
 						)}
 					>
 						<Avatar size="lg" className="size-16 shrink-0">
-							{avatarSrc && (
+							{(profileSrc ?? avatarSrc) && (
 								<AvatarImage
-									src={avatarSrc}
+									src={profileSrc ?? avatarSrc}
 									alt={name}
-									className="object-cover"
+									className={profileSrc ? "object-contain" : "object-cover"}
 								/>
 							)}
 							<AvatarFallback

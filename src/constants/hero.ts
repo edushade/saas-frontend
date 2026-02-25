@@ -35,7 +35,21 @@ export const EXAM_BARS = [
 ];
 
 export const TRUST_AVATARS = [
-	{ fallback: "A", className: "bg-orange-400 text-white" },
-	{ fallback: "B", className: "bg-blue-400 text-white" },
-	{ fallback: "C", className: "bg-green-500 text-white" },
+	{
+		fallback: "A",
+		className: "bg-orange-400 text-white",
+		src: "/svgs/user/1.svg",
+	},
+	{
+		fallback: "B",
+		className: "bg-blue-400 text-white",
+		src: "/svgs/user/2.svg",
+	},
+	{
+		fallback: "C",
+		className: "bg-green-500 text-white",
+		src: "/svgs/user/3.svg",
+	},
 ];
+
+export const DEMO_VIDEO_SRC = "/videos/intro.mp4";

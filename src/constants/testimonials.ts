@@ -11,6 +11,7 @@ export interface Testimonial {
 	role: string;
 	initial: string;
 	avatarSrc?: string;
+	profileSrc?: string;
 }
 
 export const TESTIMONIALS: Testimonial[] = [
@@ -22,6 +23,7 @@ export const TESTIMONIALS: Testimonial[] = [
 		name: "Anya Petrova",
 		role: "Director of Innovation, GlobalEd Initiative",
 		initial: "AP",
+		profileSrc: "/svgs/educator-say/anya.svg",
 	},
 
 	{
@@ -32,6 +34,7 @@ export const TESTIMONIALS: Testimonial[] = [
 		name: "Clara Johnson",
 		role: "Curriculum Developer, BrightFuture Academy",
 		initial: "CJ",
+		profileSrc: "/svgs/educator-say/clara.svg",
 	},
 
 	{
@@ -45,7 +48,7 @@ export const TESTIMONIALS: Testimonial[] = [
 		name: "Jane Cooper",
 		role: "Founder of Velocity",
 		initial: "JC",
-		avatarSrc: "https://api.dicebear.com/9.x/avataaars/svg?seed=Jane",
+		profileSrc: "/svgs/educator-say/jane.svg",
 	},
 
 	{
@@ -59,6 +62,7 @@ export const TESTIMONIALS: Testimonial[] = [
 		name: "Jane Cooper",
 		role: "Founder of Velocity",
 		initial: "JC",
+		profileSrc: "/svgs/educator-say/jane.svg",
 	},
 	{
 		id: "5",
@@ -68,6 +72,7 @@ export const TESTIMONIALS: Testimonial[] = [
 		name: "Markus Lee",
 		role: "Director of Student Success, LearnWave",
 		initial: "ML",
+		profileSrc: "/svgs/educator-say/markus.svg",
 	},
 	{
 		id: "6",
@@ -77,6 +82,7 @@ export const TESTIMONIALS: Testimonial[] = [
 		name: "Sofia Patel",
 		role: "Founder, NextGen Education",
 		initial: "SP",
+		profileSrc: "/svgs/educator-say/sofia.svg",
 	},
 
 	{
@@ -87,6 +93,7 @@ export const TESTIMONIALS: Testimonial[] = [
 		name: "Anya Petrova",
 		role: "Director of Innovation, GlobalEd Initiative",
 		initial: "AP",
+		profileSrc: "/svgs/educator-say/anya.svg",
 	},
 	{
 		id: "8",

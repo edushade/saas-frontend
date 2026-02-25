@@ -1,13 +1,17 @@
 import { ChevronRight } from "lucide-react";
-import { VideoWatchIcon } from "@/assets/icons";
-import { Avatar, AvatarFallback, AvatarGroup } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
+import {
+	Avatar,
+	AvatarFallback,
+	AvatarGroup,
+	AvatarImage,
+} from "@/components/ui/avatar";
 import { TAGS, TRUST_AVATARS } from "@/constants/hero";
 import { Card, CardContent } from "../ui/card";
 import { CardShadeOverlay } from "../ui-custom/card-shade-overlay";
 import { RainbowButton } from "../ui-custom/rainbow-button";
 import { Typography } from "../ui-custom/typography";
 import { ComposeModelTags } from "./ComposeModelTags";
+import { HeroCtaButtons } from "./HeroCtaButtons";
 
 export default function HeroSection() {
 	return (
@@ -17,11 +21,12 @@ export default function HeroSection() {
 					<div className="flex flex-col items-center md:items-start gap-4">
 						<RainbowButton
 							variant="outline"
-							className="w-fit gap-3 shadow rounded-full px-2 py-2 text-sm text-text-secondary"
+							className="w-fit gap-3 shadow rounded-full px-1 py-2 text-sm"
 						>
 							<AvatarGroup>
 								{TRUST_AVATARS.map((a) => (
 									<Avatar key={a.fallback} size="sm">
+										<AvatarImage src={a.src} alt="" />
 										<AvatarFallback className={a.className}>
 											{a.fallback}
 										</AvatarFallback>
@@ -30,7 +35,7 @@ export default function HeroSection() {
 							</AvatarGroup>
 							<Typography
 								variant="small"
-								className="font-normal text-[#262626]"
+								className="font-medium text-[#262626]"
 							>
 								Trusted by 12,000+ creators
 							</Typography>
@@ -52,18 +57,7 @@ export default function HeroSection() {
 							One platform that adapts to how you teach and scale.
 						</Typography>
 
-						<div className="flex flex-row items-center gap-2 md:gap-5">
-							<Button className="btn-brand-1 font-medium md:text-lg rounded-full  text-white h-auto">
-								Build Your Academy
-							</Button>
-							<Button
-								variant="ghost"
-								className="text-text-primary font-medium md:text-lg hover:bg-transparent h-auto py-3 px-5 gap-2"
-							>
-								<VideoWatchIcon className="text-text-primary size-8 shrink-0" />
-								Watch Demo
-							</Button>
-						</div>
+						<HeroCtaButtons />
 					</div>
 
 					<div className="flex flex-col items-center md:items-start gap-2 md:gap-6 pt-2">

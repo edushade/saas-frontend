@@ -232,6 +232,11 @@ code {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-8px); }
 }
+/* Dark glow pulse for rainbow button top */
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 0.85; }
+}
 
 @layer base {
   * {
@@ -246,6 +251,9 @@ code {
 @layer utilities {
   .animate-vector-float {
     animation: vector-float 4s ease-in-out infinite;
+  }
+  .animate-glow-pulse {
+    animation: glow-pulse 2.5s ease-in-out infinite;
   }
   .btn-brand-1 {
     --btn-brand-bg: var(--brand-300, #0066FF);
