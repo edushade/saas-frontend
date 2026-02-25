@@ -243,7 +243,7 @@ export default function PricingSection() {
 					</div>
 				</div>
 
-				<div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+				<div className="grid grid-cols-1 gap-8 md:grid-cols-3 items-stretch">
 					{PRICING_PLANS.map((plan) => (
 						<PricingCard key={plan.id} plan={plan} />
 					))}
