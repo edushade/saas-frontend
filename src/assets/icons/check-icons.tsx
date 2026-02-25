@@ -86,3 +86,25 @@ export const CheckPlainIcon = ({
 		/>
 	</svg>
 );
+
+export const CheckBoldIcon = ({
+	className,
+	...props
+}: SVGProps<SVGSVGElement>) => (
+	<svg
+		width={8}
+		height={8}
+		viewBox="0 0 8 8"
+		fill="none"
+		xmlns="http://www.w3.org/2000/svg"
+		aria-hidden="true"
+		className={className}
+		{...props}
+	>
+		<path
+			d="M1.33301 4L2.99967 5.66667L6.66634 2"
+			stroke="#0066FF"
+			strokeWidth={1.5}
+		/>
+	</svg>
+);

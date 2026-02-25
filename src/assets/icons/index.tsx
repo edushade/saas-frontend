@@ -4,7 +4,7 @@ export { CalendarIcon } from "./calendar-icons";
 export { CapIcon } from "./cap-icon";
 export { Chart2Icon, GraphNewUpIcon, PieChart3Icon } from "./chart-icons";
 export { ChatUnreadIcon } from "./chat-icons";
-export { CheckPlainIcon, CheckRightIcon } from "./check-icons";
+export { CheckBoldIcon, CheckPlainIcon, CheckRightIcon } from "./check-icons";
 export { ClapperboardPlayIcon } from "./clapperboard-icons";
 export { ClipboardListIcon } from "./clipboard-icons";
 export { CupStarIcon } from "./cup-icons";
