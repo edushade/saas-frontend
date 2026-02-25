@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, Menu } from "lucide-react";
-
+import { DiamondIcon } from "@/assets/icons";
 import {
 	Accordion,
 	AccordionContent,
@@ -95,14 +95,20 @@ function FeaturesMenu() {
 							{/* CTA bar */}
 							<CardFooter className="border-t border-border-secondary   items-center w-full">
 								<div className="bg-bg-secondary w-full px-3 py-2 flex items-center justify-between rounded-lg">
-									<Typography variant="small" className="leading-relaxed">
-										<span className="font-medium text-text-primary">
-											{FEATURES_CTA.highlight}
-										</span>{" "}
-										<span className="font-normal leading-relaxed text-text-secondary">
-											{FEATURES_CTA.text}
-										</span>
-									</Typography>
+									<div className="flex items-center gap-3">
+										<div className="p-1 rounded-full bg-brand-200 shrink-0 hover:bg-bg-secondary">
+											<DiamondIcon className="text-brand-300" />
+										</div>
+										<Typography variant="small" className="leading-relaxed">
+											<span className="font-medium text-text-primary">
+												{FEATURES_CTA.highlight}
+											</span>{" "}
+											<span className="font-normal leading-relaxed text-text-secondary">
+												{FEATURES_CTA.text}
+											</span>
+										</Typography>
+									</div>
+
 									<Button className="btn-brand-1 rounded-full">
 										{FEATURES_CTA.button}
 									</Button>

@@ -227,6 +227,11 @@ code {
   from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+/* Gentle float for educator-say vector (smooth, rounded motion) */
+@keyframes vector-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
 
 @layer base {
   * {
@@ -239,6 +244,9 @@ code {
 
 
 @layer utilities {
+  .animate-vector-float {
+    animation: vector-float 4s ease-in-out infinite;
+  }
   .btn-brand-1 {
     --btn-brand-bg: var(--brand-300, #0066FF);
     background: var(--btn-brand-bg);

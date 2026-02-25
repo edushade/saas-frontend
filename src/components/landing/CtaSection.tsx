@@ -7,22 +7,23 @@ export default function CtaSection() {
 	return (
 		<section className="bg-bg-primary py-8 md:py-(--es-section-py) px-4 md:px-(--es-section-px)">
 			<div className="mx-auto max-w-(--es-max-w) ">
-				<Card className="relative border-border-secondary shadow-none overflow-hidden rounded-3xl bg-bg-primary">
-					{/* Bottom-left glow — must be before shade so shade overlays it */}
-					<div
+				<Card className="relative border-border-secondary min-h-[400px] flex flex-col justify-center items-center py-0 shadow-none overflow-hidden rounded-4xl bg-bg-primary">
+					<img
+						src="/svgs/cta/Background Vectors.svg"
+						alt=""
 						aria-hidden
-						className="pointer-events-none absolute -bottom-24 -left-24 z-0 h-[300px] w-[300px] rounded-full bg-brand-300/60 blur-[100px]"
+						className="pointer-events-none absolute bottom-0 left-0 z-0 h-[280px] w-auto max-w-full object-cover object-right"
+					/>
+					<img
+						src="/svgs/cta/Background Vectors 2.svg"
+						alt=""
+						aria-hidden
+						className="pointer-events-none absolute bottom-0 right-0 z-0 h-[280px] w-auto max-w-full  object-cover object-left"
 					/>
 
-					{/* Bottom-right glow */}
-					<div
-						aria-hidden
-						className="pointer-events-none absolute -bottom-24 -right-24 z-0 h-[300px] w-[300px] rounded-full bg-brand-300/60 blur-[100px]"
-					/>
+					<CardShadeOverlay className="backdrop-blur-[80px] bg-[repeating-linear-gradient(270deg,rgba(255,255,255,0.05)_0px,rgba(255,255,255,0)_40px,rgba(255,255,255,0.2)_80px)]" />
 
-					<CardShadeOverlay className="backdrop-blur-[80px] bg-[repeating-linear-gradient(90deg,rgba(255,255,255,0.05)_0px,rgba(255,255,255,0)_53.53px,rgba(255,255,255,0.2)_85.33px)]" />
-
-					<CardContent className="relative z-10 px-8 py-14 text-center lg:py-20">
+					<CardContent className="relative z-10 flex w-full flex-1 min-h-0 flex-col justify-center items-center px-8 py-14 text-center lg:py-20">
 						<Typography
 							variant="h1"
 							className="mx-auto mb-4 text-2xl md:text-[2rem] lg:text-[2.75rem] leading-tight font-medium text-text-primary"

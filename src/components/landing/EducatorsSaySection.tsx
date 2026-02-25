@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
 import type { Testimonial } from "@/constants/testimonials";
 import {
@@ -7,51 +7,107 @@ import {
 	TESTIMONIALS_INITIAL_COUNT,
 	TESTIMONIALS_LOAD_MORE_COUNT,
 } from "@/constants/testimonials";
+import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
+import { CardShadeOverlay } from "../ui-custom/card-shade-overlay";
 import { Typography } from "../ui-custom/typography";
 
 function TestimonialCard({
+	id,
 	quote,
 	name,
 	role,
 	initial,
 	variant,
-	rowSpan,
-	gradientKind,
 	company,
+	avatarSrc,
+	logoSrc,
 }: Testimonial) {
 	const isGradient = variant === "gradient";
-	const gradientClass =
-		gradientKind === "purple-pink"
-			? "bg-linear-to-br from-purple-600 to-pink-500"
-			: gradientKind === "green"
-				? "bg-linear-to-br from-emerald-600 to-teal-500"
-				: "";
+	const isId3 = id === "3";
+	const isId4 = id === "4";
+
+	const cardBgClass = isId3 ? "bg-[#B30065]" : isId4 ? "bg-[#108700]" : "";
+	const gradientLayerClass = isId3
+		? "bg-[linear-gradient(360deg,#1A1918_0%,rgba(26,25,24,0)_90%)]"
+		: isId4
+			? "bg-[linear-gradient(360deg,#108700_0%,rgba(16,135,0,0)_90%)]"
+			: "";
+	const overlayClass = isId3
+		? "backdrop-blur-[100px] bg-[repeating-linear-gradient(270deg,rgba(255,255,255,0)_0px,rgba(255,255,255,0.08)_60px)] [background-image:repeating-linear-gradient(270deg,rgba(255,255,255,0)_0px,rgba(255,255,255,0.08)_60px),linear-gradient(0deg,rgba(255,255,255,0.15)_0%,rgba(255,255,255,0)_50%)]"
+		: isId4
+			? " backdrop-blur-[100px] bg-[repeating-linear-gradient(90deg,rgba(255,255,255,0)_0px,rgba(255,255,255,0.08)_60px)] [background-image:repeating-linear-gradient(90deg,rgba(255,255,255,0)_0px,rgba(255,255,255,0.08)_60px),linear-gradient(0deg,rgba(255,255,255,0.15)_0%,rgba(255,255,255,0)_50%)]"
+			: "";
 
 	return (
 		<Card
-			className={`flex h-full min-h-0 flex-col overflow-hidden rounded-3xl py-0 border-none shadow-none ${rowSpan === 2 ? "md:row-span-2" : ""} ${isGradient ? "border-0 text-white" : "bg-bg-tertiary shadow-sm text-card-foreground"}`}
+			className={`flex h-full min-h-0 flex-col overflow-hidden max-w-[408px] rounded-[20px] py-0 border-none shadow-none ${isGradient ? "border-0 text-white" : "bg-bg-tertiary shadow-sm text-card-foreground"} ${cardBgClass}`}
 		>
 			<div
-				className={`relative flex min-h-0 flex-1 flex-col gap-4 p-6 ${gradientClass}`}
+				className={`relative z-20 flex min-h-0 flex-1 flex-col gap-4 p-6 ${gradientLayerClass}`}
 			>
+				<CardShadeOverlay className={overlayClass} />
+
 				{isGradient && (
 					<div
-						className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.15)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.15)_1px,transparent_1px)] bg-size-[20px_20px] opacity-[0.12]"
 						aria-hidden
+						className="pointer-events-none absolute bottom-0 left-0 right-0 z-[3]  h-full	 bg-[linear-gradient(0deg,rgba(0,0,0,0.8)_0%,rgba(0,0,0,0)_100%)] rounded-b-[20px]"
 					/>
 				)}
-				{isGradient && company && (
-					<p className="relative z-10 text-sm font-semibold tracking-wide text-white/95">
-						{company}
-					</p>
+
+				{isGradient && (
+					<div
+						aria-hidden
+						className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center p-6"
+					>
+						<img
+							src="/svgs/educator-say/Vector.svg"
+							alt=""
+							className="h-auto max-h-full w-auto max-w-full object-contain opacity-90 animate-vector-float"
+						/>
+					</div>
 				)}
-				<CardContent className="relative z-10 flex flex-1 flex-col gap-4 p-0">
-					<blockquote className="flex-1 text-base font-normal text-text-primary leading-snug">
+
+				{isGradient && company && logoSrc && (
+					<div className="relative z-20 flex h-[40px] w-[120px] shrink-0 items-center">
+						<img
+							src={logoSrc}
+							alt={company}
+							className="h-full w-full object-contain object-left"
+						/>
+					</div>
+				)}
+				<CardContent
+					className={cn(
+						"relative z-10 flex min-h-0 flex-1 flex-col gap-4 p-0",
+						isGradient && "justify-end",
+					)}
+				>
+					<blockquote
+						className={cn(
+							"text-base font-normal leading-snug",
+							isGradient
+								? "shrink-0  text-white/90"
+								: "min-h-0 flex-1 text-text-primary",
+						)}
+					>
 						&quot;{quote}&quot;
 					</blockquote>
-					<div className="mt-auto flex items-center gap-3">
+					<div
+						className={cn(
+							"flex shrink-0 items-center gap-3",
+							!isGradient && "mt-auto",
+							isGradient && "pt-2",
+						)}
+					>
 						<Avatar size="lg" className="size-16 shrink-0">
+							{avatarSrc && (
+								<AvatarImage
+									src={avatarSrc}
+									alt={name}
+									className="object-cover"
+								/>
+							)}
 							<AvatarFallback
 								className={`size-16 ${
 									isGradient
@@ -119,17 +175,19 @@ export default function EducatorsSaySection() {
 					</Typography>
 				</div>
 
-				<div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:auto-rows-[minmax(200px,1fr)]">
+				<div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-7 md:auto-rows-[minmax(200px,1fr)]">
 					{visible.map((t) => (
-						<TestimonialCard key={t.id} {...t} />
+						<div key={t.id} className={t.rowSpan === 2 ? "md:row-span-2" : ""}>
+							<TestimonialCard {...t} />
+						</div>
 					))}
 				</div>
 
-				<div className="mt-10 flex justify-center">
+				<div className="flex justify-center">
 					{isExpanded ? (
 						<Button
 							variant="secondary"
-							className="rounded-lg bg-bg-tertiary px-6 font-medium text-sm leading-snug text-text-primary hover:bg-bg-tertiary/80"
+							className="rounded-xl bg-bg-tertiary  font-medium text-sm leading-snug text-text-primary hover:bg-bg-tertiary/80"
 							onClick={handleSeeLess}
 						>
 							See Less
@@ -138,7 +196,7 @@ export default function EducatorsSaySection() {
 						hasMore && (
 							<Button
 								variant="secondary"
-								className="rounded-lg bg-bg-tertiary px-6 font-medium text-sm leading-snug text-text-primary hover:bg-bg-tertiary/80"
+								className="rounded-xl bg-bg-tertiary  font-medium text-sm leading-snug text-text-primary hover:bg-bg-tertiary/80"
 								onClick={handleSeeMore}
 							>
 								See More

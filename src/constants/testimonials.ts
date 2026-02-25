@@ -1,18 +1,16 @@
 export type TestimonialVariant = "white" | "gradient";
 
-export type TestimonialGradientKind = "purple-pink" | "green";
-
 export interface Testimonial {
 	id: string;
 	variant: TestimonialVariant;
 	rowSpan?: 1 | 2;
-	gradientKind?: TestimonialGradientKind;
 	company?: string;
 	logoSrc?: string;
 	quote: string;
 	name: string;
 	role: string;
 	initial: string;
+	avatarSrc?: string;
 }
 
 export const TESTIMONIALS: Testimonial[] = [
@@ -40,21 +38,22 @@ export const TESTIMONIALS: Testimonial[] = [
 		id: "3",
 		variant: "gradient",
 		rowSpan: 2,
-		gradientKind: "purple-pink",
 		company: "Velocity",
+		logoSrc: "/svgs/educator-say/3.svg",
 		quote:
 			"Edushade's custom reports gave us key insights into our performance and helped us improve our business.",
-		name: "munna Cooper",
+		name: "Jane Cooper",
 		role: "Founder of Velocity",
 		initial: "JC",
+		avatarSrc: "https://api.dicebear.com/9.x/avataaars/svg?seed=Jane",
 	},
 
 	{
 		id: "4",
 		variant: "gradient",
 		rowSpan: 2,
-		gradientKind: "green",
 		company: "Velocity",
+		logoSrc: "/svgs/educator-say/3.svg",
 		quote:
 			"Edushade's custom reports gave us key insights into our performance and helped us improve our business.",
 		name: "Jane Cooper",
@@ -118,8 +117,5 @@ export const TESTIMONIALS: Testimonial[] = [
 	},
 ];
 
-/** Number of testimonials shown initially (grid layout preserved when adding more). */
 export const TESTIMONIALS_INITIAL_COUNT = 7;
-
-/** How many to add each time "See More" is clicked. */
 export const TESTIMONIALS_LOAD_MORE_COUNT = 3;

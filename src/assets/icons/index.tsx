@@ -9,6 +9,7 @@ export { ClapperboardPlayIcon } from "./clapperboard-icons";
 export { ClipboardListIcon } from "./clipboard-icons";
 export { CupStarIcon } from "./cup-icons";
 export { DialogIcon } from "./dialog-icons";
+export { DiamondIcon } from "./diamond-icons";
 export { DiplomaIcon } from "./diploma-icons";
 export { DiscordIcon } from "./discord-icon";
 export { FacebookIcon } from "./facebook-icon";

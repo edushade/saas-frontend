@@ -45,13 +45,13 @@ export default function FAQSection() {
 						type="single"
 						collapsible
 						defaultValue="faq-1"
-						className="w-full space-y-3"
+						className="w-full space-y-4"
 					>
 						{FAQ_ITEMS.map((item, index) => (
 							<AccordionItem
 								key={item.question}
 								value={`faq-${index}`}
-								className="rounded-2xl border border-border-primary bg-white px-4 shadow-none data-[state=open]:bg-[#F8F9FC]"
+								className="rounded-2xl border border-border-secondary data-[state=open]:border-none bg-bg-primary px-4 shadow-xs data-[state=open]:shadow-none data-[state=open]:bg-bg-secondary"
 							>
 								<AccordionTrigger className="group/faq [&>svg]:hidden items-center py-4 text-left hover:no-underline">
 									<span className="flex-1 text-left text-sm font-medium text-text-primary">
@@ -66,7 +66,7 @@ export default function FAQSection() {
 										</span>
 									</span>
 								</AccordionTrigger>
-								<AccordionContent className="text-left text-text-secondary pb-4 pt-0">
+								<AccordionContent className="text-left text-text-secondary ">
 									{item.answer}
 								</AccordionContent>
 							</AccordionItem>

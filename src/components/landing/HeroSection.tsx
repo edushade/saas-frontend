@@ -12,7 +12,7 @@ import { ComposeModelTags } from "./ComposeModelTags";
 export default function HeroSection() {
 	return (
 		<section className="bg-bg-primary pt-(--es-nav-h) px-4 md:px-(--es-section-px)">
-			<div className="mx-auto grid max-w-(--es-max-w) grid-cols-1 items-stretch gap-6  pt-8 pb-6  md:pt-16 md:pb-8 lg:grid-cols-2">
+			<div className="mx-auto grid max-w-(--es-max-w) grid-cols-1 items-stretch gap-6  pt-8 pb-8  md:pt-16 md:pb-16 lg:grid-cols-2">
 				<div className="flex min-h-0 flex-col justify-between gap-2">
 					<div className="flex flex-col items-center md:items-start gap-4">
 						<RainbowButton

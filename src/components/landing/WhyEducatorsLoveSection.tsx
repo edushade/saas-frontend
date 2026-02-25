@@ -30,11 +30,17 @@ export default function WhyEducatorsLoveSection() {
 						<Card
 							key={feature.title}
 							className={cn(
-								"bg-bg-primary shadow-[0px_0px_0px_1px_#0A090B0D,0px_2px_7px_0px_#0A090B0D,0px_2px_5px_-2px_#0A090B0F] border-none relative overflow-hidden rounded-xl h-[312px] flex flex-col transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-xl cursor-pointer",
-								feature.gradientClassName,
+								"bg-bg-primary  border-none relative overflow-hidden rounded-xl h-[312px] flex flex-col transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-xl cursor-pointer",
 							)}
 						>
-							<CardShadeOverlay className="backdrop-blur-[100px] bg-[repeating-linear-gradient(180deg,rgba(255,255,255,0)_0px,rgba(255,255,255,0.05)_20px,rgba(255,255,255,0.2)_47.15px,rgba(255,255,255,0.4)_65px,rgba(255,255,255,0.5)20.33px)]" />
+							<div
+								aria-hidden
+								className={cn(
+									"pointer-events-none absolute inset-0 z-0 rounded-xl",
+									feature.gradientClassName,
+								)}
+							/>
+							<CardShadeOverlay className="backdrop-blur-[100px] bg-[repeating-linear-gradient(180deg,rgba(255,255,255,0)_0px,rgba(255,255,255,0.05)_20px,rgba(255,255,255,0.2)_47.15px,rgba(255,255,255,0.4)_45px)]" />
 							<CardContent className="relative z-10">
 								<Typography
 									variant="h5"
