@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { Plus } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -12,9 +13,26 @@ export interface BlogCardProps {
 	post: BlogPostCardItem;
 }
 
+function CardLink({
+	slug,
+	children,
+}: {
+	slug?: string;
+	children: React.ReactNode;
+}) {
+	if (slug) {
+		return (
+			<Link to="/blogs/$slug" params={{ slug }} className="block h-full">
+				{children}
+			</Link>
+		);
+	}
+	return <>{children}</>;
+}
+
 export function VerticalBlogCard({ post }: BlogCardProps) {
-	return (
-		<Card className="flex flex-col rounded-2xl shadow-sm border border-border-primary bg-[rgba(248,249,252,1)] md:rounded-4xl lg:min-h-0 lg:h-full">
+	const card = (
+		<Card className="flex flex-col rounded-2xl shadow-sm border border-border-primary bg-[rgba(248,249,252,1)] md:rounded-4xl lg:min-h-0 lg:h-full transition-shadow hover:shadow-md">
 			<CardContent className="shrink-0">
 				<div className="bg-[#F5F5F5] rounded-xl md:rounded-4xl overflow-hidden">
 					<img
@@ -72,11 +90,12 @@ export function VerticalBlogCard({ post }: BlogCardProps) {
 			</CardContent>
 		</Card>
 	);
+	return <CardLink slug={post.slug}>{card}</CardLink>;
 }
 
 export function HorizontalBlogCard({ post }: BlogCardProps) {
-	return (
-		<Card className="shrink-0 border-none rounded-4xl bg-[#F8F9FC] shadow-none">
+	const card = (
+		<Card className="shrink-0 border-none rounded-4xl bg-[#F8F9FC] shadow-none transition-shadow hover:shadow-sm">
 			<CardContent className="flex flex-col gap-4 sm:flex-row sm:gap-4">
 				<img
 					src={post.imageSrc}
@@ -119,4 +138,5 @@ export function HorizontalBlogCard({ post }: BlogCardProps) {
 			</CardContent>
 		</Card>
 	);
+	return <CardLink slug={post.slug}>{card}</CardLink>;
 }

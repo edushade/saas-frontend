@@ -19,6 +19,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as IntegrationsIndexRouteImport } from './routes/integrations.index'
 import { Route as BlogsIndexRouteImport } from './routes/blogs.index'
 import { Route as IntegrationsSlugRouteImport } from './routes/integrations.$slug'
+import { Route as BlogsSlugRouteImport } from './routes/blogs.$slug'
 
 const RequestDemoRoute = RequestDemoRouteImport.update({
   id: '/request-demo',
@@ -70,6 +71,11 @@ const IntegrationsSlugRoute = IntegrationsSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => IntegrationsRoute,
 } as any)
+const BlogsSlugRoute = BlogsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => BlogsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -79,6 +85,7 @@ export interface FileRoutesByFullPath {
   '/integrations': typeof IntegrationsRouteWithChildren
   '/pricing': typeof PricingRoute
   '/request-demo': typeof RequestDemoRoute
+  '/blogs/$slug': typeof BlogsSlugRoute
   '/integrations/$slug': typeof IntegrationsSlugRoute
   '/blogs/': typeof BlogsIndexRoute
   '/integrations/': typeof IntegrationsIndexRoute
@@ -89,6 +96,7 @@ export interface FileRoutesByTo {
   '/contact-us': typeof ContactUsRoute
   '/pricing': typeof PricingRoute
   '/request-demo': typeof RequestDemoRoute
+  '/blogs/$slug': typeof BlogsSlugRoute
   '/integrations/$slug': typeof IntegrationsSlugRoute
   '/blogs': typeof BlogsIndexRoute
   '/integrations': typeof IntegrationsIndexRoute
@@ -102,6 +110,7 @@ export interface FileRoutesById {
   '/integrations': typeof IntegrationsRouteWithChildren
   '/pricing': typeof PricingRoute
   '/request-demo': typeof RequestDemoRoute
+  '/blogs/$slug': typeof BlogsSlugRoute
   '/integrations/$slug': typeof IntegrationsSlugRoute
   '/blogs/': typeof BlogsIndexRoute
   '/integrations/': typeof IntegrationsIndexRoute
@@ -116,6 +125,7 @@ export interface FileRouteTypes {
     | '/integrations'
     | '/pricing'
     | '/request-demo'
+    | '/blogs/$slug'
     | '/integrations/$slug'
     | '/blogs/'
     | '/integrations/'
@@ -126,6 +136,7 @@ export interface FileRouteTypes {
     | '/contact-us'
     | '/pricing'
     | '/request-demo'
+    | '/blogs/$slug'
     | '/integrations/$slug'
     | '/blogs'
     | '/integrations'
@@ -138,6 +149,7 @@ export interface FileRouteTypes {
     | '/integrations'
     | '/pricing'
     | '/request-demo'
+    | '/blogs/$slug'
     | '/integrations/$slug'
     | '/blogs/'
     | '/integrations/'
@@ -225,14 +237,23 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IntegrationsSlugRouteImport
       parentRoute: typeof IntegrationsRoute
     }
+    '/blogs/$slug': {
+      id: '/blogs/$slug'
+      path: '/$slug'
+      fullPath: '/blogs/$slug'
+      preLoaderRoute: typeof BlogsSlugRouteImport
+      parentRoute: typeof BlogsRoute
+    }
   }
 }
 
 interface BlogsRouteChildren {
+  BlogsSlugRoute: typeof BlogsSlugRoute
   BlogsIndexRoute: typeof BlogsIndexRoute
 }
 
 const BlogsRouteChildren: BlogsRouteChildren = {
+  BlogsSlugRoute: BlogsSlugRoute,
   BlogsIndexRoute: BlogsIndexRoute,
 }
 

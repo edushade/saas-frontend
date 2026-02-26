@@ -1,45 +1,26 @@
+import { Link } from "@tanstack/react-router";
 import {
 	type BlogPostCardItem,
 	HorizontalBlogCard,
 	VerticalBlogCard,
 } from "@/components/blog";
+import { getRecentBlogPosts } from "@/constants/blogs";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Typography } from "../ui-custom/typography";
 
-const SIDE_POSTS: BlogPostCardItem[] = [
-	{
-		headline: "Designing Learning Systems From the Educator's Perspective",
-		tag: "Posts",
-		tagClass: "bg-[#0E2D2A] text-white border-0",
-		date: "Jan 31, 2026",
-		imageSrc: "/svgs/resource-center/3.svg",
-		imageAlt: "Dashboard UI preview",
-	},
-	{
-		headline: "Designing Learning Systems From the Educator's Perspective",
-		tag: "Update",
-		tagClass: "bg-[#2FC7B9] text-white border-0",
-		date: "Jan 31, 2026",
-		imageSrc: "/svgs/resource-center/4.svg",
-		imageAlt: "Question Settings UI preview",
-	},
-];
+export interface RecentBlogSectionProps {
+	/** When provided (e.g. from route loader), use these instead of fetching recent posts. */
+	posts?: BlogPostCardItem[];
+}
 
-const FEATURED_POST: BlogPostCardItem = {
-	headline: "Designing Learning Systems From the Educator's Perspective",
-	tag: "News",
-	tagClass: "bg-[#0E2D2A] text-white",
-	date: "Jan 31, 2026",
-	imageSrc: "/svgs/resource-center/Sidebar.svg",
-	imageAlt: "Resource Center",
-	description:
-		"Why starting with educator intent leads to better learning outcomes and simpler platforms. A clear comparison of system design, flexibility, and rol...",
-};
+export default function RecentBlogSection({ posts: postsProp }: RecentBlogSectionProps = {}) {
+	const recentPosts = postsProp ?? getRecentBlogPosts();
+	const featuredPost = recentPosts[0];
+	const sidePosts = recentPosts.slice(1, 3);
 
-export default function RecentBlogSection() {
 	return (
 		<section className="bg-bg-primary py-8 md:py-(--es-section-py) px-4 md:px-(--es-section-px)">
 			<div className="mx-auto max-w-(--es-max-w) ">
@@ -62,18 +43,21 @@ export default function RecentBlogSection() {
 					<Badge
 						variant="outline"
 						className="rounded-lg px-6 text-text-primary h-10 text-sm font-medium"
+						asChild
 					>
-						Browse All Posts
+						<Link to="/blogs" search={{ page: 1 }}>
+							Browse All Posts
+						</Link>
 					</Badge>
 				</div>
 
 				<div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:items-stretch">
-					<VerticalBlogCard post={FEATURED_POST} />
+					{featuredPost && <VerticalBlogCard post={featuredPost} />}
 
 					<div className="flex min-h-0 flex-col gap-4 lg:h-full">
-						{SIDE_POSTS.map((post) => (
+						{sidePosts.map((post) => (
 							<HorizontalBlogCard
-								key={`${post.tag}-${post.imageSrc}`}
+								key={post.slug ?? `${post.tag}-${post.imageSrc}`}
 								post={post}
 							/>
 						))}
