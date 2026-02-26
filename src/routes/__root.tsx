@@ -6,11 +6,11 @@ import {
 	Scripts,
 } from "@tanstack/react-router";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
 import { NotFoundView } from "../components/route-states/NotFoundView";
 import { RouteErrorView } from "../components/route-states/RouteErrorView";
 import { RouteLoadingView } from "../components/route-states/RouteLoadingView";
+import Footer from "../components/shared/Footer";
+import Header from "../components/shared/Header";
 
 import TanStackQueryDevtools from "../integrations/tanstack-query/devtools";
 import TanStackQueryProvider from "../integrations/tanstack-query/root-provider";

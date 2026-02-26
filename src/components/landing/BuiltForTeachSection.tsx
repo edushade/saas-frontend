@@ -1,8 +1,8 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { VideoCard } from "../shared";
 import { CardShadeOverlay } from "../ui-custom/card-shade-overlay";
 import { Typography } from "../ui-custom/typography";
-import { VideoCard } from "./VideoCard";
 
 const TAB_CONTENT = {
 	creators: {

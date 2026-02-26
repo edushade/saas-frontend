@@ -12,13 +12,16 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as RequestDemoRouteImport } from './routes/request-demo'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as IntegrationsRouteImport } from './routes/integrations'
+import { Route as FeaturesRouteImport } from './routes/features'
 import { Route as ContactUsRouteImport } from './routes/contact-us'
 import { Route as ContactSalesRouteImport } from './routes/contact-sales'
 import { Route as BlogsRouteImport } from './routes/blogs'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as IntegrationsIndexRouteImport } from './routes/integrations.index'
+import { Route as FeaturesIndexRouteImport } from './routes/features.index'
 import { Route as BlogsIndexRouteImport } from './routes/blogs.index'
 import { Route as IntegrationsSlugRouteImport } from './routes/integrations.$slug'
+import { Route as FeaturesSlugRouteImport } from './routes/features.$slug'
 import { Route as BlogsSlugRouteImport } from './routes/blogs.$slug'
 
 const RequestDemoRoute = RequestDemoRouteImport.update({
@@ -34,6 +37,11 @@ const PricingRoute = PricingRouteImport.update({
 const IntegrationsRoute = IntegrationsRouteImport.update({
   id: '/integrations',
   path: '/integrations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeaturesRoute = FeaturesRouteImport.update({
+  id: '/features',
+  path: '/features',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactUsRoute = ContactUsRouteImport.update({
@@ -61,6 +69,11 @@ const IntegrationsIndexRoute = IntegrationsIndexRouteImport.update({
   path: '/',
   getParentRoute: () => IntegrationsRoute,
 } as any)
+const FeaturesIndexRoute = FeaturesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => FeaturesRoute,
+} as any)
 const BlogsIndexRoute = BlogsIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -70,6 +83,11 @@ const IntegrationsSlugRoute = IntegrationsSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
   getParentRoute: () => IntegrationsRoute,
+} as any)
+const FeaturesSlugRoute = FeaturesSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => FeaturesRoute,
 } as any)
 const BlogsSlugRoute = BlogsSlugRouteImport.update({
   id: '/$slug',
@@ -82,12 +100,15 @@ export interface FileRoutesByFullPath {
   '/blogs': typeof BlogsRouteWithChildren
   '/contact-sales': typeof ContactSalesRoute
   '/contact-us': typeof ContactUsRoute
+  '/features': typeof FeaturesRouteWithChildren
   '/integrations': typeof IntegrationsRouteWithChildren
   '/pricing': typeof PricingRoute
   '/request-demo': typeof RequestDemoRoute
   '/blogs/$slug': typeof BlogsSlugRoute
+  '/features/$slug': typeof FeaturesSlugRoute
   '/integrations/$slug': typeof IntegrationsSlugRoute
   '/blogs/': typeof BlogsIndexRoute
+  '/features/': typeof FeaturesIndexRoute
   '/integrations/': typeof IntegrationsIndexRoute
 }
 export interface FileRoutesByTo {
@@ -97,8 +118,10 @@ export interface FileRoutesByTo {
   '/pricing': typeof PricingRoute
   '/request-demo': typeof RequestDemoRoute
   '/blogs/$slug': typeof BlogsSlugRoute
+  '/features/$slug': typeof FeaturesSlugRoute
   '/integrations/$slug': typeof IntegrationsSlugRoute
   '/blogs': typeof BlogsIndexRoute
+  '/features': typeof FeaturesIndexRoute
   '/integrations': typeof IntegrationsIndexRoute
 }
 export interface FileRoutesById {
@@ -107,12 +130,15 @@ export interface FileRoutesById {
   '/blogs': typeof BlogsRouteWithChildren
   '/contact-sales': typeof ContactSalesRoute
   '/contact-us': typeof ContactUsRoute
+  '/features': typeof FeaturesRouteWithChildren
   '/integrations': typeof IntegrationsRouteWithChildren
   '/pricing': typeof PricingRoute
   '/request-demo': typeof RequestDemoRoute
   '/blogs/$slug': typeof BlogsSlugRoute
+  '/features/$slug': typeof FeaturesSlugRoute
   '/integrations/$slug': typeof IntegrationsSlugRoute
   '/blogs/': typeof BlogsIndexRoute
+  '/features/': typeof FeaturesIndexRoute
   '/integrations/': typeof IntegrationsIndexRoute
 }
 export interface FileRouteTypes {
@@ -122,12 +148,15 @@ export interface FileRouteTypes {
     | '/blogs'
     | '/contact-sales'
     | '/contact-us'
+    | '/features'
     | '/integrations'
     | '/pricing'
     | '/request-demo'
     | '/blogs/$slug'
+    | '/features/$slug'
     | '/integrations/$slug'
     | '/blogs/'
+    | '/features/'
     | '/integrations/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -137,8 +166,10 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/request-demo'
     | '/blogs/$slug'
+    | '/features/$slug'
     | '/integrations/$slug'
     | '/blogs'
+    | '/features'
     | '/integrations'
   id:
     | '__root__'
@@ -146,12 +177,15 @@ export interface FileRouteTypes {
     | '/blogs'
     | '/contact-sales'
     | '/contact-us'
+    | '/features'
     | '/integrations'
     | '/pricing'
     | '/request-demo'
     | '/blogs/$slug'
+    | '/features/$slug'
     | '/integrations/$slug'
     | '/blogs/'
+    | '/features/'
     | '/integrations/'
   fileRoutesById: FileRoutesById
 }
@@ -160,6 +194,7 @@ export interface RootRouteChildren {
   BlogsRoute: typeof BlogsRouteWithChildren
   ContactSalesRoute: typeof ContactSalesRoute
   ContactUsRoute: typeof ContactUsRoute
+  FeaturesRoute: typeof FeaturesRouteWithChildren
   IntegrationsRoute: typeof IntegrationsRouteWithChildren
   PricingRoute: typeof PricingRoute
   RequestDemoRoute: typeof RequestDemoRoute
@@ -186,6 +221,13 @@ declare module '@tanstack/react-router' {
       path: '/integrations'
       fullPath: '/integrations'
       preLoaderRoute: typeof IntegrationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/features': {
+      id: '/features'
+      path: '/features'
+      fullPath: '/features'
+      preLoaderRoute: typeof FeaturesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact-us': {
@@ -223,6 +265,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IntegrationsIndexRouteImport
       parentRoute: typeof IntegrationsRoute
     }
+    '/features/': {
+      id: '/features/'
+      path: '/'
+      fullPath: '/features/'
+      preLoaderRoute: typeof FeaturesIndexRouteImport
+      parentRoute: typeof FeaturesRoute
+    }
     '/blogs/': {
       id: '/blogs/'
       path: '/'
@@ -236,6 +285,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/integrations/$slug'
       preLoaderRoute: typeof IntegrationsSlugRouteImport
       parentRoute: typeof IntegrationsRoute
+    }
+    '/features/$slug': {
+      id: '/features/$slug'
+      path: '/$slug'
+      fullPath: '/features/$slug'
+      preLoaderRoute: typeof FeaturesSlugRouteImport
+      parentRoute: typeof FeaturesRoute
     }
     '/blogs/$slug': {
       id: '/blogs/$slug'
@@ -259,6 +315,20 @@ const BlogsRouteChildren: BlogsRouteChildren = {
 
 const BlogsRouteWithChildren = BlogsRoute._addFileChildren(BlogsRouteChildren)
 
+interface FeaturesRouteChildren {
+  FeaturesSlugRoute: typeof FeaturesSlugRoute
+  FeaturesIndexRoute: typeof FeaturesIndexRoute
+}
+
+const FeaturesRouteChildren: FeaturesRouteChildren = {
+  FeaturesSlugRoute: FeaturesSlugRoute,
+  FeaturesIndexRoute: FeaturesIndexRoute,
+}
+
+const FeaturesRouteWithChildren = FeaturesRoute._addFileChildren(
+  FeaturesRouteChildren,
+)
+
 interface IntegrationsRouteChildren {
   IntegrationsSlugRoute: typeof IntegrationsSlugRoute
   IntegrationsIndexRoute: typeof IntegrationsIndexRoute
@@ -278,6 +348,7 @@ const rootRouteChildren: RootRouteChildren = {
   BlogsRoute: BlogsRouteWithChildren,
   ContactSalesRoute: ContactSalesRoute,
   ContactUsRoute: ContactUsRoute,
+  FeaturesRoute: FeaturesRouteWithChildren,
   IntegrationsRoute: IntegrationsRouteWithChildren,
   PricingRoute: PricingRoute,
   RequestDemoRoute: RequestDemoRoute,

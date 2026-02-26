@@ -31,7 +31,7 @@ import {
 	RESOURCES_ITEMS,
 } from "@/constants/nav";
 import { cn } from "@/lib/utils";
-import { Typography } from "./ui-custom/typography";
+import { Typography } from "../ui-custom/typography";
 
 function FeaturesMenu() {
 	return (

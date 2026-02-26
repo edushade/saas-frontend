@@ -4,7 +4,7 @@ import { FacebookIcon } from "@/assets/icons/facebook-icon";
 import { InstagramIcon } from "@/assets/icons/instagram-icon";
 import { LinkedinIcon } from "@/assets/icons/linkedin-icon";
 import { XIcon } from "@/assets/icons/X-icon";
-import { Typography } from "./ui-custom/typography";
+import { Typography } from "../ui-custom/typography";
 
 const FOOTER_COLUMNS = [
 	{

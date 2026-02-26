@@ -1,8 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import CtaSection from "@/components/landing/CtaSection";
-import FAQSection from "@/components/landing/FAQSection";
-import GetStartedSection from "@/components/landing/GetStartedSection";
 import { RequestDemoSection } from "@/components/request-demo";
+import { CtaSection, FAQSection, GetStartedSection } from "@/components/shared";
 
 export const Route = createFileRoute("/request-demo")({
 	component: RequestDemoPage,
