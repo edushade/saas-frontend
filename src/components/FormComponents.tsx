@@ -1,19 +1,26 @@
-import { useStore } from '@tanstack/react-form';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import * as ShadcnSelect from '@/components/ui/select';
-import { Slider as ShadcnSlider } from '@/components/ui/slider';
-import { Switch as ShadcnSwitch } from '@/components/ui/switch';
-import { Textarea as ShadcnTextarea } from '@/components/ui/textarea';
-import { useFieldContext, useFormContext } from '@/hooks/demo.form-context';
+import { useStore } from "@tanstack/react-form";
+import { Button } from "@/components/ui/button";
+import { Checkbox as ShadcnCheckbox } from "@/components/ui/checkbox";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import * as ShadcnSelect from "@/components/ui/select";
+import { Slider as ShadcnSlider } from "@/components/ui/slider";
+import { Switch as ShadcnSwitch } from "@/components/ui/switch";
+import { Textarea as ShadcnTextarea } from "@/components/ui/textarea";
+import { useFieldContext, useFormContext } from "@/hooks/form-context";
 
-export function SubscribeButton({ label }: { label: string }) {
+export function SubscribeButton({
+	label,
+	className,
+}: {
+	label: string;
+	className?: string;
+}) {
 	const form = useFormContext();
 	return (
 		<form.Subscribe selector={(state) => state.isSubmitting}>
 			{(isSubmitting) => (
-				<Button type="submit" disabled={isSubmitting}>
+				<Button type="submit" disabled={isSubmitting} className={className}>
 					{label}
 				</Button>
 			)}
@@ -30,10 +37,10 @@ function ErrorMessages({
 		<>
 			{errors.map((error) => (
 				<div
-					key={typeof error === 'string' ? error : error.message}
+					key={typeof error === "string" ? error : error.message}
 					className="text-red-500 mt-1 font-bold"
 				>
-					{typeof error === 'string' ? error : error.message}
+					{typeof error === "string" ? error : error.message}
 				</div>
 			))}
 		</>
@@ -52,7 +59,10 @@ export function TextField({
 
 	return (
 		<div>
-			<Label htmlFor={label} className="mb-2 text-xl font-bold">
+			<Label
+				htmlFor={label}
+				className="mb-2 text-sm text-text-primary font-medium"
+			>
 				{label}
 			</Label>
 			<Input
@@ -69,18 +79,26 @@ export function TextField({
 export function TextArea({
 	label,
 	rows = 3,
+	suffix,
 }: {
 	label: string;
 	rows?: number;
+	suffix?: React.ReactNode;
 }) {
 	const field = useFieldContext<string>();
 	const errors = useStore(field.store, (state) => state.meta.errors);
 
 	return (
 		<div>
-			<Label htmlFor={label} className="mb-2 text-xl font-bold">
-				{label}
-			</Label>
+			<div className="mb-2 flex items-center justify-between gap-2">
+				<Label
+					htmlFor={label}
+					className="text-sm text-text-primary font-medium"
+				>
+					{label}
+				</Label>
+				{suffix && <span className="text-xs text-text-tertiary">{suffix}</span>}
+			</div>
 			<ShadcnTextarea
 				id={label}
 				value={field.state.value}
@@ -169,6 +187,37 @@ export function Switch({ label }: { label: string }) {
 					onCheckedChange={(checked) => field.handleChange(checked)}
 				/>
 				<Label htmlFor={label}>{label}</Label>
+			</div>
+			{field.state.meta.isTouched && <ErrorMessages errors={errors} />}
+		</div>
+	);
+}
+
+export function Checkbox({
+	label,
+	children,
+}: {
+	label?: string;
+	children?: React.ReactNode;
+}) {
+	const field = useFieldContext<boolean>();
+	const errors = useStore(field.store, (state) => state.meta.errors);
+
+	return (
+		<div>
+			<div className="flex items-center gap-2">
+				<ShadcnCheckbox
+					id={field.name}
+					checked={field.state.value}
+					onCheckedChange={(checked) => field.handleChange(checked === true)}
+					onBlur={field.handleBlur}
+				/>
+				<Label
+					htmlFor={field.name}
+					className="text-sm text-text-primary font-medium cursor-pointer"
+				>
+					{children ?? label}
+				</Label>
 			</div>
 			{field.state.meta.isTouched && <ErrorMessages errors={errors} />}
 		</div>

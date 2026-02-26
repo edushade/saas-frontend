@@ -60,7 +60,10 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 			},
 			{ property: "og:image:width", content: "1200" },
 			{ property: "og:image:height", content: "630" },
-			{ property: "og:image:alt", content: "Edushade — The Platform Built for How You Actually Teach" },
+			{
+				property: "og:image:alt",
+				content: "Edushade — The Platform Built for How You Actually Teach",
+			},
 			// Twitter Card defaults
 			{ name: "twitter:card", content: "summary_large_image" },
 			{

@@ -12,6 +12,7 @@ import {
 import { cn } from "@/lib/utils";
 import { Badge } from "../ui/badge";
 import { Separator } from "../ui/separator";
+import { BannerTag } from "../ui-custom/BannerTag";
 import { CardShadeOverlay } from "../ui-custom/card-shade-overlay";
 import { Typography } from "../ui-custom/typography";
 
@@ -187,20 +188,14 @@ export default function PricingSection() {
 		<section className="relative overflow-hidden bg-bg-primary py-8 md:py-(--es-section-py) px-4 md:px-(--es-section-px)">
 			<div
 				aria-hidden
-				className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(0deg,#ffffff,#ffffff),linear-gradient(180deg,#ffffff_-6.1%,#ffffff_20.43%,#b3e9ff_100%)]"
+				className="pointer-events-none absolute bottom-0 z-0 h-full w-full rounded-full 
+  bg-[linear-gradient(180deg,#FFFFFF_-6.1%,#FFFFFF_20.43%,#B3E9FF_100%)]"
 			/>
+			<CardShadeOverlay className="backdrop-blur-[100px] bg-[repeating-linear-gradient(90deg,rgba(255,255,255,0)_0px,rgba(255,255,255,0.1)_47.15px,rgba(255,255,255,0.3)_85.33px)]" />
 
-			<CardShadeOverlay
-				aria-hidden
-				className="bottom-0 left-0 right-0 top-auto z-0 h-1/2 min-h-[200px] w-full border-0 bg-[repeating-linear-gradient(270deg,rgba(255,255,255,0)_0px,rgba(255,255,255,0.08)_60px),linear-gradient(0deg,rgba(255,255,255,0.15)_0%,rgba(255,255,255,0)_50%)] backdrop-blur-[100px]"
-			/>
-
-			{/* Content on top — same as Hero CardContent relative z-10 */}
-			<div className="relative z-10 mx-auto w-full max-w-(--es-max-w) py-16">
-				<div className="mx-auto mb-10 flex max-w-4xl flex-col items-center gap-4 text-center">
-					<span className="rounded-full bg-bg-tertiary px-4 py-1.5 text-sm font-medium text-text-primary">
-						Pricing
-					</span>
+			<div className="relative z-10 mx-auto w-full max-w-(--es-max-w)">
+				<div className="mx-auto mb-10 flex max-w-xl flex-col items-center gap-6 text-center">
+					<BannerTag tag="Pricing" />
 					<Typography
 						variant="h1"
 						className="font-medium leading-tight text-text-primary"
@@ -214,7 +209,10 @@ export default function PricingSection() {
 						Design and organize learning experiences with flexible lesson types,
 						structured paths, and clear pr ogression logic.
 					</Typography>
-					<div className="flex flex-col items-center gap-3 pt-2">
+				</div>
+
+				<div className="flex flex-col gap-8">
+					<div className="flex flex-col items-center gap-3">
 						<div className="relative flex items-center gap-1">
 							<span className="absolute -top-6 left-1/2 -translate-x-1/2 rounded bg-text-primary px-2 py-0.5 text-xs font-medium text-white">
 								Save 20%
@@ -224,16 +222,16 @@ export default function PricingSection() {
 								onValueChange={(v) => setBilling(v as "monthly" | "annually")}
 								className="flex flex-col items-center"
 							>
-								<TabsList className="h-20 rounded-sm border border-border bg-bg-primary p-1.5 w-fit">
+								<TabsList className="rounded-xl border border-border bg-bg-primary  p-1 h-16 group-data-[orientation=horizontal]/tabs:h-11 w-full lg:w-auto">
 									<TabsTrigger
 										value="monthly"
-										className="rounded-sm px-4 py-2.5 font-medium data-[state=active]:bg-brand-200 data-[state=active]:text-white data-[state=inactive]:bg-transparent data-[state=inactive]:text-text-primary"
+										className="rounded-md px-2 py-2.5 font-medium data-[state=active]:bg-brand-200 data-[state=active]:text-white data-[state=inactive]:bg-transparent data-[state=inactive]:text-text-primary"
 									>
 										Monthly
 									</TabsTrigger>
 									<TabsTrigger
 										value="annually"
-										className="rounded-sm px-4 py-2.5 font-medium data-[state=active]:bg-brand-200 data-[state=active]:text-white data-[state=inactive]:bg-transparent data-[state=inactive]:text-text-primary"
+										className="rounded-md px-2 py-2.5 font-medium data-[state=active]:bg-brand-200 data-[state=active]:text-white data-[state=inactive]:bg-transparent data-[state=inactive]:text-text-primary"
 									>
 										Annually
 									</TabsTrigger>
@@ -241,12 +239,12 @@ export default function PricingSection() {
 							</Tabs>
 						</div>
 					</div>
-				</div>
 
-				<div className="grid grid-cols-1 gap-8 md:grid-cols-3 items-stretch">
-					{PRICING_PLANS.map((plan) => (
-						<PricingCard key={plan.id} plan={plan} />
-					))}
+					<div className="grid grid-cols-1 gap-8 md:grid-cols-3 items-stretch">
+						{PRICING_PLANS.map((plan) => (
+							<PricingCard key={plan.id} plan={plan} />
+						))}
+					</div>
 				</div>
 			</div>
 		</section>

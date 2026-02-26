@@ -340,4 +340,11 @@ code {
     position: relative;
     z-index: 1;
   }
+
+  .shadow-card-fancy {
+    box-shadow:
+      0 8px 17.2px #8C96A91A,
+      0 4px 2px #8C96A940,
+      0 0 0 3px #FFFFFF;
+  }
 }

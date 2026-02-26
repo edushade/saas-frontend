@@ -174,7 +174,7 @@ function MobileMenu() {
 			</SheetTrigger>
 
 			<SheetContent side="right" className="w-72 p-0 flex flex-col">
-				<SheetHeader className="border-b border-border-primary px-5 py-4">
+				<SheetHeader className="border-b border-border-primary">
 					<SheetTitle className="flex items-center">
 						<img src="/svgs/logo.svg" alt="Edushade" className="h-8" />
 					</SheetTitle>
@@ -270,9 +270,7 @@ export default function Header() {
 					<img
 						src="/svgs/logo.svg"
 						alt="Edushade"
-						width={155}
-						height={44}
-						className="h-full w-full object-contain"
+						className="w-full h-full object-contain"
 					/>
 				</Link>
 
@@ -307,7 +305,7 @@ export default function Header() {
 							asChild
 							className="btn-brand-1 py-3 text-text-primary rounded-full gap-1.5 text-sm font-medium"
 						>
-							<Link to="/">
+							<Link to="/request-demo">
 								Request a Demo
 								<ArrowUpRight size={14} strokeWidth={2.5} />
 							</Link>

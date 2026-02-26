@@ -252,6 +252,6 @@ export const RESOURCES_ITEMS: NavResourceItem[] = [
 ];
 
 export const NAV_LINKS: NavLinkItem[] = [
-	{ label: "Pricing", href: "/" },
-	{ label: "Contact Sales", href: "/" },
+	{ label: "Pricing", href: "/pricing" },
+	{ label: "Contact Sales", href: "/contact-sales" },
 ];
