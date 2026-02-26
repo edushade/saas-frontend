@@ -11,7 +11,7 @@ Use this to verify the blogs feature has proper ISR (Incremental Static Regenera
 | **Cache-Control on list** | ✅ | `blogs.index.tsx`: `headers()` returns `public, max-age=300, s-maxage=3600, stale-while-revalidate=86400` (5 min browser, 1 h CDN, revalidate up to 24 h). |
 | **Cache-Control on post** | ✅ | `blogs.$slug.tsx`: `headers()` returns `public, max-age=3600, s-maxage=3600, stale-while-revalidate=604800` (1 h fresh, revalidate up to 7 days). |
 | **Client-side cache** | ✅ | Both routes use `staleTime: 5 * 60_000` (5 minutes) so TanStack Router keeps loader data fresh on the client. |
-| **Prerender** | ✅ | Configured in `vite.config.ts`: `tanstackStart({ prerender: { enabled: true, crawlLinks: true, autoStaticPathsDiscovery: true } })`. Static routes (e.g. `/blogs`) are discovered and prerendered; `crawlLinks` also prerenders pages linked from prerendered HTML. Note: use `enabled`/`crawlLinks`/`pages` (not `routes`) per [TanStack Start static prerendering](https://tanstack.com/start/latest/docs/framework/react/guide/static-prerendering). |
+| **Prerender** | ⚠️ Configured | In `vite.config.ts`: full [TanStack Start static prerendering](https://tanstack.com/start/latest/docs/framework/react/guide/static-prerendering) config (enabled, autoSubfolderIndex, autoStaticPathsDiscovery, concurrency, crawlLinks, retryCount, retryDelay, maxRedirects, failOnError: false). With Nitro, prerender currently receives a request with undefined URL and renders 0 pages; build still succeeds and the app works via SSR. ISR is achieved via route `headers()` (Cache-Control + CDN) and optional cache warming. |
 | **Data source** | ✅ | Blog data comes from content-collections (build-time); no runtime API needed for ISR. |
 
 **How to verify ISR**

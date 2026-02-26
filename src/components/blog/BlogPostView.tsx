@@ -8,9 +8,6 @@ export interface BlogPostViewProps {
 	post: Blog;
 }
 
-/**
- * Renders a single blog post: title, meta, and compiled MDX body using @content-collections/mdx.
- */
 export function BlogPostView({ post }: BlogPostViewProps) {
 	const canonical = `${SITE_ORIGIN}/blogs/${post.slug ?? ""}`;
 	const imageUrl = post.imageSrc.startsWith("http")
@@ -33,10 +30,8 @@ export function BlogPostView({ post }: BlogPostViewProps) {
 
 	return (
 		<article className="mx-auto max-w-(--es-max-w) px-4 py-8">
-			{/* JSON-LD for Article SEO; escaping is safe because value is serialized from app data */}
 			<script
 				type="application/ld+json"
-				// biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD from serialized post data
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
 			/>
 			<header className="mb-8">

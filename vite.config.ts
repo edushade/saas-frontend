@@ -18,8 +18,27 @@ const config = defineConfig({
 		tanstackStart({
 			prerender: {
 				enabled: true,
-				crawlLinks: true,
+				// Serve pages at /path/index.html instead of /path.html (better for CDN/cache)
+				autoSubfolderIndex: true,
+				// Discover static routes and merge with `pages`; dynamic/layout routes excluded
 				autoStaticPathsDiscovery: true,
+				// How many prerender jobs run in parallel
+				concurrency: 14,
+				// Extract links from HTML and prerender those pages too (e.g. / → /blogs)
+				crawlLinks: true,
+				// Optional: exclude paths from prerendering (e.g. dynamic-only or auth routes)
+				// filter: ({ path }) => !path.startsWith('/do-not-render-me'),
+				// Retries for failed prerender jobs
+				retryCount: 2,
+				retryDelay: 1000,
+				maxRedirects: 5,
+				// Fail the build if prerender throws. Set false when using Nitro: prerender
+				// can receive a request with undefined url and render 0 pages; app still works via SSR.
+				failOnError: false,
+				// Optional: log when a page is successfully prerendered (useful once Nitro/Start fix request URL)
+				// onSuccess: ({ path }) => console.log(`[prerender] Rendered ${path}`),
+				// Optional: per-page config (merged with discovered static routes when autoStaticPathsDiscovery is true)
+				// pages: [{ path: '/my-page', prerender: { enabled: true, outputPath: '/my-page/index.html' } }],
 			},
 		}),
 		viteReact({
