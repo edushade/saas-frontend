@@ -1,5 +1,6 @@
 import { Typography } from "@/components/ui-custom/typography";
 import { CONTACT_SALES_HELP_TAGS } from "@/constants/contact-sales";
+import { Badge } from "../ui/badge";
 import { BannerTag } from "../ui-custom/BannerTag";
 import { CardShadeOverlay } from "../ui-custom/card-shade-overlay";
 import { ContactSalesForm } from "./ContactSalesForm";
@@ -42,12 +43,12 @@ export default function ContactSalesSection() {
 							</Typography>
 							<div className="flex flex-wrap gap-2">
 								{CONTACT_SALES_HELP_TAGS.map((tag) => (
-									<span
+									<Badge
 										key={tag}
-										className="rounded-md border border-border-primary bg-bg-primary px-3 py-1.5 text-sm text-text-primary"
+										className="rounded-full border font-normal border-border-secondary bg-bg-primary px-4 py-1.5 text-base text-text-secondary"
 									>
 										{tag}
-									</span>
+									</Badge>
 								))}
 							</div>
 						</div>

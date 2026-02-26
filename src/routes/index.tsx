@@ -8,7 +8,7 @@ import GetStartedSection from "../components/landing/GetStartedSection";
 import HeroSection from "../components/landing/HeroSection";
 import LogosSection from "../components/landing/LogosSection";
 import PersonalizedSection from "../components/landing/PersonalizedSection";
-import ResourceCenterSection from "../components/landing/ResourceCenterSection";
+import RecentBlogSection from "../components/landing/RecentBlogSection";
 import StartIn60SecondsSection from "../components/landing/StartIn60SecondsSection";
 import WhyEducatorsLoveSection from "../components/landing/WhyEducatorsLoveSection";
 
@@ -82,7 +82,7 @@ function LandingPage() {
 			<StartIn60SecondsSection />
 			<EducatorsSaySection />
 			<GetStartedSection />
-			<ResourceCenterSection />
+			<RecentBlogSection />
 			<FAQSection />
 			<CtaSection />
 		</main>

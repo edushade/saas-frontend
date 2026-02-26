@@ -1,0 +1,186 @@
+import { Link } from "@tanstack/react-router";
+import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
+import { buttonVariants } from "@/components/ui/button";
+import {
+	Pagination,
+	PaginationContent,
+	PaginationEllipsis,
+	PaginationItem,
+} from "@/components/ui/pagination";
+import { Typography } from "@/components/ui-custom/typography";
+import { cn } from "@/lib/utils";
+import { VerticalBlogCard } from "./BlogCard";
+import type { BlogPostCardItem } from "./blog-card-types";
+
+export interface BlogListSectionProps {
+	title?: string;
+	posts: BlogPostCardItem[];
+	currentPage: number;
+	totalPages: number;
+}
+
+export function BlogListSection({
+	title = "All posts",
+	posts,
+	currentPage,
+	totalPages,
+}: BlogListSectionProps) {
+	const showLeftEllipsis = currentPage > 3;
+	const showRightEllipsis = currentPage < totalPages - 2;
+
+	return (
+		<section className="bg-bg-primary py-8 md:py-(--es-section-py) px-4 md:px-(--es-section-px)">
+			<div className="mx-auto max-w-(--es-max-w)">
+				<Typography
+					variant="h1"
+					className="mb-8 text-2xl font-medium leading-tight text-text-primary md:text-3xl lg:text-4xl"
+				>
+					{title}
+				</Typography>
+
+				<div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:items-stretch">
+					{posts.map((post, index) => (
+						<VerticalBlogCard
+							key={`${post.headline}-${post.date}-${index}`}
+							post={post}
+						/>
+					))}
+				</div>
+
+				{totalPages > 1 && (
+					<Pagination className="mt-10">
+						<PaginationContent>
+							<PaginationItem>
+								{currentPage > 1 ? (
+									<Link
+										to="/blogs"
+										search={{ page: currentPage - 1 }}
+										aria-label="Go to previous page"
+										className={cn(
+											"inline-flex items-center justify-center gap-1 px-2.5 sm:pl-2.5",
+											buttonVariants({ variant: "ghost", size: "default" }),
+										)}
+									>
+										<ChevronLeftIcon />
+										<span className="hidden sm:block">Previous</span>
+									</Link>
+								) : (
+									<span
+										aria-disabled
+										className={cn(
+											"inline-flex items-center justify-center gap-1 px-2.5 sm:pl-2.5",
+											buttonVariants({ variant: "ghost", size: "default" }),
+											"pointer-events-none opacity-50",
+										)}
+									>
+										<ChevronLeftIcon />
+										<span className="hidden sm:block">Previous</span>
+									</span>
+								)}
+							</PaginationItem>
+
+							{currentPage > 2 && (
+								<PaginationItem>
+									<Link
+										to="/blogs"
+										search={{ page: 1 }}
+										className={cn(
+											buttonVariants({
+												variant: currentPage === 1 ? "outline" : "ghost",
+												size: "icon",
+											}),
+										)}
+										aria-current={currentPage === 1 ? "page" : undefined}
+									>
+										1
+									</Link>
+								</PaginationItem>
+							)}
+							{showLeftEllipsis && (
+								<PaginationItem>
+									<PaginationEllipsis />
+								</PaginationItem>
+							)}
+
+							{[currentPage - 1, currentPage, currentPage + 1]
+								.filter((p) => p >= 1 && p <= totalPages)
+								.filter((p, i, arr) => arr.indexOf(p) === i)
+								.map((p) => (
+									<PaginationItem key={p}>
+										<Link
+											to="/blogs"
+											search={{ page: p }}
+											className={cn(
+												buttonVariants({
+													variant: p === currentPage ? "outline" : "ghost",
+													size: "icon",
+												}),
+											)}
+											aria-current={p === currentPage ? "page" : undefined}
+										>
+											{p}
+										</Link>
+									</PaginationItem>
+								))}
+
+							{showRightEllipsis && (
+								<PaginationItem>
+									<PaginationEllipsis />
+								</PaginationItem>
+							)}
+							{currentPage < totalPages - 1 && (
+								<PaginationItem>
+									<Link
+										to="/blogs"
+										search={{ page: totalPages }}
+										className={cn(
+											buttonVariants({
+												variant:
+													currentPage === totalPages ? "outline" : "ghost",
+												size: "icon",
+											}),
+										)}
+										aria-current={
+											currentPage === totalPages ? "page" : undefined
+										}
+									>
+										{totalPages}
+									</Link>
+								</PaginationItem>
+							)}
+
+							<PaginationItem>
+								{currentPage < totalPages ? (
+									<Link
+										to="/blogs"
+										search={{ page: currentPage + 1 }}
+										aria-label="Go to next page"
+										className={cn(
+											"inline-flex items-center justify-center gap-1 px-2.5 sm:pr-2.5",
+											buttonVariants({ variant: "ghost", size: "default" }),
+										)}
+									>
+										<span className="hidden sm:block">Next</span>
+										<ChevronRightIcon />
+									</Link>
+								) : (
+									<span
+										aria-disabled
+										className={cn(
+											"inline-flex items-center justify-center gap-1 px-2.5 sm:pr-2.5",
+											buttonVariants({ variant: "ghost", size: "default" }),
+											"pointer-events-none opacity-50",
+										)}
+									>
+										<span className="hidden sm:block">Next</span>
+										<ChevronRightIcon />
+									</span>
+								)}
+							</PaginationItem>
+						</PaginationContent>
+					</Pagination>
+				)}
+			</div>
+		</section>
+	);
+}

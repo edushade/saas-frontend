@@ -1,10 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import {
-	ArrowUpRight,
-	Headphones,
-	MessageCircleQuestion,
-	Monitor,
-} from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import { DialogIcon, HeadphoneIcon, VideoIcon } from "@/assets/icons";
 import { Typography } from "@/components/ui-custom/typography";
 import {
 	CONTACT_FORM_SECTION_ID,
@@ -21,11 +17,11 @@ function ContactCardIcon({
 }) {
 	switch (iconId) {
 		case "general":
-			return <MessageCircleQuestion className="size-10 text-text-primary" />;
+			return <DialogIcon className="size-11 text-text-primary" />;
 		case "support":
-			return <Headphones className="size-10 text-text-primary" />;
+			return <HeadphoneIcon className="size-11 text-text-primary" />;
 		case "schedule":
-			return <Monitor className="size-10 text-text-primary" />;
+			return <VideoIcon className="size-11 text-text-primary" />;
 		default:
 			return null;
 	}
@@ -85,7 +81,7 @@ export default function BannerContactUs() {
 										{card.title}
 									</Typography>
 									<Typography
-										variant="h6"
+										variant="small"
 										className="mt-2 flex-1 font-normal text-text-secondary"
 									>
 										{card.description}

@@ -244,8 +244,8 @@ export const FEATURES_CTA: NavCta = {
 
 export const RESOURCES_ITEMS: NavResourceItem[] = [
 	{ label: "Documentation", icon: FileIcon, href: "/" },
-	{ label: "Integrations", icon: MenuIcon, href: "/" },
-	{ label: "Blog", icon: ListIcon, href: "/" },
+	{ label: "Integrations", icon: MenuIcon, href: "/integrations" },
+	{ label: "Blog", icon: ListIcon, href: "/blogs" },
 	{ label: "Changelog", icon: CheckPlainIcon, href: "/" },
 	{ label: "Videos", icon: VideoIcon, href: "/" },
 	{ label: "Help Center", icon: HeadphoneIcon, href: "/" },
