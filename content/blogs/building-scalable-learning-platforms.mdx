@@ -1,0 +1,80 @@
+---
+title: "Building Scalable Learning Platforms: Architecture and Best Practices"
+description: "How to design and operate learning platforms that scale to thousands of learners and courses without sacrificing performance or developer experience."
+date: "2026-03-08"
+tag: "Engineering"
+tagClass: "bg-[#7C3AED] text-white border-0"
+imageSrc: "/svgs/resource-center/3.svg"
+imageAlt: "Platform architecture"
+readTimeMinutes: 14
+authorName: "James Liu"
+authorRole: "Senior Platform Engineer"
+authorLinkedIn: "https://linkedin.com/in/jamesliu"
+authorGitHub: "https://github.com/jamesliu"
+---
+
+Scaling a learning platform isn’t just about adding servers. It’s about data models, caching, background jobs, and clear boundaries between services. Here’s how we think about it at Edushade.
+
+## Core principles
+
+1. **Stateless APIs** – Every request carries enough context (e.g. JWT or session id) so that any node can handle it. No sticky sessions.
+2. **Cache aggressively** – Course content, enrollments, and progress are read-heavy. Use CDN and application-level cache with clear invalidation rules.
+3. **Async for heavy work** – Progress updates, analytics, and notifications go through queues. Don’t block the request that triggered them.
+4. **Database per concern** – Separate transactional data (enrollments, payments) from analytics and logs. Use the right store for each.
+
+## Data model highlights
+
+We treat **courses**, **enrollments**, and **progress** as first-class entities. A simplified schema might look like:
+
+```
+Course 1:N CourseSection 1:N Lesson
+User N:M Course (via Enrollment)
+Enrollment 1:N ProgressRecord (per lesson/quiz)
+```
+
+- **Courses** are versioned; publishing creates a new snapshot so that in-flight enrollments aren’t broken by edits.
+- **Progress** is written as events (e.g. “lesson completed”, “quiz submitted”) and then aggregated for dashboards and grades.
+
+This keeps writes simple and reads flexible.
+
+## Caching strategy
+
+| Layer | What we cache | TTL / invalidation |
+|-------|----------------|---------------------|
+| CDN | Static assets, public course pages | Long (e.g. 1 day), invalidate on deploy |
+| App | Course metadata, user permissions | Short (e.g. 5 min), invalidate on update |
+| DB query | Expensive aggregations | Per-query TTL or event-driven invalidation |
+
+We use cache-aside: the app reads from cache; on miss it loads from the DB and populates the cache. Invalidation happens on writes or via admin actions.
+
+## Background jobs
+
+Heavy or non-urgent work runs in workers:
+
+- **Progress aggregation** – Roll up lesson/quiz completion into course-level progress.
+- **Notifications** – Email and in-app alerts when assignments are due or grades are posted.
+- **Analytics** – Events are streamed to a pipeline that builds dashboards and reports.
+- **Exports** – Grade books and compliance reports are generated asynchronously and stored or emailed.
+
+Workers consume from a queue (e.g. Redis, SQS, or a managed service). We aim for at-least-once delivery and idempotent handlers so that retries are safe.
+
+## Security and multi-tenancy
+
+Many learning platforms serve multiple schools or organizations. We enforce tenancy by:
+
+- **Tenant id on every row** – Enrollments, courses, and users are scoped by organization.
+- **Middleware** – Every API call resolves the tenant from the authenticated user or request context and filters all queries accordingly.
+- **Audit logs** – Sensitive actions (role changes, data exports) are logged with tenant and user id for compliance.
+
+This keeps data isolated and makes it easier to support SSO and custom branding per tenant.
+
+## Monitoring and reliability
+
+We rely on:
+
+- **Health checks** – Liveness and readiness endpoints for load balancers and orchestrators.
+- **Structured logging** – Request ids, user ids, and tenant ids on every log line so we can trace issues.
+- **Metrics** – Latency percentiles, error rates, and queue depths. We alert on SLO breaches (e.g. p99 latency &gt; 500ms).
+- **Feature flags** – New features are rolled out gradually and can be turned off without a deploy.
+
+Scaling is an ongoing process. We revisit these choices as we add more learners and more products. If you’re building something similar, [we’d love to hear from you](/contact-us).

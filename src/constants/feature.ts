@@ -1,14 +1,10 @@
 const FEATURE_GRADIENT_CLASSES = {
-	orange:
-		"bg-[linear-gradient(53.61deg,#ff9a4d_0%,rgba(248,249,252,0)_45.88%,rgba(255,255,255,0)_71.21%)]",
-	blue: "bg-[linear-gradient(53.61deg,#6699ff_0%,rgba(248,249,252,0)_45.88%,rgba(255,255,255,0)_71.21%)]",
-	yellow:
-		"bg-[linear-gradient(53.61deg,#fbbf24_0%,rgba(248,249,252,0)_45.88%,rgba(255,255,255,0)_71.21%)]",
-	sky: "bg-[linear-gradient(53.61deg,#38bdf8_0%,rgba(248,249,252,0)_45.88%,rgba(255,255,255,0)_71.21%)]",
-	purple:
-		"bg-[linear-gradient(53.61deg,#c084fc_0%,rgba(248,249,252,0)_45.88%,rgba(255,255,255,0)_71.21%)]",
-	green:
-		"bg-[linear-gradient(53.61deg,#4ade80_0%,rgba(248,249,252,0)_45.88%,rgba(255,255,255,0)_71.21%)]",
+	orange: "bg-grad-orange-1",
+	blue: "bg-grad-orange-1",
+	yellow: "bg-grad-yellow-1",
+	sky: "bg-grad-sky-1",
+	purple: "bg-grad-purple-1",
+	green: "bg-grad-green-1",
 } as const;
 
 export const FEATURES = [

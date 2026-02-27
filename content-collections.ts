@@ -10,9 +10,30 @@ const blogsSchema = z.object({
 	tagClass: z.string(),
 	imageSrc: z.string(),
 	imageAlt: z.string(),
+	coverImage: z.string().optional(),
+	coverImageAlt: z.string().optional(),
 	content: z.string(),
 	mdx: z.string().optional(),
 	slug: z.string().optional(),
+	readTimeMinutes: z.number().optional(),
+
+	authorName: z.string().optional(),
+	authorRole: z.string().optional(),
+	authorAvatar: z.string().optional(),
+	authorBio: z.string().optional(),
+
+	authorWebsite: z.string().optional(),
+	authorTwitter: z.string().optional(),
+	authorX: z.string().optional(),
+	authorLinkedIn: z.string().optional(),
+	authorFacebook: z.string().optional(),
+	authorInstagram: z.string().optional(),
+	authorYouTube: z.string().optional(),
+	authorGitHub: z.string().optional(),
+	authorDiscord: z.string().optional(),
+	authorThreads: z.string().optional(),
+	authorTikTok: z.string().optional(),
+	authorMedium: z.string().optional(),
 });
 
 const blogs = defineCollection({
@@ -22,7 +43,8 @@ const blogs = defineCollection({
 	schema: blogsSchema,
 	transform: async (document, context) => {
 		const mdx = await compileMDX(context, document);
-		const slug = (document as { _meta?: { path?: string } })._meta?.path ?? "";
+		const rawPath = (document as { _meta?: { path?: string } })._meta?.path ?? "";
+		const slug = rawPath.replace(/\.mdx?$/i, "").split("/").pop() ?? "";
 		return {
 			...document,
 			mdx,

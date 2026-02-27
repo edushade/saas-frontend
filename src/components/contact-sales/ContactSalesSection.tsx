@@ -10,10 +10,10 @@ export default function ContactSalesSection() {
 		<section className="relative px-4 py-12 md:px-(--es-section-px) md:py-(--es-section-py)">
 			<div
 				aria-hidden
-				className="pointer-events-none absolute bottom-0 z-0 h-full w-full rounded-full 
-  bg-[linear-gradient(180deg,#FFFFFF_-6.1%,#FFFFFF_20.43%,#B3E9FF_100%)]"
+				className="pointer-events-none absolute bottom-0 z-0 h-full w-full rounded-full bg-grad-lightblue"
 			/>
 			<CardShadeOverlay className="backdrop-blur-[100px] bg-[repeating-linear-gradient(90deg,rgba(255,255,255,0)_0px,rgba(255,255,255,0.1)_47.15px,rgba(255,255,255,0.3)_85.33px)]" />
+
 			<div className="relative mx-auto grid max-w-(--es-max-w)">
 				<div className="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-2 lg:gap-12">
 					<div className="flex flex-col justify-between">

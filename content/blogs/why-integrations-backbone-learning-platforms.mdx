@@ -1,0 +1,77 @@
+---
+title: "Why Integrations Are the Backbone of Modern Learning Platforms"
+description: "Deep dive into how SSO, LMS, and SIS integrations reduce friction and make learning platforms usable at scale for schools and enterprises."
+date: "2026-06-30"
+tag: "Integrations"
+tagClass: "bg-[#0EA5E9] text-white border-0"
+imageSrc: "/svgs/resource-center/Sidebar.svg"
+imageAlt: "Integrations diagram"
+readTimeMinutes: 9
+authorName: "Chris Taylor"
+authorRole: "Integrations Engineer"
+authorGitHub: "https://github.com/christaylor"
+authorLinkedIn: "https://linkedin.com/in/christaylor"
+---
+
+Learning platforms don’t exist in a vacuum. They sit alongside SIS, LMS, HRIS, and communication tools. Integrations are what make that ecosystem work—and they’re often the difference between “we tried it” and “we use it every day.”
+
+## The integration stack
+
+Most institutions need at least three types of connections:
+
+1. **Identity** – Single sign-on (SSO) so that learners and staff use one login. SAML 2.0 and OAuth 2 / OIDC are the standards. We support both.
+2. **Rostering** – Who is in which course? Data can come from the SIS, LMS, or a CSV. Automating this removes manual enrollment and reduces errors.
+3. **Grade passback** – Grades and completion status need to flow back into the LMS or SIS so that instructors and admins see one source of truth.
+
+Without these, every new tool is a new login, a new roster to maintain, and a new place to check grades. Adoption drops and support costs rise.
+
+## SSO in practice
+
+A typical SSO flow looks like this:
+
+1. User clicks “Log in with School” on your platform.
+2. They’re redirected to the institution’s IdP (e.g. Okta, Azure AD, Google).
+3. After authentication, the IdP sends a signed response (SAML assertion or OIDC tokens) back to your platform.
+4. Your platform creates or updates the user session and redirects to the app.
+
+Key implementation details:
+
+- **Attribute mapping** – Map IdP attributes (e.g. email, name, role) to your user model. Document what you need and what you support.
+- **Just-in-time provisioning** – Create users on first login so that you don’t need a separate sync step.
+- **Testing** – Use a sandbox IdP (e.g. Okta developer account) to test flows before going live with a customer.
+
+We’ve seen SSO cut support tickets related to “forgot password” and “wrong account” by more than half.
+
+## Rostering and enrollment
+
+Rostering can be push (LMS/SIS sends us data) or pull (we call their API). We support both:
+
+- **Push** – LMS sends a roster file or LTI membership. We create/update enrollments and, if needed, user accounts.
+- **Pull** – We call the institution’s API (e.g. Clever, ClassLink, or custom SIS API) on a schedule or on demand.
+
+Consistency is critical: use a single source of truth per customer and handle conflicts (e.g. user removed in SIS) with clear rules (e.g. deactivate, don’t delete history).
+
+## Grade passback
+
+Grades usually flow via LTI Outcomes, Caliper, or a custom API. We send:
+
+- **Score** – Numeric or letter grade, depending on what the LMS expects.
+- **Completion** – Whether the learner completed the activity.
+- **Timestamp** – When the grade was recorded.
+
+Instructors should see grades in their gradebook without leaving the LMS. We validate against the LMS’s schema and retry on transient failures.
+
+## Security and compliance
+
+Integrations touch sensitive data. We follow:
+
+- **Least privilege** – Only request the scopes or attributes we need.
+- **Encryption** – TLS everywhere; secrets in a vault.
+- **Audit logs** – Log all integration events (syncs, passbacks, errors) for debugging and compliance.
+- **Documentation** – Clear docs for admins on what we store, how we sync, and how to revoke access.
+
+We’re happy to complete security questionnaires and sign BAAs where required.
+
+---
+
+Integrations aren’t glamorous, but they’re what make a learning platform viable for real institutions. We invest heavily in making them reliable, documented, and easy to configure. [Contact us](/contact-us) to discuss your stack or to request a new connector.

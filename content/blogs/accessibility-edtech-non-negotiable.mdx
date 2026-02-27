@@ -1,0 +1,68 @@
+---
+title: "Accessibility in EdTech: Why It's Non-Negotiable"
+description: "How to build learning products that work for all learners—including those using screen readers, keyboards, and assistive technologies—and why accessibility is a product priority."
+date: "2026-08-14"
+tag: "Accessibility"
+tagClass: "bg-[#6366F1] text-white border-0"
+imageSrc: "/svgs/resource-center/3.svg"
+imageAlt: "Accessible design"
+readTimeMinutes: 10
+authorName: "Jordan Lee"
+authorRole: "Accessibility Lead"
+authorLinkedIn: "https://linkedin.com/in/jordanlee"
+authorTwitter: "https://twitter.com/jordanlee_a11y"
+---
+
+Accessibility isn’t a checklist—it’s a commitment to making learning possible for everyone. Here’s how we think about it at Edushade and what we’ve learned from working with learners and advocates.
+
+## The case for accessibility
+
+- **Legal** – In many jurisdictions (e.g. ADA, Section 508, EAA), equal access is required. Lawsuits and settlements have made this real for edtech.
+- **Ethical** – Learners with disabilities deserve the same opportunities as everyone else. Our products should not be the barrier.
+- **Practical** – Accessible design often improves the experience for everyone (e.g. captions help in noisy rooms, keyboard shortcuts help power users).
+
+We treat accessibility as a product requirement, not a phase-two feature.
+
+## Standards we follow
+
+We align with **WCAG 2.1 Level AA** for the public-facing product and, where applicable, **Section 508** and **EN 301 549**. That means:
+
+- **Perceivable** – Text alternatives for images, captions for video, content that can be presented in different ways (e.g. resized, high contrast).
+- **Operable** – Keyboard access, no keyboard traps, enough time for tasks, clear focus indicators.
+- **Understandable** – Readable language, predictable behavior, clear labels and error messages.
+- **Robust** – Markup and components that work with assistive technologies (screen readers, switch devices, etc.).
+
+We test with real users and with tools (e.g. axe, WAVE, screen readers) as part of our release process.
+
+## Common pitfalls and fixes
+
+| Pitfall | Fix |
+|---------|-----|
+| Images without alt text | Require alt for all meaningful images; use empty alt for decorative. |
+| Buttons or links with no label | Use visible text or aria-label; avoid “click here.” |
+| Forms without labels | Associate every input with a visible `label` or `aria-labelledby`. |
+| Low contrast | Aim for at least 4.5:1 for body text, 3:1 for large text. |
+| Focus not visible | Ensure focus ring is visible and not removed globally. |
+| Dynamic content not announced | Use live regions (aria-live) for updates that screen reader users need to know. |
+
+We run automated checks in CI and manual reviews before major releases.
+
+## Working with learners and experts
+
+We partner with disability services offices, K–12 special education teams, and individual testers who use assistive tech. Their feedback has led to:
+
+- **Simpler navigation** – Fewer levels, clearer headings, and skip links.
+- **Better quiz and assessment UX** – Clear instructions, no time traps without warning, and the ability to review before submit.
+- **Transcripts and captions** – We support uploads and, where possible, auto-generated captions with human review.
+
+Involving users early prevents costly rework and builds trust.
+
+## What’s next
+
+We’re working on:
+
+- **Improved keyboard and screen reader flows** for every major feature.
+- **More theme and display options** (e.g. high contrast, reduced motion) that persist per user.
+- **Clearer accessibility documentation** for admins and instructors so they can support diverse learners.
+
+If you have feedback or need specific accommodations, [we want to hear from you](/contact-us). Accessibility is a journey, and we’re committed to improving every release.

@@ -11,7 +11,6 @@ import {
 
 export interface ContactSalesFormProps {
 	title?: string;
-	/** Optional note text above the form title (e.g. response time) */
 	note?: React.ReactNode;
 	submitLabel?: string;
 	termsLinkTo?: string;
@@ -47,9 +46,7 @@ export function ContactSalesForm({
 				className,
 			)}
 		>
-			{note && (
-				<p className="mb-2 text-sm text-text-tertiary">{note}</p>
-			)}
+			{note && <p className="mb-2 text-sm text-text-tertiary">{note}</p>}
 			<Typography variant="h6" className="mb-6 font-medium text-text-primary">
 				{title}
 			</Typography>

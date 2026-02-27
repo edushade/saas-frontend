@@ -13,7 +13,7 @@ const FOOTER_COLUMNS = [
 			{ label: "Student Panel", to: "/" },
 			{ label: "Teacher Panel", to: "/" },
 			{ label: "Admin Panel", to: "/" },
-			{ label: "Pricing", to: "/" },
+			{ label: "Pricing", to: "/pricing" },
 		],
 	},
 	{
@@ -30,7 +30,7 @@ const FOOTER_COLUMNS = [
 		heading: "Resources",
 		links: [
 			{ label: "Documentation", to: "/" },
-			{ label: "Blog", to: "/" },
+			{ label: "Blog", to: "/blogs" },
 			{ label: "Changelog", to: "/" },
 			{ label: "Videos", to: "/" },
 		],
@@ -40,7 +40,7 @@ const FOOTER_COLUMNS = [
 		links: [
 			{ label: "About Us", to: "/" },
 			{ label: "Careers", to: "/" },
-			{ label: "Contact", to: "/" },
+			{ label: "Contact", to: "/contact-us" },
 		],
 	},
 	{

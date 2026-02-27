@@ -15,7 +15,9 @@ export default function GetStartedSection() {
 	return (
 		<section className="bg-bg-primary py-8 md:py-(--es-section-py) px-4 md:px-(--es-section-px)">
 			<div className="mx-auto max-w-(--es-max-w) ">
-				<Card className="relative overflow-hidden  border-border-secondary shadow-[0_1.5px_4px_-1px_rgba(10,9,11,0.07)] bg-[linear-gradient(67.68deg,#C3E3FF_0%,rgba(248,249,252,0)_64.42%,rgba(255,255,255,0)_100%)]">
+				<Card className="relative overflow-hidden  border-border-secondary shadow-[0_1.5px_4px_-1px_rgba(10,9,11,0.07)] bg-bg-primary">
+					<div className="absolute inset-0 z-0 bg-grad-cyan-2 pointer-events-none" />
+
 					<CardShadeOverlay className="backdrop-blur-[100px] bg-[repeating-linear-gradient(180deg,rgba(255,255,255,0)_0px,rgba(255,255,255,0.1)_47.15px,rgba(255,255,255,0.3)_85.33px)]" />
 
 					<CardContent className="relative z-10 grid grid-cols-1 items-center gap-8 p-0 py-6 lg:grid-cols-2 lg:py-8">

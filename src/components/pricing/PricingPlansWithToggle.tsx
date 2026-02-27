@@ -3,12 +3,7 @@ import { CheckBoldIcon } from "@/assets/icons";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-	PRICING_FEATURED_GRADIENT,
-	PRICING_FEATURED_OVERLAY,
-	PRICING_PLANS,
-	type PricingPlan,
-} from "@/constants/pricing";
+import { PRICING_PLANS, type PricingPlan } from "@/constants/pricing";
 import { cn } from "@/lib/utils";
 import { Badge } from "../ui/badge";
 import { Separator } from "../ui/separator";
@@ -28,16 +23,16 @@ function PricingCard({ plan }: { plan: PricingPlan }) {
 				className={cn(
 					"relative flex flex-col overflow-hidden rounded-[20px] border py-0 shadow-sm",
 					isFeatured
-						? "border-transparent bg-[#003E9C] text-white shadow-lg"
+						? "border-transparent bg-royal-blue text-text-on-brand shadow-lg"
 						: "bg-bg-primary text-card-foreground border-border",
 				)}
 			>
+				{/* background gradient */}
 				{isFeatured && (
 					<div
 						aria-hidden
 						className={cn(
-							"pointer-events-none absolute inset-0 z-0 rounded-2xl",
-							PRICING_FEATURED_GRADIENT,
+							"pointer-events-none absolute inset-0 z-0 rounded-2xl bg-grad-overlay-white",
 						)}
 					/>
 				)}
@@ -49,12 +44,10 @@ function PricingCard({ plan }: { plan: PricingPlan }) {
 					/>
 				)}
 
-				<CardShadeOverlay
-					className={cn(
-						isFeatured &&
-							"inset-0 z-1 w-full h-full " + PRICING_FEATURED_OVERLAY,
-					)}
-				/>
+				{/* shade overlay */}
+				{isFeatured && (
+					<CardShadeOverlay className="inset-0 z-1 w-full h-full backdrop-blur-[100px] bg-[repeating-linear-gradient(270deg,rgba(255,255,255,0)_0px,rgba(255,255,255,0.08)_60px),linear-gradient(0deg,rgba(255,255,255,0.15)_0%,rgba(255,255,255,0)_50%)]" />
+				)}
 
 				<CardContent className="relative z-10 flex flex-1 flex-col gap-4 p-6">
 					<div className="flex items-center justify-between gap-2">

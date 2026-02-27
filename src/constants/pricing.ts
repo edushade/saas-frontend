@@ -294,9 +294,3 @@ export const PRICING_PLANS: PricingPlan[] = [
 		ctaLabel: "Get Started",
 	},
 ];
-
-export const PRICING_FEATURED_GRADIENT =
-	"bg-[linear-gradient(360deg,#000000_0%,rgba(0,0,0,0)_100%)]";
-/** Full-width overlay: repeating stripes + bottom glow (single background) */
-export const PRICING_FEATURED_OVERLAY =
-	"backdrop-blur-[100px] bg-[repeating-linear-gradient(270deg,rgba(255,255,255,0)_0px,rgba(255,255,255,0.08)_60px),linear-gradient(0deg,rgba(255,255,255,0.15)_0%,rgba(255,255,255,0)_50%)]";
