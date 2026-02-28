@@ -12,7 +12,7 @@ export function BannerTag({
 		<Badge
 			variant="secondary"
 			className={cn(
-				"text-[#262626] bg-bg-tertiary border shadow-card-fancy border-border-secondary rounded-full px-3 py-2",
+				"text-dark-15 bg-border-tertiary border shadow-card-fancy font-medium text-sm border-border-secondary rounded-full px-4 py-2",
 				className,
 			)}
 		>

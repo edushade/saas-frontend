@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { useState } from "react";
 import { parsePhoneNumber } from "react-phone-number-input";
 import { Typography } from "@/components/ui-custom/typography";
 import { useAppForm } from "@/hooks/form";
@@ -17,6 +18,7 @@ export interface ContactSalesFormProps {
 	submitLabel?: string;
 	termsLinkTo?: string;
 	onSubmit?: (value: ContactFormValue) => void;
+	contactApiUrl?: string;
 	className?: string;
 }
 
@@ -31,22 +33,52 @@ export function ContactSalesForm({
 	submitLabel = "Send Message",
 	termsLinkTo = "/",
 	onSubmit = defaultOnSubmit,
+	contactApiUrl = "/api/contact",
 	className,
 }: ContactSalesFormProps) {
+	const [submitError, setSubmitError] = useState<string | null>(null);
+
 	const form = useAppForm({
 		defaultValues: DEFAULT_CONTACT_FORM_VALUES,
 		validators: getContactFormValidators(),
-		onSubmit: ({ value }) => {
+		onSubmit: async ({ value }) => {
+			setSubmitError(null);
 			const parsed = value.phone?.trim()
 				? parsePhoneNumber(value.phone)
 				: undefined;
 			const phoneCountry = parsed ? `+${parsed.countryCallingCode}` : "";
 			const phoneNumber = parsed?.nationalNumber ?? "";
-			onSubmit({
+			const payload: ContactFormValue = {
 				...value,
 				phoneCountry,
 				phoneNumber,
-			});
+			};
+
+			try {
+				const res = await fetch(contactApiUrl, {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify(payload),
+				});
+				const data = (await res.json().catch(() => ({}))) as {
+					ok?: boolean;
+					message?: string;
+				};
+
+				if (!res.ok) {
+					setSubmitError(
+						data?.message ?? "Something went wrong. Please try again.",
+					);
+					return;
+				}
+				if (data?.ok === true) {
+					onSubmit(payload);
+					return;
+				}
+				setSubmitError(data?.message ?? "Message could not be sent.");
+			} catch {
+				setSubmitError("Network error. Please try again.");
+			}
 		},
 	});
 
@@ -163,6 +195,12 @@ export function ContactSalesForm({
 							</field.Checkbox>
 						)}
 					</form.AppField>
+
+					{submitError && (
+						<p className="text-sm font-medium text-destructive" role="alert">
+							{submitError}
+						</p>
+					)}
 
 					<form.AppForm>
 						<form.SubscribeButton

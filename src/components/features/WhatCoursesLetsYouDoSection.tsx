@@ -80,7 +80,7 @@ export function WhatCoursesLetsYouDoSection() {
 					{COURSE_CAPABILITIES.map((item) => (
 						<Card
 							key={item.title}
-							className="rounded-[20px] border border-border-secondary bg-bg-primary shadow-md hover:shadow-md transition-shadow"
+							className="rounded-[20px] border border-border-secondary bg-bg-primary shadow-md hover:shadow-md duration-300 hover:transition-shadow hover:scale-[1.01]"
 						>
 							<CardContent>
 								<div className="flex size-11 items-center justify-center rounded-lg bg-brand-200/15 text-brand-300 mb-4">

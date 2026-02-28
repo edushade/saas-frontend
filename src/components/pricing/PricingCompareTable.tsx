@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/tooltip";
 import { Typography } from "@/components/ui-custom/typography";
 import {
+	type BillingCycle,
 	PRICING_COMPARE_SECTIONS,
 	type PricingCompareRow,
 	type PricingCompareSection,
@@ -29,6 +30,20 @@ function InfoIcon({ tooltip }: { tooltip: string }) {
 			</TooltipContent>
 		</Tooltip>
 	);
+}
+
+function getRowValues(row: PricingCompareRow, billing: BillingCycle) {
+	const isAnnually = billing === "annually";
+	return {
+		starter:
+			isAnnually && row.starterAnnual != null ? row.starterAnnual : row.starter,
+		growth:
+			isAnnually && row.growthAnnual != null ? row.growthAnnual : row.growth,
+		advanced:
+			isAnnually && row.advancedAnnual != null
+				? row.advancedAnnual
+				: row.advanced,
+	};
 }
 
 function CompareRowMobile({
@@ -113,7 +128,13 @@ function CompareRowTable({
 	);
 }
 
-function SingleCompareTable({ section }: { section: PricingCompareSection }) {
+function SingleCompareTable({
+	section,
+	billing,
+}: {
+	section: PricingCompareSection;
+	billing: BillingCycle;
+}) {
 	return (
 		<section
 			aria-label={`${section.title} comparison`}
@@ -143,20 +164,9 @@ function SingleCompareTable({ section }: { section: PricingCompareSection }) {
 						))}
 					</div>
 				</div>
-				{section.rows.map((row: PricingCompareRow) => (
-					<CompareRowMobile
-						key={row.feature}
-						feature={row.feature}
-						tooltip={row.tooltip}
-						starter={row.starter}
-						growth={row.growth}
-						advanced={row.advanced}
-					/>
-				))}
 			</div>
 
-			{/* Medium and up: table — equal column width for all */}
-			<div className="hidden md:block">
+			<div className="block">
 				<table className="w-full table-fixed border-collapse">
 					<colgroup>
 						<col className="w-1/4" />
@@ -201,16 +211,19 @@ function SingleCompareTable({ section }: { section: PricingCompareSection }) {
 						</tr>
 					</thead>
 					<tbody>
-						{section.rows.map((row) => (
-							<CompareRowTable
-								key={row.feature}
-								feature={row.feature}
-								tooltip={row.tooltip}
-								starter={row.starter}
-								growth={row.growth}
-								advanced={row.advanced}
-							/>
-						))}
+						{section.rows.map((row) => {
+							const { starter, growth, advanced } = getRowValues(row, billing);
+							return (
+								<CompareRowTable
+									key={row.feature}
+									feature={row.feature}
+									tooltip={row.tooltip}
+									starter={starter}
+									growth={growth}
+									advanced={advanced}
+								/>
+							);
+						})}
 					</tbody>
 				</table>
 			</div>
@@ -218,12 +231,16 @@ function SingleCompareTable({ section }: { section: PricingCompareSection }) {
 	);
 }
 
-export function PricingCompareTable() {
+export function PricingCompareTable({ billing }: { billing: BillingCycle }) {
 	return (
 		<TooltipProvider>
 			<div className="flex flex-col gap-6">
 				{PRICING_COMPARE_SECTIONS.map((section) => (
-					<SingleCompareTable key={section.title} section={section} />
+					<SingleCompareTable
+						key={section.title}
+						section={section}
+						billing={billing}
+					/>
 				))}
 			</div>
 		</TooltipProvider>

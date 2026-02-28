@@ -1,5 +1,6 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { ArrowUpRight, Menu } from "lucide-react";
+import { useState } from "react";
 import { DiamondIcon } from "@/assets/icons";
 import {
 	Accordion,
@@ -33,16 +34,30 @@ import {
 import { cn } from "@/lib/utils";
 import { Typography } from "../ui-custom/typography";
 
-function FeaturesMenu() {
+function FeaturesMenu({
+	openNav,
+	onOpenChange,
+}: {
+	openNav: string | null;
+	onOpenChange: (v: string | null) => void;
+}) {
+	const pathname = useRouterState({ select: (s) => s.location.pathname });
+	const isFeaturesActive = pathname.startsWith("/features");
+
 	return (
-		<NavigationMenu viewport={false}>
+		<NavigationMenu
+			viewport={false}
+			value={openNav === "features" ? "features" : ""}
+			onValueChange={(v) => onOpenChange(v || null)}
+		>
 			<NavigationMenuList>
-				<NavigationMenuItem>
+				<NavigationMenuItem value="features">
 					<NavigationMenuTrigger
 						className={cn(
 							"bg-transparent text-text-dark-2 rounded-full text-sm font-medium",
 							"hover:text-brand-300 hover:bg-bg-secondary",
 							"data-[state=open]:bg-bg-secondary data-[state=open]:text-brand-300",
+							isFeaturesActive && "bg-bg-secondary text-brand-300",
 						)}
 					>
 						Features
@@ -63,7 +78,12 @@ function FeaturesMenu() {
 												<li key={item.label}>
 													<Link
 														to={item.href}
-														className="flex items-start gap-3 rounded-lg py-2 transition-colors hover:bg-bg-secondary"
+														onClick={() => onOpenChange(null)}
+														className={cn(
+															"flex items-start gap-3 rounded-lg py-2 transition-colors hover:bg-bg-secondary",
+															pathname === item.href &&
+																"bg-bg-secondary text-brand-300",
+														)}
 													>
 														<div className="bg-bg-tertiary rounded-md p-0.5 hover:bg-bg-secondary">
 															<div className=" flex p-1 shrink-0 items-center justify-center rounded-md bg-bg-primary hover:bg-bg-secondary">
@@ -73,7 +93,12 @@ function FeaturesMenu() {
 														<div className="flex flex-col gap-1">
 															<Typography
 																variant="small"
-																className="leading-tight font-medium text-text-primary"
+																className={cn(
+																	"leading-tight font-medium",
+																	pathname === item.href
+																		? "text-brand-300"
+																		: "text-text-primary",
+																)}
 															>
 																{item.label}
 															</Typography>
@@ -109,8 +134,10 @@ function FeaturesMenu() {
 										</Typography>
 									</div>
 
-									<Button className="btn-brand-1 rounded-full">
-										{FEATURES_CTA.button}
+									<Button className="btn-brand-1 rounded-full" asChild>
+										<Link to="/" onClick={() => onOpenChange(null)}>
+											{FEATURES_CTA.button}
+										</Link>
 									</Button>
 								</div>
 							</CardFooter>
@@ -122,16 +149,32 @@ function FeaturesMenu() {
 	);
 }
 
-function ResourcesMenu() {
+function ResourcesMenu({
+	openNav,
+	onOpenChange,
+}: {
+	openNav: string | null;
+	onOpenChange: (v: string | null) => void;
+}) {
+	const pathname = useRouterState({ select: (s) => s.location.pathname });
+	const isResourcesActive = RESOURCES_ITEMS.some(
+		(item) => pathname === item.href,
+	);
+
 	return (
-		<NavigationMenu viewport={false}>
+		<NavigationMenu
+			viewport={false}
+			value={openNav === "resources" ? "resources" : ""}
+			onValueChange={(v) => onOpenChange(v || null)}
+		>
 			<NavigationMenuList>
-				<NavigationMenuItem>
+				<NavigationMenuItem value="resources">
 					<NavigationMenuTrigger
 						className={cn(
 							"bg-transparent text-text-dark-2 rounded-full text-sm font-medium",
 							"hover:text-brand-300 hover:bg-bg-secondary",
 							"data-[state=open]:bg-bg-secondary data-[state=open]:text-brand-300",
+							isResourcesActive && "bg-bg-secondary text-brand-300",
 						)}
 					>
 						Resources
@@ -142,10 +185,22 @@ function ResourcesMenu() {
 								<li key={item.label} className="w-full">
 									<Link
 										to={item.href}
-										className="flex items-center gap-2.5 rounded-md px-3 py-2 transition-colors hover:bg-bg-secondary hover:text-text-on-brand w-full"
+										onClick={() => onOpenChange(null)}
+										className={cn(
+											"flex items-center gap-2.5 rounded-md px-3 py-2 transition-colors hover:bg-bg-secondary hover:text-text-on-brand w-full",
+											pathname === item.href &&
+												"bg-bg-secondary text-brand-300",
+										)}
 									>
 										<item.icon className="shrink-0 text-brand-200" />
-										<span className="text-text-secondary text-sm font-medium">
+										<span
+											className={cn(
+												"text-sm font-medium",
+												pathname === item.href
+													? "text-brand-300"
+													: "text-text-secondary",
+											)}
+										>
 											{item.label}
 										</span>
 									</Link>
@@ -160,8 +215,10 @@ function ResourcesMenu() {
 }
 
 function MobileMenu() {
+	const [open, setOpen] = useState(false);
+
 	return (
-		<Sheet>
+		<Sheet open={open} onOpenChange={setOpen}>
 			<SheetTrigger asChild>
 				<Button
 					variant="ghost"
@@ -197,6 +254,7 @@ function MobileMenu() {
 											<Link
 												key={item.label}
 												to={item.href}
+												onClick={() => setOpen(false)}
 												className="flex items-center gap-2.5 rounded-md px-2 py-2 text-sm text-text-secondary transition-colors hover:bg-bg-secondary hover:text-text-primary"
 											>
 												<item.icon
@@ -221,6 +279,7 @@ function MobileMenu() {
 									<Link
 										key={item.label}
 										to={item.href}
+										onClick={() => setOpen(false)}
 										className="flex items-center gap-2.5 rounded-md px-2 py-2 text-sm text-text-secondary transition-colors hover:bg-bg-secondary hover:text-text-primary"
 									>
 										<item.icon
@@ -239,6 +298,7 @@ function MobileMenu() {
 						<Link
 							key={link.label}
 							to={link.href}
+							onClick={() => setOpen(false)}
 							className="flex items-center rounded-md  py-3 text-sm font-medium text-text-secondary transition-colors hover:bg-bg-secondary hover:text-text-primary"
 						>
 							{link.label}
@@ -252,7 +312,7 @@ function MobileMenu() {
 						<Link to="/">Sign In</Link>
 					</Button>
 					<Button asChild className="btn-brand-1 w-full rounded-full gap-1.5">
-						<Link to="/">
+						<Link to="/request-demo" onClick={() => setOpen(false)}>
 							Request a Demo <ArrowUpRight size={14} />
 						</Link>
 					</Button>
@@ -263,6 +323,9 @@ function MobileMenu() {
 }
 
 export default function Header() {
+	const [openNav, setOpenNav] = useState<string | null>(null);
+	const pathname = useRouterState({ select: (s) => s.location.pathname });
+
 	return (
 		<header className="fixed top-0 left-0 right-0 z-50 flex items-center px-(--es-section-px) h-(--es-nav-h) bg-bg-primary">
 			<div className="mx-auto w-full max-w-(--es-max-w) flex items-center justify-between">
@@ -276,21 +339,28 @@ export default function Header() {
 
 				<div className="flex items-center gap-3 shrink-0">
 					<nav className="hidden md:flex items-center ">
-						<FeaturesMenu />
-						<ResourcesMenu />
-						{NAV_LINKS.map((link) => (
-							<Link
-								key={link.label}
-								to={link.href}
-								className={cn(
-									navigationMenuTriggerStyle(),
-									"bg-transparent text-text-dark-2 rounded-full text-sm font-medium",
-									"hover:text-brand-300 hover:bg-bg-secondary",
-								)}
-							>
-								{link.label}
-							</Link>
-						))}
+						<FeaturesMenu openNav={openNav} onOpenChange={setOpenNav} />
+						<ResourcesMenu openNav={openNav} onOpenChange={setOpenNav} />
+						{NAV_LINKS.map((link) => {
+							const isLinkActive =
+								pathname === link.href ||
+								(link.href !== "/" && pathname.startsWith(link.href + "/"));
+							return (
+								<Link
+									key={link.label}
+									to={link.href}
+									className={cn(
+										navigationMenuTriggerStyle(),
+										"bg-transparent text-text-dark-2 rounded-full text-sm font-medium",
+										"hover:text-brand-300 hover:bg-bg-secondary",
+										"data-[state=open]:bg-bg-secondary data-[state=open]:text-brand-300",
+										isLinkActive && "bg-bg-secondary text-brand-300",
+									)}
+								>
+									{link.label}
+								</Link>
+							);
+						})}
 					</nav>
 
 					<div className="hidden md:flex items-center gap-3 shrink-0">

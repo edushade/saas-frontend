@@ -1,8 +1,13 @@
+export type BillingCycle = "monthly" | "annually";
+
 export interface PricingPlan {
 	id: string;
 	name: string;
 	price: string;
 	period?: string;
+	annualPrice?: string;
+	annualPeriod?: string;
+	annualFeatures?: string[];
 	headline: string;
 	description: string;
 	tag?: string;
@@ -11,16 +16,17 @@ export interface PricingPlan {
 	ctaLabel: string;
 }
 
-/** One row in the compare table: feature name + optional tooltip + values for Starter, Growth, Advanced */
 export interface PricingCompareRow {
 	feature: string;
 	tooltip?: string;
 	starter: string;
 	growth: string;
 	advanced: string;
+	starterAnnual?: string;
+	growthAnnual?: string;
+	advancedAnnual?: string;
 }
 
-/** Section header + rows for the comparison table */
 export interface PricingCompareSection {
 	title: string;
 	rows: PricingCompareRow[];
@@ -30,6 +36,16 @@ export const PRICING_COMPARE_SECTIONS: PricingCompareSection[] = [
 	{
 		title: "Platform Setup",
 		rows: [
+			{
+				feature: "Starting price",
+				tooltip: "Per month; annual billing saves 20%.",
+				starter: "$29",
+				growth: "$79",
+				advanced: "Contact us",
+				starterAnnual: "$23",
+				growthAnnual: "$63",
+				advancedAnnual: "Contact us",
+			},
 			{
 				feature: "Custom Platform Domains",
 				tooltip: "Connect your own domain to your learning platform.",
@@ -237,10 +253,24 @@ export const PRICING_PLANS: PricingPlan[] = [
 		name: "Starter",
 		price: "$29",
 		period: "/month",
+		annualPrice: "$23",
+		annualPeriod: "/month, billed annually",
 		headline: "Perfect for solo educators",
 		description:
 			"Designed for independent creators launching their first courses and programs.",
 		features: [
+			"Student panel access",
+			"Teacher panel access",
+			"Course and lesson creation",
+			"Email support",
+			"Up to 100 students",
+			"Basic analytics",
+			"1 course",
+			"Community access",
+		],
+		annualFeatures: [
+			"Everything in Monthly",
+			"Save 20% when billed annually",
 			"Student panel access",
 			"Teacher panel access",
 			"Course and lesson creation",
@@ -257,12 +287,26 @@ export const PRICING_PLANS: PricingPlan[] = [
 		name: "Growth",
 		price: "$79",
 		period: "/month",
+		annualPrice: "$63",
+		annualPeriod: "/month, billed annually",
 		headline: "For expanding academies",
 		description:
 			"Built to scale programs, manage cohorts, and keep learning consistent.",
 		tag: "Most Popular",
 		featured: true,
 		features: [
+			"Admin panel access",
+			"Cohorts and program management",
+			"Advanced assessments and feedback",
+			"Priority support",
+			"Up to 1,000 students",
+			"Advanced analytics",
+			"Unlimited courses",
+			"API access",
+		],
+		annualFeatures: [
+			"Everything in Monthly",
+			"Save 20% when billed annually",
 			"Admin panel access",
 			"Cohorts and program management",
 			"Advanced assessments and feedback",

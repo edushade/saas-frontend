@@ -8,21 +8,38 @@ import {
 	TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Typography } from "@/components/ui-custom/typography";
-import { PRICING_PLANS, type PricingPlan } from "@/constants/pricing";
+import {
+	type BillingCycle,
+	PRICING_PLANS,
+	type PricingPlan,
+} from "@/constants/pricing";
 import { cn } from "@/lib/utils";
 import { PricingCompareTable } from "./PricingCompareTable";
 
-function CompareCard({ plan }: { plan: PricingPlan }) {
+function CompareCard({
+	plan,
+	billing,
+}: {
+	plan: PricingPlan;
+	billing: BillingCycle;
+}) {
 	const isFeatured = plan.featured === true;
-	const isContact = plan.price.toLowerCase() === "contact us";
+	const isAnnually = billing === "annually";
+	const displayPrice =
+		isAnnually && plan.annualPrice != null ? plan.annualPrice : plan.price;
+	const displayPeriod =
+		isAnnually && plan.annualPeriod != null ? plan.annualPeriod : plan.period;
+	const isContact =
+		displayPrice.toLowerCase() === "contact us" ||
+		plan.price.toLowerCase() === "contact us";
 
 	return (
 		<Card
 			className={cn(
-				"flex min-h-[184px] flex-col rounded-2xl border border-border-secondary bg-bg-primary shadow-sm transition-shadow hover:shadow-md",
+				"flex min-h-[184px] w-full flex-col rounded-2xl border border-border-secondary bg-bg-primary shadow-sm transition-shadow hover:shadow-md",
 			)}
 		>
-			<CardContent className="flex flex-1 flex-col gap-4">
+			<CardContent className="flex w-full flex-1 flex-col gap-4">
 				<Typography variant="h6" className="font-semibold text-text-primary">
 					{plan.name}
 				</Typography>
@@ -30,16 +47,16 @@ function CompareCard({ plan }: { plan: PricingPlan }) {
 				<div className="flex items-baseline gap-1">
 					{isContact ? (
 						<Typography variant="h4" className="font-medium text-text-primary">
-							{plan.price}
+							{displayPrice}
 						</Typography>
 					) : (
 						<>
 							<span className="text-2xl font-semibold tracking-tight text-text-primary md:text-3xl">
-								{plan.price}
+								{displayPrice}
 							</span>
-							{plan.period && (
+							{displayPeriod && (
 								<span className="text-base font-normal text-text-secondary">
-									{plan.period}
+									{displayPeriod}
 								</span>
 							)}
 						</>
@@ -63,7 +80,7 @@ function CompareCard({ plan }: { plan: PricingPlan }) {
 }
 
 export default function ComparePricingSection() {
-	const [billing, setBilling] = useState<"monthly" | "annually">("monthly");
+	const [billing, setBilling] = useState<BillingCycle>("monthly");
 
 	return (
 		<section className="bg-bg-primary py-8 md:py-(--es-section-py) px-4 md:px-(--es-section-px)">
@@ -98,7 +115,7 @@ export default function ComparePricingSection() {
 						</TooltipProvider>
 						<Tabs
 							value={billing}
-							onValueChange={(v) => setBilling(v as "monthly" | "annually")}
+							onValueChange={(v) => setBilling(v as BillingCycle)}
 							className="flex flex-col items-end"
 						>
 							<TabsList className="rounded-xl border border-border bg-bg-primary  p-1 h-16 group-data-[orientation=horizontal]/tabs:h-11 w-full lg:w-auto">
@@ -119,17 +136,16 @@ export default function ComparePricingSection() {
 					</div>
 				</div>
 
-				{/* Cards at section end (right side), under the toggle — fixed card size */}
 				<div className="flex justify-end">
-					<div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:w-[960px] lg:max-w-full">
+					<div className="grid w-full grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:w-[960px] lg:max-w-full">
 						{PRICING_PLANS.map((plan) => (
-							<CompareCard key={plan.id} plan={plan} />
+							<CompareCard key={plan.id} plan={plan} billing={billing} />
 						))}
 					</div>
 				</div>
 
 				<div className="mt-12">
-					<PricingCompareTable />
+					<PricingCompareTable billing={billing} />
 				</div>
 			</div>
 		</section>

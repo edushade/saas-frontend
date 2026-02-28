@@ -76,6 +76,7 @@ code {
   --success-600: #108700;
   --rose-600: #B30065;
   --royal-blue: #003E9C;
+  --dark-15: #262626;
 
 
   --border-primary: #e2e8f0;
@@ -191,6 +192,7 @@ code {
   --color-success-600:var(--success-600);
   --color-rose-600:var(--rose-600);
   --color-royal-blue:var(--royal-blue);
+  --color-dark-15:var(--dark-15);
 
   --color-border-primary: var(--border-primary);
   --color-border-secondary: var(--border-secondary);

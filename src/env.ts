@@ -4,6 +4,12 @@ import { z } from "zod";
 export const env = createEnv({
 	server: {
 		SERVER_URL: z.string().url().optional(),
+		// Mailtrap / SMTP (for form submission or email sending)
+		EMAIL_PROVIDER: z.string().optional(),
+		EMAIL_SMTP_HOST: z.string().optional(),
+		EMAIL_SMTP_PORT: z.string().optional(),
+		EMAIL_SMTP_USERNAME: z.string().optional(),
+		EMAIL_SMTP_PASSWORD: z.string().optional(),
 	},
 
 	/**

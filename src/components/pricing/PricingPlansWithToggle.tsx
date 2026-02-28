@@ -1,27 +1,46 @@
-import { useState } from "react";
 import { CheckBoldIcon } from "@/assets/icons";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { PRICING_PLANS, type PricingPlan } from "@/constants/pricing";
+import {
+	type BillingCycle,
+	PRICING_PLANS,
+	type PricingPlan,
+} from "@/constants/pricing";
 import { cn } from "@/lib/utils";
 import { Badge } from "../ui/badge";
 import { Separator } from "../ui/separator";
 import { CardShadeOverlay } from "../ui-custom/card-shade-overlay";
 import { Typography } from "../ui-custom/typography";
 
-function PricingCard({ plan }: { plan: PricingPlan }) {
+function PricingCard({
+	plan,
+	billing,
+}: {
+	plan: PricingPlan;
+	billing: BillingCycle;
+}) {
 	const isFeatured = plan.featured === true;
+	const isAnnually = billing === "annually";
+	const displayPrice =
+		isAnnually && plan.annualPrice != null ? plan.annualPrice : plan.price;
+	const displayPeriod =
+		isAnnually && plan.annualPeriod != null ? plan.annualPeriod : plan.period;
+	const displayFeatures =
+		isAnnually && plan.annualFeatures?.length
+			? plan.annualFeatures
+			: plan.features;
 
 	return (
 		<div
 			className={cn(
-				isFeatured ? "border-2 border-brand-200 rounded-[20px] p-0.5" : "",
+				"h-full rounded-[20px] transition-shadow hover:shadow-md",
+				isFeatured ? "border-2 border-brand-200 p-0.5" : "",
 			)}
 		>
 			<Card
 				className={cn(
-					"relative flex flex-col overflow-hidden rounded-[20px] border py-0 shadow-sm",
+					"relative flex h-full flex-col overflow-hidden rounded-[20px] border py-0 shadow-sm ",
 					isFeatured
 						? "border-transparent bg-royal-blue text-text-on-brand shadow-lg"
 						: "bg-bg-primary text-card-foreground border-border",
@@ -49,7 +68,7 @@ function PricingCard({ plan }: { plan: PricingPlan }) {
 					<CardShadeOverlay className="inset-0 z-1 w-full h-full backdrop-blur-[100px] bg-[repeating-linear-gradient(270deg,rgba(255,255,255,0)_0px,rgba(255,255,255,0.08)_60px),linear-gradient(0deg,rgba(255,255,255,0.15)_0%,rgba(255,255,255,0)_50%)]" />
 				)}
 
-				<CardContent className="relative z-10 flex flex-1 flex-col gap-4 p-6">
+				<CardContent className="relative z-10 flex min-h-0 flex-1 flex-col gap-4 p-6">
 					<div className="flex items-center justify-between gap-2">
 						<Typography
 							variant="h6"
@@ -81,16 +100,16 @@ function PricingCard({ plan }: { plan: PricingPlan }) {
 								isFeatured ? "text-white" : "text-text-primary",
 							)}
 						>
-							{plan.price}
+							{displayPrice}
 						</span>
-						{plan.period && (
+						{displayPeriod && (
 							<span
 								className={cn(
 									"text-base font-normal",
 									isFeatured ? "text-white/90" : "text-text-secondary",
 								)}
 							>
-								{plan.period}
+								{displayPeriod}
 							</span>
 						)}
 					</div>
@@ -124,8 +143,8 @@ function PricingCard({ plan }: { plan: PricingPlan }) {
 						className={cn("", isFeatured ? "bg-white/20" : "bg-border")}
 					/>
 
-					<ul className="flex flex-1 flex-col gap-2 pt-2">
-						{plan.features.map((feature) => (
+					<ul className="flex min-h-0 flex-1 flex-col gap-2 pt-2">
+						{displayFeatures.map((feature) => (
 							<li
 								key={feature}
 								className="flex items-center gap-2 text-sm leading-snug"
@@ -173,9 +192,13 @@ function PricingCard({ plan }: { plan: PricingPlan }) {
 	);
 }
 
-export default function PricingPlansWithToggle() {
-	const [billing, setBilling] = useState<"monthly" | "annually">("monthly");
-
+export default function PricingPlansWithToggle({
+	billing,
+	onBillingChange,
+}: {
+	billing: BillingCycle;
+	onBillingChange: (v: BillingCycle) => void;
+}) {
 	return (
 		<div className="flex flex-col gap-8">
 			<div className="flex flex-col items-center gap-3">
@@ -185,7 +208,7 @@ export default function PricingPlansWithToggle() {
 					</span>
 					<Tabs
 						value={billing}
-						onValueChange={(v) => setBilling(v as "monthly" | "annually")}
+						onValueChange={(v) => onBillingChange(v as BillingCycle)}
 						className="flex flex-col items-center"
 					>
 						<TabsList className="rounded-xl border border-border bg-bg-primary  p-1 h-16 group-data-[orientation=horizontal]/tabs:h-11 w-full lg:w-auto">
@@ -206,9 +229,9 @@ export default function PricingPlansWithToggle() {
 				</div>
 			</div>
 
-			<div className="grid grid-cols-1 gap-8 md:grid-cols-3 items-stretch">
+			<div className="grid grid-cols-1 gap-6 md:grid-cols-3 items-stretch">
 				{PRICING_PLANS.map((plan) => (
-					<PricingCard key={plan.id} plan={plan} />
+					<PricingCard key={plan.id} plan={plan} billing={billing} />
 				))}
 			</div>
 		</div>

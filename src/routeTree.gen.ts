@@ -23,6 +23,7 @@ import { Route as BlogsIndexRouteImport } from './routes/blogs.index'
 import { Route as IntegrationsSlugRouteImport } from './routes/integrations.$slug'
 import { Route as FeaturesSlugRouteImport } from './routes/features.$slug'
 import { Route as BlogsSlugRouteImport } from './routes/blogs.$slug'
+import { Route as ApiContactRouteImport } from './routes/api/contact'
 
 const RequestDemoRoute = RequestDemoRouteImport.update({
   id: '/request-demo',
@@ -94,6 +95,11 @@ const BlogsSlugRoute = BlogsSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => BlogsRoute,
 } as any)
+const ApiContactRoute = ApiContactRouteImport.update({
+  id: '/api/contact',
+  path: '/api/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -104,6 +110,7 @@ export interface FileRoutesByFullPath {
   '/integrations': typeof IntegrationsRouteWithChildren
   '/pricing': typeof PricingRoute
   '/request-demo': typeof RequestDemoRoute
+  '/api/contact': typeof ApiContactRoute
   '/blogs/$slug': typeof BlogsSlugRoute
   '/features/$slug': typeof FeaturesSlugRoute
   '/integrations/$slug': typeof IntegrationsSlugRoute
@@ -117,6 +124,7 @@ export interface FileRoutesByTo {
   '/contact-us': typeof ContactUsRoute
   '/pricing': typeof PricingRoute
   '/request-demo': typeof RequestDemoRoute
+  '/api/contact': typeof ApiContactRoute
   '/blogs/$slug': typeof BlogsSlugRoute
   '/features/$slug': typeof FeaturesSlugRoute
   '/integrations/$slug': typeof IntegrationsSlugRoute
@@ -134,6 +142,7 @@ export interface FileRoutesById {
   '/integrations': typeof IntegrationsRouteWithChildren
   '/pricing': typeof PricingRoute
   '/request-demo': typeof RequestDemoRoute
+  '/api/contact': typeof ApiContactRoute
   '/blogs/$slug': typeof BlogsSlugRoute
   '/features/$slug': typeof FeaturesSlugRoute
   '/integrations/$slug': typeof IntegrationsSlugRoute
@@ -152,6 +161,7 @@ export interface FileRouteTypes {
     | '/integrations'
     | '/pricing'
     | '/request-demo'
+    | '/api/contact'
     | '/blogs/$slug'
     | '/features/$slug'
     | '/integrations/$slug'
@@ -165,6 +175,7 @@ export interface FileRouteTypes {
     | '/contact-us'
     | '/pricing'
     | '/request-demo'
+    | '/api/contact'
     | '/blogs/$slug'
     | '/features/$slug'
     | '/integrations/$slug'
@@ -181,6 +192,7 @@ export interface FileRouteTypes {
     | '/integrations'
     | '/pricing'
     | '/request-demo'
+    | '/api/contact'
     | '/blogs/$slug'
     | '/features/$slug'
     | '/integrations/$slug'
@@ -198,6 +210,7 @@ export interface RootRouteChildren {
   IntegrationsRoute: typeof IntegrationsRouteWithChildren
   PricingRoute: typeof PricingRoute
   RequestDemoRoute: typeof RequestDemoRoute
+  ApiContactRoute: typeof ApiContactRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -300,6 +313,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogsSlugRouteImport
       parentRoute: typeof BlogsRoute
     }
+    '/api/contact': {
+      id: '/api/contact'
+      path: '/api/contact'
+      fullPath: '/api/contact'
+      preLoaderRoute: typeof ApiContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -352,6 +372,7 @@ const rootRouteChildren: RootRouteChildren = {
   IntegrationsRoute: IntegrationsRouteWithChildren,
   PricingRoute: PricingRoute,
   RequestDemoRoute: RequestDemoRoute,
+  ApiContactRoute: ApiContactRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
