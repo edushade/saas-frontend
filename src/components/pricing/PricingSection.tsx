@@ -21,12 +21,13 @@ function PricingCard({ plan }: { plan: PricingPlan }) {
 	return (
 		<div
 			className={cn(
+				"h-full flex flex-col",
 				isFeatured ? "border-2 border-brand-200 rounded-[20px] p-0.5" : "",
 			)}
 		>
 			<Card
 				className={cn(
-					"relative flex flex-col overflow-hidden rounded-[20px] border py-0 shadow-sm",
+					"relative flex flex-1 flex-col overflow-hidden rounded-[20px] border py-0 shadow-sm min-h-0",
 					isFeatured
 						? "border-transparent bg-[#003E9C] text-white shadow-lg"
 						: "bg-bg-primary text-card-foreground border-border",
