@@ -74,7 +74,7 @@ export const Route = createFileRoute("/")({
 
 function LandingPage() {
 	return (
-		<main>
+		<main className="pt-8 pb-8">
 			<HeroSection />
 			<LogosSection />
 			<BuiltForTeachSection />
