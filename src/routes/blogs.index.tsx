@@ -3,7 +3,7 @@ import { BannerBlog, BlogListSection } from "@/components/blog";
 import RecentBlogSection from "@/components/landing/RecentBlogSection";
 import { getBlogListPage } from "@/constants/blogs";
 
-const SITE_ORIGIN = "https://edushade.com";
+const SITE_ORIGIN = "https://localhost.com";
 
 export const Route = createFileRoute("/blogs/")({
 	validateSearch: (search: Record<string, unknown>) => {
@@ -11,7 +11,7 @@ export const Route = createFileRoute("/blogs/")({
 		return { page: Number.isFinite(page) && page >= 1 ? page : 1 };
 	},
 	loader: async ({ location }) => {
-		const search = location.search as { page?: number };
+		const search = (location?.search ?? {}) as { page?: number };
 		const page = search?.page ?? 1;
 		return getBlogListPage(page);
 	},

@@ -25,7 +25,7 @@ export function BlogListSection({
 	currentPage,
 	totalPages,
 }: BlogListSectionProps) {
-	const showLeftEllipsis = currentPage > 3;
+	const showLeftEllipsis = currentPage > 9;
 	const showRightEllipsis = currentPage < totalPages - 2;
 
 	return (

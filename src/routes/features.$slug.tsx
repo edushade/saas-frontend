@@ -11,7 +11,7 @@ import { getFeatureBySlug } from "@/constants/features";
 export const Route = createFileRoute("/features/$slug")({
 	component: FeaturePage,
 	head: ({ params }) => {
-		const feature = getFeatureBySlug(params.slug);
+		const feature = getFeatureBySlug(params?.slug ?? "");
 		const title = feature ? `${feature.tag} | Edushade` : "Feature | Edushade";
 		const description = feature?.description ?? "Explore Edushade features.";
 		return {

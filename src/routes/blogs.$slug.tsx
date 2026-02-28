@@ -6,7 +6,7 @@ const SITE_ORIGIN = "https://edushade.com";
 
 export const Route = createFileRoute("/blogs/$slug")({
 	loader: ({ params }) => {
-		const post = getBlogBySlug(params.slug);
+		const post = getBlogBySlug(params?.slug ?? "");
 		return { post };
 	},
 	head: ({ loaderData }) => {
