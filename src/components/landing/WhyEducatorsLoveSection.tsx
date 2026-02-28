@@ -30,7 +30,7 @@ export default function WhyEducatorsLoveSection() {
 						<Card
 							key={feature.title}
 							className={cn(
-								"bg-bg-primary  border-none relative overflow-hidden rounded-xl h-[312px] flex flex-col transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-xl cursor-pointer",
+								"bg-bg-primary  border-none relative overflow-hidden rounded-xl h-[312px] flex flex-col transition-all duration-300 ease-out  hover:shadow-md cursor-pointer",
 							)}
 						>
 							<div

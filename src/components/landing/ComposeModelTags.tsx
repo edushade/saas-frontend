@@ -16,6 +16,8 @@ const BADGE_BASE =
 export interface ComposeModelTagsProps {
 	tags: string[];
 	defaultSelected?: string;
+	value?: string;
+	onChange?: (tag: string) => void;
 	name?: string;
 	description?: string;
 	className?: string;
@@ -27,6 +29,8 @@ export interface ComposeModelTagsProps {
 export function ComposeModelTags({
 	tags,
 	defaultSelected,
+	value: controlledValue,
+	onChange,
 	name = RADIO_GROUP_NAME,
 	description = "You can compose your own learning model",
 	className,
@@ -36,7 +40,10 @@ export function ComposeModelTags({
 }: ComposeModelTagsProps) {
 	const fieldsetRef = useRef<HTMLFieldSetElement>(null);
 	const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
-	const selected = defaultSelected ?? tags[0];
+	const isControlled = controlledValue !== undefined && onChange !== undefined;
+	const selected = isControlled
+		? controlledValue
+		: (defaultSelected ?? tags[0]);
 
 	useEffect(() => {
 		if (!autoRotate || tags.length <= 1) return;
@@ -56,7 +63,12 @@ export function ComposeModelTags({
 					}
 				}
 				const nextIndex = (currentIndex + 1) % radios.length;
-				radios[nextIndex].checked = true;
+				const nextTag = tags[nextIndex];
+				if (onChange) {
+					onChange(nextTag);
+				} else {
+					radios[nextIndex].checked = true;
+				}
 			}, autoRotateIntervalMs);
 			intervalRef.current = id;
 		}, autoRotateDelayMs);
@@ -65,7 +77,7 @@ export function ComposeModelTags({
 			window.clearTimeout(startId);
 			if (intervalRef.current !== null) clearInterval(intervalRef.current);
 		};
-	}, [autoRotate, autoRotateIntervalMs, autoRotateDelayMs, tags.length]);
+	}, [autoRotate, autoRotateIntervalMs, autoRotateDelayMs, tags, onChange]);
 
 	if (tags.length === 0) return null;
 
@@ -92,7 +104,13 @@ export function ComposeModelTags({
 								type="radio"
 								name={name}
 								value={tag}
-								defaultChecked={tag === selected}
+								checked={isControlled ? controlledValue === tag : undefined}
+								defaultChecked={!isControlled && tag === selected}
+								onChange={
+									onChange
+										? (e) => e.target.checked && onChange(tag)
+										: undefined
+								}
 								className="sr-only"
 								aria-label={`Learning model: ${tag}`}
 							/>

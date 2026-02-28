@@ -10,6 +10,54 @@ export const TAGS = [
 	"PDFs",
 ];
 
+export const HERO_TAG_IMAGES: Record<string, { src: string; alt: string }> = {
+	Courses: {
+		src: "/svgs/hero/banner.svg",
+		alt: "Dashboard preview for courses and content",
+	},
+	Analytics: {
+		src: "/svgs/hero/banner.svg",
+		alt: "Dashboard preview showing course analytics",
+	},
+	Cohorts: {
+		src: "/svgs/hero/banner.svg",
+		alt: "Dashboard preview for cohorts",
+	},
+	Quizzes: {
+		src: "/svgs/hero/banner.svg",
+		alt: "Dashboard preview for quizzes",
+	},
+	"Live Exam": {
+		src: "/svgs/hero/banner.svg",
+		alt: "Dashboard preview for live exams",
+	},
+	"Live Class": {
+		src: "/svgs/hero/banner.svg",
+		alt: "Dashboard preview for live classes",
+	},
+	Recorded: {
+		src: "/svgs/hero/banner.svg",
+		alt: "Dashboard preview for recorded content",
+	},
+	"Problem Solving": {
+		src: "/svgs/hero/banner.svg",
+		alt: "Dashboard preview for problem solving",
+	},
+	PDFs: {
+		src: "/svgs/hero/banner.svg",
+		alt: "Dashboard preview for PDFs",
+	},
+};
+
+const DEFAULT_HERO_IMAGE = {
+	src: "/svgs/hero/banner.svg",
+	alt: "Dashboard preview showing course analytics and content",
+};
+
+export function getHeroImageForTag(tag: string): { src: string; alt: string } {
+	return HERO_TAG_IMAGES[tag] ?? DEFAULT_HERO_IMAGE;
+}
+
 export const SCORE_BARS = [
 	{ month: "Jan", h: 40 },
 	{ month: "Feb", h: 55 },
