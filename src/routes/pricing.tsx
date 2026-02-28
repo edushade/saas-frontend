@@ -1,8 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import CtaSection from "@/components/landing/CtaSection";
-import FAQSection from "@/components/landing/FAQSection";
-import LogosSection from "@/components/landing/LogosSection";
+import ComparePricingSection from "@/components/pricing/ComparePricingSection";
 import PricingSection from "@/components/pricing/PricingSection";
+import { CtaSection, FAQSection, LogosSection } from "@/components/shared";
 
 export const Route = createFileRoute("/pricing")({
 	head: () => ({
@@ -21,9 +20,10 @@ export const Route = createFileRoute("/pricing")({
 
 function PricingPage() {
 	return (
-		<main>
+		<main className="pt-8">
 			<PricingSection />
-			<LogosSection />\
+			<LogosSection />
+			<ComparePricingSection />
 			<FAQSection />
 			<CtaSection />
 		</main>

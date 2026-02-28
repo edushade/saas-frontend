@@ -1,165 +1,252 @@
-import * as React from "react"
-import type { Label as LabelPrimitive } from "radix-ui"
-import { Slot } from "radix-ui"
-import {
-  Controller,
-  FormProvider,
-  useFormContext,
-  useFormState,
-  type ControllerProps,
-  type FieldPath,
-  type FieldValues,
-} from "react-hook-form"
+import { Slot } from "@radix-ui/react-slot";
+import type {
+	DeepKeys,
+	DeepValue,
+	FieldApi,
+	ReactFormExtendedApi,
+} from "@tanstack/react-form";
+import { functionalUpdate, useField, Validator } from "@tanstack/react-form";
+import type { UseFieldOptions } from "node_modules/@tanstack/react-form/dist/esm/types";
+import { Label as LabelPrimitive } from "radix-ui";
+import type { FormEvent } from "react";
+import React from "react";
 
-import { cn } from "@/lib/utils"
-import { Label } from "@/components/ui/label"
+import { cn } from "@/lib/utils";
 
-const Form = FormProvider
+import { Label } from "./label";
 
 type FormFieldContextValue<
-  TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-> = {
-  name: TName
-}
+	TParentData,
+	TName extends DeepKeys<TParentData>,
+	TFieldValidator extends
+		| Validator<DeepValue<TParentData, TName>, unknown>
+		| undefined = undefined,
+	TFormValidator extends
+		| Validator<TParentData, unknown>
+		| undefined = undefined,
+	TData extends DeepValue<TParentData, TName> = DeepValue<TParentData, TName>,
+> = FieldApi<TParentData, TName, TFieldValidator, TFormValidator, TData>;
 
-const FormFieldContext = React.createContext<FormFieldContextValue>(
-  {} as FormFieldContextValue
-)
-
-const FormField = <
-  TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
->({
-  ...props
-}: ControllerProps<TFieldValues, TName>) => {
-  return (
-    <FormFieldContext.Provider value={{ name: props.name }}>
-      <Controller {...props} />
-    </FormFieldContext.Provider>
-  )
-}
+const FormFieldContext = React.createContext<
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	FormFieldContextValue<any, any, any, any, any>
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+>({} as FormFieldContextValue<any, any, any, any, any>);
 
 const useFormField = () => {
-  const fieldContext = React.useContext(FormFieldContext)
-  const itemContext = React.useContext(FormItemContext)
-  const { getFieldState } = useFormContext()
-  const formState = useFormState({ name: fieldContext.name })
-  const fieldState = getFieldState(fieldContext.name, formState)
+	const fieldContext = React.useContext(FormFieldContext);
+	const itemContext = React.useContext(FormItemContext);
 
-  if (!fieldContext) {
-    throw new Error("useFormField should be used within <FormField>")
-  }
+	if (!fieldContext) {
+		throw new Error("useFormField should be used within <FormItem>");
+	}
+	const { id } = itemContext;
+	return {
+		id,
+		formItemId: `${id}-form-item`,
+		formDescriptionId: `${id}-form-item-description`,
+		formMessageId: `${id}-form-item-message`,
+		...{
+			fieldContext,
+		},
+	};
+};
 
-  const { id } = itemContext
+type FieldComponentProps<
+	TParentData,
+	TName extends DeepKeys<TParentData>,
+	TFieldValidator extends
+		| Validator<DeepValue<TParentData, TName>, unknown>
+		| undefined = undefined,
+	TFormValidator extends
+		| Validator<TParentData, unknown>
+		| undefined = undefined,
+	TData extends DeepValue<TParentData, TName> = DeepValue<TParentData, TName>,
+> = {
+	render: (
+		fieldApi: FieldApi<
+			TParentData,
+			TName,
+			TFieldValidator,
+			TFormValidator,
+			TData
+		>,
+	) => React.ReactNode;
+} & UseFieldOptions<TParentData, TName, TFieldValidator, TFormValidator, TData>;
 
-  return {
-    id,
-    name: fieldContext.name,
-    formItemId: `${id}-form-item`,
-    formDescriptionId: `${id}-form-item-description`,
-    formMessageId: `${id}-form-item-message`,
-    ...fieldState,
-  }
-}
+export const FormField = (<
+	TParentData,
+	TName extends DeepKeys<TParentData>,
+	TFieldValidator extends
+		| Validator<DeepValue<TParentData, TName>, unknown>
+		| undefined = undefined,
+	TFormValidator extends
+		| Validator<TParentData, unknown>
+		| undefined = undefined,
+	TData extends DeepValue<TParentData, TName> = DeepValue<TParentData, TName>,
+>({
+	render,
+	...fieldOptions
+}: FieldComponentProps<
+	TParentData,
+	TName,
+	TFieldValidator,
+	TFormValidator,
+	TData
+>): React.ReactNode => {
+	const fieldApi = useField(fieldOptions);
+	const jsxToDisplay = React.useMemo(
+		() => functionalUpdate(render, fieldApi),
 
-type FormItemContextValue = {
-  id: string
-}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+		[render, fieldApi, fieldApi.state.value, fieldApi.state.meta],
+	);
 
-const FormItemContext = React.createContext<FormItemContextValue>(
-  {} as FormItemContextValue
-)
+	return (
+		<React.Fragment>
+			<FormFieldContext value={fieldApi}>{jsxToDisplay}</FormFieldContext>
+		</React.Fragment>
+	);
+}) satisfies React.FunctionComponent<
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	FieldComponentProps<any, any, any, any, any>
+>;
+type FormContextValue = {
+	id: string;
+};
+const FormItemContext = React.createContext<FormContextValue>(
+	{} as FormContextValue,
+);
+export const FormItem: React.FC<React.ComponentProps<"div">> = ({
+	className,
+	...props
+}) => {
+	const id = React.useId();
 
-function FormItem({ className, ...props }: React.ComponentProps<"div">) {
-  const id = React.useId()
+	return (
+		<FormItemContext value={{ id }}>
+			<div className={cn("space-y-2", className)} {...props} />
+		</FormItemContext>
+	);
+};
+export const FormLabel: React.FC<
+	React.ComponentPropsWithRef<typeof LabelPrimitive.Root>
+> = ({ className, ...props }) => {
+	const { formItemId, fieldContext } = useFormField();
 
-  return (
-    <FormItemContext.Provider value={{ id }}>
-      <div
-        data-slot="form-item"
-        className={cn("grid gap-2", className)}
-        {...props}
-      />
-    </FormItemContext.Provider>
-  )
-}
+	return (
+		<Label
+			className={cn(
+				fieldContext.state.meta.errors.length && "text-destructive",
+				className,
+			)}
+			htmlFor={formItemId}
+			{...props}
+		/>
+	);
+};
 
-function FormLabel({
-  className,
-  ...props
-}: React.ComponentProps<typeof LabelPrimitive.Root>) {
-  const { error, formItemId } = useFormField()
+export const FormControl: React.FC<
+	React.ComponentPropsWithRef<typeof Slot>
+> = ({ ...props }) => {
+	const { formItemId, formDescriptionId, fieldContext } = useFormField();
 
-  return (
-    <Label
-      data-slot="form-label"
-      data-error={!!error}
-      className={cn("data-[error=true]:text-destructive", className)}
-      htmlFor={formItemId}
-      {...props}
-    />
-  )
-}
+	return (
+		<Slot
+			id={formItemId}
+			aria-describedby={
+				fieldContext.state.meta.errors.length
+					? `${formDescriptionId} ${fieldContext.state.meta.errors.join(", ")}`
+					: `${formDescriptionId}`
+			}
+			aria-invalid={!!fieldContext.state.meta.errors.length}
+			{...props}
+		/>
+	);
+};
 
-function FormControl({ ...props }: React.ComponentProps<typeof Slot.Root>) {
-  const { error, formItemId, formDescriptionId, formMessageId } = useFormField()
+export const FormDescription: React.FC<React.ComponentPropsWithRef<"p">> = ({
+	className,
+	...props
+}) => {
+	const { formDescriptionId } = useFormField();
 
-  return (
-    <Slot.Root
-      data-slot="form-control"
-      id={formItemId}
-      aria-describedby={
-        !error
-          ? `${formDescriptionId}`
-          : `${formDescriptionId} ${formMessageId}`
-      }
-      aria-invalid={!!error}
-      {...props}
-    />
-  )
-}
+	return (
+		<p
+			id={formDescriptionId}
+			className={cn("text-[0.8rem] text-muted-foreground", className)}
+			{...props}
+		/>
+	);
+};
 
-function FormDescription({ className, ...props }: React.ComponentProps<"p">) {
-  const { formDescriptionId } = useFormField()
+export const FormMessage: React.FC<React.ComponentPropsWithRef<"p">> = ({
+	className,
+	children,
+	...props
+}) => {
+	const { formMessageId, fieldContext } = useFormField();
+	const body = fieldContext.state.meta.errors.length
+		? fieldContext.state.meta.errors.join(", ")
+		: children;
 
-  return (
-    <p
-      data-slot="form-description"
-      id={formDescriptionId}
-      className={cn("text-muted-foreground text-sm", className)}
-      {...props}
-    />
-  )
-}
+	if (!body) return null;
 
-function FormMessage({ className, ...props }: React.ComponentProps<"p">) {
-  const { error, formMessageId } = useFormField()
-  const body = error ? String(error?.message ?? "") : props.children
+	return (
+		<p
+			id={formMessageId}
+			className={cn("text-[0.8rem] font-medium text-destructive", className)}
+			{...props}
+		>
+			{body}
+		</p>
+	);
+};
 
-  if (!body) {
-    return null
-  }
+export const FormButton = <
+	TFormData,
+	TFormValidator extends Validator<TFormData, unknown> | undefined = undefined,
+>({
+	form,
+	children,
+}: {
+	form: ReactFormExtendedApi<TFormData, TFormValidator>;
+	children: (state: {
+		canSubmit: boolean;
+		isSubmitting: boolean;
+	}) => React.ReactNode;
+}) => {
+	return (
+		<form.Subscribe selector={(state) => [state.canSubmit, state.isSubmitting]}>
+			{([canSubmit, isSubmitting]) => children({ canSubmit, isSubmitting })}
+		</form.Subscribe>
+	);
+};
 
-  return (
-    <p
-      data-slot="form-message"
-      id={formMessageId}
-      className={cn("text-destructive text-sm", className)}
-      {...props}
-    >
-      {body}
-    </p>
-  )
-}
+const Form = <
+	TFormData,
+	TFormValidator extends Validator<TFormData, unknown> | undefined = undefined,
+>({
+	onSubmit,
+	form,
+	...props
+}: React.ComponentPropsWithRef<"form"> & {
+	form: ReactFormExtendedApi<TFormData, TFormValidator>;
+}) => {
+	const handleSubmit = React.useCallback(
+		(event: FormEvent) => {
+			event.preventDefault();
+			event.stopPropagation();
+			form.handleSubmit();
+		},
+		[form],
+	);
+	return (
+		<form
+			onSubmit={typeof onSubmit === "undefined" ? handleSubmit : onSubmit}
+			{...props}
+		/>
+	);
+};
 
-export {
-  useFormField,
-  Form,
-  FormItem,
-  FormLabel,
-  FormControl,
-  FormDescription,
-  FormMessage,
-  FormField,
-}
+export default Form;

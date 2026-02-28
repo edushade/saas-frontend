@@ -53,18 +53,15 @@ code {
 
   --es-nav-h:        68px;
   --es-max-w:        1280px;
-  /** Section horizontal padding — responsive (use px-section-px in Tailwind) */
   --es-section-px:   clamp(1.25rem, 4vw, 3rem);
-  /** Section vertical padding — responsive, ~py-16 to py-20 (use py-section-py in Tailwind) */
   --es-section-py:   clamp(3rem, 8vw, 5rem);
 
-  /* background color */
   --bg-primary: #ffffff;
   --bg-secondary: #f8fafc;
   --bg-tertiary: #f1f5f9;
   --bg-quaternary: #e2e8f0;
 
-  /* Text color scale — use with text-text-primary, bg-text-primary, etc. */
+
   --text-primary:    #2B2B2B;
   --text-secondary:  #4B4B4B;
   --text-tertiary:   #7B7B7B;
@@ -73,15 +70,19 @@ code {
   --text-on-brand: #FFFFFF;
   --text-white-alpha: #FFFFFF29;
 
-  /* Brand button variants (design-system tokens) */
+ 
   --brand-300: #0066FF;
   --brand-200: #2B80FF;
+  --success-600: #108700;
+  --rose-600: #B30065;
+  --royal-blue: #003E9C;
 
-  /* border color */
+
   --border-primary: #e2e8f0;
   --border-secondary: #E9EAEB;
   --border-tertiary: #F5F5F5;
   --border-quaternary: #e2e8f0;
+
   /* Rainbow border — pastel neon (pink → lavender → sky blue → cyan → mint) */
   --color-1: #F08CFF;
   --color-2: #C6BFFF;
@@ -168,7 +169,7 @@ code {
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  /* Edushade section spacing — use px-section-px, py-section-py, etc. */
+
   --spacing-section-px: var(--es-section-px);
   --spacing-section-py: var(--es-section-py);
 
@@ -187,6 +188,9 @@ code {
 
   --color-brand-300: var(--brand-300);
   --color-brand-200: var(--brand-200);
+  --color-success-600:var(--success-600);
+  --color-rose-600:var(--rose-600);
+  --color-royal-blue:var(--royal-blue);
 
   --color-border-primary: var(--border-primary);
   --color-border-secondary: var(--border-secondary);
@@ -249,6 +253,55 @@ code {
 
 
 @layer utilities {
+  /* background gradient list */
+  .bg-grad-cyan-1 {
+    background: linear-gradient(0deg, #7ADEFF 0%, #DDF7FF 100%);
+  }
+  .bg-grad-cyan-2 {
+    background: linear-gradient(67.68deg, #C3E3FF 0%, rgba(248, 249, 252, 0) 64.42%, rgba(255, 255, 255, 0) 100%);
+  }
+  .bg-grad-lightblue {
+    background: linear-gradient(180deg, #FFFFFF -6.1%, #FFFFFF 20.43%, #B3E9FF 100%);
+  }
+  .bg-grad-lime-1 {
+    background: linear-gradient(90deg, #64CB4F 0%, rgba(248, 249, 252, 0) 100%);
+  }
+  .bg-grad-success-1 {
+    background: linear-gradient(360deg, #108700 0%, rgba(16,135,0,0) 90%);
+  }
+  .bg-grad-dark-1 {
+    background: linear-gradient(360deg, #1A1918 0%, rgba(26,25,24,0) 100%);
+  }
+
+  .bg-grad-overlay-white {
+    background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.08) 100%);
+  }
+
+
+  .bg-grad-orange-1 {
+    background: linear-gradient(53.61deg, #FFBA74 0%, rgba(248, 249, 252, 0) 45.88%, rgba(255, 255, 255, 0) 71.21%);
+  }
+  .bg-grad-blue-1 {
+    background: linear-gradient(53.61deg, #5AB2FF 0%, rgba(248, 249, 252, 0) 45.88%, rgba(255, 255, 255, 0) 71.21%);
+  }
+  .bg-grad-yellow-1 {
+    background: linear-gradient(53.61deg, #FBBF24 0%, rgba(248, 249, 252, 0) 45.88%, rgba(255, 255, 255, 0) 71.21%);
+  }
+  .bg-grad-sky-1 {
+    background: linear-gradient(53.61deg, #38BDF8 0%, rgba(248, 249, 252, 0) 45.88%, rgba(255, 255, 255, 0) 71.21%);
+  }
+  .bg-grad-purple-1 {
+    background: linear-gradient(53.61deg, #C084FC 0%, rgba(248, 249, 252, 0) 45.88%, rgba(255, 255, 255, 0) 71.21%);
+  }
+  .bg-grad-green-1 {
+    background: linear-gradient(53.61deg, #4ADE80 0%, rgba(248, 249, 252, 0) 45.88%, rgba(255, 255, 255, 0) 71.21%);
+  }
+
+
+
+
+  /* shade gradient overlay */
+
   .animate-vector-float {
     animation: vector-float 4s ease-in-out infinite;
   }
@@ -339,5 +392,12 @@ code {
   .role-card-active > * {
     position: relative;
     z-index: 1;
+  }
+
+  .shadow-card-fancy {
+    box-shadow:
+      0 8px 17.2px #8C96A91A,
+      0 4px 2px #8C96A940,
+      0 0 0 3px #FFFFFF;
   }
 }

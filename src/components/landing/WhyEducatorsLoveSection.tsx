@@ -36,7 +36,7 @@ export default function WhyEducatorsLoveSection() {
 							<div
 								aria-hidden
 								className={cn(
-									"pointer-events-none absolute inset-0 z-0 rounded-xl",
+									"pointer-events-none absolute inset-0 z-0",
 									feature.gradientClassName,
 								)}
 							/>

@@ -1,4 +1,5 @@
 export { AdminIcon } from "./admin-icon";
+export { ArrowLeftIcon } from "./arrow-icons";
 export { CalculatorMinimalisticIcon } from "./calculator-icons";
 export { CalendarIcon } from "./calendar-icons";
 export { CapIcon } from "./cap-icon";
@@ -15,6 +16,7 @@ export { DiscordIcon } from "./discord-icon";
 export { FacebookIcon } from "./facebook-icon";
 export { FileIcon } from "./file-icons";
 export { HeadphoneIcon } from "./headphone-icons";
+export { InfoIcon } from "./info-icons";
 export { InstagramIcon } from "./instagram-icon";
 export { LinkedinIcon } from "./linkedin-icon";
 export { ListIcon } from "./list-icons";

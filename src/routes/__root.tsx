@@ -6,11 +6,11 @@ import {
 	Scripts,
 } from "@tanstack/react-router";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
 import { NotFoundView } from "../components/route-states/NotFoundView";
 import { RouteErrorView } from "../components/route-states/RouteErrorView";
 import { RouteLoadingView } from "../components/route-states/RouteLoadingView";
+import Footer from "../components/shared/Footer";
+import Header from "../components/shared/Header";
 
 import TanStackQueryDevtools from "../integrations/tanstack-query/devtools";
 import TanStackQueryProvider from "../integrations/tanstack-query/root-provider";
@@ -60,7 +60,10 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 			},
 			{ property: "og:image:width", content: "1200" },
 			{ property: "og:image:height", content: "630" },
-			{ property: "og:image:alt", content: "Edushade — The Platform Built for How You Actually Teach" },
+			{
+				property: "og:image:alt",
+				content: "Edushade — The Platform Built for How You Actually Teach",
+			},
 			// Twitter Card defaults
 			{ name: "twitter:card", content: "summary_large_image" },
 			{
