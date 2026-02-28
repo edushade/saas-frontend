@@ -2,6 +2,7 @@ export interface ContactFormValue {
 	firstName: string;
 	lastName: string;
 	email: string;
+	phone: string;
 	phoneCountry: string;
 	phoneNumber: string;
 	message: string;
@@ -12,7 +13,8 @@ export const DEFAULT_CONTACT_FORM_VALUES: ContactFormValue = {
 	firstName: "",
 	lastName: "",
 	email: "",
-	phoneCountry: "+1",
+	phone: "",
+	phoneCountry: "US",
 	phoneNumber: "",
 	message: "",
 	agreeTerms: false,
@@ -29,8 +31,8 @@ export function getContactFormValidators() {
 			if (!value.email?.trim()) errors.fields.email = "Email is required";
 			else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.email))
 				errors.fields.email = "Invalid email address";
-			if (!value.phoneNumber?.trim())
-				errors.fields.phoneNumber = "Phone number is required";
+			if (!value.phone?.trim())
+				errors.fields.phone = "Phone number is required";
 			if (!value.agreeTerms)
 				errors.fields.agreeTerms = "You must agree to the Terms & Conditions";
 			return errors;

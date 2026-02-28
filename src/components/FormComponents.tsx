@@ -7,6 +7,7 @@ import * as ShadcnSelect from "@/components/ui/select";
 import { Slider as ShadcnSlider } from "@/components/ui/slider";
 import { Switch as ShadcnSwitch } from "@/components/ui/switch";
 import { Textarea as ShadcnTextarea } from "@/components/ui/textarea";
+import { PhoneInput } from "@/components/ui-custom/phone-input";
 import { useFieldContext, useFormContext } from "@/hooks/form-context";
 
 export function SubscribeButton({
@@ -38,7 +39,7 @@ function ErrorMessages({
 			{errors.map((error) => (
 				<div
 					key={typeof error === "string" ? error : error.message}
-					className="text-red-500 mt-1 font-bold"
+					className="mt-1 font-medium text-destructive text-sm"
 				>
 					{typeof error === "string" ? error : error.message}
 				</div>
@@ -47,11 +48,31 @@ function ErrorMessages({
 	);
 }
 
+export function PhoneInputField() {
+	const field = useFieldContext<string>();
+	const errors = useStore(field.store, (state) => state.meta.errors);
+	const value = field.state.value || undefined;
+
+	return (
+		<div>
+			<PhoneInput
+				value={value || undefined}
+				onChange={(val) => field.handleChange(val ?? "")}
+				onBlur={field.handleBlur}
+				defaultCountry="US"
+				placeholder="Enter phone number"
+				className="w-full"
+			/>
+			{field.state.meta.isTouched && <ErrorMessages errors={errors} />}
+		</div>
+	);
+}
+
 export function TextField({
 	label,
 	placeholder,
 }: {
-	label: string;
+	label?: string;
 	placeholder?: string;
 }) {
 	const field = useFieldContext<string>();
@@ -59,12 +80,14 @@ export function TextField({
 
 	return (
 		<div>
-			<Label
-				htmlFor={label}
-				className="mb-2 text-sm text-text-primary font-medium"
-			>
-				{label}
-			</Label>
+			{label && (
+				<Label
+					htmlFor={label}
+					className="mb-2 text-sm text-text-primary font-medium"
+				>
+					{label}
+				</Label>
+			)}
 			<Input
 				value={field.state.value}
 				placeholder={placeholder}
@@ -81,7 +104,7 @@ export function TextArea({
 	rows = 3,
 	suffix,
 }: {
-	label: string;
+	label?: string;
 	rows?: number;
 	suffix?: React.ReactNode;
 }) {
@@ -90,21 +113,26 @@ export function TextArea({
 
 	return (
 		<div>
-			<div className="mb-2 flex items-center justify-between gap-2">
-				<Label
-					htmlFor={label}
-					className="text-sm text-text-primary font-medium"
-				>
-					{label}
-				</Label>
-				{suffix && <span className="text-xs text-text-tertiary">{suffix}</span>}
-			</div>
+			{label && (
+				<div className="mb-2 flex items-center justify-between gap-2">
+					<Label
+						htmlFor={label}
+						className="text-sm text-text-primary font-medium"
+					>
+						{label}
+					</Label>
+					{suffix && (
+						<span className="text-xs text-text-tertiary">{suffix}</span>
+					)}
+				</div>
+			)}
 			<ShadcnTextarea
 				id={label}
 				value={field.state.value}
 				onBlur={field.handleBlur}
 				rows={rows}
 				onChange={(e) => field.handleChange(e.target.value)}
+				className="resize-none min-h-36"
 			/>
 			{field.state.meta.isTouched && <ErrorMessages errors={errors} />}
 		</div>
@@ -135,7 +163,9 @@ export function Select({
 				</ShadcnSelect.SelectTrigger>
 				<ShadcnSelect.SelectContent className="bg-background text-foreground">
 					<ShadcnSelect.SelectGroup>
-						<ShadcnSelect.SelectLabel>{label}</ShadcnSelect.SelectLabel>
+						{label ? (
+							<ShadcnSelect.SelectLabel>{label}</ShadcnSelect.SelectLabel>
+						) : null}
 						{values.map((value) => (
 							<ShadcnSelect.SelectItem
 								key={value.value}
@@ -153,15 +183,17 @@ export function Select({
 	);
 }
 
-export function Slider({ label }: { label: string }) {
+export function Slider({ label }: { label?: string }) {
 	const field = useFieldContext<number>();
 	const errors = useStore(field.store, (state) => state.meta.errors);
 
 	return (
 		<div>
-			<Label htmlFor={label} className="mb-2 text-xl font-bold">
-				{label}
-			</Label>
+			{label && (
+				<Label htmlFor={label} className="mb-2 text-xl font-bold">
+					{label}
+				</Label>
+			)}
 			<ShadcnSlider
 				id={label}
 				onBlur={field.handleBlur}
