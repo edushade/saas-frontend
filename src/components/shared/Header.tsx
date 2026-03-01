@@ -344,7 +344,7 @@ export default function Header() {
 						{NAV_LINKS.map((link) => {
 							const isLinkActive =
 								pathname === link.href ||
-								(link.href !== "/" && pathname.startsWith(link.href + "/"));
+								(link.href !== "/" && pathname.startsWith(`${link.href}/`));
 							return (
 								<Link
 									key={link.label}
@@ -369,7 +369,7 @@ export default function Header() {
 							asChild
 							className="text-text-dark-2 rounded-full text-sm font-medium hover:text-brand-300 hover:bg-bg-secondary py-3"
 						>
-							<Link to="/">Sign In</Link>
+							<Link to="/login">Sign In</Link>
 						</Button>
 						<Button
 							asChild

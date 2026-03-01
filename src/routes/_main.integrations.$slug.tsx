@@ -1,10 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { IntegrationDetails } from "@/components/integrations/IntegrationDetails";
 import { getIntegrationDetail } from "@/constants/integrations";
+import { getSiteOrigin } from "@/env";
 
-const SITE_ORIGIN = "https://edushade.com";
-
-export const Route = createFileRoute("/integrations/$slug")({
+export const Route = createFileRoute("/_main/integrations/$slug")({
 	loader: ({ params }) => {
 		const integration = getIntegrationDetail(params?.slug ?? "");
 		return { integration };
@@ -19,12 +18,13 @@ export const Route = createFileRoute("/integrations/$slug")({
 				],
 			};
 		}
+		const origin = getSiteOrigin();
 		const title = `${integration.name} | Edushade`;
 		const description =
 			integration.tagline ||
 			integration.descriptionParagraphs?.[0] ||
 			integration.name;
-		const canonical = `${SITE_ORIGIN}/integrations/${integration.slug}`;
+		const canonical = `${origin}/integrations/${integration.slug}`;
 		return {
 			meta: [
 				{ title },

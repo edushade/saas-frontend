@@ -97,7 +97,7 @@ export function BlogDetailBanner({
 
 			<div className="relative mx-auto max-w-(--es-max-w)">
 				<div className="flex flex-col items-center text-center">
-					<BannerTag tag={date + " • " + readTimeLabel} />
+					<BannerTag tag={`${date} • ${readTimeLabel}`} />
 
 					<Typography
 						variant="h1"

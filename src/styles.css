@@ -402,4 +402,11 @@ code {
       0 4px 2px #8C96A940,
       0 0 0 3px #FFFFFF;
   }
+
+  /* Onboarding: soft vertical stripes on light blue gradient */
+  .bg-onboarding {
+    background:
+      linear-gradient(180deg, #f0f9ff 0%, #e0f2fe 50%, #bae6fd 100%);
+  }
+ 
 }

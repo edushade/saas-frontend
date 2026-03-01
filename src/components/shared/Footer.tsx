@@ -46,17 +46,17 @@ const FOOTER_COLUMNS = [
 	{
 		heading: "Legal",
 		links: [
-			{ label: "Terms of Service", to: "/" },
-			{ label: "Privacy Policy", to: "/" },
-			{ label: "Cookie Policy", to: "/" },
+			{ label: "Terms of Service", to: "/terms-of-service" },
+			{ label: "Privacy Policy", to: "/privacy-policy" },
+			{ label: "Cookie Policy", to: "/cookie-policy" },
 		],
 	},
 ];
 
 const BOTTOM_LINKS = [
-	{ label: "Privacy Policy", to: "/" },
-	{ label: "Terms of Services", to: "/" },
-	{ label: "Cookies", to: "/" },
+	{ label: "Privacy Policy", to: "/privacy-policy" },
+	{ label: "Terms of Service", to: "/terms-of-service" },
+	{ label: "Cookie Policy", to: "/cookie-policy" },
 ];
 
 const SOCIAL_ICONS = [

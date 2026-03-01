@@ -7,22 +7,25 @@ import { nitro } from "nitro/vite";
 import type { PluginOption } from "vite";
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
+import { prerenderRequestUrlFix } from "./vite-plugins/prerender-request-url-fix";
 
 const config = defineConfig({
+	server: {
+		port: 3000,
+	},
 	plugins: [
 		contentCollections(),
 		devtools(),
-		nitro({ rollupConfig: { external: [/^@sentry\//] } }),
-		tsconfigPaths({ projects: ["./tsconfig.json"] }),
 		tailwindcss(),
+		tsconfigPaths({ projects: ["./tsconfig.json"] }),
 		tanstackStart({
+			srcDirectory: "src",
 			prerender: {
-				enabled: true,
+				enabled: process.env.VERCEL !== "1",
 				autoSubfolderIndex: true,
 				autoStaticPathsDiscovery: true,
-				concurrency: 14,
 				crawlLinks: true,
-				filter: ({ path }) =>
+				filter: ({ path }: { path: string }) =>
 					path === "/" || (!path.endsWith("/") && !path.startsWith("/api")),
 				retryCount: 2,
 				retryDelay: 1000,
@@ -30,11 +33,13 @@ const config = defineConfig({
 				failOnError: false,
 			},
 		}),
+		prerenderRequestUrlFix(),
 		viteReact({
 			babel: {
 				plugins: ["babel-plugin-react-compiler"],
 			},
 		}),
+		nitro(),
 	] as PluginOption[],
 });
 

@@ -5,9 +5,9 @@ import type {
 	FieldApi,
 	ReactFormExtendedApi,
 } from "@tanstack/react-form";
-import { functionalUpdate, useField, Validator } from "@tanstack/react-form";
+import { functionalUpdate, useField, type Validator } from "@tanstack/react-form";
 import type { UseFieldOptions } from "node_modules/@tanstack/react-form/dist/esm/types";
-import { Label as LabelPrimitive } from "radix-ui";
+import type { Label as LabelPrimitive } from "radix-ui";
 import type { FormEvent } from "react";
 import React from "react";
 

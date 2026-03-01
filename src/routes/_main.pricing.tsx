@@ -2,8 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import ComparePricingSection from "@/components/pricing/ComparePricingSection";
 import PricingSection from "@/components/pricing/PricingSection";
 import { CtaSection, FAQSection, LogosSection } from "@/components/shared";
+import { getSiteOrigin } from "@/env";
 
-export const Route = createFileRoute("/pricing")({
+export const Route = createFileRoute("/_main/pricing")({
 	head: () => ({
 		meta: [
 			{ title: "Pricing — Edushade" },
@@ -13,7 +14,7 @@ export const Route = createFileRoute("/pricing")({
 					"Flexible pricing for educators. Start with Starter, scale with Growth, or go Advanced for institutional needs.",
 			},
 		],
-		links: [{ rel: "canonical", href: "https://edushade.com/pricing" }],
+		links: [{ rel: "canonical", href: `${getSiteOrigin()}/pricing` }],
 	}),
 	component: PricingPage,
 });

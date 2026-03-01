@@ -8,7 +8,7 @@ import FeatureSplitSection from "@/components/features/FeatureSplitSection";
 import { CtaSection, FAQSection } from "@/components/shared";
 import { getFeatureBySlug } from "@/constants/features";
 
-export const Route = createFileRoute("/features/$slug")({
+export const Route = createFileRoute("/_main/features/$slug")({
 	component: FeaturePage,
 	head: ({ params }) => {
 		const feature = getFeatureBySlug(params?.slug ?? "");

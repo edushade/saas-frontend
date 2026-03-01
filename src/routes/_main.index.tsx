@@ -13,6 +13,7 @@ import {
 	GetStartedSection,
 	LogosSection,
 } from "../components/shared";
+import { getSiteOrigin } from "../env";
 
 const ORGANIZATION_SCHEMA = {
 	"@context": "https://schema.org",
@@ -26,49 +27,52 @@ const ORGANIZATION_SCHEMA = {
 	url: "https://edushade.com",
 };
 
-export const Route = createFileRoute("/")({
-	head: () => ({
-		meta: [
-			{
-				title: "Edushade — The Platform Built for How You Actually Teach",
-			},
-			{
-				name: "description",
-				content:
-					"Edushade helps educators design, launch, and grow their online courses — starting from intent, not setup. Join 250+ platforms already growing with Edushade.",
-			},
-			{
-				property: "og:title",
-				content: "Edushade — The Platform Built for How You Actually Teach",
-			},
-			{
-				property: "og:description",
-				content:
-					"Design, launch, and grow your online courses — starting from intent, not setup.",
-			},
-			{
-				property: "og:url",
-				content: "https://edushade.com",
-			},
-			{
-				property: "og:image",
-				content: "https://edushade.com/og-image.png",
-			},
-			{ property: "og:image:width", content: "1200" },
-			{ property: "og:image:height", content: "630" },
-			{
-				name: "twitter:image",
-				content: "https://edushade.com/og-image.png",
-			},
-		],
-		links: [{ rel: "canonical", href: "https://edushade.com" }],
-		scripts: [
-			{
-				type: "application/ld+json",
-				children: JSON.stringify(ORGANIZATION_SCHEMA),
-			},
-		],
-	}),
+export const Route = createFileRoute("/_main/")({
+	head: () => {
+		const origin = getSiteOrigin();
+		return {
+			meta: [
+				{
+					title: "Edushade — The Platform Built for How You Actually Teach",
+				},
+				{
+					name: "description",
+					content:
+						"Edushade helps educators design, launch, and grow their online courses — starting from intent, not setup. Join 250+ platforms already growing with Edushade.",
+				},
+				{
+					property: "og:title",
+					content: "Edushade — The Platform Built for How You Actually Teach",
+				},
+				{
+					property: "og:description",
+					content:
+						"Design, launch, and grow your online courses — starting from intent, not setup.",
+				},
+				{
+					property: "og:url",
+					content: origin,
+				},
+				{
+					property: "og:image",
+					content: `${origin}/og-image.png`,
+				},
+				{ property: "og:image:width", content: "1200" },
+				{ property: "og:image:height", content: "630" },
+				{
+					name: "twitter:image",
+					content: `${origin}/og-image.png`,
+				},
+			],
+			links: [{ rel: "canonical", href: origin }],
+			scripts: [
+				{
+					type: "application/ld+json",
+					children: JSON.stringify({ ...ORGANIZATION_SCHEMA, url: origin }),
+				},
+			],
+		};
+	},
 	component: LandingPage,
 });
 

@@ -1,6 +1,6 @@
 import { createFileRoute, Outlet } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/features")({
+export const Route = createFileRoute("/_main/features")({
 	component: FeaturesLayout,
 });
 

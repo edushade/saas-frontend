@@ -9,159 +9,260 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as RequestDemoRouteImport } from './routes/request-demo'
-import { Route as PricingRouteImport } from './routes/pricing'
-import { Route as IntegrationsRouteImport } from './routes/integrations'
-import { Route as FeaturesRouteImport } from './routes/features'
-import { Route as ContactUsRouteImport } from './routes/contact-us'
-import { Route as ContactSalesRouteImport } from './routes/contact-sales'
-import { Route as BlogsRouteImport } from './routes/blogs'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as IntegrationsIndexRouteImport } from './routes/integrations.index'
-import { Route as FeaturesIndexRouteImport } from './routes/features.index'
-import { Route as BlogsIndexRouteImport } from './routes/blogs.index'
-import { Route as IntegrationsSlugRouteImport } from './routes/integrations.$slug'
-import { Route as FeaturesSlugRouteImport } from './routes/features.$slug'
-import { Route as BlogsSlugRouteImport } from './routes/blogs.$slug'
+import { Route as OnboardingRouteImport } from './routes/onboarding'
+import { Route as MainRouteImport } from './routes/_main'
+import { Route as AuthRouteImport } from './routes/_auth'
+import { Route as OnboardingIndexRouteImport } from './routes/onboarding.index'
+import { Route as MainIndexRouteImport } from './routes/_main.index'
+import { Route as OnboardingWhatRouteImport } from './routes/onboarding.what'
+import { Route as OnboardingInviteRouteImport } from './routes/onboarding.invite'
 import { Route as ApiContactRouteImport } from './routes/api/contact'
+import { Route as MainTermsOfServiceRouteImport } from './routes/_main.terms-of-service'
+import { Route as MainRequestDemoRouteImport } from './routes/_main.request-demo'
+import { Route as MainPrivacyPolicyRouteImport } from './routes/_main.privacy-policy'
+import { Route as MainPricingRouteImport } from './routes/_main.pricing'
+import { Route as MainIntegrationsRouteImport } from './routes/_main.integrations'
+import { Route as MainFeaturesRouteImport } from './routes/_main.features'
+import { Route as MainCookiePolicyRouteImport } from './routes/_main.cookie-policy'
+import { Route as MainContactUsRouteImport } from './routes/_main.contact-us'
+import { Route as MainContactSalesRouteImport } from './routes/_main.contact-sales'
+import { Route as MainBlogsRouteImport } from './routes/_main.blogs'
+import { Route as AuthRegisterRouteImport } from './routes/_auth.register'
+import { Route as AuthLoginRouteImport } from './routes/_auth.login'
+import { Route as MainIntegrationsIndexRouteImport } from './routes/_main.integrations.index'
+import { Route as MainFeaturesIndexRouteImport } from './routes/_main.features.index'
+import { Route as MainBlogsIndexRouteImport } from './routes/_main.blogs.index'
+import { Route as MainIntegrationsSlugRouteImport } from './routes/_main.integrations.$slug'
+import { Route as MainFeaturesSlugRouteImport } from './routes/_main.features.$slug'
+import { Route as MainBlogsSlugRouteImport } from './routes/_main.blogs.$slug'
 
-const RequestDemoRoute = RequestDemoRouteImport.update({
-  id: '/request-demo',
-  path: '/request-demo',
+const OnboardingRoute = OnboardingRouteImport.update({
+  id: '/onboarding',
+  path: '/onboarding',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PricingRoute = PricingRouteImport.update({
-  id: '/pricing',
-  path: '/pricing',
+const MainRoute = MainRouteImport.update({
+  id: '/_main',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IntegrationsRoute = IntegrationsRouteImport.update({
-  id: '/integrations',
-  path: '/integrations',
+const AuthRoute = AuthRouteImport.update({
+  id: '/_auth',
   getParentRoute: () => rootRouteImport,
 } as any)
-const FeaturesRoute = FeaturesRouteImport.update({
-  id: '/features',
-  path: '/features',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactUsRoute = ContactUsRouteImport.update({
-  id: '/contact-us',
-  path: '/contact-us',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactSalesRoute = ContactSalesRouteImport.update({
-  id: '/contact-sales',
-  path: '/contact-sales',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BlogsRoute = BlogsRouteImport.update({
-  id: '/blogs',
-  path: '/blogs',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const IndexRoute = IndexRouteImport.update({
+const OnboardingIndexRoute = OnboardingIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => OnboardingRoute,
 } as any)
-const IntegrationsIndexRoute = IntegrationsIndexRouteImport.update({
+const MainIndexRoute = MainIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => IntegrationsRoute,
+  getParentRoute: () => MainRoute,
 } as any)
-const FeaturesIndexRoute = FeaturesIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => FeaturesRoute,
+const OnboardingWhatRoute = OnboardingWhatRouteImport.update({
+  id: '/what',
+  path: '/what',
+  getParentRoute: () => OnboardingRoute,
 } as any)
-const BlogsIndexRoute = BlogsIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => BlogsRoute,
-} as any)
-const IntegrationsSlugRoute = IntegrationsSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => IntegrationsRoute,
-} as any)
-const FeaturesSlugRoute = FeaturesSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => FeaturesRoute,
-} as any)
-const BlogsSlugRoute = BlogsSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => BlogsRoute,
+const OnboardingInviteRoute = OnboardingInviteRouteImport.update({
+  id: '/invite',
+  path: '/invite',
+  getParentRoute: () => OnboardingRoute,
 } as any)
 const ApiContactRoute = ApiContactRouteImport.update({
   id: '/api/contact',
   path: '/api/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MainTermsOfServiceRoute = MainTermsOfServiceRouteImport.update({
+  id: '/terms-of-service',
+  path: '/terms-of-service',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainRequestDemoRoute = MainRequestDemoRouteImport.update({
+  id: '/request-demo',
+  path: '/request-demo',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainPrivacyPolicyRoute = MainPrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainPricingRoute = MainPricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainIntegrationsRoute = MainIntegrationsRouteImport.update({
+  id: '/integrations',
+  path: '/integrations',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainFeaturesRoute = MainFeaturesRouteImport.update({
+  id: '/features',
+  path: '/features',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainCookiePolicyRoute = MainCookiePolicyRouteImport.update({
+  id: '/cookie-policy',
+  path: '/cookie-policy',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainContactUsRoute = MainContactUsRouteImport.update({
+  id: '/contact-us',
+  path: '/contact-us',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainContactSalesRoute = MainContactSalesRouteImport.update({
+  id: '/contact-sales',
+  path: '/contact-sales',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainBlogsRoute = MainBlogsRouteImport.update({
+  id: '/blogs',
+  path: '/blogs',
+  getParentRoute: () => MainRoute,
+} as any)
+const AuthRegisterRoute = AuthRegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => AuthRoute,
+} as any)
+const AuthLoginRoute = AuthLoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => AuthRoute,
+} as any)
+const MainIntegrationsIndexRoute = MainIntegrationsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => MainIntegrationsRoute,
+} as any)
+const MainFeaturesIndexRoute = MainFeaturesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => MainFeaturesRoute,
+} as any)
+const MainBlogsIndexRoute = MainBlogsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => MainBlogsRoute,
+} as any)
+const MainIntegrationsSlugRoute = MainIntegrationsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => MainIntegrationsRoute,
+} as any)
+const MainFeaturesSlugRoute = MainFeaturesSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => MainFeaturesRoute,
+} as any)
+const MainBlogsSlugRoute = MainBlogsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => MainBlogsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/blogs': typeof BlogsRouteWithChildren
-  '/contact-sales': typeof ContactSalesRoute
-  '/contact-us': typeof ContactUsRoute
-  '/features': typeof FeaturesRouteWithChildren
-  '/integrations': typeof IntegrationsRouteWithChildren
-  '/pricing': typeof PricingRoute
-  '/request-demo': typeof RequestDemoRoute
+  '/': typeof MainIndexRoute
+  '/onboarding': typeof OnboardingRouteWithChildren
+  '/login': typeof AuthLoginRoute
+  '/register': typeof AuthRegisterRoute
+  '/blogs': typeof MainBlogsRouteWithChildren
+  '/contact-sales': typeof MainContactSalesRoute
+  '/contact-us': typeof MainContactUsRoute
+  '/cookie-policy': typeof MainCookiePolicyRoute
+  '/features': typeof MainFeaturesRouteWithChildren
+  '/integrations': typeof MainIntegrationsRouteWithChildren
+  '/pricing': typeof MainPricingRoute
+  '/privacy-policy': typeof MainPrivacyPolicyRoute
+  '/request-demo': typeof MainRequestDemoRoute
+  '/terms-of-service': typeof MainTermsOfServiceRoute
   '/api/contact': typeof ApiContactRoute
-  '/blogs/$slug': typeof BlogsSlugRoute
-  '/features/$slug': typeof FeaturesSlugRoute
-  '/integrations/$slug': typeof IntegrationsSlugRoute
-  '/blogs/': typeof BlogsIndexRoute
-  '/features/': typeof FeaturesIndexRoute
-  '/integrations/': typeof IntegrationsIndexRoute
+  '/onboarding/invite': typeof OnboardingInviteRoute
+  '/onboarding/what': typeof OnboardingWhatRoute
+  '/onboarding/': typeof OnboardingIndexRoute
+  '/blogs/$slug': typeof MainBlogsSlugRoute
+  '/features/$slug': typeof MainFeaturesSlugRoute
+  '/integrations/$slug': typeof MainIntegrationsSlugRoute
+  '/blogs/': typeof MainBlogsIndexRoute
+  '/features/': typeof MainFeaturesIndexRoute
+  '/integrations/': typeof MainIntegrationsIndexRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/contact-sales': typeof ContactSalesRoute
-  '/contact-us': typeof ContactUsRoute
-  '/pricing': typeof PricingRoute
-  '/request-demo': typeof RequestDemoRoute
+  '/': typeof MainIndexRoute
+  '/login': typeof AuthLoginRoute
+  '/register': typeof AuthRegisterRoute
+  '/contact-sales': typeof MainContactSalesRoute
+  '/contact-us': typeof MainContactUsRoute
+  '/cookie-policy': typeof MainCookiePolicyRoute
+  '/pricing': typeof MainPricingRoute
+  '/privacy-policy': typeof MainPrivacyPolicyRoute
+  '/request-demo': typeof MainRequestDemoRoute
+  '/terms-of-service': typeof MainTermsOfServiceRoute
   '/api/contact': typeof ApiContactRoute
-  '/blogs/$slug': typeof BlogsSlugRoute
-  '/features/$slug': typeof FeaturesSlugRoute
-  '/integrations/$slug': typeof IntegrationsSlugRoute
-  '/blogs': typeof BlogsIndexRoute
-  '/features': typeof FeaturesIndexRoute
-  '/integrations': typeof IntegrationsIndexRoute
+  '/onboarding/invite': typeof OnboardingInviteRoute
+  '/onboarding/what': typeof OnboardingWhatRoute
+  '/onboarding': typeof OnboardingIndexRoute
+  '/blogs/$slug': typeof MainBlogsSlugRoute
+  '/features/$slug': typeof MainFeaturesSlugRoute
+  '/integrations/$slug': typeof MainIntegrationsSlugRoute
+  '/blogs': typeof MainBlogsIndexRoute
+  '/features': typeof MainFeaturesIndexRoute
+  '/integrations': typeof MainIntegrationsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
-  '/blogs': typeof BlogsRouteWithChildren
-  '/contact-sales': typeof ContactSalesRoute
-  '/contact-us': typeof ContactUsRoute
-  '/features': typeof FeaturesRouteWithChildren
-  '/integrations': typeof IntegrationsRouteWithChildren
-  '/pricing': typeof PricingRoute
-  '/request-demo': typeof RequestDemoRoute
+  '/_auth': typeof AuthRouteWithChildren
+  '/_main': typeof MainRouteWithChildren
+  '/onboarding': typeof OnboardingRouteWithChildren
+  '/_auth/login': typeof AuthLoginRoute
+  '/_auth/register': typeof AuthRegisterRoute
+  '/_main/blogs': typeof MainBlogsRouteWithChildren
+  '/_main/contact-sales': typeof MainContactSalesRoute
+  '/_main/contact-us': typeof MainContactUsRoute
+  '/_main/cookie-policy': typeof MainCookiePolicyRoute
+  '/_main/features': typeof MainFeaturesRouteWithChildren
+  '/_main/integrations': typeof MainIntegrationsRouteWithChildren
+  '/_main/pricing': typeof MainPricingRoute
+  '/_main/privacy-policy': typeof MainPrivacyPolicyRoute
+  '/_main/request-demo': typeof MainRequestDemoRoute
+  '/_main/terms-of-service': typeof MainTermsOfServiceRoute
   '/api/contact': typeof ApiContactRoute
-  '/blogs/$slug': typeof BlogsSlugRoute
-  '/features/$slug': typeof FeaturesSlugRoute
-  '/integrations/$slug': typeof IntegrationsSlugRoute
-  '/blogs/': typeof BlogsIndexRoute
-  '/features/': typeof FeaturesIndexRoute
-  '/integrations/': typeof IntegrationsIndexRoute
+  '/onboarding/invite': typeof OnboardingInviteRoute
+  '/onboarding/what': typeof OnboardingWhatRoute
+  '/_main/': typeof MainIndexRoute
+  '/onboarding/': typeof OnboardingIndexRoute
+  '/_main/blogs/$slug': typeof MainBlogsSlugRoute
+  '/_main/features/$slug': typeof MainFeaturesSlugRoute
+  '/_main/integrations/$slug': typeof MainIntegrationsSlugRoute
+  '/_main/blogs/': typeof MainBlogsIndexRoute
+  '/_main/features/': typeof MainFeaturesIndexRoute
+  '/_main/integrations/': typeof MainIntegrationsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/onboarding'
+    | '/login'
+    | '/register'
     | '/blogs'
     | '/contact-sales'
     | '/contact-us'
+    | '/cookie-policy'
     | '/features'
     | '/integrations'
     | '/pricing'
+    | '/privacy-policy'
     | '/request-demo'
+    | '/terms-of-service'
     | '/api/contact'
+    | '/onboarding/invite'
+    | '/onboarding/what'
+    | '/onboarding/'
     | '/blogs/$slug'
     | '/features/$slug'
     | '/integrations/$slug'
@@ -171,11 +272,19 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/login'
+    | '/register'
     | '/contact-sales'
     | '/contact-us'
+    | '/cookie-policy'
     | '/pricing'
+    | '/privacy-policy'
     | '/request-demo'
+    | '/terms-of-service'
     | '/api/contact'
+    | '/onboarding/invite'
+    | '/onboarding/what'
+    | '/onboarding'
     | '/blogs/$slug'
     | '/features/$slug'
     | '/integrations/$slug'
@@ -184,134 +293,91 @@ export interface FileRouteTypes {
     | '/integrations'
   id:
     | '__root__'
-    | '/'
-    | '/blogs'
-    | '/contact-sales'
-    | '/contact-us'
-    | '/features'
-    | '/integrations'
-    | '/pricing'
-    | '/request-demo'
+    | '/_auth'
+    | '/_main'
+    | '/onboarding'
+    | '/_auth/login'
+    | '/_auth/register'
+    | '/_main/blogs'
+    | '/_main/contact-sales'
+    | '/_main/contact-us'
+    | '/_main/cookie-policy'
+    | '/_main/features'
+    | '/_main/integrations'
+    | '/_main/pricing'
+    | '/_main/privacy-policy'
+    | '/_main/request-demo'
+    | '/_main/terms-of-service'
     | '/api/contact'
-    | '/blogs/$slug'
-    | '/features/$slug'
-    | '/integrations/$slug'
-    | '/blogs/'
-    | '/features/'
-    | '/integrations/'
+    | '/onboarding/invite'
+    | '/onboarding/what'
+    | '/_main/'
+    | '/onboarding/'
+    | '/_main/blogs/$slug'
+    | '/_main/features/$slug'
+    | '/_main/integrations/$slug'
+    | '/_main/blogs/'
+    | '/_main/features/'
+    | '/_main/integrations/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  BlogsRoute: typeof BlogsRouteWithChildren
-  ContactSalesRoute: typeof ContactSalesRoute
-  ContactUsRoute: typeof ContactUsRoute
-  FeaturesRoute: typeof FeaturesRouteWithChildren
-  IntegrationsRoute: typeof IntegrationsRouteWithChildren
-  PricingRoute: typeof PricingRoute
-  RequestDemoRoute: typeof RequestDemoRoute
+  AuthRoute: typeof AuthRouteWithChildren
+  MainRoute: typeof MainRouteWithChildren
+  OnboardingRoute: typeof OnboardingRouteWithChildren
   ApiContactRoute: typeof ApiContactRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/request-demo': {
-      id: '/request-demo'
-      path: '/request-demo'
-      fullPath: '/request-demo'
-      preLoaderRoute: typeof RequestDemoRouteImport
+    '/onboarding': {
+      id: '/onboarding'
+      path: '/onboarding'
+      fullPath: '/onboarding'
+      preLoaderRoute: typeof OnboardingRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/pricing': {
-      id: '/pricing'
-      path: '/pricing'
-      fullPath: '/pricing'
-      preLoaderRoute: typeof PricingRouteImport
+    '/_main': {
+      id: '/_main'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof MainRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/integrations': {
-      id: '/integrations'
-      path: '/integrations'
-      fullPath: '/integrations'
-      preLoaderRoute: typeof IntegrationsRouteImport
+    '/_auth': {
+      id: '/_auth'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/features': {
-      id: '/features'
-      path: '/features'
-      fullPath: '/features'
-      preLoaderRoute: typeof FeaturesRouteImport
-      parentRoute: typeof rootRouteImport
+    '/onboarding/': {
+      id: '/onboarding/'
+      path: '/'
+      fullPath: '/onboarding/'
+      preLoaderRoute: typeof OnboardingIndexRouteImport
+      parentRoute: typeof OnboardingRoute
     }
-    '/contact-us': {
-      id: '/contact-us'
-      path: '/contact-us'
-      fullPath: '/contact-us'
-      preLoaderRoute: typeof ContactUsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact-sales': {
-      id: '/contact-sales'
-      path: '/contact-sales'
-      fullPath: '/contact-sales'
-      preLoaderRoute: typeof ContactSalesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/blogs': {
-      id: '/blogs'
-      path: '/blogs'
-      fullPath: '/blogs'
-      preLoaderRoute: typeof BlogsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/': {
-      id: '/'
+    '/_main/': {
+      id: '/_main/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof MainIndexRouteImport
+      parentRoute: typeof MainRoute
     }
-    '/integrations/': {
-      id: '/integrations/'
-      path: '/'
-      fullPath: '/integrations/'
-      preLoaderRoute: typeof IntegrationsIndexRouteImport
-      parentRoute: typeof IntegrationsRoute
+    '/onboarding/what': {
+      id: '/onboarding/what'
+      path: '/what'
+      fullPath: '/onboarding/what'
+      preLoaderRoute: typeof OnboardingWhatRouteImport
+      parentRoute: typeof OnboardingRoute
     }
-    '/features/': {
-      id: '/features/'
-      path: '/'
-      fullPath: '/features/'
-      preLoaderRoute: typeof FeaturesIndexRouteImport
-      parentRoute: typeof FeaturesRoute
-    }
-    '/blogs/': {
-      id: '/blogs/'
-      path: '/'
-      fullPath: '/blogs/'
-      preLoaderRoute: typeof BlogsIndexRouteImport
-      parentRoute: typeof BlogsRoute
-    }
-    '/integrations/$slug': {
-      id: '/integrations/$slug'
-      path: '/$slug'
-      fullPath: '/integrations/$slug'
-      preLoaderRoute: typeof IntegrationsSlugRouteImport
-      parentRoute: typeof IntegrationsRoute
-    }
-    '/features/$slug': {
-      id: '/features/$slug'
-      path: '/$slug'
-      fullPath: '/features/$slug'
-      preLoaderRoute: typeof FeaturesSlugRouteImport
-      parentRoute: typeof FeaturesRoute
-    }
-    '/blogs/$slug': {
-      id: '/blogs/$slug'
-      path: '/$slug'
-      fullPath: '/blogs/$slug'
-      preLoaderRoute: typeof BlogsSlugRouteImport
-      parentRoute: typeof BlogsRoute
+    '/onboarding/invite': {
+      id: '/onboarding/invite'
+      path: '/invite'
+      fullPath: '/onboarding/invite'
+      preLoaderRoute: typeof OnboardingInviteRouteImport
+      parentRoute: typeof OnboardingRoute
     }
     '/api/contact': {
       id: '/api/contact'
@@ -320,58 +386,238 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_main/terms-of-service': {
+      id: '/_main/terms-of-service'
+      path: '/terms-of-service'
+      fullPath: '/terms-of-service'
+      preLoaderRoute: typeof MainTermsOfServiceRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/request-demo': {
+      id: '/_main/request-demo'
+      path: '/request-demo'
+      fullPath: '/request-demo'
+      preLoaderRoute: typeof MainRequestDemoRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/privacy-policy': {
+      id: '/_main/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof MainPrivacyPolicyRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/pricing': {
+      id: '/_main/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof MainPricingRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/integrations': {
+      id: '/_main/integrations'
+      path: '/integrations'
+      fullPath: '/integrations'
+      preLoaderRoute: typeof MainIntegrationsRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/features': {
+      id: '/_main/features'
+      path: '/features'
+      fullPath: '/features'
+      preLoaderRoute: typeof MainFeaturesRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/cookie-policy': {
+      id: '/_main/cookie-policy'
+      path: '/cookie-policy'
+      fullPath: '/cookie-policy'
+      preLoaderRoute: typeof MainCookiePolicyRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/contact-us': {
+      id: '/_main/contact-us'
+      path: '/contact-us'
+      fullPath: '/contact-us'
+      preLoaderRoute: typeof MainContactUsRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/contact-sales': {
+      id: '/_main/contact-sales'
+      path: '/contact-sales'
+      fullPath: '/contact-sales'
+      preLoaderRoute: typeof MainContactSalesRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/blogs': {
+      id: '/_main/blogs'
+      path: '/blogs'
+      fullPath: '/blogs'
+      preLoaderRoute: typeof MainBlogsRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_auth/register': {
+      id: '/_auth/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof AuthRegisterRouteImport
+      parentRoute: typeof AuthRoute
+    }
+    '/_auth/login': {
+      id: '/_auth/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof AuthLoginRouteImport
+      parentRoute: typeof AuthRoute
+    }
+    '/_main/integrations/': {
+      id: '/_main/integrations/'
+      path: '/'
+      fullPath: '/integrations/'
+      preLoaderRoute: typeof MainIntegrationsIndexRouteImport
+      parentRoute: typeof MainIntegrationsRoute
+    }
+    '/_main/features/': {
+      id: '/_main/features/'
+      path: '/'
+      fullPath: '/features/'
+      preLoaderRoute: typeof MainFeaturesIndexRouteImport
+      parentRoute: typeof MainFeaturesRoute
+    }
+    '/_main/blogs/': {
+      id: '/_main/blogs/'
+      path: '/'
+      fullPath: '/blogs/'
+      preLoaderRoute: typeof MainBlogsIndexRouteImport
+      parentRoute: typeof MainBlogsRoute
+    }
+    '/_main/integrations/$slug': {
+      id: '/_main/integrations/$slug'
+      path: '/$slug'
+      fullPath: '/integrations/$slug'
+      preLoaderRoute: typeof MainIntegrationsSlugRouteImport
+      parentRoute: typeof MainIntegrationsRoute
+    }
+    '/_main/features/$slug': {
+      id: '/_main/features/$slug'
+      path: '/$slug'
+      fullPath: '/features/$slug'
+      preLoaderRoute: typeof MainFeaturesSlugRouteImport
+      parentRoute: typeof MainFeaturesRoute
+    }
+    '/_main/blogs/$slug': {
+      id: '/_main/blogs/$slug'
+      path: '/$slug'
+      fullPath: '/blogs/$slug'
+      preLoaderRoute: typeof MainBlogsSlugRouteImport
+      parentRoute: typeof MainBlogsRoute
+    }
   }
 }
 
-interface BlogsRouteChildren {
-  BlogsSlugRoute: typeof BlogsSlugRoute
-  BlogsIndexRoute: typeof BlogsIndexRoute
+interface AuthRouteChildren {
+  AuthLoginRoute: typeof AuthLoginRoute
+  AuthRegisterRoute: typeof AuthRegisterRoute
 }
 
-const BlogsRouteChildren: BlogsRouteChildren = {
-  BlogsSlugRoute: BlogsSlugRoute,
-  BlogsIndexRoute: BlogsIndexRoute,
+const AuthRouteChildren: AuthRouteChildren = {
+  AuthLoginRoute: AuthLoginRoute,
+  AuthRegisterRoute: AuthRegisterRoute,
 }
 
-const BlogsRouteWithChildren = BlogsRoute._addFileChildren(BlogsRouteChildren)
+const AuthRouteWithChildren = AuthRoute._addFileChildren(AuthRouteChildren)
 
-interface FeaturesRouteChildren {
-  FeaturesSlugRoute: typeof FeaturesSlugRoute
-  FeaturesIndexRoute: typeof FeaturesIndexRoute
+interface MainBlogsRouteChildren {
+  MainBlogsSlugRoute: typeof MainBlogsSlugRoute
+  MainBlogsIndexRoute: typeof MainBlogsIndexRoute
 }
 
-const FeaturesRouteChildren: FeaturesRouteChildren = {
-  FeaturesSlugRoute: FeaturesSlugRoute,
-  FeaturesIndexRoute: FeaturesIndexRoute,
+const MainBlogsRouteChildren: MainBlogsRouteChildren = {
+  MainBlogsSlugRoute: MainBlogsSlugRoute,
+  MainBlogsIndexRoute: MainBlogsIndexRoute,
 }
 
-const FeaturesRouteWithChildren = FeaturesRoute._addFileChildren(
-  FeaturesRouteChildren,
+const MainBlogsRouteWithChildren = MainBlogsRoute._addFileChildren(
+  MainBlogsRouteChildren,
 )
 
-interface IntegrationsRouteChildren {
-  IntegrationsSlugRoute: typeof IntegrationsSlugRoute
-  IntegrationsIndexRoute: typeof IntegrationsIndexRoute
+interface MainFeaturesRouteChildren {
+  MainFeaturesSlugRoute: typeof MainFeaturesSlugRoute
+  MainFeaturesIndexRoute: typeof MainFeaturesIndexRoute
 }
 
-const IntegrationsRouteChildren: IntegrationsRouteChildren = {
-  IntegrationsSlugRoute: IntegrationsSlugRoute,
-  IntegrationsIndexRoute: IntegrationsIndexRoute,
+const MainFeaturesRouteChildren: MainFeaturesRouteChildren = {
+  MainFeaturesSlugRoute: MainFeaturesSlugRoute,
+  MainFeaturesIndexRoute: MainFeaturesIndexRoute,
 }
 
-const IntegrationsRouteWithChildren = IntegrationsRoute._addFileChildren(
-  IntegrationsRouteChildren,
+const MainFeaturesRouteWithChildren = MainFeaturesRoute._addFileChildren(
+  MainFeaturesRouteChildren,
+)
+
+interface MainIntegrationsRouteChildren {
+  MainIntegrationsSlugRoute: typeof MainIntegrationsSlugRoute
+  MainIntegrationsIndexRoute: typeof MainIntegrationsIndexRoute
+}
+
+const MainIntegrationsRouteChildren: MainIntegrationsRouteChildren = {
+  MainIntegrationsSlugRoute: MainIntegrationsSlugRoute,
+  MainIntegrationsIndexRoute: MainIntegrationsIndexRoute,
+}
+
+const MainIntegrationsRouteWithChildren =
+  MainIntegrationsRoute._addFileChildren(MainIntegrationsRouteChildren)
+
+interface MainRouteChildren {
+  MainBlogsRoute: typeof MainBlogsRouteWithChildren
+  MainContactSalesRoute: typeof MainContactSalesRoute
+  MainContactUsRoute: typeof MainContactUsRoute
+  MainCookiePolicyRoute: typeof MainCookiePolicyRoute
+  MainFeaturesRoute: typeof MainFeaturesRouteWithChildren
+  MainIntegrationsRoute: typeof MainIntegrationsRouteWithChildren
+  MainPricingRoute: typeof MainPricingRoute
+  MainPrivacyPolicyRoute: typeof MainPrivacyPolicyRoute
+  MainRequestDemoRoute: typeof MainRequestDemoRoute
+  MainTermsOfServiceRoute: typeof MainTermsOfServiceRoute
+  MainIndexRoute: typeof MainIndexRoute
+}
+
+const MainRouteChildren: MainRouteChildren = {
+  MainBlogsRoute: MainBlogsRouteWithChildren,
+  MainContactSalesRoute: MainContactSalesRoute,
+  MainContactUsRoute: MainContactUsRoute,
+  MainCookiePolicyRoute: MainCookiePolicyRoute,
+  MainFeaturesRoute: MainFeaturesRouteWithChildren,
+  MainIntegrationsRoute: MainIntegrationsRouteWithChildren,
+  MainPricingRoute: MainPricingRoute,
+  MainPrivacyPolicyRoute: MainPrivacyPolicyRoute,
+  MainRequestDemoRoute: MainRequestDemoRoute,
+  MainTermsOfServiceRoute: MainTermsOfServiceRoute,
+  MainIndexRoute: MainIndexRoute,
+}
+
+const MainRouteWithChildren = MainRoute._addFileChildren(MainRouteChildren)
+
+interface OnboardingRouteChildren {
+  OnboardingInviteRoute: typeof OnboardingInviteRoute
+  OnboardingWhatRoute: typeof OnboardingWhatRoute
+  OnboardingIndexRoute: typeof OnboardingIndexRoute
+}
+
+const OnboardingRouteChildren: OnboardingRouteChildren = {
+  OnboardingInviteRoute: OnboardingInviteRoute,
+  OnboardingWhatRoute: OnboardingWhatRoute,
+  OnboardingIndexRoute: OnboardingIndexRoute,
+}
+
+const OnboardingRouteWithChildren = OnboardingRoute._addFileChildren(
+  OnboardingRouteChildren,
 )
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  BlogsRoute: BlogsRouteWithChildren,
-  ContactSalesRoute: ContactSalesRoute,
-  ContactUsRoute: ContactUsRoute,
-  FeaturesRoute: FeaturesRouteWithChildren,
-  IntegrationsRoute: IntegrationsRouteWithChildren,
-  PricingRoute: PricingRoute,
-  RequestDemoRoute: RequestDemoRoute,
+  AuthRoute: AuthRouteWithChildren,
+  MainRoute: MainRouteWithChildren,
+  OnboardingRoute: OnboardingRouteWithChildren,
   ApiContactRoute: ApiContactRoute,
 }
 export const routeTree = rootRouteImport

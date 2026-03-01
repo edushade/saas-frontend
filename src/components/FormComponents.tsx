@@ -71,24 +71,29 @@ export function PhoneInputField() {
 export function TextField({
 	label,
 	placeholder,
+	type = "text",
 }: {
 	label?: string;
 	placeholder?: string;
+	type?: "text" | "email" | "password";
 }) {
 	const field = useFieldContext<string>();
 	const errors = useStore(field.store, (state) => state.meta.errors);
+	const id = field.name;
 
 	return (
 		<div>
 			{label && (
 				<Label
-					htmlFor={label}
+					htmlFor={id}
 					className="mb-2 text-sm text-text-primary font-medium"
 				>
 					{label}
 				</Label>
 			)}
 			<Input
+				id={id}
+				type={type}
 				value={field.state.value}
 				placeholder={placeholder}
 				onBlur={field.handleBlur}

@@ -1,10 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { BlogPostView } from "@/components/blog/BlogPostView";
 import { getBlogBySlug } from "@/constants/blogs";
+import { getSiteOrigin } from "@/env";
 
-const SITE_ORIGIN = "https://edushade.com";
-
-export const Route = createFileRoute("/blogs/$slug")({
+export const Route = createFileRoute("/_main/blogs/$slug")({
 	loader: ({ params }) => {
 		const post = getBlogBySlug(params?.slug ?? "");
 		return { post };
@@ -19,12 +18,13 @@ export const Route = createFileRoute("/blogs/$slug")({
 				],
 			};
 		}
+		const origin = getSiteOrigin();
 		const title = `${post.title} | Edushade`;
 		const description = post.description ?? post.title;
-		const canonical = `${SITE_ORIGIN}/blogs/${post.slug}`;
+		const canonical = `${origin}/blogs/${post.slug}`;
 		const imageUrl = post.imageSrc.startsWith("http")
 			? post.imageSrc
-			: `${SITE_ORIGIN}${post.imageSrc}`;
+			: `${origin}${post.imageSrc}`;
 		return {
 			meta: [
 				{ title },
@@ -62,7 +62,7 @@ function BlogPostPage() {
 					Post not found
 				</h1>
 				<p className="mt-2 text-text-secondary">
-					The blog post you’re looking for doesn’t exist or was removed.
+					The blog post you're looking for doesn't exist or was removed.
 				</p>
 				<a
 					href="/blogs"

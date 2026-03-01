@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { BannerContactUs, GetInTouch } from "@/components/contact-us";
 
-export const Route = createFileRoute("/contact-us")({
+export const Route = createFileRoute("/_main/contact-us")({
 	component: ContactUsPage,
 });
 

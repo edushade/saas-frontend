@@ -2,10 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { BannerBlog, BlogListSection } from "@/components/blog";
 import RecentBlogSection from "@/components/landing/RecentBlogSection";
 import { getBlogListPage } from "@/constants/blogs";
+import { getSiteOrigin } from "@/env";
 
-const SITE_ORIGIN = "https://localhost.com";
-
-export const Route = createFileRoute("/blogs/")({
+export const Route = createFileRoute("/_main/blogs/")({
 	validateSearch: (search: Record<string, unknown>) => {
 		const page = Number(search?.page);
 		return { page: Number.isFinite(page) && page >= 1 ? page : 1 };
@@ -17,12 +16,13 @@ export const Route = createFileRoute("/blogs/")({
 	},
 	head: ({ loaderData }) => {
 		const page = loaderData?.currentPage ?? 1;
+		const origin = getSiteOrigin();
 		const title =
 			page > 1 ? `Blog — Page ${page} | Edushade` : "Blog | Edushade";
 		const description =
 			"Thoughtful updates and practical insights on building and delivering modern learning experiences.";
 		const canonical =
-			page > 1 ? `${SITE_ORIGIN}/blogs?page=${page}` : `${SITE_ORIGIN}/blogs`;
+			page > 1 ? `${origin}/blogs?page=${page}` : `${origin}/blogs`;
 		return {
 			meta: [
 				{ title },

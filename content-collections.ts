@@ -53,6 +53,31 @@ const blogs = defineCollection({
 	},
 });
 
+const legalSchema = z.object({
+	title: z.string(),
+	description: z.string().optional(),
+	content: z.string(),
+	mdx: z.string().optional(),
+	slug: z.string().optional(),
+});
+
+const legal = defineCollection({
+	name: "legal",
+	directory: "content/legal",
+	include: "**/*.mdx",
+	schema: legalSchema,
+	transform: async (document, context) => {
+		const mdx = await compileMDX(context, document);
+		const rawPath = (document as { _meta?: { path?: string } })._meta?.path ?? "";
+		const slug = rawPath.replace(/\.mdx?$/i, "").split("/").pop() ?? "";
+		return {
+			...document,
+			mdx,
+			slug,
+		};
+	},
+});
+
 export default defineConfig({
-	content: [blogs],
+	content: [blogs, legal],
 });

@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { BannerIntegration, IntegrationsList } from "@/components/integrations";
 
-export const Route = createFileRoute("/integrations/")({
+export const Route = createFileRoute("/_main/integrations/")({
 	component: IntegrationsIndexPage,
 });
 

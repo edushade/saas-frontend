@@ -1,9 +1,14 @@
 import { createEnv } from "@t3-oss/env-core";
 import { z } from "zod";
 
+const DEFAULT_SITE_ORIGIN = "https://edushade.com";
+const DEFAULT_DEV_ORIGIN = "http://localhost:3000";
+
 export const env = createEnv({
 	server: {
 		SERVER_URL: z.string().url().optional(),
+		SITE_ORIGIN: z.string().url().optional(),
+
 		// Mailtrap / SMTP (for form submission or email sending)
 		EMAIL_PROVIDER: z.string().optional(),
 		EMAIL_SMTP_HOST: z.string().optional(),
@@ -12,21 +17,23 @@ export const env = createEnv({
 		EMAIL_SMTP_PASSWORD: z.string().optional(),
 	},
 
-	/**
-	 * The prefix that client-side variables must have. This is enforced both at
-	 * a type-level and at runtime.
-	 */
 	clientPrefix: "VITE_",
 
 	client: {
 		VITE_APP_TITLE: z.string().min(1).optional(),
+		/** Canonical site origin for canonical links, OG tags (e.g. https://edushade.com) */
+		VITE_SITE_ORIGIN: z.string().url().optional(),
 	},
 
 	/**
-	 * What object holds the environment variables at runtime. This is usually
-	 * `process.env` or `import.meta.env`.
+	 * What object holds the environment variables at runtime.
+	 * Client (browser): import.meta.env (Vite injects VITE_*).
+	 * Server (Node/SSR): merge process.env so SITE_ORIGIN and NODE_ENV are available in production.
 	 */
-	runtimeEnv: import.meta.env,
+	runtimeEnv:
+		process?.env != null
+			? { ...import.meta.env, ...process.env }
+			: import.meta.env,
 
 	/**
 	 * By default, this library will feed the environment variables directly to
@@ -43,3 +50,9 @@ export const env = createEnv({
 	 */
 	emptyStringAsUndefined: true,
 });
+
+export function getSiteOrigin(): string {
+	const fromEnv = env.VITE_SITE_ORIGIN ?? env.SITE_ORIGIN;
+	if (fromEnv) return fromEnv;
+	return import.meta.env.DEV ? DEFAULT_DEV_ORIGIN : DEFAULT_SITE_ORIGIN;
+}

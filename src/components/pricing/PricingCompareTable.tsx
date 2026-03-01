@@ -46,7 +46,7 @@ function getRowValues(row: PricingCompareRow, billing: BillingCycle) {
 	};
 }
 
-function CompareRowMobile({
+function _CompareRowMobile({
 	feature,
 	tooltip,
 	starter,

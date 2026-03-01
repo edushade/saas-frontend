@@ -31,7 +31,7 @@ export function ContactSalesForm({
 	title = "Please fill out the form",
 	note,
 	submitLabel = "Send Message",
-	termsLinkTo = "/",
+	termsLinkTo = "/terms-of-service",
 	onSubmit = defaultOnSubmit,
 	contactApiUrl = "/api/contact",
 	className,

@@ -3,9 +3,8 @@ import type { BlogDetailBannerAuthorSocials } from "@/components/blog/BlogDetail
 import { BlogDetailBanner } from "@/components/blog/BlogDetailBanner";
 import { Typography } from "@/components/ui-custom/typography";
 import type { BlogDocument } from "@/constants/blogs";
+import { getSiteOrigin } from "@/env";
 import { formatPostDate } from "@/lib/date-utils";
-
-const SITE_ORIGIN = "https://edushade.com";
 
 type PostWithAuthorSocials = BlogDocument & {
 	authorWebsite?: string;
@@ -49,10 +48,11 @@ export interface BlogPostViewProps {
 }
 
 export function BlogPostView({ post }: BlogPostViewProps) {
-	const canonical = `${SITE_ORIGIN}/blogs/${post.slug ?? ""}`;
+	const origin = getSiteOrigin();
+	const canonical = `${origin}/blogs/${post.slug ?? ""}`;
 	const imageUrl = post.imageSrc.startsWith("http")
 		? post.imageSrc
-		: `${SITE_ORIGIN}${post.imageSrc}`;
+		: `${origin}${post.imageSrc}`;
 	const jsonLd = {
 		"@context": "https://schema.org",
 		"@type": "Article",
@@ -64,7 +64,7 @@ export function BlogPostView({ post }: BlogPostViewProps) {
 		publisher: {
 			"@type": "Organization",
 			name: "Edushade",
-			url: SITE_ORIGIN,
+			url: origin,
 		},
 	};
 
@@ -76,7 +76,7 @@ export function BlogPostView({ post }: BlogPostViewProps) {
 					avatarUrl: post.authorAvatar?.startsWith("http")
 						? post.authorAvatar
 						: post.authorAvatar
-							? `${SITE_ORIGIN}${post.authorAvatar}`
+							? `${origin}${post.authorAvatar}`
 							: undefined,
 					bio:
 						"authorBio" in post
@@ -90,7 +90,7 @@ export function BlogPostView({ post }: BlogPostViewProps) {
 	const coverImageSrc = p.coverImage
 		? p.coverImage.startsWith("http")
 			? p.coverImage
-			: `${SITE_ORIGIN}${p.coverImage}`
+			: `${origin}${p.coverImage}`
 		: undefined;
 
 	return (
@@ -111,7 +111,6 @@ export function BlogPostView({ post }: BlogPostViewProps) {
 				{/* JSON-LD for Article SEO; value is serialized from app data */}
 				<script
 					type="application/ld+json"
-					// biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD from serialized post data
 					dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
 				/>
 
