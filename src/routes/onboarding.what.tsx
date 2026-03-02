@@ -47,14 +47,14 @@ function OnboardingStep2() {
 					<span className="text-sm font-medium text-text-primary">
 						Type of your education:
 					</span>
-					<div className="flex flex-wrap gap-2">
+					<div className="flex flex-wrap gap-1 md:gap-2">
 						{EDUCATION_TYPES.map((option) => (
 							<Button
 								key={option}
 								type="button"
 								variant={educationType === option ? "default" : "outline"}
 								className={cn(
-									"rounded-lg text-sm text-text-primary   font-medium hover:bg-muted/30",
+									"rounded-lg text-xs md:text-sm text-text-primary px-2 md:px-3 py-1 md:py-2   font-medium hover:bg-muted/30",
 									educationType === option
 										? " bg-[#E6F0FF]  border border-brand-300"
 										: "bg-bg-primary border border-border-secondary",
@@ -71,14 +71,14 @@ function OnboardingStep2() {
 					<span className="text-sm font-medium text-text-primary">
 						Expected number of learners in first 6 months:
 					</span>
-					<div className="flex flex-wrap gap-2">
+					<div className="flex flex-wrap gap-1 md:gap-2">
 						{LEARNER_RANGES.map((option) => (
 							<Button
 								key={option}
 								type="button"
 								variant={learnerRange === option ? "default" : "outline"}
 								className={cn(
-									"rounded-lg text-sm text-text-primary   font-medium hover:bg-muted/30",
+									"rounded-lg text-xs md:text-sm text-text-primary px-2 md:px-3 py-1 md:py-2   font-medium hover:bg-muted/30",
 									learnerRange === option
 										? " bg-[#E6F0FF]  border border-brand-300"
 										: "bg-bg-primary border border-border-secondary",

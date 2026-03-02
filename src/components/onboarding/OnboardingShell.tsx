@@ -122,10 +122,14 @@ export function OnboardingField({
 }) {
 	return (
 		<div className="flex flex-col gap-1.5">
-			<Label className="text-sm font-medium text-text-primary">{label}</Label>
+			<Label className="text-xs md:text-sm font-medium text-text-primary">
+				{label}
+			</Label>
 			{children}
-			{helper && <p className="text-xs text-text-tertiary">{helper}</p>}
-			{error && <p className="text-xs text-destructive">{error}</p>}
+			{helper && (
+				<p className="text-xs md:text-sm text-text-tertiary">{helper}</p>
+			)}
+			{error && <p className="text-xs md:text-sm text-destructive">{error}</p>}
 		</div>
 	);
 }

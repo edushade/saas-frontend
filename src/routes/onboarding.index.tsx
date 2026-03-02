@@ -64,7 +64,7 @@ function OnboardingStep1() {
 						placeholder="Acme Academy"
 						value={platformName}
 						onChange={(e) => setPlatformName(e.target.value)}
-						className="rounded-lg border-border-secondary h-10"
+						className="rounded-lg border-border-secondary h-10 text-xs md:text-sm"
 					/>
 				</OnboardingField>
 
@@ -72,20 +72,22 @@ function OnboardingStep1() {
 					label="URL Subdomain"
 					helper="Use only letters, numbers, and hyphens. 3-63 characters."
 				>
-					<InputGroup className="h-10 rounded-lg border-border-secondary bg-white shadow-xs gap-2">
+					<InputGroup className="h-10 rounded-lg border-border-secondary bg-white shadow-xs gap-1 md:gap-2">
 						<InputGroupInput
 							type="text"
 							placeholder="acme-academy"
 							value={subdomain}
 							onChange={(e) => setSubdomain(e.target.value)}
 							onBlur={() => setSubdomainTouched(true)}
-							className="text-base md:text-sm h-10"
+							className="text-xs	 md:text-sm h-10"
 						/>
 						<InputGroupAddon
 							align="inline-end"
-							className="border-l px-2 border-border-secondary bg-muted/30 text-text-tertiary"
+							className="border-l px-1 md:px-2 py-1 md:py-2 border-border-secondary bg-muted/30 text-text-tertiary"
 						>
-							<InputGroupText>.edushade.com</InputGroupText>
+							<InputGroupText className="text-xs md:text-sm">
+								.edushade.com
+							</InputGroupText>
 						</InputGroupAddon>
 					</InputGroup>
 					{subdomainTouched && subdomainAvailable && (
