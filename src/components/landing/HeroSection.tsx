@@ -13,7 +13,7 @@ import { HeroTaggedBlock } from "./HeroTaggedBlock";
 
 export default function HeroSection() {
 	return (
-		<section className="bg-bg-primary pt-(--es-nav-h) px-4 md:px-(--es-section-px)">
+		<section className="bg-bg-primary py-(--es-section-py) px-4 md:px-(--es-section-px)">
 			<HeroTaggedBlock>
 				<RainbowButton
 					variant="outline"
@@ -37,7 +37,7 @@ export default function HeroSection() {
 
 				<Typography
 					variant="h1"
-					className="w-full text-3xl md:text-[50px] lg:text-[60px] font-medium tracking-tight leading-tight text-text-primary"
+					className="w-full mt-3 text-3xl md:text-[50px] lg:text-[60px] font-medium tracking-tight leading-tight text-text-primary"
 				>
 					One platform for how you actually teach
 				</Typography>

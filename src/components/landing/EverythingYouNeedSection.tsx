@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 
 export default function EverythingYouNeedSection() {
 	return (
-		<section className="bg-bg-primary py-8 md:py-(--es-section-py) px-4 md:px-(--es-section-px)">
+		<section className="bg-bg-primary py-(--es-section-py) px-4 md:px-(--es-section-px)">
 			<div className="mx-auto max-w-(--es-max-w)">
 				<Card className="overflow-hidden shadow-none border-none	gap-0 rounded-4xl bg-bg-secondary">
 					<CardHeader className="grid grid-cols-1 items-end gap-6 md:gap-8 lg:grid-cols-2 lg:gap-24">

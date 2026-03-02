@@ -21,7 +21,7 @@ function PlatformCard({ name, stat, logo }: (typeof PLATFORMS)[number]) {
 
 export default function LogosSection() {
 	return (
-		<section className="relative flex w-full flex-col items-center gap-4 overflow-hidden py-8 md:py-(--es-section-py)">
+		<section className="relative flex w-full flex-col items-center gap-4 overflow-hidden py-(--es-section-py)">
 			<Typography
 				variant="h6"
 				className="font-normal text-center text-text-tertiary"

@@ -29,7 +29,7 @@ export default function EducatorsSaySection() {
 	};
 
 	return (
-		<section className="bg-bg-primary py-8 md:py-(--es-section-py) px-4 md:px-(--es-section-px)">
+		<section className="bg-bg-primary py-(--es-section-py) px-4 md:px-(--es-section-px)">
 			<div className="mx-auto max-w-(--es-max-w)  flex flex-col gap-10 lg:gap-14">
 				<div className="flex flex-col gap-4 items-center justify-center">
 					<Typography

@@ -78,7 +78,7 @@ export const Route = createFileRoute("/_main/")({
 
 function LandingPage() {
 	return (
-		<main className="pt-8 pb-8">
+		<main className="pt-(--es-section-pt)">
 			<HeroSection />
 			<LogosSection />
 			<BuiltForTeachSection />

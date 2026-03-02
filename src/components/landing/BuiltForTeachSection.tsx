@@ -44,7 +44,7 @@ function ImageCard({ src, alt }: { src: string; alt: string }) {
 
 export default function BuiltForTeachSection() {
 	return (
-		<section className="bg-bg-primary py-8 md:py-(--es-section-py) px-4 md:px-(--es-section-px)">
+		<section className="bg-bg-primary py-(--es-section-py) px-4 md:px-(--es-section-px)">
 			<div className="mx-auto max-w-(--es-max-w) ">
 				<Tabs defaultValue="creators">
 					<div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 lg:gap-12 items-end">

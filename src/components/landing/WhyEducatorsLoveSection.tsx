@@ -6,7 +6,7 @@ import { Typography } from "../ui-custom/typography";
 
 export default function WhyEducatorsLoveSection() {
 	return (
-		<section className="py-8 md:py-(--es-section-py) px-4 md:px-(--es-section-px)">
+		<section className="py-(--es-section-py) px-4 md:px-(--es-section-px)">
 			<div className="mx-auto w-full max-w-(--es-max-w)">
 				<div className="mb-10 max-w-4xl mx-auto flex flex-col gap-4 items-center text-center justify-center">
 					<Typography

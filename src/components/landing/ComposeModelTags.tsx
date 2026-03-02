@@ -10,9 +10,6 @@ const AUTO_ROTATE_DELAY_MS = 2000;
 const LABEL_SELECTED =
 	"[&:has(input:checked)>*]:border-brand-300 [&:has(input:checked)>*]:bg-brand-light [&:has(input:checked)>*]:text-brand-300 [&:has(input:checked)>*]:font-medium";
 
-const BADGE_BASE =
-	"cursor-pointer rounded-full border-border-primary px-2 py-1	 text-sm text-text-secondary transition-colors hover:border-brand-300 hover:text-brand-300";
-
 export interface ComposeModelTagsProps {
 	tags: string[];
 	defaultSelected?: string;
@@ -96,7 +93,7 @@ export function ComposeModelTags({
 					{description}
 				</Typography>
 			) : null}
-			<ul className="flex flex-wrap gap-2 list-none p-0 m-0">
+			<ul className="flex flex-wrap gap-3 max-w-[580px] list-none p-0 m-0">
 				{tags.map((tag) => (
 					<li key={tag}>
 						<label className={`cursor-pointer ${LABEL_SELECTED}`}>
@@ -114,7 +111,15 @@ export function ComposeModelTags({
 								className="sr-only"
 								aria-label={`Learning model: ${tag}`}
 							/>
-							<Badge variant="outline" className={BADGE_BASE}>
+							<Badge
+								variant="outline"
+								className={cn(
+									"cursor-pointer rounded-full  px-2 py-1	 text-base  transition-colors hover:border-brand-300 hover:text-brand-300",
+									selected === tag
+										? "border-brand-200 bg-[#E6F0FF] font-semibold text-brand-300"
+										: "border-border-primary text-text-secondary",
+								)}
+							>
 								{tag}
 							</Badge>
 						</label>
