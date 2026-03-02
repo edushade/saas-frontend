@@ -20,17 +20,15 @@ function RoleCard({
 		<button
 			type="button"
 			className={cn(
-				"w-full max-w-xl flex items-center gap-4 rounded-2xl border px-5 py-4 text-left transition-all duration-200 cursor-pointer",
-				isActive
-					? "role-card-active"
-					: "border-transparent bg-bg-primary hover:bg-bg-secondary",
+				"w-full max-w-xl flex items-center gap-4 rounded-2xl  px-5 py-4 text-left cursor-pointer",
+				isActive ? "role-card-active" : " bg-bg-primary hover:bg-bg-secondary",
 			)}
 			onMouseEnter={onActivate}
 			onClick={onActivate}
 		>
 			<div
 				className={cn(
-					"flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition-colors duration-200",
+					"flex h-11 w-11 shrink-0 items-center justify-center rounded-xl",
 					isActive ? "bg-brand-200" : "bg-bg-tertiary",
 				)}
 			>
