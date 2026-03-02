@@ -70,8 +70,20 @@ export const Route = createFileRoute("/api/contact")({
 						auth: { user, pass },
 					});
 
-					const fromAddress = process.env.EMAIL_FROM?.trim() || user;
-					const toAddress = process.env.EMAIL_TO?.trim() || user;
+					// From: must be an address your SMTP allows. Never use the provider's domain (e.g. mailtrap.io) as From.
+					let fromAddress = process.env.EMAIL_FROM?.trim();
+					if (!fromAddress) {
+						try {
+							const origin = process.env.SITE_ORIGIN ?? "https://edushade.com";
+							fromAddress = `Contact <noreply@${new URL(origin).host}>`;
+						} catch {
+							fromAddress = "Contact <noreply@edushade.com>";
+						}
+					}
+					const toAddress =
+						process.env.EMAIL_TO?.trim() ||
+						process.env.EMAIL_FROM?.trim() ||
+						user;
 
 					const mailOptions = {
 						from: fromAddress,
@@ -112,10 +124,16 @@ export const Route = createFileRoute("/api/contact")({
 							: "";
 					console.error("[contact API] Send failed:", message, code || "", err);
 
-					// In development, return a hint to help debug (no secrets)
+					const isEenvelope =
+						message.includes("EENVELOPE") ||
+						message.toLowerCase().includes("not allowed");
 					const isDev = process.env.NODE_ENV !== "production";
 					const hint = isDev
-						? ` ${message}${code ? ` (${code})` : ""}. Check EMAIL_SMTP_* in .env, host/port/auth.`
+						? ` ${message}${code ? ` (${code})` : ""}.${
+								isEenvelope
+									? " Set EMAIL_FROM (and EMAIL_TO) in .env to an address your SMTP allows — do not use the provider's domain (e.g. @mailtrap.io) as From."
+									: " Check EMAIL_SMTP_* in .env, host/port/auth."
+							}`
 						: "";
 
 					return Response.json(

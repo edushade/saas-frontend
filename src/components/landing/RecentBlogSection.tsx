@@ -1,9 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import {
-	type BlogPostCardItem,
-	HorizontalBlogCard,
-	VerticalBlogCard,
-} from "@/components/blog";
+import { HorizontalBlogCard, VerticalBlogCard } from "@/components/blog";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -11,14 +7,8 @@ import { Input } from "@/components/ui/input";
 import { getRecentBlogPosts } from "@/constants/blogs";
 import { Typography } from "../ui-custom/typography";
 
-export interface RecentBlogSectionProps {
-	posts?: BlogPostCardItem[];
-}
-
-export default function RecentBlogSection({
-	posts: postsProp,
-}: RecentBlogSectionProps = {}) {
-	const recentPosts = postsProp ?? getRecentBlogPosts();
+export default function RecentBlogSection() {
+	const recentPosts = getRecentBlogPosts();
 	const featuredPost = recentPosts[0];
 	const sidePosts = recentPosts.slice(1, 3);
 

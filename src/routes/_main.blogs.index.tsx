@@ -69,7 +69,7 @@ function BlogsIndexPage() {
 	return (
 		<main className="pt-(--es-section-pt)">
 			<BannerBlog />
-			<RecentBlogSection posts={posts} />
+			<RecentBlogSection />
 			<BlogListSection
 				posts={posts}
 				currentPage={currentPage}
