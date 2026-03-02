@@ -32,7 +32,7 @@ function CardLink({
 
 export function VerticalBlogCard({ post }: BlogCardProps) {
 	const card = (
-		<Card className="flex flex-col rounded-2xl shadow-sm p-4 border border-border-primary bg-[rgba(248,249,252,1)] md:rounded-4xl lg:min-h-0 lg:h-full transition-shadow hover:shadow-sm">
+		<Card className="flex flex-col rounded-2xl shadow-sm p-4 border border-border-tertiary bg-[rgba(248,249,252,1)] md:rounded-4xl lg:min-h-0 lg:h-full transition-shadow hover:shadow-sm">
 			<CardContent className="shrink-0 px-0 rounded-3xl space-y-3">
 				<div className="bg-[#F5F5F5] rounded-xl md:rounded-2xl overflow-hidden">
 					<img

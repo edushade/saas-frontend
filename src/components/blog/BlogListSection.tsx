@@ -20,7 +20,7 @@ export interface BlogListSectionProps {
 }
 
 export function BlogListSection({
-	title = "All posts",
+	title = "All Blog Posts",
 	posts,
 	currentPage,
 	totalPages,
@@ -29,11 +29,11 @@ export function BlogListSection({
 	const showRightEllipsis = currentPage < totalPages - 2;
 
 	return (
-		<section className="bg-bg-primary py-(--es-section-py) px-4 md:px-(--es-section-px)">
+		<section className="bg-bg-secondary py-(--es-section-py) px-4 md:px-(--es-section-px)">
 			<div className="mx-auto max-w-(--es-max-w)">
 				<Typography
 					variant="h1"
-					className="mb-8 text-2xl font-medium leading-tight text-text-primary md:text-3xl lg:text-4xl"
+					className="mb-8 text-2xl font-medium leading-tight text-text-primary md:text-3xl lg:text-3xl"
 				>
 					{title}
 				</Typography>
@@ -48,8 +48,9 @@ export function BlogListSection({
 				</div>
 
 				{totalPages > 1 && (
-					<Pagination className="mt-10">
-						<PaginationContent>
+					<Pagination className="mt-10 w-full flex-wrap justify-between gap-4">
+						{/* Left: Previous */}
+						<PaginationContent className="flex-1 justify-start">
 							<PaginationItem>
 								{currentPage > 1 ? (
 									<Link
@@ -58,10 +59,9 @@ export function BlogListSection({
 										aria-label="Go to previous page"
 										className={cn(
 											"inline-flex items-center justify-center gap-1 px-2.5 sm:pl-2.5",
-											buttonVariants({ variant: "ghost", size: "default" }),
+											buttonVariants({ variant: "outline", size: "default" }),
 										)}
 									>
-										<ChevronLeftIcon />
 										<span className="hidden sm:block">Previous</span>
 									</Link>
 								) : (
@@ -69,16 +69,18 @@ export function BlogListSection({
 										aria-disabled
 										className={cn(
 											"inline-flex items-center justify-center gap-1 px-2.5 sm:pl-2.5",
-											buttonVariants({ variant: "ghost", size: "default" }),
+											buttonVariants({ variant: "outline", size: "default" }),
 											"pointer-events-none opacity-50",
 										)}
 									>
-										<ChevronLeftIcon />
 										<span className="hidden sm:block">Previous</span>
 									</span>
 								)}
 							</PaginationItem>
+						</PaginationContent>
 
+						{/* Center: Page numbers (box style) */}
+						<PaginationContent className="flex flex-1 justify-center gap-1">
 							{currentPage > 2 && (
 								<PaginationItem>
 									<Link
@@ -101,7 +103,6 @@ export function BlogListSection({
 									<PaginationEllipsis />
 								</PaginationItem>
 							)}
-
 							{[currentPage - 1, currentPage, currentPage + 1]
 								.filter((p) => p >= 1 && p <= totalPages)
 								.filter((p, i, arr) => arr.indexOf(p) === i)
@@ -111,6 +112,7 @@ export function BlogListSection({
 											to="/blogs"
 											search={{ page: p }}
 											className={cn(
+												"",
 												buttonVariants({
 													variant: p === currentPage ? "outline" : "ghost",
 													size: "icon",
@@ -122,7 +124,6 @@ export function BlogListSection({
 										</Link>
 									</PaginationItem>
 								))}
-
 							{showRightEllipsis && (
 								<PaginationItem>
 									<PaginationEllipsis />
@@ -148,7 +149,10 @@ export function BlogListSection({
 									</Link>
 								</PaginationItem>
 							)}
+						</PaginationContent>
 
+						{/* Right: Next */}
+						<PaginationContent className="flex-1 justify-end">
 							<PaginationItem>
 								{currentPage < totalPages ? (
 									<Link
@@ -157,23 +161,21 @@ export function BlogListSection({
 										aria-label="Go to next page"
 										className={cn(
 											"inline-flex items-center justify-center gap-1 px-2.5 sm:pr-2.5",
-											buttonVariants({ variant: "ghost", size: "default" }),
+											buttonVariants({ variant: "outline", size: "default" }),
 										)}
 									>
 										<span className="hidden sm:block">Next</span>
-										<ChevronRightIcon />
 									</Link>
 								) : (
 									<span
 										aria-disabled
 										className={cn(
 											"inline-flex items-center justify-center gap-1 px-2.5 sm:pr-2.5",
-											buttonVariants({ variant: "ghost", size: "default" }),
+											buttonVariants({ variant: "outline", size: "default" }),
 											"pointer-events-none opacity-50",
 										)}
 									>
 										<span className="hidden sm:block">Next</span>
-										<ChevronRightIcon />
 									</span>
 								)}
 							</PaginationItem>
