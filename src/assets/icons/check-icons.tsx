@@ -108,3 +108,27 @@ export const CheckBoldIcon = ({
 		/>
 	</svg>
 );
+
+export const CheckCircleIcon = ({
+	className,
+	...props
+}: SVGProps<SVGSVGElement>) => (
+	<svg
+		width={20}
+		height={20}
+		viewBox="0 0 20 20"
+		fill="none"
+		xmlns="http://www.w3.org/2000/svg"
+		className={className}
+		aria-hidden="true"
+		{...props}
+	>
+		<path
+			fillRule="evenodd"
+			clipRule="evenodd"
+			d="M18.3327 10C18.3327 14.6024 14.6017 18.3334 9.99935 18.3334C5.39698 18.3334 1.66602 14.6024 1.66602 10C1.66602 5.39765 5.39698 1.66669 9.99935 1.66669C14.6017 1.66669 18.3327 5.39765 18.3327 10ZM13.358 7.47475C13.602 7.71882 13.602 8.11455 13.358 8.35863L9.19129 12.5253C8.94721 12.7694 8.55148 12.7694 8.30741 12.5253L6.64074 10.8586C6.39666 10.6146 6.39666 10.2188 6.64074 9.97474C6.88482 9.73067 7.28055 9.73067 7.52462 9.97474L8.74935 11.1995L10.6117 9.33711L12.4741 7.47475C12.7182 7.23067 13.1139 7.23067 13.358 7.47475Z"
+			fill="#00B262"
+		/>
+	</svg>
+);
+export default CheckCircleIcon;

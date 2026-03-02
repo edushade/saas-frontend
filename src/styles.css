@@ -299,6 +299,11 @@ code {
     background: linear-gradient(53.61deg, #4ADE80 0%, rgba(248, 249, 252, 0) 45.88%, rgba(255, 255, 255, 0) 71.21%);
   }
 
+  .bg-grad-white-to-blue {
+    background: linear-gradient(180deg, #FFFFFF -6.1%, #FFFFFF 46.95%, #C6EFFF 100%);
+  }
+
+
 
 
 

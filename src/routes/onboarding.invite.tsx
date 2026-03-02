@@ -6,7 +6,11 @@ import {
 	OnboardingNav,
 } from "@/components/onboarding/OnboardingShell";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import {
+	InputGroup,
+	InputGroupAddon,
+	InputGroupInput,
+} from "@/components/ui/input-group";
 import {
 	Select,
 	SelectContent,
@@ -64,38 +68,45 @@ function OnboardingStep3() {
 					Invitee Email
 				</span>
 				{rows.map((row) => (
-					<div key={row.id} className="flex gap-2">
-						<Input
+					<InputGroup
+						key={row.id}
+						className="rounded-lg h-10 border-border-secondary overflow-hidden bg-white shadow-xs"
+					>
+						<InputGroupInput
 							type="email"
 							placeholder="name@example.com"
 							value={row.email}
 							onChange={(e) => updateRow(row.id, "email", e.target.value)}
-							className="flex-1 rounded-lg border-border-secondary"
 						/>
-						<Select
-							value={row.role || undefined}
-							onValueChange={(v) => updateRow(row.id, "role", v)}
+						<InputGroupAddon
+							align="inline-end"
+							className="border-l border-border-secondary/50 pl-0 pr-0"
 						>
-							<SelectTrigger
-								className="w-[130px] rounded-lg border-border-secondary"
-								size="default"
+							<Select
+								value={row.role || undefined}
+								onValueChange={(v) => updateRow(row.id, "role", v)}
 							>
-								<SelectValue placeholder="Role" />
-							</SelectTrigger>
-							<SelectContent>
-								{ROLES.map((role) => (
-									<SelectItem key={role} value={role}>
-										{role}
-									</SelectItem>
-								))}
-							</SelectContent>
-						</Select>
-					</div>
+								<SelectTrigger
+									className="h-full min-h-9 w-[130px] rounded-none border-0 bg-transparent shadow-none focus-visible:ring-0"
+									size="default"
+								>
+									<SelectValue placeholder="Role" />
+								</SelectTrigger>
+								<SelectContent>
+									{ROLES.map((role) => (
+										<SelectItem key={role} value={role}>
+											{role}
+										</SelectItem>
+									))}
+								</SelectContent>
+							</Select>
+						</InputGroupAddon>
+					</InputGroup>
 				))}
 				<Button
 					type="button"
 					variant="outline"
-					className="w-fit rounded-xl border-border-secondary gap-1.5"
+					className="w-fit rounded-lg bg-bg-primary text-sm font-medium hover:bg-muted/30 border border-border-secondary gap-1.5"
 					onClick={addRow}
 				>
 					<Plus className="size-4" />

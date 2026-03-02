@@ -54,8 +54,10 @@ function OnboardingStep2() {
 								type="button"
 								variant={educationType === option ? "default" : "outline"}
 								className={cn(
-									"rounded-xl border-border-secondary",
-									educationType === option && "btn-brand-1 border-brand-300",
+									"rounded-lg text-sm text-text-primary   font-medium hover:bg-muted/30",
+									educationType === option
+										? " bg-[#E6F0FF]  border border-brand-300"
+										: "bg-bg-primary border border-border-secondary",
 								)}
 								onClick={() => setEducationType(option)}
 							>
@@ -76,8 +78,10 @@ function OnboardingStep2() {
 								type="button"
 								variant={learnerRange === option ? "default" : "outline"}
 								className={cn(
-									"rounded-xl border-border-secondary",
-									learnerRange === option && "btn-brand-1 border-brand-300",
+									"rounded-lg text-sm text-text-primary   font-medium hover:bg-muted/30",
+									learnerRange === option
+										? " bg-[#E6F0FF]  border border-brand-300"
+										: "bg-bg-primary border border-border-secondary",
 								)}
 								onClick={() => setLearnerRange(option)}
 							>
