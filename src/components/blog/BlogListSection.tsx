@@ -29,7 +29,7 @@ export function BlogListSection({
 	const showRightEllipsis = currentPage < totalPages - 2;
 
 	return (
-		<section className="bg-bg-primary py-8 md:py-(--es-section-py) px-4 md:px-(--es-section-px)">
+		<section className="bg-bg-primary py-(--es-section-py) px-4 md:px-(--es-section-px)">
 			<div className="mx-auto max-w-(--es-max-w)">
 				<Typography
 					variant="h1"

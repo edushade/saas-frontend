@@ -75,7 +75,7 @@ function BlogPostPage() {
 	}
 
 	return (
-		<main className="min-h-screen bg-bg-primary pt-8">
+		<main className="min-h-screen bg-bg-primary pt-(--es-section-pt)">
 			<BlogPostView post={post} />
 		</main>
 	);

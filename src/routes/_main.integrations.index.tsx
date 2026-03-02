@@ -7,7 +7,7 @@ export const Route = createFileRoute("/_main/integrations/")({
 
 function IntegrationsIndexPage() {
 	return (
-		<main className="pt-8">
+		<main className="pt-(--es-section-pt)">
 			<BannerIntegration />
 			<IntegrationsList />
 		</main>

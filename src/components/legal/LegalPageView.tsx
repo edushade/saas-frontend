@@ -8,12 +8,12 @@ export interface LegalPageViewProps {
 
 export function LegalPageView({ doc }: LegalPageViewProps) {
 	return (
-		<main className="min-h-screen bg-bg-primary pt-32 pb-16 px-4 md:px-(--es-section-px)">
-			<article className="mx-auto max-w-[680px] px-4 py-8">
+		<main className="min-h-screen bg-bg-primary pt-(--es-section-pt)  px-4 md:px-(--es-section-px)">
+			<article className="mx-auto max-w-[680px] px-4 	 py-(--es-section-py)">
 				<header className="mb-8">
 					<Typography
 						variant="h1"
-						className="text-3xl font-bold tracking-tight text-text-primary md:text-4xl"
+						className="text-3xl font-medium tracking-tight text-text-primary md:text-4xl"
 					>
 						{doc.title}
 					</Typography>

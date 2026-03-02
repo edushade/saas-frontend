@@ -21,7 +21,7 @@ export const Route = createFileRoute("/_main/pricing")({
 
 function PricingPage() {
 	return (
-		<main className="pt-8">
+		<main className="pt-(--es-section-pt)">
 			<PricingSection />
 			<LogosSection />
 			<ComparePricingSection />

@@ -59,9 +59,9 @@ const COURSE_CAPABILITIES: CourseCapabilityItem[] = [
 
 export function WhatCoursesLetsYouDoSection() {
 	return (
-		<section className="bg-bg-primary py-12 md:py-(--es-section-py) px-4 md:px-(--es-section-px)">
-			<div className="mx-auto max-w-(--es-max-w)">
-				<div className="text-center mb-10 md:mb-12">
+		<section className="bg-bg-primary py-(--es-section-py) px-4 md:px-(--es-section-px)">
+			<div className="mx-auto max-w-(--es-max-w) space-y-12">
+				<div className="text-center space-y-6">
 					<Typography
 						variant="h1"
 						className="text-2xl md:text-[2rem] lg:text-[2.75rem] font-semibold leading-tight text-text-primary"
@@ -70,7 +70,7 @@ export function WhatCoursesLetsYouDoSection() {
 					</Typography>
 					<Typography
 						variant="base"
-						className="mt-4 max-w-2xl mx-auto font-normal leading-relaxed text-text-secondary"
+						className="mt-4 max-w-3xl mx-auto font-normal leading-relaxed text-text-secondary"
 					>
 						{SECTION_DESCRIPTION}
 					</Typography>

@@ -4,25 +4,26 @@ import {
 	HorizontalBlogCard,
 	VerticalBlogCard,
 } from "@/components/blog";
-import { getRecentBlogPosts } from "@/constants/blogs";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { getRecentBlogPosts } from "@/constants/blogs";
 import { Typography } from "../ui-custom/typography";
 
 export interface RecentBlogSectionProps {
-	/** When provided (e.g. from route loader), use these instead of fetching recent posts. */
 	posts?: BlogPostCardItem[];
 }
 
-export default function RecentBlogSection({ posts: postsProp }: RecentBlogSectionProps = {}) {
+export default function RecentBlogSection({
+	posts: postsProp,
+}: RecentBlogSectionProps = {}) {
 	const recentPosts = postsProp ?? getRecentBlogPosts();
 	const featuredPost = recentPosts[0];
 	const sidePosts = recentPosts.slice(1, 3);
 
 	return (
-		<section className="bg-bg-primary py-8 md:py-(--es-section-py) px-4 md:px-(--es-section-px)">
+		<section className="bg-bg-primary py-(--es-section-py) px-4 md:px-(--es-section-px)">
 			<div className="mx-auto max-w-(--es-max-w) ">
 				<div className="mb-10 flex flex-col items-center gap-6 text-center sm:flex-row sm:items-end sm:justify-between sm:text-left">
 					<div className="min-w-0 max-w-[500px] sm:max-w-none">

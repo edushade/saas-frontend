@@ -56,7 +56,7 @@ export function StartCourseIn60SecondsSection({
 	return (
 		<section
 			className={cn(
-				"bg-bg-primary py-12 md:py-(--es-section-py) px-4 md:px-(--es-section-px)",
+				"bg-bg-primary py-(--es-section-py) px-4 md:px-(--es-section-px)",
 				className,
 			)}
 		>
@@ -80,11 +80,11 @@ export function StartCourseIn60SecondsSection({
 					{steps.map((item) => (
 						<div
 							key={item.step}
-							className="flex flex-col items-center text-center"
+							className="flex flex-col items-center text-center gap-6"
 						>
 							<BannerTag
 								tag={item.step.toString()}
-								className="flex size-10 shrink-0 items-center justify-center font-medium mb-4"
+								className="flex size-8 shrink-0 items-center justify-center font-medium"
 							/>
 							<Card className="relative overflow-hidden border-border-tertiary p-0  bg-bg-secondary shadow-[0px_2px_8px_0px_rgba(10,9,11,0.06)]">
 								<CardContent className="relative z-10  p-0 ">
@@ -99,9 +99,9 @@ export function StartCourseIn60SecondsSection({
 								</CardContent>
 							</Card>
 
-							<div className="mt-4 flex flex-col gap-2 items-center">
+							<div className="flex flex-col gap-1 items-center">
 								<Typography
-									variant="h5"
+									variant="h6"
 									className="font-medium text-text-primary"
 								>
 									{item.title}

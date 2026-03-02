@@ -11,7 +11,7 @@ import { Typography } from "../ui-custom/typography";
 
 export default function FAQSection() {
 	return (
-		<section className="bg-bg-primary py-8 md:py-(--es-section-py) px-4 md:px-(--es-section-px)">
+		<section className="bg-bg-primary py-(--es-section-py) px-4 md:px-(--es-section-px)">
 			<div className="mx-auto max-w-(--es-max-w) ">
 				<div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
 					<div className="flex flex-col gap-6 lg:sticky lg:top-24">

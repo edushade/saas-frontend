@@ -327,7 +327,7 @@ export default function Header() {
 	const pathname = useRouterState({ select: (s) => s.location.pathname });
 
 	return (
-		<header className="fixed top-0 left-0 right-0 z-50 flex items-center px-(--es-section-px) h-(--es-nav-h) bg-bg-primary">
+		<header className="fixed top-0 left-0 border-b border-border-secondary right-0 z-50 flex items-center px-(--es-section-px) h-(--es-nav-h) bg-bg-primary">
 			<div className="mx-auto w-full max-w-(--es-max-w) flex items-center justify-between">
 				<Link to="/" className="flex items-center w-[155px] h-[44px]">
 					<img

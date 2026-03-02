@@ -7,7 +7,7 @@ export const Route = createFileRoute("/_main/contact-us")({
 
 function ContactUsPage() {
 	return (
-		<main className="pt-8">
+		<main className="pt-(--es-section-pt)">
 			<BannerContactUs />
 			<GetInTouch />
 		</main>

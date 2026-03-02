@@ -29,7 +29,7 @@ function ContactCardIcon({
 
 export default function BannerContactUs() {
 	return (
-		<section className="relative overflow-hidden px-4 py-12 md:px-(--es-section-px) md:py-(--es-section-py) bg-bg-primary">
+		<section className="relative overflow-hidden px-4 md:px-(--es-section-px) py-(--es-section-py) bg-bg-primary">
 			<div
 				aria-hidden
 				className="pointer-events-none absolute bottom-0 z-0 h-full w-full rounded-full bg-grad-lightblue"
@@ -67,7 +67,7 @@ export default function BannerContactUs() {
 							<Card
 								key={card.title}
 								className="	
-							flex flex-col rounded-2xl border border-border-primary bg-[#FFFFFF99] p-6 shadow-lg transition-shadow hover:shadow-md"
+							flex flex-col rounded-2xl border border-border-primary bg-[#FFFFFF99] shadow-lg transition-shadow hover:shadow-md"
 							>
 								<CardContent className="flex flex-col items-start">
 									<div className="mb-4 flex justify-center">

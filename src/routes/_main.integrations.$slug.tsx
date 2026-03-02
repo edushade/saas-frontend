@@ -74,7 +74,7 @@ function IntegrationDetailPage() {
 	}
 
 	return (
-		<main className="min-h-screen bg-bg-primary">
+		<main className="min-h-screen  pt-(--es-section-pt)">
 			<IntegrationDetails integration={integration} />
 		</main>
 	);

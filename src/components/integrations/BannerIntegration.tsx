@@ -4,7 +4,7 @@ import { CardShadeOverlay } from "../ui-custom/card-shade-overlay";
 
 export default function BannerIntegration() {
 	return (
-		<section className="relative overflow-hidden px-4 md:px-(--es-section-px) py-12 md:py-(--es-section-py) bg-bg-primary">
+		<section className="relative overflow-hidden px-4 md:px-(--es-section-px) py-(--es-section-py) bg-bg-primary">
 			<div
 				aria-hidden
 				className="pointer-events-none absolute bottom-0 z-0 h-full w-full rounded-full bg-grad-lightblue"

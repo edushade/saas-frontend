@@ -21,9 +21,9 @@ export default function FeatureSplitSection({
 	reverse = false,
 }: FeatureSplitSectionProps) {
 	return (
-		<section className="bg-bg-primary py-8 md:py-(--es-section-py) px-4 md:px-(--es-section-px)">
+		<section className="bg-bg-primary py-(--es-section-py) px-4 md:px-(--es-section-px)">
 			<div className="mx-auto max-w-(--es-max-w) ">
-				<div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+				<div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 					<div
 						className={cn(
 							"flex flex-col items-stretch gap-6",
@@ -58,7 +58,7 @@ export default function FeatureSplitSection({
 						</ul>
 
 						<div>
-							<Button className="btn-brand-2 rounded-full h-auto px-8 py-3.5 text-base font-medium">
+							<Button className="btn-brand-2 rounded-xl h-auto px-5 hover:bg-brand-200/90 py-3 text-base font-medium">
 								Get Started Free
 							</Button>
 						</div>

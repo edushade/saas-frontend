@@ -9,6 +9,7 @@ import { Switch as ShadcnSwitch } from "@/components/ui/switch";
 import { Textarea as ShadcnTextarea } from "@/components/ui/textarea";
 import { PhoneInput } from "@/components/ui-custom/phone-input";
 import { useFieldContext, useFormContext } from "@/hooks/form-context";
+import { cn } from "@/lib/utils";
 
 export function SubscribeButton({
 	label,
@@ -97,6 +98,7 @@ export function TextField({
 				value={field.state.value}
 				placeholder={placeholder}
 				onBlur={field.handleBlur}
+				className="text-xs md:text-sm text-text-quaternary font-normal h-10 border-border-secondary"
 				onChange={(e) => field.handleChange(e.target.value)}
 			/>
 			{field.state.meta.isTouched && <ErrorMessages errors={errors} />}
@@ -137,7 +139,7 @@ export function TextArea({
 				onBlur={field.handleBlur}
 				rows={rows}
 				onChange={(e) => field.handleChange(e.target.value)}
-				className="resize-none min-h-36"
+				className="resize-none min-h-[180px] max-h-[180px]"
 			/>
 			{field.state.meta.isTouched && <ErrorMessages errors={errors} />}
 		</div>
@@ -231,9 +233,11 @@ export function Switch({ label }: { label: string }) {
 }
 
 export function Checkbox({
+	className,
 	label,
 	children,
 }: {
+	className?: string;
 	label?: string;
 	children?: React.ReactNode;
 }) {
@@ -242,7 +246,7 @@ export function Checkbox({
 
 	return (
 		<div>
-			<div className="flex items-center gap-2">
+			<div className={cn("flex items-center gap-2", className)}>
 				<ShadcnCheckbox
 					id={field.name}
 					checked={field.state.value}

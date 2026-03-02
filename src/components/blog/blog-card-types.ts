@@ -6,7 +6,6 @@ export interface BlogPostCardItem {
 	imageSrc: string;
 	imageAlt: string;
 	description?: string;
-	/** Used to link to the blog detail page (/blogs/$slug). Omit for cards that don’t have a detail page. */
 	slug?: string;
 }
 

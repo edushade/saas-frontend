@@ -34,7 +34,7 @@ export function ContactSalesForm({
 	termsLinkTo = "/terms-of-service",
 	onSubmit = defaultOnSubmit,
 	contactApiUrl = "/api/contact",
-	className,
+	className = "bg-[#FFFFFF99] border-none shadow-none",
 }: ContactSalesFormProps) {
 	const [submitError, setSubmitError] = useState<string | null>(null);
 
@@ -85,17 +85,17 @@ export function ContactSalesForm({
 	return (
 		<Card
 			className={cn(
-				"rounded-3xl relative border border-border-primary bg-[#FFFFFF99]",
+				"rounded-3xl relative border border-border-primary",
 				className,
 			)}
 		>
 			<div
 				aria-hidden
-				className="pointer-events-none left-0 top-0 z-0 h-full w-full rounded-full bg-brand-100"
+				className="pointer-events-none absolute left-0 top-0 z-0 h-full w-full rounded-full bg-brand-100 opacity-50"
 			/>
-			<CardContent>
+			<CardContent className="flex flex-col gap-4">
 				{note && <p className="mb-2 text-sm text-text-tertiary">{note}</p>}
-				<Typography variant="h6" className="mb-6 font-medium text-text-primary">
+				<Typography variant="h6" className="font-medium text-text-primary">
 					{title}
 				</Typography>
 				<form
@@ -104,7 +104,7 @@ export function ContactSalesForm({
 						e.stopPropagation();
 						form.handleSubmit();
 					}}
-					className="flex flex-col gap-5"
+					className="flex flex-col gap-2 md:gap-6"
 				>
 					<div className="space-y-2">
 						<Label className="font-medium text-text-primary">Name</Label>
@@ -172,7 +172,7 @@ export function ContactSalesForm({
 							<span className="text-xs text-text-tertiary">Optional</span>
 						</div>
 						<form.AppField name="message">
-							{(field) => <field.TextArea rows={6} suffix="Optional" />}
+							{(field) => <field.TextArea suffix="Optional" />}
 						</form.AppField>
 					</div>
 
@@ -185,12 +185,9 @@ export function ContactSalesForm({
 					>
 						{(field) => (
 							<field.Checkbox>
-								I have read and agree to the{" "}
-								<Link
-									to={termsLinkTo}
-									className="text-brand-300 underline underline-offset-2 hover:no-underline"
-								>
-									Terms & Conditions
+								<Link to={termsLinkTo} className="hover:underline">
+									<span>I have read and agree to the</span>{" "}
+									<span className="text-brand-300">Terms & Conditions</span>
 								</Link>
 							</field.Checkbox>
 						)}
@@ -205,7 +202,7 @@ export function ContactSalesForm({
 					<form.AppForm>
 						<form.SubscribeButton
 							label={submitLabel}
-							className="btn-brand-1 w-full"
+							className="btn-brand-1 w-full hover:bg-brand-300/80"
 						/>
 					</form.AppForm>
 				</form>

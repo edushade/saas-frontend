@@ -5,7 +5,7 @@ import { Typography } from "../ui-custom/typography";
 
 export default function CtaSection() {
 	return (
-		<section className="bg-bg-primary py-8 md:py-(--es-section-py) px-4 md:px-(--es-section-px)">
+		<section className="bg-bg-primary py-(--es-section-py) px-4 md:px-(--es-section-px)">
 			<div className="mx-auto max-w-(--es-max-w) ">
 				<Card className="relative border-border-secondary min-h-[400px] flex flex-col justify-center items-center py-0 shadow-none overflow-hidden rounded-4xl bg-bg-primary">
 					<img
@@ -38,7 +38,10 @@ export default function CtaSection() {
 							your process into rigid software. A connected system for students,
 							educators, and administrators.
 						</Typography>
-						<Button size="lg" className="btn-brand-1 rounded-full px-8">
+						<Button
+							size="lg"
+							className="btn-brand-1 rounded-xl px-5 hover:bg-brand-200/90 py-3 text-base font-medium"
+						>
 							Build Your Academy
 						</Button>
 					</CardContent>

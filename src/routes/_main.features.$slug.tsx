@@ -49,7 +49,7 @@ function FeaturePage() {
 	}
 
 	return (
-		<main className="min-h-screen bg-bg-primary pt-(--es-nav-h)">
+		<main className="min-h-screen bg-bg-primary pt-(--es-section-pt)">
 			<FeatureBanner {...feature} />
 			{slug === COURSES_SLUG && <WhatCoursesLetsYouDoSection />}
 			{slug === COURSES_SLUG && (

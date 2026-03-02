@@ -40,10 +40,10 @@ function PricingCard({
 		>
 			<Card
 				className={cn(
-					"relative flex h-full flex-col overflow-hidden rounded-[20px] border py-0 shadow-sm ",
+					"relative flex h-full p-0 flex-col overflow-hidden rounded-[20px] border shadow-sm ",
 					isFeatured
-						? "border-transparent bg-royal-blue text-text-on-brand shadow-lg"
-						: "bg-bg-primary text-card-foreground border-border",
+						? "border-transparent bg-royal-blue text-text-on-brand shadow-sm"
+						: "bg-bg-primary text-card-foreground border-border-secondary",
 				)}
 			>
 				{/* background gradient */}
@@ -68,7 +68,7 @@ function PricingCard({
 					<CardShadeOverlay className="inset-0 z-1 w-full h-full backdrop-blur-[100px] bg-[repeating-linear-gradient(270deg,rgba(255,255,255,0)_0px,rgba(255,255,255,0.08)_60px),linear-gradient(0deg,rgba(255,255,255,0.15)_0%,rgba(255,255,255,0)_50%)]" />
 				)}
 
-				<CardContent className="relative z-10 flex min-h-0 flex-1 flex-col gap-4 p-6">
+				<CardContent className="relative z-10 flex flex-col gap-4 pt-6">
 					<div className="flex items-center justify-between gap-2">
 						<Typography
 							variant="h6"
@@ -113,11 +113,17 @@ function PricingCard({
 							</span>
 						)}
 					</div>
+				</CardContent>
 
-					<Separator
-						className={cn("", isFeatured ? "bg-white/20" : "bg-border")}
-					/>
+				<Separator
+					className={cn(
+						"relative z-10",
+						isFeatured ? "bg-white/20" : "bg-border-secondary",
+					)}
+				/>
 
+				{/* Section: headline + description */}
+				<CardContent className="relative z-10">
 					<div>
 						<Typography
 							variant="base"
@@ -138,11 +144,17 @@ function PricingCard({
 							{plan.description}
 						</Typography>
 					</div>
+				</CardContent>
 
-					<Separator
-						className={cn("", isFeatured ? "bg-white/20" : "bg-border")}
-					/>
+				<Separator
+					className={cn(
+						"relative z-10",
+						isFeatured ? "bg-white/20" : "bg-border-secondary",
+					)}
+				/>
 
+				{/* Section: features */}
+				<CardContent className="relative z-10 flex min-h-0 flex-1 flex-col">
 					<ul className="flex min-h-0 flex-1 flex-col gap-2 pt-2">
 						{displayFeatures.map((feature) => (
 							<li
@@ -158,7 +170,7 @@ function PricingCard({
 									<CheckBoldIcon
 										className={cn(
 											"size-2",
-											isFeatured ? "text-white" : "text-brand-300",
+											isFeatured ? "text-text-on-brand" : "text-brand-300",
 										)}
 									/>
 								</div>
@@ -175,12 +187,23 @@ function PricingCard({
 							</li>
 						))}
 					</ul>
+				</CardContent>
+
+				<Separator
+					className={cn(
+						"relative z-10",
+						isFeatured ? "bg-white/20" : "bg-border-secondary",
+					)}
+				/>
+
+				{/* Section: CTA button */}
+				<CardContent className="relative z-10 pb-6">
 					<Button
 						className={cn(
-							"mt-auto w-full h-12 text-lg rounded-xl font-medium",
+							"w-full h-12 text-lg rounded-xl font-medium ",
 							isFeatured
-								? "bg-brand-200 text-text-on-brand hover:bg-white/95"
-								: "bg-bg-tertiary text-text-primary hover:bg-bg-quaternary",
+								? "bg-brand-200 text-text-on-brand hover:bg-brand-200/90"
+								: "bg-bg-tertiary text-text-primary hover:bg-bg-tertiary/90",
 						)}
 						variant={isFeatured ? "default" : "secondary"}
 					>

@@ -18,7 +18,7 @@ export default function BannerBlog() {
 	}
 
 	return (
-		<section className="relative overflow-hidden px-4 py-12 md:px-(--es-section-px) md:py-(--es-section-py) bg-bg-primary">
+		<section className="relative overflow-hidden px-4 py-(--es-section-py) md:px-(--es-section-px) bg-bg-primary">
 			<div
 				aria-hidden
 				className="pointer-events-none absolute bottom-0 z-0 h-full w-full rounded-full bg-grad-lightblue"

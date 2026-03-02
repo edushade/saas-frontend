@@ -11,7 +11,7 @@ function handleDemoRequest(value: ContactFormValue) {
 
 export default function RequestDemoSection() {
 	return (
-		<section className="relative overflow-hidden px-4 py-12 md:px-(--es-section-px) md:py-(--es-section-py) bg-bg-primary">
+		<section className="relative overflow-hidden px-4 md:px-(--es-section-px) py-(--es-section-py) bg-bg-primary">
 			<div
 				aria-hidden
 				className="pointer-events-none absolute bottom-0 z-0 h-full w-full rounded-full bg-grad-lightblue"
@@ -20,18 +20,18 @@ export default function RequestDemoSection() {
 
 			<div className="relative mx-auto grid max-w-(--es-max-w)">
 				<div className="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-2 lg:gap-12">
-					<div className="flex flex-col justify-center">
-						<div className="flex flex-col gap-6">
+					<div className="flex flex-col justify-between gap-4 md:gap-4 items-center md:items-start">
+						<div className="flex flex-col items-center md:items-start gap-4 md:gap-6">
 							<BannerTag tag="Request Demo" />
 							<Typography
 								variant="h1"
-								className="text-3xl font-medium leading-tight text-text-primary md:text-4xl lg:text-5xl xl:text-[60px]"
+								className="text-3xl font-medium leading-tight text-center md:text-left text-text-primary md:text-4xl lg:text-5xl xl:text-[60px]"
 							>
 								Let Us Show You the Future of Education Platforms
 							</Typography>
 							<Typography
 								variant="h6"
-								className="font-normal leading-relaxed text-text-secondary"
+								className="font-normal leading-relaxed text-center md:text-left text-text-secondary"
 							>
 								See how Edushade helps educators and institutions build, manage,
 								and scale learning platforms with clarity and control.

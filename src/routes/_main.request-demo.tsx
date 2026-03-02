@@ -8,7 +8,7 @@ export const Route = createFileRoute("/_main/request-demo")({
 
 function RequestDemoPage() {
 	return (
-		<main className="pt-8">
+		<main className="pt-(--es-section-pt)">
 			<RequestDemoSection />
 			<GetStartedSection />
 			<FAQSection />

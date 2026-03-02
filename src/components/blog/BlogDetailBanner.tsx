@@ -85,7 +85,7 @@ export function BlogDetailBanner({
 	return (
 		<section
 			className={cn(
-				"relative overflow-hidden px-4 py-12 md:px-(--es-section-px) md:py-(--es-section-py) bg-bg-primary",
+				"relative overflow-hidden px-4 py-(--es-section-py) md:px-(--es-section-px) bg-bg-primary",
 				className,
 			)}
 		>

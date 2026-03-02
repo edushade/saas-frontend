@@ -11,8 +11,8 @@ export interface IntegrationDetailsProps {
 
 export function IntegrationDetails({ integration }: IntegrationDetailsProps) {
 	return (
-		<div className=" px-4 py-8 md:px-(--es-section-px) md:py-12 bg-bg-primary">
-			<div className="mx-auto max-w-[760px] pt-16 pb-8 flex flex-col gap-2 md:gap-6">
+		<div className=" px-4  md:px-(--es-section-px) py-(--es-section-py) bg-bg-primary">
+			<div className="mx-auto max-w-[760px]  flex flex-col gap-2  md:gap-6">
 				<Link
 					to="/integrations"
 					className="inline-flex items-center gap-2 text-text-primary transition-colors hover:text-brand-200"
@@ -26,8 +26,8 @@ export function IntegrationDetails({ integration }: IntegrationDetailsProps) {
 					</Typography>
 				</Link>
 
-				<div className="flex flex-col gap-6">
-					<div className="mt-8 flex flex-col gap-6 ">
+				<div className="flex flex-col gap-6 mt-2 md:mt-8">
+					<div className="flex flex-col gap-6 ">
 						<div
 							className={cn(
 								"flex size-[80px] shrink-0 rounded-xl items-center shadow-md p-0.5 justify-center  text-lg font-semibold text-white",

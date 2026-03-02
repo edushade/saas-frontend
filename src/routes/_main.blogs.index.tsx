@@ -50,7 +50,7 @@ function BlogsIndexPage() {
 	const { posts, currentPage, totalPages } = Route.useLoaderData();
 
 	return (
-		<main className="pt-8">
+		<main className="pt-(--es-section-pt)">
 			<BannerBlog />
 			<RecentBlogSection posts={posts} />
 			<BlogListSection

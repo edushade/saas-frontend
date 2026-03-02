@@ -9,7 +9,7 @@ export default function PricingSection() {
 	const [billing, setBilling] = useState<BillingCycle>("monthly");
 
 	return (
-		<section className="relative overflow-hidden bg-bg-primary py-8 md:py-(--es-section-py) px-4 md:px-(--es-section-px)">
+		<section className="relative overflow-hidden bg-bg-primary py-(--es-section-py) px-4 md:px-(--es-section-px)">
 			<div
 				aria-hidden
 				className="pointer-events-none absolute bottom-0 z-0 h-full w-full rounded-full bg-grad-lightblue"

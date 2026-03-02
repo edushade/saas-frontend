@@ -55,6 +55,7 @@ code {
   --es-max-w:        1280px;
   --es-section-px:   clamp(1.25rem, 4vw, 3rem);
   --es-section-py:   clamp(3rem, 8vw, 5rem);
+  --es-section-pt:    64px;
 
   --bg-primary: #ffffff;
   --bg-secondary: #f8fafc;
@@ -173,6 +174,8 @@ code {
 
   --spacing-section-px: var(--es-section-px);
   --spacing-section-py: var(--es-section-py);
+  --spacing-section-pt: var(--es-section-pt);
+  --spacing-section-mobile-py: var(--es-section-mobile-py);
 
   --color-bg-primary: var(--bg-primary);
   --color-bg-secondary: var(--bg-secondary);
@@ -334,9 +337,7 @@ code {
       0px 1px 2px -0.5px #FFFFFF1F inset;
   }
 
-  .btn-brand-1:hover {
-    filter: brightness(1.06);
-  }
+ 
 
   .btn-brand-2 {
     --btn-brand-bg: var(--brand-200, #2B80FF);
@@ -355,10 +356,7 @@ code {
       0px 1px 2px -0.5px #FFFFFF1F inset;
   }
 
-  .btn-brand-2:hover {
-    filter: brightness(1.06);
-  }
-
+ 
   /* RoleCard active: ::before = gradient border ring, ::after = main card background (light gradient), subtle shadow */
   .role-card-active {
     position: relative;
