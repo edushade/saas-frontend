@@ -16,6 +16,7 @@ import { Route as OnboardingIndexRouteImport } from './routes/onboarding.index'
 import { Route as MainIndexRouteImport } from './routes/_main.index'
 import { Route as OnboardingWhatRouteImport } from './routes/onboarding.what'
 import { Route as OnboardingInviteRouteImport } from './routes/onboarding.invite'
+import { Route as OnboardingCreateCourseRouteImport } from './routes/onboarding.create-course'
 import { Route as ApiContactRouteImport } from './routes/api/contact'
 import { Route as MainTermsOfServiceRouteImport } from './routes/_main.terms-of-service'
 import { Route as MainRequestDemoRouteImport } from './routes/_main.request-demo'
@@ -67,6 +68,11 @@ const OnboardingWhatRoute = OnboardingWhatRouteImport.update({
 const OnboardingInviteRoute = OnboardingInviteRouteImport.update({
   id: '/invite',
   path: '/invite',
+  getParentRoute: () => OnboardingRoute,
+} as any)
+const OnboardingCreateCourseRoute = OnboardingCreateCourseRouteImport.update({
+  id: '/create-course',
+  path: '/create-course',
   getParentRoute: () => OnboardingRoute,
 } as any)
 const ApiContactRoute = ApiContactRouteImport.update({
@@ -181,6 +187,7 @@ export interface FileRoutesByFullPath {
   '/request-demo': typeof MainRequestDemoRoute
   '/terms-of-service': typeof MainTermsOfServiceRoute
   '/api/contact': typeof ApiContactRoute
+  '/onboarding/create-course': typeof OnboardingCreateCourseRoute
   '/onboarding/invite': typeof OnboardingInviteRoute
   '/onboarding/what': typeof OnboardingWhatRoute
   '/onboarding/': typeof OnboardingIndexRoute
@@ -203,6 +210,7 @@ export interface FileRoutesByTo {
   '/request-demo': typeof MainRequestDemoRoute
   '/terms-of-service': typeof MainTermsOfServiceRoute
   '/api/contact': typeof ApiContactRoute
+  '/onboarding/create-course': typeof OnboardingCreateCourseRoute
   '/onboarding/invite': typeof OnboardingInviteRoute
   '/onboarding/what': typeof OnboardingWhatRoute
   '/onboarding': typeof OnboardingIndexRoute
@@ -231,6 +239,7 @@ export interface FileRoutesById {
   '/_main/request-demo': typeof MainRequestDemoRoute
   '/_main/terms-of-service': typeof MainTermsOfServiceRoute
   '/api/contact': typeof ApiContactRoute
+  '/onboarding/create-course': typeof OnboardingCreateCourseRoute
   '/onboarding/invite': typeof OnboardingInviteRoute
   '/onboarding/what': typeof OnboardingWhatRoute
   '/_main/': typeof MainIndexRoute
@@ -260,6 +269,7 @@ export interface FileRouteTypes {
     | '/request-demo'
     | '/terms-of-service'
     | '/api/contact'
+    | '/onboarding/create-course'
     | '/onboarding/invite'
     | '/onboarding/what'
     | '/onboarding/'
@@ -282,6 +292,7 @@ export interface FileRouteTypes {
     | '/request-demo'
     | '/terms-of-service'
     | '/api/contact'
+    | '/onboarding/create-course'
     | '/onboarding/invite'
     | '/onboarding/what'
     | '/onboarding'
@@ -309,6 +320,7 @@ export interface FileRouteTypes {
     | '/_main/request-demo'
     | '/_main/terms-of-service'
     | '/api/contact'
+    | '/onboarding/create-course'
     | '/onboarding/invite'
     | '/onboarding/what'
     | '/_main/'
@@ -377,6 +389,13 @@ declare module '@tanstack/react-router' {
       path: '/invite'
       fullPath: '/onboarding/invite'
       preLoaderRoute: typeof OnboardingInviteRouteImport
+      parentRoute: typeof OnboardingRoute
+    }
+    '/onboarding/create-course': {
+      id: '/onboarding/create-course'
+      path: '/create-course'
+      fullPath: '/onboarding/create-course'
+      preLoaderRoute: typeof OnboardingCreateCourseRouteImport
       parentRoute: typeof OnboardingRoute
     }
     '/api/contact': {
@@ -599,12 +618,14 @@ const MainRouteChildren: MainRouteChildren = {
 const MainRouteWithChildren = MainRoute._addFileChildren(MainRouteChildren)
 
 interface OnboardingRouteChildren {
+  OnboardingCreateCourseRoute: typeof OnboardingCreateCourseRoute
   OnboardingInviteRoute: typeof OnboardingInviteRoute
   OnboardingWhatRoute: typeof OnboardingWhatRoute
   OnboardingIndexRoute: typeof OnboardingIndexRoute
 }
 
 const OnboardingRouteChildren: OnboardingRouteChildren = {
+  OnboardingCreateCourseRoute: OnboardingCreateCourseRoute,
   OnboardingInviteRoute: OnboardingInviteRoute,
   OnboardingWhatRoute: OnboardingWhatRoute,
   OnboardingIndexRoute: OnboardingIndexRoute,

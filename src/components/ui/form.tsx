@@ -1,3 +1,4 @@
+import * as LabelPrimitive from "@radix-ui/react-label";
 import { Slot } from "@radix-ui/react-slot";
 import type {
 	DeepKeys,
@@ -5,9 +6,8 @@ import type {
 	FieldApi,
 	ReactFormExtendedApi,
 } from "@tanstack/react-form";
-import { functionalUpdate, useField, type Validator } from "@tanstack/react-form";
+import { functionalUpdate, useField, Validator } from "@tanstack/react-form";
 import type { UseFieldOptions } from "node_modules/@tanstack/react-form/dist/esm/types";
-import type { Label as LabelPrimitive } from "radix-ui";
 import type { FormEvent } from "react";
 import React from "react";
 
@@ -28,9 +28,7 @@ type FormFieldContextValue<
 > = FieldApi<TParentData, TName, TFieldValidator, TFormValidator, TData>;
 
 const FormFieldContext = React.createContext<
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	FormFieldContextValue<any, any, any, any, any>
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 >({} as FormFieldContextValue<any, any, any, any, any>);
 
 const useFormField = () => {

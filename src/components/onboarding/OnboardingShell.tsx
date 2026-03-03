@@ -10,9 +10,11 @@ import { Label } from "../ui/label";
 export function OnboardingShell({
 	children,
 	className,
+	wide,
 }: {
 	children: React.ReactNode;
 	className?: string;
+	wide?: boolean;
 }) {
 	return (
 		<div
@@ -21,14 +23,30 @@ export function OnboardingShell({
 				className,
 			)}
 		>
-			<div
-				aria-hidden
-				className="pointer-events-none absolute bottom-0 z-0 h-[calc(100vh-var(--es-nav-h)-100px)] w-full rounded-full bg-grad-white-to-blue"
-			/>
-			<CardShadeOverlay className="backdrop-blur-[100px] bg-[repeating-linear-gradient(90deg,rgba(255,255,255,0)_0px,rgba(255,255,255,0.1)_47.15px,rgba(255,255,255,0.3)_85.33px)]" />
+			{!wide && (
+				<div
+					aria-hidden
+					className="pointer-events-none absolute bottom-0 z-0 h-[calc(100vh-var(--es-nav-h)-100px)] w-full rounded-full bg-grad-white-to-blue"
+				/>
+			)}
+			{!wide && (
+				<CardShadeOverlay className="backdrop-blur-[100px] bg-[repeating-linear-gradient(90deg,rgba(255,255,255,0)_0px,rgba(255,255,255,0.1)_47.15px,rgba(255,255,255,0.3)_85.33px)]" />
+			)}
 
-			<div className="relative z-10 flex min-h-screen items-center justify-center p-4 md:p-6">
-				<div className="w-full max-w-[480px] p-4  flex flex-col gap-8">
+			<div
+				className={cn(
+					"relative z-10 flex min-h-screen",
+					wide ? "p-4 md:p-0  md:pl-6 md:pr-0" : "p-4 md:p-6",
+					wide ? "items-stretch justify-start" : "items-center justify-center",
+				)}
+			>
+				<div
+					className={cn(
+						"w-full flex flex-col gap-8",
+						!wide && "max-w-[480px] p-4",
+						wide && "max-w-none flex-1 min-h-0",
+					)}
+				>
 					{children}
 				</div>
 			</div>
