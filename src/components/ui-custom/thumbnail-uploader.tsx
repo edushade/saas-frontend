@@ -1,15 +1,16 @@
-"use client";
+'use client';
 
-import { Upload } from "lucide-react";
-import { useCallback, useRef } from "react";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { cn } from "@/lib/utils";
+import { Upload } from 'lucide-react';
+import { useCallback, useRef } from 'react';
+import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
+import { cn } from '@/lib/utils';
 
-const DEFAULT_ACCEPT = "image/*";
+const DEFAULT_ACCEPT = 'image/*';
 const DEFAULT_MAX = 2;
 
 export interface ThumbnailUploaderProps {
+	/** Current thumbnail URLs (object URLs or external URLs). Parent must pass an array. */
 	value: string[];
 	onChange: (urls: string[]) => void;
 	selectedIndex: number;
@@ -19,6 +20,10 @@ export interface ThumbnailUploaderProps {
 	className?: string;
 }
 
+/**
+ * Reusable controlled thumbnail uploader. Accepts image files and exposes URLs via onChange.
+ * Parent is responsible for storing value and passing it back; this component does not hold state.
+ */
 export function ThumbnailUploader({
 	value,
 	onChange,
@@ -34,7 +39,7 @@ export function ThumbnailUploader({
 		(files: FileList | null) => {
 			if (!files?.length) return;
 			const imageFiles = Array.from(files).filter((f) =>
-				f.type.startsWith("image/"),
+				f.type.startsWith('image/'),
 			);
 			const toAddCount = Math.min(
 				imageFiles.length,
@@ -52,7 +57,7 @@ export function ThumbnailUploader({
 
 	const onFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		addFiles(e.target.files);
-		e.target.value = "";
+		e.target.value = '';
 	};
 
 	const onDrop = (e: React.DragEvent) => {
@@ -67,7 +72,7 @@ export function ThumbnailUploader({
 	return (
 		<div
 			className={cn(
-				"flex w-full flex-col gap-3 sm:flex-row sm:items-center sm:gap-3",
+				'flex w-full flex-col gap-3 sm:flex-row sm:items-center sm:gap-3',
 				className,
 			)}
 		>
@@ -75,17 +80,20 @@ export function ThumbnailUploader({
 				role="button"
 				tabIndex={0}
 				aria-label="Upload Image or drag and drop here"
-				onClick={() => fileInputRef.current?.click()}
+				onClick={(e) => {
+					e.preventDefault();
+					fileInputRef.current?.click();
+				}}
 				onDrop={onDrop}
 				onDragOver={onDragOver}
 				onKeyDown={(e) => {
-					if (e.key === "Enter" || e.key === " ") {
+					if (e.key === 'Enter' || e.key === ' ') {
 						e.preventDefault();
 						fileInputRef.current?.click();
 					}
 				}}
 				className={cn(
-					"flex h-[88px] w-full max-w-[156px] shrink-0 cursor-pointer flex-col items-center justify-center gap-1 rounded-lg border-2 border-dashed border-border-secondary bg-bg-secondary/50 px-2 py-2 transition-colors hover:border-brand-300 hover:bg-bg-secondary",
+					'flex h-[88px] w-full max-w-[156px] shrink-0 cursor-pointer flex-col items-center justify-center gap-1 rounded-lg border-2 border-dashed border-border-secondary bg-bg-secondary/50 px-2 py-2 transition-colors hover:border-brand-300 hover:bg-bg-secondary',
 				)}
 			>
 				<Upload className="size-6 text-text-tertiary" aria-hidden />
@@ -115,10 +123,10 @@ export function ThumbnailUploader({
 						variant="outline"
 						size="icon"
 						className={cn(
-							"h-[88px] w-full max-w-[156px] shrink-0 overflow-hidden rounded-lg border-2 p-0 bg-bg-secondary transition-colors hover:bg-bg-secondary",
+							'h-[88px] w-full max-w-[156px] min-w-[156px] shrink-0 overflow-hidden rounded-lg border-2 p-0 bg-bg-secondary transition-colors hover:bg-bg-secondary',
 							selectedIndex === i && value[i]
-								? "border-brand-300 ring-2 ring-brand-300/30"
-								: "border-border-secondary hover:border-border-primary",
+								? 'border-brand-300 ring-2 ring-brand-300/30'
+								: 'border-border-secondary hover:border-border-primary',
 						)}
 						onClick={() => value[i] && onSelectedIndexChange(i)}
 						disabled={!value[i]}

@@ -81,11 +81,14 @@ export function OnboardingNav({
 	nextLabel = "Next",
 	nextHref,
 	nextDisabled,
+	onNextClick,
 }: {
 	onBack?: () => void;
 	nextLabel?: string;
 	nextHref?: string;
 	nextDisabled?: boolean;
+	/** When set, Next is a button that calls this instead of submitting the form. Use for form pages where submit may not fire. */
+	onNextClick?: () => void;
 }) {
 	const nextButton = nextHref ? (
 		<Button
@@ -99,9 +102,10 @@ export function OnboardingNav({
 		</Button>
 	) : (
 		<Button
-			type="submit"
+			type={onNextClick ? "button" : "submit"}
 			className="btn-brand-1 gap-1.5 w-full rounded-lg px-6 hover:bg-brand-200 hover:text-white	text-sm font-medium"
 			disabled={nextDisabled}
+			onClick={onNextClick}
 		>
 			{nextLabel}
 			<ArrowRight className="size-4" />

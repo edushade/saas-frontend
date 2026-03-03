@@ -69,8 +69,8 @@ const SOCIAL_ICONS = [
 
 export default function Footer() {
 	return (
-		<footer className="relative w-full overflow-hidden bg-[linear-gradient(180deg,#222222_0%,#07003D_100%)] px-4 md:px-(--es-section-px)">
-			<div className="relative mx-auto flex max-w-(--es-max-w) flex-col gap-10  pb-0 pt-8  md:pt-12">
+		<footer className="relative w-full overflow-hidden bg-[linear-gradient(180deg,#222222_0%,#07003D_100%)]">
+			<div className="relative mx-auto flex max-w-(--es-max-w) flex-col gap-10 px-4 pb-0 pt-8 md:px-(--es-section-px) md:pt-12">
 				<nav
 					className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 items-stretch gap-y-8"
 					aria-label="Footer navigation"
@@ -142,18 +142,18 @@ export default function Footer() {
 						</div>
 					</div>
 				</div>
+			</div>
 
-				{/* Large decorative "Edushade" — full width band, text contained in max-width */}
-				<div className="relative w-full min-h-56 max-h-[220px]  md:min-h-72">
-					<section
-						className="mx-auto flex w-full max-w-(--es-max-w) items-end justify-center "
-						aria-hidden
-					>
-						<span className="block w-full  text-center font-medium leading-none tracking-tighter text-text-white-alpha text-[clamp(4rem,18vw,18rem)]">
-							Edushade
-						</span>
-					</section>
-				</div>
+			{/* Large decorative "Edushade" — full width of footer (viewport-wide), text scales, vertically centered */}
+			<div className="flex min-h-56 max-h-[220px] w-full items-center justify-center md:min-h-72">
+				<section
+					className="flex w-full items-center justify-center px-4 md:px-8"
+					aria-hidden
+				>
+					<span className="block w-full text-center font-medium leading-none tracking-tighter text-text-white-alpha text-[clamp(4rem,18vw,18rem)]">
+						Edushade
+					</span>
+				</section>
 			</div>
 		</footer>
 	);

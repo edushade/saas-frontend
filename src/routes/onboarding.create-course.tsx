@@ -1,21 +1,37 @@
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import { createFileRoute, Link, useNavigate } from '@tanstack/react-router';
+import { ArrowRight } from 'lucide-react';
+import { useState } from 'react';
 import {
 	OnboardingField,
 	OnboardingHeader,
 	OnboardingNav,
 	OnboardingShell,
-} from "@/components/onboarding/OnboardingShell";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Skeleton } from "@/components/ui/skeleton";
-import { ThumbnailUploader } from "@/components/ui-custom/thumbnail-uploader";
-import { Typography } from "@/components/ui-custom/typography";
-import { useAppForm } from "@/hooks/form";
-import { stripHtml, truncate } from "@/lib/text-utils";
-import { cn } from "@/lib/utils";
+} from '@/components/onboarding/OnboardingShell';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Skeleton } from '@/components/ui/skeleton';
+import { PlateLiteEditor } from '@/components/ui-custom/PlateLiteEditor';
+import { ThumbnailUploader } from '@/components/ui-custom/thumbnail-uploader';
+import { Typography } from '@/components/ui-custom/typography';
+import { useAppForm } from '@/hooks/form';
+import { plateValueToPlainText, stripHtml, truncate } from '@/lib/text-utils';
+import { cn } from '@/lib/utils';
 
-export const Route = createFileRoute("/onboarding/create-course")({
+/** Get plain text for preview: Plate JSON → text; HTML → stripped; else placeholder. */
+function getDescriptionPreviewText(description: string): string {
+	if (!description || !description.trim())
+		return 'Course description will appear here.';
+	const trimmed = description.trim();
+	// Plate value is JSON array; only use plateValueToPlainText so we never show raw JSON.
+	if (trimmed.startsWith('['))
+		return (
+			plateValueToPlainText(description) ||
+			'Course description will appear here.'
+		);
+	return stripHtml(description) || 'Course description will appear here.';
+}
+
+export const Route = createFileRoute('/onboarding/create-course')({
 	component: OnboardingCreateCourse,
 });
 
@@ -24,22 +40,23 @@ const TITLE_PREVIEW_LENGTH = 56;
 const MAX_THUMBNAILS = 2;
 
 const defaultValues = {
-	title: "",
-	description: "",
+	title: '',
+	description: '',
 	thumbnails: { urls: [] as string[], selectedIndex: 0 },
 };
 
 function OnboardingCreateCourse() {
 	const navigate = useNavigate();
+	const [thumbnails, setThumbnails] = useState(defaultValues.thumbnails);
 
 	const form = useAppForm({
 		defaultValues,
 		onSubmit: async () => {
-			navigate({ to: "/onboarding/invite" });
+			navigate({ to: '/onboarding/invite' });
 		},
 	});
 
-	const handleBack = () => navigate({ to: "/onboarding/what" });
+	const handleBack = () => navigate({ to: '/onboarding/invite' });
 
 	return (
 		<OnboardingShell wide>
@@ -71,36 +88,39 @@ function OnboardingCreateCourse() {
 							<OnboardingField label="Add Description to the Course">
 								<form.AppField name="description">
 									{(field) => (
-										<field.TextArea placeholder="Write here..." rows={4} />
-									)}
-								</form.AppField>
-							</OnboardingField>
-
-							<OnboardingField label="Add Course Thumbnail">
-								<form.AppField name="thumbnails">
-									{(field) => (
-										<ThumbnailUploader
-											maxThumbnails={MAX_THUMBNAILS}
-											value={field.state.value.urls}
-											onChange={(urls) =>
-												field.handleChange({ ...field.state.value, urls })
-											}
-											selectedIndex={field.state.value.selectedIndex}
-											onSelectedIndexChange={(index) =>
-												field.handleChange({
-													...field.state.value,
-													selectedIndex: index,
-												})
-											}
+										<PlateLiteEditor
+											value={field.state.value ?? ''}
+											onChange={(value) => {
+												// Plate form pattern: sync editor → form on change (https://platejs.org/docs/form)
+												field.handleChange(value ? JSON.stringify(value) : '');
+											}}
+											placeholder="Write here..."
+											minHeight="80px"
+											maxHeight="200px"
+											className="border-border-secondary"
 										/>
 									)}
 								</form.AppField>
 							</OnboardingField>
 
+							<OnboardingField label="Add Course Thumbnail">
+								<ThumbnailUploader
+									maxThumbnails={MAX_THUMBNAILS}
+									value={thumbnails.urls}
+									onChange={(urls) =>
+										setThumbnails((prev) => ({ ...prev, urls }))
+									}
+									selectedIndex={thumbnails.selectedIndex}
+									onSelectedIndexChange={(selectedIndex) =>
+										setThumbnails((prev) => ({ ...prev, selectedIndex }))
+									}
+								/>
+							</OnboardingField>
+
 							<OnboardingNav
 								onBack={handleBack}
 								nextLabel="Next"
-								nextHref={undefined}
+								nextHref="/"
 							/>
 						</form>
 					</div>
@@ -110,16 +130,15 @@ function OnboardingCreateCourse() {
 				<div className="flex min-h-[320px] min-w-0 md:min-h-full items-center justify-center bg-bg-secondary px-4 py-6 md:px-10 md:py-10">
 					<form.Subscribe
 						selector={(state) => ({
-							title: state.values.title ?? "",
-							description: state.values.description ?? "",
-							thumbnails: state.values.thumbnails ?? defaultValues.thumbnails,
+							title: state.values.title ?? '',
+							description: state.values.description ?? '',
 						})}
 					>
 						{(values) => (
 							<CreateCoursePreview
 								title={values.title}
 								description={values.description}
-								thumbnails={values.thumbnails}
+								thumbnails={thumbnails}
 							/>
 						)}
 					</form.Subscribe>
@@ -139,12 +158,9 @@ function CreateCoursePreview({
 	thumbnails: { urls: string[]; selectedIndex: number };
 }) {
 	const previewImage = thumbnails.urls[thumbnails.selectedIndex] ?? null;
-	const previewTitle = truncate(
-		title || "Course title will appear here",
-		TITLE_PREVIEW_LENGTH,
-	);
+	const previewTitle = truncate(title, TITLE_PREVIEW_LENGTH);
 	const previewDescription = truncate(
-		stripHtml(description) || "Course description will appear here.",
+		getDescriptionPreviewText(description),
 		DESCRIPTION_PREVIEW_LENGTH,
 	);
 
@@ -194,10 +210,10 @@ function CreateCoursePreview({
 
 				<Button
 					className={cn(
-						"mt-2 w-full gap-1.5 rounded-lg bg-bg-tertiary text-text-secondary text-sm font-medium",
+						'mt-2 w-full gap-1.5 rounded-lg bg-bg-tertiary text-text-secondary text-sm font-medium',
 						previewTitle && previewDescription
-							? "btn-brand-1"
-							: "text-text-secondary pointer-events-none",
+							? 'btn-brand-1'
+							: 'text-text-secondary pointer-events-none',
 					)}
 					disabled={!previewTitle || !previewDescription}
 					asChild

@@ -1,22 +1,22 @@
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { useCallback, useState } from "react";
-import { CheckCircleIcon } from "@/assets/icons";
+import { createFileRoute, useNavigate } from '@tanstack/react-router';
+import { useCallback, useState } from 'react';
+import { CheckCircleIcon } from '@/assets/icons';
 import {
 	OnboardingField,
 	OnboardingHeader,
 	OnboardingNav,
 	OnboardingShell,
-} from "@/components/onboarding/OnboardingShell";
-import { Input } from "@/components/ui/input";
+} from '@/components/onboarding/OnboardingShell';
+import { Input } from '@/components/ui/input';
 import {
 	InputGroup,
 	InputGroupAddon,
 	InputGroupInput,
 	InputGroupText,
-} from "@/components/ui/input-group";
-import { Typography } from "@/components/ui-custom/typography";
+} from '@/components/ui/input-group';
+import { Typography } from '@/components/ui-custom/typography';
 
-export const Route = createFileRoute("/onboarding/")({
+export const Route = createFileRoute('/onboarding/')({
 	component: OnboardingStep1,
 });
 
@@ -26,14 +26,14 @@ const MAX_SUBDOMAIN_LEN = 63;
 
 function OnboardingStep1() {
 	const navigate = useNavigate();
-	const [platformName, setPlatformName] = useState("");
-	const [subdomain, setSubdomain] = useState("");
+	const [platformName, setPlatformName] = useState('');
+	const [subdomain, setSubdomain] = useState('');
 	const [subdomainTouched, setSubdomainTouched] = useState(false);
 
 	const normalizedSubdomain = subdomain
 		.toLowerCase()
-		.replace(/\s/g, "-")
-		.replace(/[^a-z0-9-]/g, "");
+		.replace(/\s/g, '-')
+		.replace(/[^a-z0-9-]/g, '');
 
 	const isValidSubdomain =
 		normalizedSubdomain.length >= MIN_SUBDOMAIN_LEN &&
@@ -46,7 +46,7 @@ function OnboardingStep1() {
 		(e: React.FormEvent) => {
 			e.preventDefault();
 			if (!isValidSubdomain) return;
-			navigate({ to: "/onboarding/what" });
+			navigate({ to: '/onboarding/what' });
 		},
 		[isValidSubdomain, navigate],
 	);
@@ -81,13 +81,13 @@ function OnboardingStep1() {
 								value={subdomain}
 								onChange={(e) => setSubdomain(e.target.value)}
 								onBlur={() => setSubdomainTouched(true)}
-								className="text-xs	 md:text-sm h-10"
+								className="text-xs md:text-sm h-10"
 							/>
 							<InputGroupAddon
 								align="inline-end"
 								className="border-l px-1 md:px-2 py-1 md:py-2 border-border-secondary bg-muted/30 text-text-tertiary"
 							>
-								<InputGroupText className="text-xs md:text-sm">
+								<InputGroupText className="text-xs md:text-sm text-text-primary">
 									.edushade.com
 								</InputGroupText>
 							</InputGroupAddon>

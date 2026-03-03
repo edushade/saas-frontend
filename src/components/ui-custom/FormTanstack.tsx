@@ -1,15 +1,15 @@
-import { useStore } from "@tanstack/react-form";
-import { Button } from "@/components/ui/button";
-import { Checkbox as ShadcnCheckbox } from "@/components/ui/checkbox";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import * as ShadcnSelect from "@/components/ui/select";
-import { Slider as ShadcnSlider } from "@/components/ui/slider";
-import { Switch as ShadcnSwitch } from "@/components/ui/switch";
-import { Textarea as ShadcnTextarea } from "@/components/ui/textarea";
-import { PhoneInput } from "@/components/ui-custom/phone-input";
-import { useFieldContext, useFormContext } from "@/hooks/form-context";
-import { cn } from "@/lib/utils";
+import { useStore } from '@tanstack/react-form';
+import { Button } from '@/components/ui/button';
+import { Checkbox as ShadcnCheckbox } from '@/components/ui/checkbox';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import * as ShadcnSelect from '@/components/ui/select';
+import { Slider as ShadcnSlider } from '@/components/ui/slider';
+import { Switch as ShadcnSwitch } from '@/components/ui/switch';
+import { Textarea as ShadcnTextarea } from '@/components/ui/textarea';
+import { PhoneInput } from '@/components/ui-custom/phone-input';
+import { useFieldContext, useFormContext } from '@/hooks/form-context';
+import { cn } from '@/lib/utils';
 
 export function SubscribeButton({
 	label,
@@ -39,10 +39,10 @@ function ErrorMessages({
 		<>
 			{errors.map((error) => (
 				<div
-					key={typeof error === "string" ? error : error.message}
+					key={typeof error === 'string' ? error : error.message}
 					className="mt-1 font-medium text-destructive text-sm"
 				>
-					{typeof error === "string" ? error : error.message}
+					{typeof error === 'string' ? error : error.message}
 				</div>
 			))}
 		</>
@@ -58,11 +58,11 @@ export function PhoneInputField() {
 		<div>
 			<PhoneInput
 				value={value || undefined}
-				onChange={(val) => field.handleChange(val ?? "")}
+				onChange={(val) => field.handleChange(val ?? '')}
 				onBlur={field.handleBlur}
 				defaultCountry="US"
 				placeholder="Enter phone number"
-				className="w-full"
+				className="w-full text-xs md:text-sm text-text-quaternary font-normal h-10 border-border-secondary"
 			/>
 			{field.state.meta.isTouched && <ErrorMessages errors={errors} />}
 		</div>
@@ -72,11 +72,11 @@ export function PhoneInputField() {
 export function TextField({
 	label,
 	placeholder,
-	type = "text",
+	type = 'text',
 }: {
 	label?: string;
 	placeholder?: string;
-	type?: "text" | "email" | "password";
+	type?: 'text' | 'email' | 'password';
 }) {
 	const field = useFieldContext<string>();
 	const errors = useStore(field.store, (state) => state.meta.errors);
@@ -110,10 +110,12 @@ export function TextArea({
 	label,
 	rows = 3,
 	suffix,
+	placeholder,
 }: {
 	label?: string;
 	rows?: number;
 	suffix?: React.ReactNode;
+	placeholder?: string;
 }) {
 	const field = useFieldContext<string>();
 	const errors = useStore(field.store, (state) => state.meta.errors);
@@ -136,6 +138,7 @@ export function TextArea({
 			<ShadcnTextarea
 				id={label}
 				value={field.state.value}
+				placeholder={placeholder}
 				onBlur={field.handleBlur}
 				rows={rows}
 				onChange={(e) => field.handleChange(e.target.value)}
@@ -246,7 +249,7 @@ export function Checkbox({
 
 	return (
 		<div>
-			<div className={cn("flex items-center gap-2", className)}>
+			<div className={cn('flex items-center gap-2', className)}>
 				<ShadcnCheckbox
 					id={field.name}
 					checked={field.state.value}
