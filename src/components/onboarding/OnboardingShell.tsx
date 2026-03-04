@@ -77,17 +77,16 @@ export function OnboardingHeader({
 }
 
 export function OnboardingNav({
-	onBack,
+	// onBack, — reserved for future use
 	nextLabel = 'Next',
 	nextHref,
 	nextDisabled,
 	onNextClick,
 }: {
-	onBack?: () => void;
+	// onBack?: () => void;
 	nextLabel?: string;
 	nextHref?: string;
 	nextDisabled?: boolean;
-	/** When set, Next is a button that calls this instead of submitting the form. Use for form pages where submit may not fire. */
 	onNextClick?: () => void;
 }) {
 	const nextButton = nextHref ? (
@@ -103,7 +102,7 @@ export function OnboardingNav({
 	) : (
 		<Button
 			type={onNextClick ? 'button' : 'submit'}
-			className="btn-brand-1 gap-1.5 w-full h-9 rounded-lg px-6 hover:bg-brand-200 hover:text-white	text-sm font-medium"
+			className="btn-brand-1 gap-1.5 h-9 rounded-lg px-6 hover:bg-brand-200 hover:text-white text-sm font-medium"
 			disabled={nextDisabled}
 			onClick={onNextClick}
 		>
@@ -112,20 +111,18 @@ export function OnboardingNav({
 		</Button>
 	);
 
-	if (!onBack) {
-		return <div className="pt-2">{nextButton}</div>;
-	}
-
 	return (
 		<div className="flex items-center justify-between gap-4 pt-2">
+			{/* Back button — UI ready, implement onClick when needed
 			<Button
 				type="button"
 				variant="outline"
-				className="bg-bg-primary text-sm font-medium  rounded-lg border border-border-secondary"
-				onClick={onBack}
+				className="bg-bg-primary text-sm font-medium rounded-lg border border-border-secondary"
+				// onClick={onBack}
 			>
 				Back
 			</Button>
+			*/}
 			{nextButton}
 		</div>
 	);

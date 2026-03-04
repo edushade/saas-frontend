@@ -1,4 +1,3 @@
-import { createFileRoute, useNavigate } from '@tanstack/react-router';
 import { Plus } from 'lucide-react';
 import { useCallback, useState } from 'react';
 import {
@@ -20,10 +19,6 @@ import {
 	SelectValue,
 } from '@/components/ui/select';
 
-export const Route = createFileRoute('/onboarding/invite')({
-	component: OnboardingStep3,
-});
-
 const ROLES = ['Admin', 'Instructor', 'Support'] as const;
 
 interface InviteRow {
@@ -32,8 +27,11 @@ interface InviteRow {
 	role: string;
 }
 
-function OnboardingStep3() {
-	const navigate = useNavigate();
+interface Step3Props {
+	onNext: () => void;
+}
+
+export function OnboardingStep3({ onNext }: Step3Props) {
 	const [rows, setRows] = useState<InviteRow[]>([
 		{ id: crypto.randomUUID(), email: '', role: '' },
 		{ id: crypto.randomUUID(), email: '', role: '' },
@@ -54,8 +52,6 @@ function OnboardingStep3() {
 			{ id: crypto.randomUUID(), email: '', role: '' },
 		]);
 	}, []);
-
-	const handleBack = () => navigate({ to: '/onboarding/what' });
 
 	return (
 		<OnboardingShell>
@@ -116,11 +112,7 @@ function OnboardingStep3() {
 					</Button>
 				</div>
 
-				<OnboardingNav
-					onBack={handleBack}
-					nextLabel="Next"
-					nextHref="/onboarding/create-course"
-				/>
+				<OnboardingNav nextLabel="Next" onNextClick={onNext} />
 			</div>
 		</OnboardingShell>
 	);

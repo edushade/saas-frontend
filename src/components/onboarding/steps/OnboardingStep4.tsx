@@ -1,4 +1,4 @@
-import { createFileRoute, Link, useNavigate } from '@tanstack/react-router';
+import { Link } from '@tanstack/react-router';
 import { ArrowRight } from 'lucide-react';
 import { useState } from 'react';
 import {
@@ -17,24 +17,6 @@ import { useAppForm } from '@/hooks/form';
 import { plateValueToPlainText, stripHtml, truncate } from '@/lib/text-utils';
 import { cn } from '@/lib/utils';
 
-/** Get plain text for preview: Plate JSON → text; HTML → stripped; else placeholder. */
-function getDescriptionPreviewText(description: string): string {
-	if (!description || !description.trim())
-		return 'Course description will appear here.';
-	const trimmed = description.trim();
-	// Plate value is JSON array; only use plateValueToPlainText so we never show raw JSON.
-	if (trimmed.startsWith('['))
-		return (
-			plateValueToPlainText(description) ||
-			'Course description will appear here.'
-		);
-	return stripHtml(description) || 'Course description will appear here.';
-}
-
-export const Route = createFileRoute('/onboarding/create-course')({
-	component: OnboardingCreateCourse,
-});
-
 const DESCRIPTION_PREVIEW_LENGTH = 120;
 const TITLE_PREVIEW_LENGTH = 56;
 const MAX_THUMBNAILS = 2;
@@ -45,23 +27,36 @@ const defaultValues = {
 	thumbnails: { urls: [] as string[], selectedIndex: 0 },
 };
 
-function OnboardingCreateCourse() {
-	const navigate = useNavigate();
+function getDescriptionPreviewText(description: string): string {
+	if (!description || !description.trim())
+		return 'Course description will appear here.';
+	const trimmed = description.trim();
+	if (trimmed.startsWith('['))
+		return (
+			plateValueToPlainText(description) ||
+			'Course description will appear here.'
+		);
+	return stripHtml(description) || 'Course description will appear here.';
+}
+
+interface Step4Props {
+	onComplete: () => void;
+}
+
+export function OnboardingStep4({ onComplete }: Step4Props) {
 	const [thumbnails, setThumbnails] = useState(defaultValues.thumbnails);
 
 	const form = useAppForm({
 		defaultValues,
 		onSubmit: async () => {
-			navigate({ to: '/onboarding/invite' });
+			onComplete();
 		},
 	});
-
-	const handleBack = () => navigate({ to: '/onboarding/invite' });
 
 	return (
 		<OnboardingShell wide>
 			<div className="grid flex-1 w-full min-h-full grid-cols-1 gap-6 md:grid-cols-2 md:gap-0">
-				{/* Left section: form */}
+				{/* Left: form */}
 				<div className="flex min-w-0 items-start md:items-center justify-center py-4 md:py-10">
 					<div className="w-full max-w-[525px] flex flex-col gap-6 md:gap-8">
 						<OnboardingHeader
@@ -91,7 +86,6 @@ function OnboardingCreateCourse() {
 										<PlateLiteEditor
 											value={field.state.value ?? ''}
 											onChange={(value) => {
-												// Plate form pattern: sync editor → form on change (https://platejs.org/docs/form)
 												field.handleChange(value ? JSON.stringify(value) : '');
 											}}
 											placeholder="Write here..."
@@ -117,16 +111,12 @@ function OnboardingCreateCourse() {
 								/>
 							</OnboardingField>
 
-							<OnboardingNav
-								onBack={handleBack}
-								nextLabel="Next"
-								nextHref="/"
-							/>
+							<OnboardingNav nextLabel="Finish" />
 						</form>
 					</div>
 				</div>
 
-				{/* Right section: preview from form state */}
+				{/* Right: preview */}
 				<div className="flex min-h-[320px] min-w-0 md:min-h-full items-center justify-center bg-bg-secondary px-4 py-6 md:px-10 md:py-10">
 					<form.Subscribe
 						selector={(state) => ({

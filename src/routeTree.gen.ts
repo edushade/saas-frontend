@@ -14,9 +14,6 @@ import { Route as MainRouteImport } from './routes/_main'
 import { Route as AuthRouteImport } from './routes/_auth'
 import { Route as OnboardingIndexRouteImport } from './routes/onboarding.index'
 import { Route as MainIndexRouteImport } from './routes/_main.index'
-import { Route as OnboardingWhatRouteImport } from './routes/onboarding.what'
-import { Route as OnboardingInviteRouteImport } from './routes/onboarding.invite'
-import { Route as OnboardingCreateCourseRouteImport } from './routes/onboarding.create-course'
 import { Route as ApiContactRouteImport } from './routes/api/contact'
 import { Route as MainTermsOfServiceRouteImport } from './routes/_main.terms-of-service'
 import { Route as MainRequestDemoRouteImport } from './routes/_main.request-demo'
@@ -59,21 +56,6 @@ const MainIndexRoute = MainIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => MainRoute,
-} as any)
-const OnboardingWhatRoute = OnboardingWhatRouteImport.update({
-  id: '/what',
-  path: '/what',
-  getParentRoute: () => OnboardingRoute,
-} as any)
-const OnboardingInviteRoute = OnboardingInviteRouteImport.update({
-  id: '/invite',
-  path: '/invite',
-  getParentRoute: () => OnboardingRoute,
-} as any)
-const OnboardingCreateCourseRoute = OnboardingCreateCourseRouteImport.update({
-  id: '/create-course',
-  path: '/create-course',
-  getParentRoute: () => OnboardingRoute,
 } as any)
 const ApiContactRoute = ApiContactRouteImport.update({
   id: '/api/contact',
@@ -187,9 +169,6 @@ export interface FileRoutesByFullPath {
   '/request-demo': typeof MainRequestDemoRoute
   '/terms-of-service': typeof MainTermsOfServiceRoute
   '/api/contact': typeof ApiContactRoute
-  '/onboarding/create-course': typeof OnboardingCreateCourseRoute
-  '/onboarding/invite': typeof OnboardingInviteRoute
-  '/onboarding/what': typeof OnboardingWhatRoute
   '/onboarding/': typeof OnboardingIndexRoute
   '/blogs/$slug': typeof MainBlogsSlugRoute
   '/features/$slug': typeof MainFeaturesSlugRoute
@@ -210,9 +189,6 @@ export interface FileRoutesByTo {
   '/request-demo': typeof MainRequestDemoRoute
   '/terms-of-service': typeof MainTermsOfServiceRoute
   '/api/contact': typeof ApiContactRoute
-  '/onboarding/create-course': typeof OnboardingCreateCourseRoute
-  '/onboarding/invite': typeof OnboardingInviteRoute
-  '/onboarding/what': typeof OnboardingWhatRoute
   '/onboarding': typeof OnboardingIndexRoute
   '/blogs/$slug': typeof MainBlogsSlugRoute
   '/features/$slug': typeof MainFeaturesSlugRoute
@@ -239,9 +215,6 @@ export interface FileRoutesById {
   '/_main/request-demo': typeof MainRequestDemoRoute
   '/_main/terms-of-service': typeof MainTermsOfServiceRoute
   '/api/contact': typeof ApiContactRoute
-  '/onboarding/create-course': typeof OnboardingCreateCourseRoute
-  '/onboarding/invite': typeof OnboardingInviteRoute
-  '/onboarding/what': typeof OnboardingWhatRoute
   '/_main/': typeof MainIndexRoute
   '/onboarding/': typeof OnboardingIndexRoute
   '/_main/blogs/$slug': typeof MainBlogsSlugRoute
@@ -269,9 +242,6 @@ export interface FileRouteTypes {
     | '/request-demo'
     | '/terms-of-service'
     | '/api/contact'
-    | '/onboarding/create-course'
-    | '/onboarding/invite'
-    | '/onboarding/what'
     | '/onboarding/'
     | '/blogs/$slug'
     | '/features/$slug'
@@ -292,9 +262,6 @@ export interface FileRouteTypes {
     | '/request-demo'
     | '/terms-of-service'
     | '/api/contact'
-    | '/onboarding/create-course'
-    | '/onboarding/invite'
-    | '/onboarding/what'
     | '/onboarding'
     | '/blogs/$slug'
     | '/features/$slug'
@@ -320,9 +287,6 @@ export interface FileRouteTypes {
     | '/_main/request-demo'
     | '/_main/terms-of-service'
     | '/api/contact'
-    | '/onboarding/create-course'
-    | '/onboarding/invite'
-    | '/onboarding/what'
     | '/_main/'
     | '/onboarding/'
     | '/_main/blogs/$slug'
@@ -376,27 +340,6 @@ declare module '@tanstack/react-router' {
       fullPath: '/'
       preLoaderRoute: typeof MainIndexRouteImport
       parentRoute: typeof MainRoute
-    }
-    '/onboarding/what': {
-      id: '/onboarding/what'
-      path: '/what'
-      fullPath: '/onboarding/what'
-      preLoaderRoute: typeof OnboardingWhatRouteImport
-      parentRoute: typeof OnboardingRoute
-    }
-    '/onboarding/invite': {
-      id: '/onboarding/invite'
-      path: '/invite'
-      fullPath: '/onboarding/invite'
-      preLoaderRoute: typeof OnboardingInviteRouteImport
-      parentRoute: typeof OnboardingRoute
-    }
-    '/onboarding/create-course': {
-      id: '/onboarding/create-course'
-      path: '/create-course'
-      fullPath: '/onboarding/create-course'
-      preLoaderRoute: typeof OnboardingCreateCourseRouteImport
-      parentRoute: typeof OnboardingRoute
     }
     '/api/contact': {
       id: '/api/contact'
@@ -618,16 +561,10 @@ const MainRouteChildren: MainRouteChildren = {
 const MainRouteWithChildren = MainRoute._addFileChildren(MainRouteChildren)
 
 interface OnboardingRouteChildren {
-  OnboardingCreateCourseRoute: typeof OnboardingCreateCourseRoute
-  OnboardingInviteRoute: typeof OnboardingInviteRoute
-  OnboardingWhatRoute: typeof OnboardingWhatRoute
   OnboardingIndexRoute: typeof OnboardingIndexRoute
 }
 
 const OnboardingRouteChildren: OnboardingRouteChildren = {
-  OnboardingCreateCourseRoute: OnboardingCreateCourseRoute,
-  OnboardingInviteRoute: OnboardingInviteRoute,
-  OnboardingWhatRoute: OnboardingWhatRoute,
   OnboardingIndexRoute: OnboardingIndexRoute,
 }
 

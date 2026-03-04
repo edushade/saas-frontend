@@ -48,7 +48,7 @@ export default function EducatorsSaySection() {
 					</Typography>
 				</div>
 
-				<div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-7 md:auto-rows-[minmax(200px,1fr)]">
+				<div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:grid-cols-3 md:gap-7 md:auto-rows-[minmax(200px,1fr)]">
 					{visible.map((t) => (
 						<div key={t.id} className={t.rowSpan === 2 ? 'md:row-span-2' : ''}>
 							<TestimonialCard {...t} />
