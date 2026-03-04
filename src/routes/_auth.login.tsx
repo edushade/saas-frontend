@@ -1,40 +1,43 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { useAppForm } from "@/hooks/form";
-import { getSiteOrigin } from "@/env";
+import { createFileRoute, Link, useNavigate } from '@tanstack/react-router';
+import { getSiteOrigin } from '@/env';
+import { useAppForm } from '@/hooks/form';
 
-export const Route = createFileRoute("/_auth/login")({
+export const Route = createFileRoute('/_auth/login')({
 	head: () => ({
 		meta: [
-			{ title: "Log in | Edushade" },
-			{ name: "description", content: "Log in to your Edushade account." },
+			{ title: 'Log in | Edushade' },
+			{ name: 'description', content: 'Log in to your Edushade account.' },
 		],
-		links: [{ rel: "canonical", href: `${getSiteOrigin()}/login` }],
+		links: [{ rel: 'canonical', href: `${getSiteOrigin()}/login` }],
 	}),
 	component: LoginPage,
 });
 
 const defaultValues = {
-	email: "",
-	password: "",
+	email: '',
+	password: '',
 };
 
 function emailValidator({ value }: { value: string }) {
-	if (!value?.trim()) return "Email is required";
-	if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return "Invalid email address";
+	if (!value?.trim()) return 'Email is required';
+	if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return 'Invalid email address';
 	return undefined;
 }
 
 function passwordValidator({ value }: { value: string }) {
-	if (!value?.trim()) return "Password is required";
+	if (!value?.trim()) return 'Password is required';
 	return undefined;
 }
 
 function LoginPage() {
+	const navigate = useNavigate();
 	const form = useAppForm({
 		defaultValues,
 		onSubmit: async ({ value }) => {
 			// TODO: call auth API
-			console.log("Login submit", value);
+			console.log('Login submit', value);
+			// TODO: naviate to /onboarding
+			navigate({ to: '/onboarding' });
 		},
 	});
 
@@ -44,9 +47,7 @@ function LoginPage() {
 				<Link to="/" className="inline-block" aria-label="Edushade home">
 					<img src="/svgs/logo.svg" alt="" className="h-9 w-auto mx-auto" />
 				</Link>
-				<h1 className="mt-4 text-xl font-semibold text-text-primary">
-					Log in
-				</h1>
+				<h1 className="mt-4 text-xl font-semibold text-text-primary">Log in</h1>
 				<p className="mt-1 text-sm text-text-secondary">
 					Sign in to your account to continue.
 				</p>
@@ -68,7 +69,10 @@ function LoginPage() {
 						/>
 					)}
 				</form.AppField>
-				<form.AppField name="password" validators={{ onBlur: passwordValidator }}>
+				<form.AppField
+					name="password"
+					validators={{ onBlur: passwordValidator }}
+				>
 					{(field) => (
 						<field.TextField
 							label="Password"
@@ -85,7 +89,7 @@ function LoginPage() {
 				</form.AppForm>
 			</form>
 			<p className="text-center text-sm text-text-secondary">
-				Don&apos;t have an account?{" "}
+				Don&apos;t have an account?{' '}
 				<Link
 					to="/register"
 					className="font-medium text-brand-200 hover:underline"

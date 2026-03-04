@@ -1,11 +1,11 @@
-import { Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { CardShadeOverlay } from "@/components/ui-custom/card-shade-overlay";
-import { Typography } from "@/components/ui-custom/typography";
-import { cn } from "@/lib/utils";
-import { Label } from "../ui/label";
+import { Link } from '@tanstack/react-router';
+import { ArrowRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { CardShadeOverlay } from '@/components/ui-custom/card-shade-overlay';
+import { Typography } from '@/components/ui-custom/typography';
+import { cn } from '@/lib/utils';
+import { Label } from '../ui/label';
 
 export function OnboardingShell({
 	children,
@@ -19,7 +19,7 @@ export function OnboardingShell({
 	return (
 		<div
 			className={cn(
-				"relative min-h-screen w-full overflow-hidden bg-bg-primary",
+				'relative min-h-screen w-full overflow-hidden bg-bg-primary',
 				className,
 			)}
 		>
@@ -35,16 +35,16 @@ export function OnboardingShell({
 
 			<div
 				className={cn(
-					"relative z-10 flex min-h-screen",
-					wide ? "p-4 md:p-0  md:pl-6 md:pr-0" : "p-4 md:p-6",
-					wide ? "items-stretch justify-start" : "items-center justify-center",
+					'relative z-10 flex min-h-screen',
+					wide ? 'p-4 md:p-0  md:pl-6 md:pr-0' : 'p-4 md:p-6',
+					wide ? 'items-stretch justify-start' : 'items-center justify-center',
 				)}
 			>
 				<div
 					className={cn(
-						"w-full flex flex-col gap-8",
-						!wide && "max-w-[480px] p-4",
-						wide && "max-w-none flex-1 min-h-0",
+						'w-full flex flex-col gap-8',
+						!wide && 'max-w-[480px] p-4',
+						wide && 'max-w-none flex-1 min-h-0',
 					)}
 				>
 					{children}
@@ -78,7 +78,7 @@ export function OnboardingHeader({
 
 export function OnboardingNav({
 	onBack,
-	nextLabel = "Next",
+	nextLabel = 'Next',
 	nextHref,
 	nextDisabled,
 	onNextClick,
@@ -102,8 +102,8 @@ export function OnboardingNav({
 		</Button>
 	) : (
 		<Button
-			type={onNextClick ? "button" : "submit"}
-			className="btn-brand-1 gap-1.5 w-full rounded-lg px-6 hover:bg-brand-200 hover:text-white	text-sm font-medium"
+			type={onNextClick ? 'button' : 'submit'}
+			className="btn-brand-1 gap-1.5 w-full h-9 rounded-lg px-6 hover:bg-brand-200 hover:text-white	text-sm font-medium"
 			disabled={nextDisabled}
 			onClick={onNextClick}
 		>
