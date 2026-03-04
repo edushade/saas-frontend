@@ -1,14 +1,14 @@
-import { useEffect, useRef } from "react";
-import { Badge } from "@/components/ui/badge";
-import { Typography } from "@/components/ui-custom/typography";
-import { cn } from "@/lib/utils";
+import { useEffect, useRef } from 'react';
+import { Badge } from '@/components/ui/badge';
+import { Typography } from '@/components/ui-custom/typography';
+import { cn } from '@/lib/utils';
 
-const RADIO_GROUP_NAME = "compose-model-tags";
+const RADIO_GROUP_NAME = 'compose-model-tags';
 const AUTO_ROTATE_INTERVAL_MS = 2500;
 const AUTO_ROTATE_DELAY_MS = 2000;
 
 const LABEL_SELECTED =
-	"[&:has(input:checked)>*]:border-brand-300 [&:has(input:checked)>*]:bg-brand-light [&:has(input:checked)>*]:text-brand-300 [&:has(input:checked)>*]:font-medium";
+	'[&:has(input:checked)>*]:border-brand-300 [&:has(input:checked)>*]:bg-brand-light [&:has(input:checked)>*]:text-brand-300 [&:has(input:checked)>*]:font-medium';
 
 export interface ComposeModelTagsProps {
 	tags: string[];
@@ -29,7 +29,7 @@ export function ComposeModelTags({
 	value: controlledValue,
 	onChange,
 	name = RADIO_GROUP_NAME,
-	description = "You can compose your own learning model",
+	description = 'You can compose your own learning model',
 	className,
 	autoRotate = true,
 	autoRotateIntervalMs = AUTO_ROTATE_INTERVAL_MS,
@@ -81,7 +81,7 @@ export function ComposeModelTags({
 	return (
 		<fieldset
 			ref={fieldsetRef}
-			className={cn("border-0 p-0", className)}
+			className={cn('border-0 p-0', className)}
 			aria-label="Learning model options"
 		>
 			{description ? (
@@ -114,10 +114,10 @@ export function ComposeModelTags({
 							<Badge
 								variant="outline"
 								className={cn(
-									"cursor-pointer rounded-full  px-2 py-1	 text-base  transition-colors hover:border-brand-300 hover:text-brand-300",
+									'cursor-pointer rounded-full  px-2 py-1	 text-base  transition-colors hover:border-brand-300 hover:text-brand-300',
 									selected === tag
-										? "border-brand-200 bg-[#E6F0FF] font-semibold text-brand-300"
-										: "border-border-primary text-text-secondary",
+										? 'border-brand-200 bg-[#E6F0FF] font-semibold text-brand-300'
+										: 'border-border-primary text-text-secondary',
 								)}
 							>
 								{tag}

@@ -1,17 +1,17 @@
-import type { ContactFormValue } from "@/components/contact-sales";
-import { ContactSalesForm } from "@/components/contact-sales";
-import { Typography } from "@/components/ui-custom/typography";
-import { BannerTag } from "../ui-custom/BannerTag";
-import { CardShadeOverlay } from "../ui-custom/card-shade-overlay";
+import type { ContactFormValue } from '@/components/contact-sales';
+import { ContactSalesForm } from '@/components/contact-sales';
+import { Typography } from '@/components/ui-custom/typography';
+import { BannerTag } from '../ui-custom/BannerTag';
+import { CardShadeOverlay } from '../ui-custom/card-shade-overlay';
 
 function handleDemoRequest(value: ContactFormValue) {
-	console.log("Request demo submit", value);
+	console.log('Request demo submit', value);
 	alert("Demo request received! We'll be in touch soon.");
 }
 
 export default function RequestDemoSection() {
 	return (
-		<section className="relative overflow-hidden px-4 md:px-(--es-section-px) py-(--es-section-py) bg-bg-primary">
+		<section className="relative overflow-hidden px-4 md:px-8 xl:px-(--es-section-px) py-(--es-section-py) bg-bg-primary">
 			<div
 				aria-hidden
 				className="pointer-events-none absolute bottom-0 z-0 h-full w-full rounded-full bg-grad-lightblue"

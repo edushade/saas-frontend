@@ -1,6 +1,6 @@
-import { MDXContent } from "@content-collections/mdx/react";
-import { Typography } from "@/components/ui-custom/typography";
-import type { LegalDocument } from "@/constants/legal";
+import { MDXContent } from '@content-collections/mdx/react';
+import { Typography } from '@/components/ui-custom/typography';
+import type { LegalDocument } from '@/constants/legal';
 
 export interface LegalPageViewProps {
 	doc: LegalDocument;
@@ -8,7 +8,7 @@ export interface LegalPageViewProps {
 
 export function LegalPageView({ doc }: LegalPageViewProps) {
 	return (
-		<main className="min-h-screen bg-bg-primary pt-(--es-section-pt)  px-4 md:px-(--es-section-px)">
+		<main className="min-h-screen bg-bg-primary pt-(--es-section-pt)  px-4 md:px-8 xl:px-(--es-section-px)">
 			<article className="mx-auto max-w-[680px] px-4 	 py-(--es-section-py)">
 				<header className="mb-8">
 					<Typography

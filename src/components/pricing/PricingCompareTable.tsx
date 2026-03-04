@@ -1,19 +1,19 @@
-import { InfoIcon as InfoIconIcon } from "@/assets/icons";
+import { InfoIcon as InfoIconIcon } from '@/assets/icons';
 import {
 	Tooltip,
 	TooltipContent,
 	TooltipProvider,
 	TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { Typography } from "@/components/ui-custom/typography";
+} from '@/components/ui/tooltip';
+import { Typography } from '@/components/ui-custom/typography';
 import {
 	type BillingCycle,
 	PRICING_COMPARE_SECTIONS,
 	type PricingCompareRow,
 	type PricingCompareSection,
-} from "@/constants/pricing";
+} from '@/constants/pricing';
 
-const PLAN_LABELS = ["Starter", "Growth", "Advanced"] as const;
+const PLAN_LABELS = ['Starter', 'Growth', 'Advanced'] as const;
 
 function InfoIcon({ tooltip }: { tooltip: string }) {
 	return (
@@ -33,7 +33,7 @@ function InfoIcon({ tooltip }: { tooltip: string }) {
 }
 
 function getRowValues(row: PricingCompareRow, billing: BillingCycle) {
-	const isAnnually = billing === "annually";
+	const isAnnually = billing === 'annually';
 	return {
 		starter:
 			isAnnually && row.starterAnnual != null ? row.starterAnnual : row.starter,

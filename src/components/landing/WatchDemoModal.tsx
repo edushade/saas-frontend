@@ -1,8 +1,8 @@
-import { useRef, useState } from "react";
-import { VideoWatchIcon } from "@/assets/icons";
-import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { cn } from "@/lib/utils";
+import { useRef, useState } from 'react';
+import { VideoWatchIcon } from '@/assets/icons';
+import { Button } from '@/components/ui/button';
+import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { cn } from '@/lib/utils';
 
 export interface WatchDemoModalProps {
 	open: boolean;
@@ -15,8 +15,8 @@ export interface WatchDemoModalProps {
 export function WatchDemoModal({
 	open,
 	onOpenChange,
-	videoSrc = "/videos/intro.mp4",
-	title = "Watch Demo",
+	videoSrc = '/videos/intro.mp4',
+	title = 'Watch Demo',
 	className,
 }: WatchDemoModalProps) {
 	const videoRef = useRef<HTMLVideoElement>(null);
@@ -31,8 +31,8 @@ export function WatchDemoModal({
 		<Dialog open={open} onOpenChange={onOpenChange}>
 			<DialogContent
 				className={cn(
-					"max-w-2xl aspect-video p-0 gap-0 overflow-hidden rounded-2xl border-0 shadow-xl",
-					"backdrop-blur-md bg-background/90",
+					'max-w-2xl aspect-video p-0 gap-0 overflow-hidden rounded-2xl border-0 shadow-xl',
+					'backdrop-blur-md bg-background/90',
 					className,
 				)}
 				overlayClassName="bg-black/15"

@@ -10,13 +10,13 @@ export interface ContactFormValue {
 }
 
 export const DEFAULT_CONTACT_FORM_VALUES: ContactFormValue = {
-	firstName: "",
-	lastName: "",
-	email: "",
-	phone: "",
-	phoneCountry: "US",
-	phoneNumber: "",
-	message: "",
+	firstName: '',
+	lastName: '',
+	email: '',
+	phone: '',
+	phoneCountry: 'US',
+	phoneNumber: '',
+	message: '',
 	agreeTerms: false,
 };
 
@@ -25,16 +25,16 @@ export function getContactFormValidators() {
 		onBlur: ({ value }: { value: ContactFormValue }) => {
 			const errors: { fields: Record<string, string> } = { fields: {} };
 			if (!value.firstName?.trim())
-				errors.fields.firstName = "First name is required";
+				errors.fields.firstName = 'First name is required';
 			if (!value.lastName?.trim())
-				errors.fields.lastName = "Last name is required";
-			if (!value.email?.trim()) errors.fields.email = "Email is required";
+				errors.fields.lastName = 'Last name is required';
+			if (!value.email?.trim()) errors.fields.email = 'Email is required';
 			else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.email))
-				errors.fields.email = "Invalid email address";
+				errors.fields.email = 'Invalid email address';
 			if (!value.phone?.trim())
-				errors.fields.phone = "Phone number is required";
+				errors.fields.phone = 'Phone number is required';
 			if (!value.agreeTerms)
-				errors.fields.agreeTerms = "You must agree to the Terms & Conditions";
+				errors.fields.agreeTerms = 'You must agree to the Terms & Conditions';
 			return errors;
 		},
 	};

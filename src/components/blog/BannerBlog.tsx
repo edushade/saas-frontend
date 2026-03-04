@@ -1,24 +1,24 @@
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Typography } from "@/components/ui-custom/typography";
-import { BannerTag } from "../ui-custom/BannerTag";
-import { CardShadeOverlay } from "../ui-custom/card-shade-overlay";
+import { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Typography } from '@/components/ui-custom/typography';
+import { BannerTag } from '../ui-custom/BannerTag';
+import { CardShadeOverlay } from '../ui-custom/card-shade-overlay';
 
-const PRIVACY_POLICY_HREF = "/privacy-policy";
+const PRIVACY_POLICY_HREF = '/privacy-policy';
 
 export default function BannerBlog() {
-	const [email, setEmail] = useState("");
+	const [email, setEmail] = useState('');
 
 	function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
 		e.preventDefault();
 		if (email.trim()) {
-			setEmail("");
+			setEmail('');
 		}
 	}
 
 	return (
-		<section className="relative overflow-hidden px-4 py-(--es-section-py) md:px-(--es-section-px) bg-bg-primary">
+		<section className="relative overflow-hidden px-4 md:px-8 xl:px-(--es-section-px) py-(--es-section-py) bg-bg-primary">
 			<div
 				aria-hidden
 				className="pointer-events-none absolute bottom-0 z-0 h-full w-full rounded-full bg-grad-lightblue"
@@ -65,7 +65,7 @@ export default function BannerBlog() {
 					</form>
 
 					<Typography variant="small" className="mt-4 text-text-tertiary">
-						We care about your data in our{" "}
+						We care about your data in our{' '}
 						<a
 							href={PRIVACY_POLICY_HREF}
 							className="font-medium text-brand-200 underline-offset-2 hover:underline"

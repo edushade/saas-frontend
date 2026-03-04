@@ -1,7 +1,7 @@
-import { getFeatureBySlug } from "@/constants/features";
-import { FeatureBanner } from "./FeatureBanner";
+import { getFeatureBySlug } from '@/constants/features';
+import { FeatureBanner } from './FeatureBanner';
 
-const COURSES_SLUG = "courses";
+const COURSES_SLUG = 'courses';
 
 export function CourseFeatureBanner() {
 	const content = getFeatureBySlug(COURSES_SLUG);

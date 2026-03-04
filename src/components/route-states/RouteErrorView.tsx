@@ -1,6 +1,6 @@
-import type { ErrorComponentProps } from "@tanstack/react-router";
-import { Button } from "@/components/ui/button";
-import { Typography } from "@/components/ui-custom/typography";
+import type { ErrorComponentProps } from '@tanstack/react-router';
+import { Button } from '@/components/ui/button';
+import { Typography } from '@/components/ui-custom/typography';
 
 export function RouteErrorView({ error, reset }: ErrorComponentProps) {
 	return (
@@ -12,7 +12,7 @@ export function RouteErrorView({ error, reset }: ErrorComponentProps) {
 				variant="base"
 				className="max-w-md text-center text-text-secondary"
 			>
-				{error?.message ?? "An unexpected error occurred."}
+				{error?.message ?? 'An unexpected error occurred.'}
 			</Typography>
 			<Button onClick={reset}>Try again</Button>
 		</div>

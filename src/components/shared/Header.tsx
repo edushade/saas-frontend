@@ -1,15 +1,15 @@
-import { Link, useRouterState } from "@tanstack/react-router";
-import { ArrowUpRight, Menu } from "lucide-react";
-import { useState } from "react";
-import { DiamondIcon } from "@/assets/icons";
+import { Link, useRouterState } from '@tanstack/react-router';
+import { ArrowUpRight, Menu } from 'lucide-react';
+import { useState } from 'react';
+import { DiamondIcon } from '@/assets/icons';
 import {
 	Accordion,
 	AccordionContent,
 	AccordionItem,
 	AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
+} from '@/components/ui/accordion';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import {
 	NavigationMenu,
 	NavigationMenuContent,
@@ -17,22 +17,22 @@ import {
 	NavigationMenuList,
 	NavigationMenuTrigger,
 	navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
+} from '@/components/ui/navigation-menu';
 import {
 	Sheet,
 	SheetContent,
 	SheetHeader,
 	SheetTitle,
 	SheetTrigger,
-} from "@/components/ui/sheet";
+} from '@/components/ui/sheet';
 import {
 	FEATURES_CTA,
 	FEATURES_GROUPS,
 	NAV_LINKS,
 	RESOURCES_ITEMS,
-} from "@/constants/nav";
-import { cn } from "@/lib/utils";
-import { Typography } from "../ui-custom/typography";
+} from '@/constants/nav';
+import { cn } from '@/lib/utils';
+import { Typography } from '../ui-custom/typography';
 
 function FeaturesMenu({
 	openNav,
@@ -42,22 +42,22 @@ function FeaturesMenu({
 	onOpenChange: (v: string | null) => void;
 }) {
 	const pathname = useRouterState({ select: (s) => s.location.pathname });
-	const isFeaturesActive = pathname.startsWith("/features");
+	const isFeaturesActive = pathname.startsWith('/features');
 
 	return (
 		<NavigationMenu
 			viewport={false}
-			value={openNav === "features" ? "features" : ""}
+			value={openNav === 'features' ? 'features' : ''}
 			onValueChange={(v) => onOpenChange(v || null)}
 		>
 			<NavigationMenuList>
 				<NavigationMenuItem value="features">
 					<NavigationMenuTrigger
 						className={cn(
-							"bg-transparent text-text-dark-2 rounded-full text-sm font-medium",
-							"hover:text-brand-300 hover:bg-bg-secondary",
-							"data-[state=open]:bg-bg-secondary data-[state=open]:text-brand-300",
-							isFeaturesActive && "bg-bg-secondary text-brand-300",
+							'bg-transparent text-text-dark-2 rounded-full text-sm font-medium',
+							'hover:text-brand-300 hover:bg-bg-secondary',
+							'data-[state=open]:bg-bg-secondary data-[state=open]:text-brand-300',
+							isFeaturesActive && 'bg-bg-secondary text-brand-300',
 						)}
 					>
 						Features
@@ -80,9 +80,9 @@ function FeaturesMenu({
 														to={item.href}
 														onClick={() => onOpenChange(null)}
 														className={cn(
-															"flex items-start gap-3 rounded-lg py-2 transition-colors hover:bg-bg-secondary",
+															'flex items-start gap-3 rounded-lg py-2 transition-colors hover:bg-bg-secondary',
 															pathname === item.href &&
-																"bg-bg-secondary text-brand-300",
+																'bg-bg-secondary text-brand-300',
 														)}
 													>
 														<div className="bg-bg-tertiary rounded-md p-0.5 hover:bg-bg-secondary">
@@ -94,10 +94,10 @@ function FeaturesMenu({
 															<Typography
 																variant="small"
 																className={cn(
-																	"leading-tight font-medium",
+																	'leading-tight font-medium',
 																	pathname === item.href
-																		? "text-brand-300"
-																		: "text-text-primary",
+																		? 'text-brand-300'
+																		: 'text-text-primary',
 																)}
 															>
 																{item.label}
@@ -127,7 +127,7 @@ function FeaturesMenu({
 										<Typography variant="small" className="leading-relaxed">
 											<span className="font-medium text-text-primary">
 												{FEATURES_CTA.highlight}
-											</span>{" "}
+											</span>{' '}
 											<span className="font-normal leading-relaxed text-text-secondary">
 												{FEATURES_CTA.text}
 											</span>
@@ -164,17 +164,17 @@ function ResourcesMenu({
 	return (
 		<NavigationMenu
 			viewport={false}
-			value={openNav === "resources" ? "resources" : ""}
+			value={openNav === 'resources' ? 'resources' : ''}
 			onValueChange={(v) => onOpenChange(v || null)}
 		>
 			<NavigationMenuList>
 				<NavigationMenuItem value="resources">
 					<NavigationMenuTrigger
 						className={cn(
-							"bg-transparent text-text-dark-2 rounded-full text-sm font-medium",
-							"hover:text-brand-300 hover:bg-bg-secondary",
-							"data-[state=open]:bg-bg-secondary data-[state=open]:text-brand-300",
-							isResourcesActive && "bg-bg-secondary text-brand-300",
+							'bg-transparent text-text-dark-2 rounded-full text-sm font-medium',
+							'hover:text-brand-300 hover:bg-bg-secondary',
+							'data-[state=open]:bg-bg-secondary data-[state=open]:text-brand-300',
+							isResourcesActive && 'bg-bg-secondary text-brand-300',
 						)}
 					>
 						Resources
@@ -187,18 +187,18 @@ function ResourcesMenu({
 										to={item.href}
 										onClick={() => onOpenChange(null)}
 										className={cn(
-											"flex items-center gap-2.5 rounded-md px-3 py-2 transition-colors hover:bg-bg-secondary hover:text-text-on-brand w-full",
+											'flex items-center gap-2.5 rounded-md px-3 py-2 transition-colors hover:bg-bg-secondary hover:text-text-on-brand w-full',
 											pathname === item.href &&
-												"bg-bg-secondary text-brand-300",
+												'bg-bg-secondary text-brand-300',
 										)}
 									>
 										<item.icon className="shrink-0 text-brand-200" />
 										<span
 											className={cn(
-												"text-sm font-medium",
+												'text-sm font-medium',
 												pathname === item.href
-													? "text-brand-300"
-													: "text-text-secondary",
+													? 'text-brand-300'
+													: 'text-text-secondary',
 											)}
 										>
 											{item.label}
@@ -327,7 +327,7 @@ export default function Header() {
 	const pathname = useRouterState({ select: (s) => s.location.pathname });
 
 	return (
-		<header className="fixed top-0 left-0  right-0 z-50 flex items-center px-(--es-section-px) h-(--es-nav-h) bg-bg-primary">
+		<header className="fixed top-0 left-0  right-0 z-50 flex items-center px-4 md:px-8 xl:px-(--es-section-px) h-(--es-nav-h) bg-bg-primary">
 			<div className="mx-auto w-full max-w-(--es-max-w) flex items-center justify-between">
 				<Link to="/" className="flex items-center h-11">
 					<img
@@ -344,17 +344,17 @@ export default function Header() {
 						{NAV_LINKS.map((link) => {
 							const isLinkActive =
 								pathname === link.href ||
-								(link.href !== "/" && pathname.startsWith(`${link.href}/`));
+								(link.href !== '/' && pathname.startsWith(`${link.href}/`));
 							return (
 								<Link
 									key={link.label}
 									to={link.href}
 									className={cn(
 										navigationMenuTriggerStyle(),
-										"bg-transparent text-text-dark-2 rounded-full text-sm font-medium",
-										"hover:text-brand-300 hover:bg-bg-secondary",
-										"data-[state=open]:bg-bg-secondary data-[state=open]:text-brand-300",
-										isLinkActive && "bg-bg-secondary text-brand-300",
+										'bg-transparent text-text-dark-2 rounded-full text-sm font-medium',
+										'hover:text-brand-300 hover:bg-bg-secondary',
+										'data-[state=open]:bg-bg-secondary data-[state=open]:text-brand-300',
+										isLinkActive && 'bg-bg-secondary text-brand-300',
 									)}
 								>
 									{link.label}

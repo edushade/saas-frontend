@@ -1,30 +1,30 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { VideoCard } from "../shared";
-import { CardShadeOverlay } from "../ui-custom/card-shade-overlay";
-import { Typography } from "../ui-custom/typography";
+import { Card, CardContent } from '@/components/ui/card';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { VideoCard } from '../shared';
+import { CardShadeOverlay } from '../ui-custom/card-shade-overlay';
+import { Typography } from '../ui-custom/typography';
 
 const TAB_CONTENT = {
 	creators: {
-		leftSrc: "/svgs/build-for-teach/1.svg",
-		leftAlt: "Create Learning Path — assign learners",
-		rightSrc: "/videos/intro.mp4",
-		rightAlt: "Watch Intro",
-		videoLabel: "Watch Intro",
+		leftSrc: '/svgs/build-for-teach/1.svg',
+		leftAlt: 'Create Learning Path — assign learners',
+		rightSrc: '/videos/intro.mp4',
+		rightAlt: 'Watch Intro',
+		videoLabel: 'Watch Intro',
 	},
 	academies: {
-		leftSrc: "/svgs/build-for-teach/1.svg",
-		leftAlt: "For Academies — manage courses",
-		rightSrc: "/svgs/build-for-teach/2.svg",
-		rightAlt: "Academy overview",
-		videoLabel: "Watch Overview",
+		leftSrc: '/svgs/build-for-teach/1.svg',
+		leftAlt: 'For Academies — manage courses',
+		rightSrc: '/svgs/build-for-teach/2.svg',
+		rightAlt: 'Academy overview',
+		videoLabel: 'Watch Overview',
 	},
 	schools: {
-		leftSrc: "/svgs/build-for-teach/1.svg",
-		leftAlt: "For Schools — classroom tools",
-		rightSrc: "/svgs/build-for-teach/3.svg",
-		rightAlt: "School intro",
-		videoLabel: "Watch Intro",
+		leftSrc: '/svgs/build-for-teach/1.svg',
+		leftAlt: 'For Schools — classroom tools',
+		rightSrc: '/svgs/build-for-teach/3.svg',
+		rightAlt: 'School intro',
+		videoLabel: 'Watch Intro',
 	},
 };
 
@@ -44,11 +44,11 @@ function ImageCard({ src, alt }: { src: string; alt: string }) {
 
 export default function BuiltForTeachSection() {
 	return (
-		<section className="bg-bg-primary py-(--es-section-py) px-4 md:px-(--es-section-px)">
+		<section className="bg-bg-primary py-(--es-section-py) px-4 md:px-8 xl:px-(--es-section-px)">
 			<div className="mx-auto max-w-(--es-max-w) ">
-				<Tabs defaultValue="creators">
-					<div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 lg:gap-12 items-end">
-						<div className="flex flex-col gap-4">
+				<Tabs defaultValue="creators" className="flex flex-col gap-11">
+					<div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-4 md:gap-8 xl:gap-12 items-end">
+						<div className="flex flex-col gap-6">
 							<Typography
 								variant="h1"
 								className="text-2xl md:text-[2rem] lg:text-[2.75rem] leading-tight font-medium text-text-primary"
@@ -57,14 +57,14 @@ export default function BuiltForTeachSection() {
 							</Typography>
 							<Typography
 								variant="h6"
-								className="font-normal leading-relaxed text-text-secondary max-w-[728px]"
+								className="font-normal leading-normal text-text-secondary max-w-[728px]"
 							>
 								From solo creators to academies and universities, Edushade
 								supports diverse teaching models with flexibility, clarity, and
 								control.
 							</Typography>
 						</div>
-						<TabsList className="bg-bg-tertiary rounded-2xl p-1 h-16 group-data-[orientation=horizontal]/tabs:h-11 w-full lg:w-auto">
+						<TabsList className="bg-bg-tertiary rounded-2xl p-1 h-16 group-data-[orientation=horizontal]/tabs:h-11 w-full max-w-[432px] lg:w-auto">
 							<TabsTrigger
 								value="creators"
 								className="data-[state=active]:bg-brand-300 data-[state=active]:text-white data-[state=active]:shadow-sm rounded-xl px-4 h-full py-2 text-sm font-medium"
@@ -86,13 +86,13 @@ export default function BuiltForTeachSection() {
 						</TabsList>
 					</div>
 
-					{(["creators", "academies", "schools"] as const).map((tab) => {
+					{(['creators', 'academies', 'schools'] as const).map((tab) => {
 						const c = TAB_CONTENT[tab];
 						return (
 							<TabsContent
 								key={tab}
 								value={tab}
-								className="mt-10 outline-none data-[state=inactive]:hidden"
+								className="outline-none data-[state=inactive]:hidden"
 							>
 								<div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
 									<Card className="relative overflow-hidden rounded-2xl border-none bg-bg-tertiary p-0">

@@ -1,11 +1,11 @@
-import { Link } from "@tanstack/react-router";
-import { Button } from "@/components/ui/button";
-import { BannerTag } from "@/components/ui-custom/BannerTag";
-import { Typography } from "@/components/ui-custom/typography";
-import type { FeatureBannerContent } from "@/constants/features";
-import { VideoCard } from "../shared";
-import { Card, CardContent } from "../ui/card";
-import { CardShadeOverlay } from "../ui-custom/card-shade-overlay";
+import { Link } from '@tanstack/react-router';
+import { Button } from '@/components/ui/button';
+import { BannerTag } from '@/components/ui-custom/BannerTag';
+import { Typography } from '@/components/ui-custom/typography';
+import type { FeatureBannerContent } from '@/constants/features';
+import { VideoCard } from '../shared';
+import { Card, CardContent } from '../ui/card';
+import { CardShadeOverlay } from '../ui-custom/card-shade-overlay';
 
 export interface FeatureBannerProps extends FeatureBannerContent {}
 
@@ -17,7 +17,7 @@ export function FeatureBanner({
 	ctaTo,
 }: FeatureBannerProps) {
 	return (
-		<section className="relative bg-bg-primary px-4 py-(--es-section-py) md:px-(--es-section-px)">
+		<section className="relative bg-bg-primary px-4 md:px-8 xl:px-(--es-section-px) py-(--es-section-py)">
 			<div
 				aria-hidden
 				className="pointer-events-none absolute bottom-0 z-0 h-full w-full rounded-full bg-grad-lightblue"
@@ -49,7 +49,7 @@ export function FeatureBanner({
 				<Card className="flex overflow-hidden rounded-xl border border-border-primary shadow-sm bg-bg-tertiary p-1">
 					<CardContent className="relative flex min-h-0 flex-1 p-1 bg-[#FFFFFF] rounded-xl">
 						<VideoCard
-							src={"/videos/intro.mp4"}
+							src={'/videos/intro.mp4'}
 							alt="Introduction to Edushade"
 							label="Introduction to Edushade"
 							className="bg-transparent"

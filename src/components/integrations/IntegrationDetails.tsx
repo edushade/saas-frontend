@@ -1,9 +1,9 @@
-import { Link } from "@tanstack/react-router";
-import { ArrowLeftIcon } from "@/assets/icons";
-import { Typography } from "@/components/ui-custom/typography";
-import type { IntegrationDetail } from "@/constants/integrations";
-import { cn } from "@/lib/utils";
-import { Badge } from "../ui/badge";
+import { Link } from '@tanstack/react-router';
+import { ArrowLeftIcon } from '@/assets/icons';
+import { Typography } from '@/components/ui-custom/typography';
+import type { IntegrationDetail } from '@/constants/integrations';
+import { cn } from '@/lib/utils';
+import { Badge } from '../ui/badge';
 
 export interface IntegrationDetailsProps {
 	integration: IntegrationDetail;
@@ -11,8 +11,8 @@ export interface IntegrationDetailsProps {
 
 export function IntegrationDetails({ integration }: IntegrationDetailsProps) {
 	return (
-		<div className=" px-4  md:px-(--es-section-px) py-(--es-section-py) bg-bg-primary">
-			<div className="mx-auto max-w-[760px]  flex flex-col gap-2  md:gap-6">
+		<div className="px-4 md:px-8 xl:px-(--es-section-px) py-(--es-section-py) bg-bg-primary">
+			<div className="mx-auto max-w-[760px] flex flex-col gap-2 md:gap-6">
 				<Link
 					to="/integrations"
 					className="inline-flex items-center gap-2 text-text-primary transition-colors hover:text-brand-200"
@@ -30,7 +30,7 @@ export function IntegrationDetails({ integration }: IntegrationDetailsProps) {
 					<div className="flex flex-col gap-6 ">
 						<div
 							className={cn(
-								"flex size-[80px] shrink-0 rounded-xl items-center shadow-md p-0.5 justify-center  text-lg font-semibold text-white",
+								'flex size-[80px] shrink-0 rounded-xl items-center shadow-md p-0.5 justify-center  text-lg font-semibold text-white',
 							)}
 						>
 							<img

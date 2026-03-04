@@ -1,4 +1,4 @@
-import { FEATURE_SLUGS } from "@/constants/features";
+import { FEATURE_SLUGS } from '@/constants/features';
 
 export function PrerenderFeatureLinks() {
 	return (

@@ -1,8 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { ContactSalesSection } from "@/components/contact-sales";
-import { CtaSection, FAQSection, LogosSection } from "@/components/shared";
+import { createFileRoute } from '@tanstack/react-router';
+import { ContactSalesSection } from '@/components/contact-sales';
+import { CtaSection, FAQSection, LogosSection } from '@/components/shared';
 
-export const Route = createFileRoute("/_main/contact-sales")({
+export const Route = createFileRoute('/_main/contact-sales')({
 	component: ContactSalesPage,
 });
 

@@ -1,26 +1,26 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link } from '@tanstack/react-router';
 import {
 	FeatureBanner,
 	StartCourseIn60SecondsSection,
 	WhatCoursesLetsYouDoSection,
-} from "@/components/features";
-import FeatureSplitSection from "@/components/features/FeatureSplitSection";
-import { CtaSection, FAQSection } from "@/components/shared";
-import { getFeatureBySlug } from "@/constants/features";
+} from '@/components/features';
+import FeatureSplitSection from '@/components/features/FeatureSplitSection';
+import { CtaSection, FAQSection } from '@/components/shared';
+import { getFeatureBySlug } from '@/constants/features';
 
-export const Route = createFileRoute("/_main/features/$slug")({
+export const Route = createFileRoute('/_main/features/$slug')({
 	component: FeaturePage,
 	head: ({ params }) => {
-		const feature = getFeatureBySlug(params?.slug ?? "");
-		const title = feature ? `${feature.tag} | Edushade` : "Feature | Edushade";
-		const description = feature?.description ?? "Explore Edushade features.";
+		const feature = getFeatureBySlug(params?.slug ?? '');
+		const title = feature ? `${feature.tag} | Edushade` : 'Feature | Edushade';
+		const description = feature?.description ?? 'Explore Edushade features.';
 		return {
-			meta: [{ title }, { name: "description", content: description }],
+			meta: [{ title }, { name: 'description', content: description }],
 		};
 	},
 });
 
-const COURSES_SLUG = "courses";
+const COURSES_SLUG = 'courses';
 
 function FeaturePage() {
 	const { slug } = Route.useParams();
@@ -38,7 +38,7 @@ function FeaturePage() {
 					</p>
 					<Link
 						to="/features/$slug"
-						params={{ slug: "courses" }}
+						params={{ slug: 'courses' }}
 						className="mt-4 inline-block font-medium text-brand-300 hover:underline"
 					>
 						View Courses
@@ -57,10 +57,10 @@ function FeaturePage() {
 					title="Choose the course type that fits your goals"
 					description="Design organized courses that guide learners step by step. Edushade gives educators full control over lessons, progression, and completion without turning course setup into a technical task."
 					lists={[
-						"Build structured courses with lessons, modules, and sections",
-						"Support self-paced and cohort-based course formats",
-						"Control learner progression with prerequisites and completion rules",
-						"Deliver consistent learning experiences at any scale",
+						'Build structured courses with lessons, modules, and sections',
+						'Support self-paced and cohort-based course formats',
+						'Control learner progression with prerequisites and completion rules',
+						'Deliver consistent learning experiences at any scale',
 					]}
 					imgSrc="/svgs/courses/course-types.svg"
 					reverse={true}
@@ -71,10 +71,10 @@ function FeaturePage() {
 					title="Multiple Assessment Types for Better Learning"
 					description="Edushade lets educators evaluate understanding through quizzes, assignments, reflections, and more, without adding friction to the course flow."
 					lists={[
-						"Quizzes for quick knowledge checks",
-						"Assignments for deeper learning and practice",
-						"Reflections and written responses",
-						"Media-based submissions for flexible expression",
+						'Quizzes for quick knowledge checks',
+						'Assignments for deeper learning and practice',
+						'Reflections and written responses',
+						'Media-based submissions for flexible expression',
 					]}
 					imgSrc="/svgs/courses/assesments.svg"
 					reverse={false}
@@ -85,10 +85,10 @@ function FeaturePage() {
 					title="Manage Course Instructors with Ease"
 					description="Select, assign, and manage instructors across your courses. Edushade keeps roles clear so teams can focus on delivering quality learning."
 					lists={[
-						"Support single or multi-instructor courses",
-						"Role-based access for instructors and assistants",
-						"Clear ownership over course content",
-						"Smooth collaboration at scale",
+						'Support single or multi-instructor courses',
+						'Role-based access for instructors and assistants',
+						'Clear ownership over course content',
+						'Smooth collaboration at scale',
 					]}
 					imgSrc="/svgs/courses/instructor.svg"
 					reverse={true}

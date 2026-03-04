@@ -1,11 +1,11 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { CardShadeOverlay } from "../ui-custom/card-shade-overlay";
-import { Typography } from "../ui-custom/typography";
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { CardShadeOverlay } from '../ui-custom/card-shade-overlay';
+import { Typography } from '../ui-custom/typography';
 
 export default function CtaSection() {
 	return (
-		<section className="bg-bg-primary py-(--es-section-py) px-4 md:px-(--es-section-px)">
+		<section className="bg-bg-primary py-(--es-section-py) px-4 md:px-8 xl:px-(--es-section-px)">
 			<div className="mx-auto max-w-(--es-max-w) ">
 				<Card className="relative border-border-secondary min-h-[400px] flex flex-col justify-center items-center py-0 shadow-none overflow-hidden rounded-4xl bg-bg-primary">
 					<img

@@ -1,82 +1,82 @@
-import { Link } from "@tanstack/react-router";
-import { DiscordIcon } from "@/assets/icons/discord-icon";
-import { FacebookIcon } from "@/assets/icons/facebook-icon";
-import { InstagramIcon } from "@/assets/icons/instagram-icon";
-import { LinkedinIcon } from "@/assets/icons/linkedin-icon";
-import { XIcon } from "@/assets/icons/X-icon";
-import { Typography } from "../ui-custom/typography";
+import { Link } from '@tanstack/react-router';
+import { DiscordIcon } from '@/assets/icons/discord-icon';
+import { FacebookIcon } from '@/assets/icons/facebook-icon';
+import { InstagramIcon } from '@/assets/icons/instagram-icon';
+import { LinkedinIcon } from '@/assets/icons/linkedin-icon';
+import { XIcon } from '@/assets/icons/X-icon';
+import { Typography } from '../ui-custom/typography';
 
 const FOOTER_COLUMNS = [
 	{
-		heading: "Products",
+		heading: 'Products',
 		links: [
-			{ label: "Student Panel", to: "/" },
-			{ label: "Teacher Panel", to: "/" },
-			{ label: "Admin Panel", to: "/" },
-			{ label: "Pricing", to: "/pricing" },
+			{ label: 'Student Panel', to: '/' },
+			{ label: 'Teacher Panel', to: '/' },
+			{ label: 'Admin Panel', to: '/' },
+			{ label: 'Pricing', to: '/pricing' },
 		],
 	},
 	{
-		heading: "Use Cases",
+		heading: 'Use Cases',
 		links: [
-			{ label: "For Tutors", to: "/" },
-			{ label: "For Educators", to: "/" },
-			{ label: "For Academies", to: "/" },
-			{ label: "For Schools & Universities", to: "/" },
-			{ label: "For Training Teams", to: "/" },
+			{ label: 'For Tutors', to: '/' },
+			{ label: 'For Educators', to: '/' },
+			{ label: 'For Academies', to: '/' },
+			{ label: 'For Schools & Universities', to: '/' },
+			{ label: 'For Training Teams', to: '/' },
 		],
 	},
 	{
-		heading: "Resources",
+		heading: 'Resources',
 		links: [
-			{ label: "Documentation", to: "/" },
-			{ label: "Blog", to: "/blogs" },
-			{ label: "Changelog", to: "/" },
-			{ label: "Videos", to: "/" },
+			{ label: 'Documentation', to: '/' },
+			{ label: 'Blog', to: '/blogs' },
+			{ label: 'Changelog', to: '/' },
+			{ label: 'Videos', to: '/' },
 		],
 	},
 	{
-		heading: "Company",
+		heading: 'Company',
 		links: [
-			{ label: "About Us", to: "/" },
-			{ label: "Careers", to: "/" },
-			{ label: "Contact", to: "/contact-us" },
+			{ label: 'About Us', to: '/' },
+			{ label: 'Careers', to: '/' },
+			{ label: 'Contact', to: '/contact-us' },
 		],
 	},
 	{
-		heading: "Legal",
+		heading: 'Legal',
 		links: [
-			{ label: "Terms of Service", to: "/terms-of-service" },
-			{ label: "Privacy Policy", to: "/privacy-policy" },
-			{ label: "Cookie Policy", to: "/cookie-policy" },
+			{ label: 'Terms of Service', to: '/terms-of-service' },
+			{ label: 'Privacy Policy', to: '/privacy-policy' },
+			{ label: 'Cookie Policy', to: '/cookie-policy' },
 		],
 	},
 ];
 
 const BOTTOM_LINKS = [
-	{ label: "Privacy Policy", to: "/privacy-policy" },
-	{ label: "Terms of Service", to: "/terms-of-service" },
-	{ label: "Cookie Policy", to: "/cookie-policy" },
+	{ label: 'Privacy Policy', to: '/privacy-policy' },
+	{ label: 'Terms of Service', to: '/terms-of-service' },
+	{ label: 'Cookie Policy', to: '/cookie-policy' },
 ];
 
 const SOCIAL_ICONS = [
-	{ Icon: LinkedinIcon, label: "LinkedIn", href: "#" },
-	{ Icon: InstagramIcon, label: "Instagram", href: "#" },
-	{ Icon: XIcon, label: "X", href: "#" },
-	{ Icon: FacebookIcon, label: "Facebook", href: "#" },
-	{ Icon: DiscordIcon, label: "Discord", href: "#" },
+	{ Icon: LinkedinIcon, label: 'LinkedIn', href: '#' },
+	{ Icon: InstagramIcon, label: 'Instagram', href: '#' },
+	{ Icon: XIcon, label: 'X', href: '#' },
+	{ Icon: FacebookIcon, label: 'Facebook', href: '#' },
+	{ Icon: DiscordIcon, label: 'Discord', href: '#' },
 ];
 
 export default function Footer() {
 	return (
-		<footer className="relative w-full overflow-hidden bg-[linear-gradient(180deg,#222222_0%,#07003D_100%)]">
-			<div className="relative mx-auto flex max-w-(--es-max-w) flex-col gap-10 px-4 pb-0 pt-8 md:px-(--es-section-px) md:pt-12">
+		<footer className="relative w-full overflow-hidden bg-[linear-gradient(180deg,#000000_0%,rgba(0,0,0,0)_100%),linear-gradient(180deg,#222222_0%,#07003D_100%)]">
+			<div className="relative mx-auto flex max-w-(--es-max-w) flex-col gap-10 pb-0 pt-8 px-4 md:px-8 xl:px-(--es-section-px) md:pt-12">
 				<nav
 					className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 items-stretch gap-y-8"
 					aria-label="Footer navigation"
 				>
 					{FOOTER_COLUMNS.map((column) => (
-						<div key={column.heading} className="flex flex-col gap-2">
+						<div key={column.heading} className="flex flex-col gap-8">
 							<Typography
 								variant="extraSmall"
 								className="font-semibold tracking-widest text-text-on-brand"
@@ -144,16 +144,19 @@ export default function Footer() {
 				</div>
 			</div>
 
-			{/* Large decorative "Edushade" — full width of footer (viewport-wide), text scales, vertically centered */}
-			<div className="flex min-h-56 max-h-[220px] w-full items-center justify-center md:min-h-72">
-				<section
-					className="flex w-full items-center justify-center px-4 md:px-8"
-					aria-hidden
-				>
-					<span className="block w-full text-center font-medium leading-none tracking-tighter text-text-white-alpha text-[clamp(4rem,18vw,18rem)]">
+			{/* Large decorative wordmark — aligned with footer content padding */}
+			<div
+				className="w-full  max-w-(--es-max-w) mx-auto px-4 md:px-8 xl:px-(--es-section-px) pointer-events-none animate-[pulse_4s_infinite]"
+				aria-hidden="true"
+			>
+				<div className="@container w-full overflow-hidden">
+					<span
+						className="block font-medium leading-none text-text-white-alpha whitespace-nowrap"
+						style={{ fontSize: '20.5cqw' }}
+					>
 						Edushade
 					</span>
-				</section>
+				</div>
 			</div>
 		</footer>
 	);

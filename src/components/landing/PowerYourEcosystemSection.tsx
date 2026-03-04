@@ -60,11 +60,11 @@ function EcosystemFeatureCard({
 					'aspect-square w-full shadow-[0px_10px_18px_-2px_#0A090B12]',
 				)}
 			>
-				<div className="absolute inset-0">
+				<div className="absolute inset-0 min-w-0 min-h-0">
 					<img
 						src="/svgs/small-grid.svg"
-						alt={label}
-						className="w-full h-full object-cover"
+						alt=""
+						className="w-full h-full object-contain object-center sm:object-cover"
 					/>
 				</div>
 
@@ -85,7 +85,7 @@ function EcosystemFeatureCard({
 
 export default function PowerYourEcosystemSection() {
 	return (
-		<section className="bg-bg-primary py-(--es-section-py) px-4 md:px-(--es-section-px)">
+		<section className="bg-bg-primary py-(--es-section-py) px-4 md:px-8 xl:px-(--es-section-px)">
 			<div className="mx-auto max-w-(--es-max-w) flex flex-col gap-6">
 				<div className="flex flex-col gap-4 md:gap-6">
 					<Typography
@@ -106,7 +106,7 @@ export default function PowerYourEcosystemSection() {
 
 				<Card className="mt-8 overflow-hidden border-none shadow-none rounded-3xl md:rounded-[1.75rem] bg-bg-secondary lg:py-10 lg:px-8">
 					<CardContent className="p-0 ">
-						<div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-6 place-items-center">
+						<div className="grid grid-cols-3 md:grid-cols-6 gap-4 xl:gap-6 place-items-center">
 							{ECOSYSTEM_FEATURES.map((feature) => (
 								<EcosystemFeatureCard
 									key={feature.label}

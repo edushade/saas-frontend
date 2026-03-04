@@ -1,6 +1,6 @@
-import { Link } from "@tanstack/react-router";
-import { Button } from "@/components/ui/button";
-import { Typography } from "@/components/ui-custom/typography";
+import { Link } from '@tanstack/react-router';
+import { Button } from '@/components/ui/button';
+import { Typography } from '@/components/ui-custom/typography';
 
 export function NotFoundView() {
 	return (

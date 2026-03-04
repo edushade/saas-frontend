@@ -1,15 +1,15 @@
-import { useState } from "react";
-import type { BillingCycle } from "@/constants/pricing";
-import { BannerTag } from "../ui-custom/BannerTag";
-import { CardShadeOverlay } from "../ui-custom/card-shade-overlay";
-import { Typography } from "../ui-custom/typography";
-import PricingPlansWithToggle from "./PricingPlansWithToggle";
+import { useState } from 'react';
+import type { BillingCycle } from '@/constants/pricing';
+import { BannerTag } from '../ui-custom/BannerTag';
+import { CardShadeOverlay } from '../ui-custom/card-shade-overlay';
+import { Typography } from '../ui-custom/typography';
+import PricingPlansWithToggle from './PricingPlansWithToggle';
 
 export default function PricingSection() {
-	const [billing, setBilling] = useState<BillingCycle>("monthly");
+	const [billing, setBilling] = useState<BillingCycle>('monthly');
 
 	return (
-		<section className="relative overflow-hidden bg-bg-primary py-(--es-section-py) px-4 md:px-(--es-section-px)">
+		<section className="relative overflow-hidden bg-bg-primary py-(--es-section-py) px-4 md:px-8 xl:px-(--es-section-px)">
 			<div
 				aria-hidden
 				className="pointer-events-none absolute bottom-0 z-0 h-full w-full rounded-full bg-grad-lightblue"

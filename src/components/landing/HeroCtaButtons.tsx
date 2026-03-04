@@ -1,8 +1,8 @@
-import { useState } from "react";
-import { VideoWatchIcon } from "@/assets/icons";
-import { Button } from "@/components/ui/button";
-import { DEMO_VIDEO_SRC } from "@/constants/hero";
-import { WatchDemoModal } from "./WatchDemoModal";
+import { useState } from 'react';
+import { VideoWatchIcon } from '@/assets/icons';
+import { Button } from '@/components/ui/button';
+import { DEMO_VIDEO_SRC } from '@/constants/hero';
+import { WatchDemoModal } from './WatchDemoModal';
 
 export function HeroCtaButtons() {
 	const [watchDemoOpen, setWatchDemoOpen] = useState(false);

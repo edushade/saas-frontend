@@ -1,19 +1,19 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { CardShadeOverlay } from "@/components/ui-custom/card-shade-overlay";
-import { getHeroImageForTag, TAGS } from "@/constants/hero";
-import { ComposeModelTags } from "./ComposeModelTags";
+import { useState } from 'react';
+import { Card, CardContent } from '@/components/ui/card';
+import { CardShadeOverlay } from '@/components/ui-custom/card-shade-overlay';
+import { getHeroImageForTag, TAGS } from '@/constants/hero';
+import { ComposeModelTags } from './ComposeModelTags';
 
-const DEFAULT_TAG = "Courses";
+const DEFAULT_TAG = 'Courses';
 
 export function HeroTaggedBlock({ children }: { children: React.ReactNode }) {
 	const [selectedTag, setSelectedTag] = useState(DEFAULT_TAG);
 	const { src, alt } = getHeroImageForTag(selectedTag);
 
 	return (
-		<div className="mx-auto grid max-w-(--es-max-w) grid-cols-1 items-stretch gap-6  lg:grid-cols-2">
+		<div className="mx-auto grid max-w-(--es-max-w) grid-cols-1 lg:grid-cols-2 items-stretch gap-6 ">
 			<div className="flex min-h-0 flex-col justify-between gap-2">
 				<div className="flex flex-col items-center md:items-start gap-4">
 					{children}

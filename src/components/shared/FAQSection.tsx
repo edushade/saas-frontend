@@ -1,17 +1,17 @@
-import { Minus, Plus } from "lucide-react";
+import { Minus, Plus } from 'lucide-react';
 import {
 	Accordion,
 	AccordionContent,
 	AccordionItem,
 	AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
-import { FAQ_ITEMS } from "@/constants/faq";
-import { Typography } from "../ui-custom/typography";
+} from '@/components/ui/accordion';
+import { Button } from '@/components/ui/button';
+import { FAQ_ITEMS } from '@/constants/faq';
+import { Typography } from '../ui-custom/typography';
 
 export default function FAQSection() {
 	return (
-		<section className="bg-bg-primary py-(--es-section-py) px-4 md:px-(--es-section-px)">
+		<section className="bg-bg-primary py-(--es-section-py) px-4 md:px-8 xl:px-(--es-section-px)">
 			<div className="mx-auto max-w-(--es-max-w) ">
 				<div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
 					<div className="flex flex-col gap-6 lg:sticky lg:top-24">

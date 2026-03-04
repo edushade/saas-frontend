@@ -1,17 +1,17 @@
-import { CheckBoldIcon } from "@/assets/icons";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CheckBoldIcon } from '@/assets/icons';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
 	type BillingCycle,
 	PRICING_PLANS,
 	type PricingPlan,
-} from "@/constants/pricing";
-import { cn } from "@/lib/utils";
-import { Badge } from "../ui/badge";
-import { Separator } from "../ui/separator";
-import { CardShadeOverlay } from "../ui-custom/card-shade-overlay";
-import { Typography } from "../ui-custom/typography";
+} from '@/constants/pricing';
+import { cn } from '@/lib/utils';
+import { Badge } from '../ui/badge';
+import { Separator } from '../ui/separator';
+import { CardShadeOverlay } from '../ui-custom/card-shade-overlay';
+import { Typography } from '../ui-custom/typography';
 
 function PricingCard({
 	plan,
@@ -21,7 +21,7 @@ function PricingCard({
 	billing: BillingCycle;
 }) {
 	const isFeatured = plan.featured === true;
-	const isAnnually = billing === "annually";
+	const isAnnually = billing === 'annually';
 	const displayPrice =
 		isAnnually && plan.annualPrice != null ? plan.annualPrice : plan.price;
 	const displayPeriod =
@@ -34,16 +34,16 @@ function PricingCard({
 	return (
 		<div
 			className={cn(
-				"h-full rounded-[20px] transition-shadow hover:shadow-md",
-				isFeatured ? "border-2 border-brand-200 p-0.5" : "",
+				'h-full rounded-[20px] transition-shadow hover:shadow-md',
+				isFeatured ? 'border-2 border-brand-200 p-0.5' : '',
 			)}
 		>
 			<Card
 				className={cn(
-					"relative flex h-full p-0 flex-col overflow-hidden rounded-[20px] border shadow-sm ",
+					'relative flex h-full p-0 flex-col overflow-hidden rounded-[20px] border shadow-sm ',
 					isFeatured
-						? "border-transparent bg-royal-blue text-text-on-brand shadow-sm"
-						: "bg-bg-primary text-card-foreground border-border-secondary",
+						? 'border-transparent bg-royal-blue text-text-on-brand shadow-sm'
+						: 'bg-bg-primary text-card-foreground border-border-secondary',
 				)}
 			>
 				{/* background gradient */}
@@ -51,7 +51,7 @@ function PricingCard({
 					<div
 						aria-hidden
 						className={cn(
-							"pointer-events-none absolute inset-0 z-0 rounded-2xl bg-grad-overlay-white",
+							'pointer-events-none absolute inset-0 z-0 rounded-2xl bg-grad-overlay-white',
 						)}
 					/>
 				)}
@@ -73,8 +73,8 @@ function PricingCard({
 						<Typography
 							variant="h6"
 							className={cn(
-								"font-semibold",
-								isFeatured ? "text-white" : "text-text-primary",
+								'font-semibold',
+								isFeatured ? 'text-white' : 'text-text-primary',
 							)}
 						>
 							{plan.name}
@@ -82,10 +82,10 @@ function PricingCard({
 						{plan.tag && (
 							<Badge
 								className={cn(
-									"w-fit rounded-full px-3 py-1 text-xs font-medium",
+									'w-fit rounded-full px-3 py-1 text-xs font-medium',
 									isFeatured
-										? "bg-white/20 text-white"
-										: "bg-brand-300 text-text-on-brand",
+										? 'bg-white/20 text-white'
+										: 'bg-brand-300 text-text-on-brand',
 								)}
 							>
 								{plan.tag}
@@ -96,8 +96,8 @@ function PricingCard({
 					<div className="flex items-baseline gap-1">
 						<span
 							className={cn(
-								"text-3xl font-semibold tracking-tight",
-								isFeatured ? "text-white" : "text-text-primary",
+								'text-3xl font-semibold tracking-tight',
+								isFeatured ? 'text-white' : 'text-text-primary',
 							)}
 						>
 							{displayPrice}
@@ -105,8 +105,8 @@ function PricingCard({
 						{displayPeriod && (
 							<span
 								className={cn(
-									"text-base font-normal",
-									isFeatured ? "text-white/90" : "text-text-secondary",
+									'text-base font-normal',
+									isFeatured ? 'text-white/90' : 'text-text-secondary',
 								)}
 							>
 								{displayPeriod}
@@ -117,8 +117,8 @@ function PricingCard({
 
 				<Separator
 					className={cn(
-						"relative z-10",
-						isFeatured ? "bg-white/20" : "bg-border-secondary",
+						'relative z-10',
+						isFeatured ? 'bg-white/20' : 'bg-border-secondary',
 					)}
 				/>
 
@@ -128,8 +128,8 @@ function PricingCard({
 						<Typography
 							variant="base"
 							className={cn(
-								"font-medium",
-								isFeatured ? "text-white" : "text-text-primary",
+								'font-medium',
+								isFeatured ? 'text-white' : 'text-text-primary',
 							)}
 						>
 							{plan.headline}
@@ -137,8 +137,8 @@ function PricingCard({
 						<Typography
 							variant="small"
 							className={cn(
-								"",
-								isFeatured ? "text-white/90" : "text-text-tertiary",
+								'',
+								isFeatured ? 'text-white/90' : 'text-text-tertiary',
 							)}
 						>
 							{plan.description}
@@ -148,8 +148,8 @@ function PricingCard({
 
 				<Separator
 					className={cn(
-						"relative z-10",
-						isFeatured ? "bg-white/20" : "bg-border-secondary",
+						'relative z-10',
+						isFeatured ? 'bg-white/20' : 'bg-border-secondary',
 					)}
 				/>
 
@@ -163,14 +163,14 @@ function PricingCard({
 							>
 								<div
 									className={cn(
-										"rounded-full flex justify-center items-center hover:bg-bg-quaternary size-4",
-										isFeatured ? "bg-[#FFFFFF29]" : "bg-bg-tertiary ",
+										'rounded-full flex justify-center items-center hover:bg-bg-quaternary size-4',
+										isFeatured ? 'bg-[#FFFFFF29]' : 'bg-bg-tertiary ',
 									)}
 								>
 									<CheckBoldIcon
 										className={cn(
-											"size-2",
-											isFeatured ? "text-text-on-brand" : "text-brand-300",
+											'size-2',
+											isFeatured ? 'text-text-on-brand' : 'text-brand-300',
 										)}
 									/>
 								</div>
@@ -178,8 +178,8 @@ function PricingCard({
 								<Typography
 									variant="small"
 									className={cn(
-										"font-normal",
-										isFeatured ? "text-text-on-brand" : "text-text-primary",
+										'font-normal',
+										isFeatured ? 'text-text-on-brand' : 'text-text-primary',
 									)}
 								>
 									{feature}
@@ -191,8 +191,8 @@ function PricingCard({
 
 				<Separator
 					className={cn(
-						"relative z-10",
-						isFeatured ? "bg-white/20" : "bg-border-secondary",
+						'relative z-10',
+						isFeatured ? 'bg-white/20' : 'bg-border-secondary',
 					)}
 				/>
 
@@ -200,12 +200,12 @@ function PricingCard({
 				<CardContent className="relative z-10 pb-6">
 					<Button
 						className={cn(
-							"w-full h-12 text-lg rounded-xl font-medium ",
+							'w-full h-12 text-lg rounded-xl font-medium ',
 							isFeatured
-								? "bg-brand-200 text-text-on-brand hover:bg-brand-200/90"
-								: "bg-bg-tertiary text-text-primary hover:bg-bg-tertiary/90",
+								? 'bg-brand-200 text-text-on-brand hover:bg-brand-200/90'
+								: 'bg-bg-tertiary text-text-primary hover:bg-bg-tertiary/90',
 						)}
-						variant={isFeatured ? "default" : "secondary"}
+						variant={isFeatured ? 'default' : 'secondary'}
 					>
 						{plan.ctaLabel}
 					</Button>

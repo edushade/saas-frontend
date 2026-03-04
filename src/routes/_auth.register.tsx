@@ -1,38 +1,38 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { useAppForm } from "@/hooks/form";
-import { getSiteOrigin } from "@/env";
+import { createFileRoute, Link } from '@tanstack/react-router';
+import { getSiteOrigin } from '@/env';
+import { useAppForm } from '@/hooks/form';
 
-export const Route = createFileRoute("/_auth/register")({
+export const Route = createFileRoute('/_auth/register')({
 	head: () => ({
 		meta: [
-			{ title: "Create account | Edushade" },
-			{ name: "description", content: "Create your Edushade account." },
+			{ title: 'Create account | Edushade' },
+			{ name: 'description', content: 'Create your Edushade account.' },
 		],
-		links: [{ rel: "canonical", href: `${getSiteOrigin()}/register` }],
+		links: [{ rel: 'canonical', href: `${getSiteOrigin()}/register` }],
 	}),
 	component: RegisterPage,
 });
 
 const defaultValues = {
-	fullName: "",
-	email: "",
-	password: "",
+	fullName: '',
+	email: '',
+	password: '',
 };
 
 function fullNameValidator({ value }: { value: string }) {
-	if (!value?.trim()) return "Full name is required";
+	if (!value?.trim()) return 'Full name is required';
 	return undefined;
 }
 
 function emailValidator({ value }: { value: string }) {
-	if (!value?.trim()) return "Email is required";
-	if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return "Invalid email address";
+	if (!value?.trim()) return 'Email is required';
+	if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return 'Invalid email address';
 	return undefined;
 }
 
 function passwordValidator({ value }: { value: string }) {
-	if (!value?.trim()) return "Password is required";
-	if (value.length < 8) return "Password must be at least 8 characters";
+	if (!value?.trim()) return 'Password is required';
+	if (value.length < 8) return 'Password must be at least 8 characters';
 	return undefined;
 }
 
@@ -41,7 +41,7 @@ function RegisterPage() {
 		defaultValues,
 		onSubmit: async ({ value }) => {
 			// TODO: call registration API
-			console.log("Register submit", value);
+			console.log('Register submit', value);
 		},
 	});
 
@@ -107,7 +107,7 @@ function RegisterPage() {
 				</form.AppForm>
 			</form>
 			<p className="text-center text-sm text-text-secondary">
-				Already have an account?{" "}
+				Already have an account?{' '}
 				<Link
 					to="/login"
 					className="font-medium text-brand-200 hover:underline"

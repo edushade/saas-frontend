@@ -1,10 +1,10 @@
-import { Marquee } from "@/components/ui-custom/marquee";
-import { PLATFORMS } from "@/constants/platforms";
-import { Typography } from "../ui-custom/typography";
+import { Marquee } from '@/components/ui-custom/marquee';
+import { PLATFORMS } from '@/constants/platforms';
+import { Typography } from '../ui-custom/typography';
 
 function PlatformCard({ name, stat, logo }: (typeof PLATFORMS)[number]) {
 	return (
-		<div className="flex flex-col items-center justify-center px-2  md:px-6">
+		<div className="flex flex-col items-center justify-center px-4  md:px-8">
 			<div className="flex items-center justify-center gap-1">
 				<img
 					src={logo}

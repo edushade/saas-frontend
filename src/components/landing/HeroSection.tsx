@@ -1,19 +1,19 @@
-import { ChevronRight } from "lucide-react";
+import { ChevronRight } from 'lucide-react';
 import {
 	Avatar,
 	AvatarFallback,
 	AvatarGroup,
 	AvatarImage,
-} from "@/components/ui/avatar";
-import { TRUST_AVATARS } from "@/constants/hero";
-import { RainbowButton } from "../ui-custom/rainbow-button";
-import { Typography } from "../ui-custom/typography";
-import { HeroCtaButtons } from "./HeroCtaButtons";
-import { HeroTaggedBlock } from "./HeroTaggedBlock";
+} from '@/components/ui/avatar';
+import { TRUST_AVATARS } from '@/constants/hero';
+import { RainbowButton } from '../ui-custom/rainbow-button';
+import { Typography } from '../ui-custom/typography';
+import { HeroCtaButtons } from './HeroCtaButtons';
+import { HeroTaggedBlock } from './HeroTaggedBlock';
 
 export default function HeroSection() {
 	return (
-		<section className="bg-bg-primary py-(--es-section-py) px-4 md:px-(--es-section-px)">
+		<section className="bg-bg-primary py-(--es-section-py) px-4 md:px-8 xl:px-(--es-section-px)">
 			<HeroTaggedBlock>
 				<RainbowButton
 					variant="outline"

@@ -1,15 +1,15 @@
-import { Link } from "@tanstack/react-router";
-import { buttonVariants } from "@/components/ui/button";
+import { Link } from '@tanstack/react-router';
+import { buttonVariants } from '@/components/ui/button';
 import {
 	Pagination,
 	PaginationContent,
 	PaginationEllipsis,
 	PaginationItem,
-} from "@/components/ui/pagination";
-import { Typography } from "@/components/ui-custom/typography";
-import { cn } from "@/lib/utils";
-import { VerticalBlogCard } from "./BlogCard";
-import type { BlogPostCardItem } from "./blog-card-types";
+} from '@/components/ui/pagination';
+import { Typography } from '@/components/ui-custom/typography';
+import { cn } from '@/lib/utils';
+import { VerticalBlogCard } from './BlogCard';
+import type { BlogPostCardItem } from './blog-card-types';
 
 export interface BlogListSectionProps {
 	title?: string;
@@ -19,7 +19,7 @@ export interface BlogListSectionProps {
 }
 
 export function BlogListSection({
-	title = "All Blog Posts",
+	title = 'All Blog Posts',
 	posts,
 	currentPage,
 	totalPages,
@@ -28,7 +28,7 @@ export function BlogListSection({
 	const showRightEllipsis = currentPage < totalPages - 2;
 
 	return (
-		<section className="bg-bg-secondary py-(--es-section-py) px-4 md:px-(--es-section-px)">
+		<section className="bg-bg-secondary py-(--es-section-py) px-4 md:px-8 xl:px-(--es-section-px)">
 			<div className="mx-auto max-w-(--es-max-w)">
 				<Typography
 					variant="h1"
@@ -57,8 +57,8 @@ export function BlogListSection({
 										search={{ page: currentPage - 1 }}
 										aria-label="Go to previous page"
 										className={cn(
-											"inline-flex items-center justify-center gap-1 px-2.5 sm:pl-2.5",
-											buttonVariants({ variant: "outline", size: "default" }),
+											'inline-flex items-center justify-center gap-1 px-2.5 sm:pl-2.5',
+											buttonVariants({ variant: 'outline', size: 'default' }),
 										)}
 									>
 										<span className="hidden sm:block">Previous</span>
@@ -67,9 +67,9 @@ export function BlogListSection({
 									<span
 										aria-disabled
 										className={cn(
-											"inline-flex items-center justify-center gap-1 px-2.5 sm:pl-2.5",
-											buttonVariants({ variant: "outline", size: "default" }),
-											"pointer-events-none opacity-50",
+											'inline-flex items-center justify-center gap-1 px-2.5 sm:pl-2.5',
+											buttonVariants({ variant: 'outline', size: 'default' }),
+											'pointer-events-none opacity-50',
 										)}
 									>
 										<span className="hidden sm:block">Previous</span>
@@ -87,11 +87,11 @@ export function BlogListSection({
 										search={{ page: 1 }}
 										className={cn(
 											buttonVariants({
-												variant: currentPage === 1 ? "outline" : "ghost",
-												size: "icon",
+												variant: currentPage === 1 ? 'outline' : 'ghost',
+												size: 'icon',
 											}),
 										)}
-										aria-current={currentPage === 1 ? "page" : undefined}
+										aria-current={currentPage === 1 ? 'page' : undefined}
 									>
 										1
 									</Link>
@@ -111,13 +111,13 @@ export function BlogListSection({
 											to="/blogs"
 											search={{ page: p }}
 											className={cn(
-												"",
+												'',
 												buttonVariants({
-													variant: p === currentPage ? "outline" : "ghost",
-													size: "icon",
+													variant: p === currentPage ? 'outline' : 'ghost',
+													size: 'icon',
 												}),
 											)}
-											aria-current={p === currentPage ? "page" : undefined}
+											aria-current={p === currentPage ? 'page' : undefined}
 										>
 											{p}
 										</Link>
@@ -136,12 +136,12 @@ export function BlogListSection({
 										className={cn(
 											buttonVariants({
 												variant:
-													currentPage === totalPages ? "outline" : "ghost",
-												size: "icon",
+													currentPage === totalPages ? 'outline' : 'ghost',
+												size: 'icon',
 											}),
 										)}
 										aria-current={
-											currentPage === totalPages ? "page" : undefined
+											currentPage === totalPages ? 'page' : undefined
 										}
 									>
 										{totalPages}
@@ -159,8 +159,8 @@ export function BlogListSection({
 										search={{ page: currentPage + 1 }}
 										aria-label="Go to next page"
 										className={cn(
-											"inline-flex items-center justify-center gap-1 px-2.5 sm:pr-2.5",
-											buttonVariants({ variant: "outline", size: "default" }),
+											'inline-flex items-center justify-center gap-1 px-2.5 sm:pr-2.5',
+											buttonVariants({ variant: 'outline', size: 'default' }),
 										)}
 									>
 										<span className="hidden sm:block">Next</span>
@@ -169,9 +169,9 @@ export function BlogListSection({
 									<span
 										aria-disabled
 										className={cn(
-											"inline-flex items-center justify-center gap-1 px-2.5 sm:pr-2.5",
-											buttonVariants({ variant: "outline", size: "default" }),
-											"pointer-events-none opacity-50",
+											'inline-flex items-center justify-center gap-1 px-2.5 sm:pr-2.5',
+											buttonVariants({ variant: 'outline', size: 'default' }),
+											'pointer-events-none opacity-50',
 										)}
 									>
 										<span className="hidden sm:block">Next</span>

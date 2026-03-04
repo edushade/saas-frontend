@@ -1,12 +1,12 @@
-import { Link } from "@tanstack/react-router";
-import { Plus } from "lucide-react";
-import { Typography } from "@/components/ui-custom/typography";
+import { Link } from '@tanstack/react-router';
+import { Plus } from 'lucide-react';
+import { Typography } from '@/components/ui-custom/typography';
 import {
 	INTEGRATIONS_LIST,
 	type IntegrationCard,
-} from "@/constants/integrations";
-import { cn } from "@/lib/utils";
-import { Card, CardContent } from "../ui/card";
+} from '@/constants/integrations';
+import { cn } from '@/lib/utils';
+import { Card, CardContent } from '../ui/card';
 
 function IntegrationCardItem({ card }: { card: IntegrationCard }) {
 	return (
@@ -21,7 +21,7 @@ function IntegrationCardItem({ card }: { card: IntegrationCard }) {
 						>
 							<div
 								className={cn(
-									"flex size-[80px] shrink-0 rounded-xl items-center shadow-md p-0.5 justify-center  text-lg font-semibold text-white",
+									'flex size-[80px] shrink-0 rounded-xl items-center shadow-md p-0.5 justify-center  text-lg font-semibold text-white',
 								)}
 							>
 								<img
@@ -68,7 +68,7 @@ function IntegrationCardItem({ card }: { card: IntegrationCard }) {
 
 export default function IntegrationsList() {
 	return (
-		<section className="bg-bg-primary px-4 py-12 md:px-(--es-section-px) md:py-(--es-section-py)">
+		<section className="bg-bg-primary px-4 md:px-8 xl:px-(--es-section-px) py-12 md:py-(--es-section-py)">
 			<div className="mx-auto max-w-(--es-max-w)">
 				<Typography variant="h4" className="font-medium text-text-primary">
 					All Integrations

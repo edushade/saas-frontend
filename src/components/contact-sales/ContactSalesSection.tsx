@@ -1,13 +1,13 @@
-import { Typography } from "@/components/ui-custom/typography";
-import { CONTACT_SALES_HELP_TAGS } from "@/constants/contact-sales";
-import { Badge } from "../ui/badge";
-import { BannerTag } from "../ui-custom/BannerTag";
-import { CardShadeOverlay } from "../ui-custom/card-shade-overlay";
-import { ContactSalesForm } from "./ContactSalesForm";
+import { Typography } from '@/components/ui-custom/typography';
+import { CONTACT_SALES_HELP_TAGS } from '@/constants/contact-sales';
+import { Badge } from '../ui/badge';
+import { BannerTag } from '../ui-custom/BannerTag';
+import { CardShadeOverlay } from '../ui-custom/card-shade-overlay';
+import { ContactSalesForm } from './ContactSalesForm';
 
 export default function ContactSalesSection() {
 	return (
-		<section className="relative overflow-hidden px-4 md:px-(--es-section-px) py-(--es-section-py)">
+		<section className="relative overflow-hidden px-4 md:px-8 xl:px-(--es-section-px) py-(--es-section-py)">
 			<div
 				aria-hidden
 				className="pointer-events-none absolute bottom-0 z-0 h-full w-full max-w-full bg-grad-lightblue"

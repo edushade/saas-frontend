@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import { ROLES, type RoleId } from "@/constants/roles";
-import { cn } from "@/lib/utils";
-import { Card, CardContent } from "../ui/card";
-import { CardShadeOverlay } from "../ui-custom/card-shade-overlay";
-import { Typography } from "../ui-custom/typography";
+import { ROLES, type RoleId } from '@/constants/roles';
+import { cn } from '@/lib/utils';
+import { Card, CardContent } from '../ui/card';
+import { CardShadeOverlay } from '../ui-custom/card-shade-overlay';
+import { Typography } from '../ui-custom/typography';
 
 function RoleCard({
 	role,
@@ -20,26 +20,26 @@ function RoleCard({
 		<button
 			type="button"
 			className={cn(
-				"w-full max-w-xl flex items-center gap-4 rounded-2xl  px-5 py-4 text-left cursor-pointer",
-				isActive ? "role-card-active" : " bg-bg-primary hover:bg-bg-secondary",
+				'w-full max-w-xl flex items-center gap-4 rounded-2xl px-5 py-4 text-left cursor-pointer',
+				isActive ? 'role-card-active' : ' bg-bg-primary hover:bg-bg-secondary',
 			)}
 			onMouseEnter={onActivate}
 			onClick={onActivate}
 		>
 			<div
 				className={cn(
-					"flex h-11 w-11 shrink-0 items-center justify-center rounded-xl",
-					isActive ? "bg-brand-200" : "bg-bg-tertiary",
+					'flex h-11 w-11 shrink-0 items-center justify-center rounded-xl',
+					isActive ? 'bg-brand-200' : 'bg-bg-tertiary',
 				)}
 			>
 				<Icon
-					className={isActive ? "text-text-on-brand" : "text-text-secondary"}
+					className={isActive ? 'text-text-on-brand' : 'text-text-secondary'}
 				/>
 			</div>
 			<div>
 				<Typography
 					variant="h5"
-					className={cn("font-semibold leading-tight text-text-primary")}
+					className={cn('font-semibold leading-tight text-text-primary')}
 				>
 					{role.label}
 				</Typography>
@@ -55,10 +55,10 @@ function RoleCard({
 }
 
 export default function PersonalizedSection() {
-	const [activeRole, setActiveRole] = useState<RoleId>("student");
+	const [activeRole, setActiveRole] = useState<RoleId>('student');
 
 	return (
-		<section className="bg-bg-primary py-(--es-section-py) px-4 md:px-(--es-section-px)">
+		<section className="bg-bg-primary py-(--es-section-py) px-4 md:px-8 xl:px-(--es-section-px)">
 			<div className="mx-auto max-w-(--es-max-w) ">
 				<div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-stretch">
 					<div className="flex flex-col items-stretch gap-4">
@@ -93,21 +93,21 @@ export default function PersonalizedSection() {
 						<CardShadeOverlay className="backdrop-blur-[100px] bg-[repeating-linear-gradient(180deg,rgba(255,255,255,0)_0px,rgba(255,255,255,0.1)_47.15px,rgba(255,255,255,0.3)_85.33px)]" />
 						<CardContent className="relative z-10 h-full min-h-0 p-0">
 							<div className="h-full min-h-0 rounded-2xl  pt-8 pl-8 shadow-2xl ">
-								{activeRole === "student" && (
+								{activeRole === 'student' && (
 									<img
 										src="/svgs/hero/banner.svg"
 										alt="Dashboard"
 										className="h-full w-full object-cover object-top rounded-2xl"
 									/>
 								)}
-								{activeRole === "teacher" && (
+								{activeRole === 'teacher' && (
 									<img
 										src="/svgs/hero/banner.svg"
 										alt="Dashboard"
 										className="h-full w-full object-cover object-top"
 									/>
 								)}
-								{activeRole === "admin" && (
+								{activeRole === 'admin' && (
 									<img
 										src="/svgs/hero/banner.svg"
 										alt="Dashboard"

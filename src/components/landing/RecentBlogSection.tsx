@@ -1,11 +1,11 @@
-import { Link } from "@tanstack/react-router";
-import { HorizontalBlogCard, VerticalBlogCard } from "@/components/blog";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { getRecentBlogPosts } from "@/constants/blogs";
-import { Typography } from "../ui-custom/typography";
+import { Link } from '@tanstack/react-router';
+import { HorizontalBlogCard, VerticalBlogCard } from '@/components/blog';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { getRecentBlogPosts } from '@/constants/blogs';
+import { Typography } from '../ui-custom/typography';
 
 export default function RecentBlogSection() {
 	const recentPosts = getRecentBlogPosts();
@@ -13,7 +13,7 @@ export default function RecentBlogSection() {
 	const sidePosts = recentPosts.slice(1, 3);
 
 	return (
-		<section className="bg-bg-primary py-(--es-section-py) px-4 md:px-(--es-section-px)">
+		<section className="bg-bg-primary py-(--es-section-py) px-4 md:px-8 xl:px-(--es-section-px)">
 			<div className="mx-auto max-w-(--es-max-w) ">
 				<div className="mb-10 flex flex-col items-center gap-6 text-center sm:flex-row sm:items-end sm:justify-between sm:text-left">
 					<div className="min-w-0 max-w-[500px] sm:max-w-none">

@@ -1,12 +1,12 @@
-import { FEATURES } from "@/constants/feature";
-import { cn } from "@/lib/utils";
-import { Card, CardContent } from "../ui/card";
-import { CardShadeOverlay } from "../ui-custom/card-shade-overlay";
-import { Typography } from "../ui-custom/typography";
+import { FEATURES } from '@/constants/feature';
+import { cn } from '@/lib/utils';
+import { Card, CardContent } from '../ui/card';
+import { CardShadeOverlay } from '../ui-custom/card-shade-overlay';
+import { Typography } from '../ui-custom/typography';
 
 export default function WhyEducatorsLoveSection() {
 	return (
-		<section className="py-(--es-section-py) px-4 md:px-(--es-section-px)">
+		<section className="py-(--es-section-py) px-4 md:px-8 xl:px-(--es-section-px)">
 			<div className="mx-auto w-full max-w-(--es-max-w)">
 				<div className="mb-10 max-w-4xl mx-auto flex flex-col gap-4 items-center text-center justify-center">
 					<Typography
@@ -30,13 +30,13 @@ export default function WhyEducatorsLoveSection() {
 						<Card
 							key={feature.title}
 							className={cn(
-								"bg-bg-primary  border-none relative overflow-hidden rounded-xl h-[312px] flex flex-col transition-all duration-300 ease-out  hover:shadow-md cursor-pointer",
+								'bg-bg-primary  border-none relative overflow-hidden rounded-xl h-[312px] flex flex-col transition-all duration-300 ease-out  hover:shadow-md cursor-pointer',
 							)}
 						>
 							<div
 								aria-hidden
 								className={cn(
-									"pointer-events-none absolute inset-0 z-0",
+									'pointer-events-none absolute inset-0 z-0',
 									feature.gradientClassName,
 								)}
 							/>

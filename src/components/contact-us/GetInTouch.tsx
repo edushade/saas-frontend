@@ -1,18 +1,18 @@
-import { Mail, Phone } from "lucide-react";
-import type { ContactFormValue } from "@/components/contact-sales";
-import { ContactSalesForm } from "@/components/contact-sales";
-import { Typography } from "@/components/ui-custom/typography";
+import { Mail, Phone } from 'lucide-react';
+import type { ContactFormValue } from '@/components/contact-sales';
+import { ContactSalesForm } from '@/components/contact-sales';
+import { Typography } from '@/components/ui-custom/typography';
 import {
 	CONTACT_ADDRESS,
 	CONTACT_EMAIL,
 	CONTACT_FORM_NOTE,
 	CONTACT_FORM_SECTION_ID,
 	CONTACT_PHONE,
-} from "@/constants/contact-us";
-import { Badge } from "../ui/badge";
+} from '@/constants/contact-us';
+import { Badge } from '../ui/badge';
 
 function handleContactSubmit(value: ContactFormValue) {
-	console.log("Contact us submit", value);
+	console.log('Contact us submit', value);
 	alert("Message sent! We'll get back to you within 6 hours.");
 }
 
@@ -20,7 +20,7 @@ export default function GetInTouch() {
 	return (
 		<section
 			id={CONTACT_FORM_SECTION_ID}
-			className="bg-bg-primary px-4 md:px-(--es-section-px) py-(--es-section-py)"
+			className="bg-bg-primary px-4 md:px-8 xl:px-(--es-section-px) py-(--es-section-py)"
 		>
 			<div className="mx-auto max-w-(--es-max-w)">
 				<div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-2 lg:gap-16">
@@ -56,7 +56,7 @@ export default function GetInTouch() {
 							))}
 						</address>
 						<div className="flex flex-wrap gap-1 md:gap-3">
-							<a href={`tel:${CONTACT_PHONE.replace(/\s/g, "")}`}>
+							<a href={`tel:${CONTACT_PHONE.replace(/\s/g, '')}`}>
 								<Badge
 									variant="secondary"
 									className="inline-flex items-center gap-1 md:items-center md:gap-2 rounded-xl border border-border-primary bg-bg-primary px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm font-medium text-text-primary hover:bg-bg-quaternary"

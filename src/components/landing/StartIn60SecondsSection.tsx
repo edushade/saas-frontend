@@ -1,16 +1,16 @@
-import { CheckRightIcon } from "@/assets/icons/check-icons";
-import { Button } from "@/components/ui/button";
-import { Typography } from "../ui-custom/typography";
+import { CheckRightIcon } from '@/assets/icons/check-icons';
+import { Button } from '@/components/ui/button';
+import { Typography } from '../ui-custom/typography';
 
 const BENEFITS = [
-	"No coding or integrations required",
-	"Ready-to-use structure from day one",
-	"Customize as you grow",
+	'No coding or integrations required',
+	'Ready-to-use structure from day one',
+	'Customize as you grow',
 ];
 
 export default function StartIn60SecondsSection() {
 	return (
-		<section className="bg-bg-primary py-(--es-section-py) px-4 md:px-(--es-section-px)">
+		<section className="bg-bg-primary py-(--es-section-py) px-4 md:px-8 xl:px-(--es-section-px)">
 			<div className="mx-auto max-w-(--es-max-w) ">
 				<div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 					<div className="flex flex-col gap-6">

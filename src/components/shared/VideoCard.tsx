@@ -1,7 +1,7 @@
-import { useRef, useState } from "react";
-import { VideoWatchIcon } from "@/assets/icons";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { useRef, useState } from 'react';
+import { VideoWatchIcon } from '@/assets/icons';
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
 export function VideoCard({
 	src,
@@ -24,7 +24,7 @@ export function VideoCard({
 	return (
 		<div
 			className={cn(
-				"relative h-full min-h-0 w-full overflow-hidden bg-bg-tertiary rounded-lg",
+				'relative h-full min-h-0 w-full overflow-hidden bg-bg-tertiary rounded-lg',
 				className,
 			)}
 		>

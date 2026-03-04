@@ -1,15 +1,15 @@
-import { Github, Globe, Youtube } from "lucide-react";
+import { Github, Globe, Youtube } from 'lucide-react';
 import {
 	DiscordIcon,
 	FacebookIcon,
 	InstagramIcon,
 	LinkedinIcon,
 	XIcon,
-} from "@/assets/icons";
-import { CardShadeOverlay } from "@/components/ui-custom/card-shade-overlay";
-import { Typography } from "@/components/ui-custom/typography";
-import { cn } from "@/lib/utils";
-import { BannerTag } from "../ui-custom/BannerTag";
+} from '@/assets/icons';
+import { CardShadeOverlay } from '@/components/ui-custom/card-shade-overlay';
+import { Typography } from '@/components/ui-custom/typography';
+import { cn } from '@/lib/utils';
+import { BannerTag } from '../ui-custom/BannerTag';
 
 const WORDS_PER_MINUTE = 200;
 
@@ -50,17 +50,17 @@ const SOCIAL_CONFIG: Array<{
 	label: string;
 	Icon: React.ComponentType<{ className?: string }>;
 }> = [
-	{ key: "website", label: "Website", Icon: Globe },
-	{ key: "x", label: "X (Twitter)", Icon: XIcon },
-	{ key: "linkedin", label: "LinkedIn", Icon: LinkedinIcon },
-	{ key: "facebook", label: "Facebook", Icon: FacebookIcon },
-	{ key: "instagram", label: "Instagram", Icon: InstagramIcon },
-	{ key: "youtube", label: "YouTube", Icon: Youtube },
-	{ key: "github", label: "GitHub", Icon: Github },
-	{ key: "discord", label: "Discord", Icon: DiscordIcon },
-	{ key: "threads", label: "Threads", Icon: InstagramIcon },
-	{ key: "tiktok", label: "TikTok", Icon: Globe },
-	{ key: "medium", label: "Medium", Icon: Globe },
+	{ key: 'website', label: 'Website', Icon: Globe },
+	{ key: 'x', label: 'X (Twitter)', Icon: XIcon },
+	{ key: 'linkedin', label: 'LinkedIn', Icon: LinkedinIcon },
+	{ key: 'facebook', label: 'Facebook', Icon: FacebookIcon },
+	{ key: 'instagram', label: 'Instagram', Icon: InstagramIcon },
+	{ key: 'youtube', label: 'YouTube', Icon: Youtube },
+	{ key: 'github', label: 'GitHub', Icon: Github },
+	{ key: 'discord', label: 'Discord', Icon: DiscordIcon },
+	{ key: 'threads', label: 'Threads', Icon: InstagramIcon },
+	{ key: 'tiktok', label: 'TikTok', Icon: Globe },
+	{ key: 'medium', label: 'Medium', Icon: Globe },
 ];
 
 function estimateReadTimeMinutes(text: string | undefined): number {
@@ -80,12 +80,12 @@ export function BlogDetailBanner({
 	const minutes =
 		readTimeMinutes ??
 		(contentForEstimate ? estimateReadTimeMinutes(contentForEstimate) : 1);
-	const readTimeLabel = minutes === 1 ? "1 min read" : `${minutes} min read`;
+	const readTimeLabel = minutes === 1 ? '1 min read' : `${minutes} min read`;
 
 	return (
 		<section
 			className={cn(
-				"relative overflow-hidden px-4 py-(--es-section-py) md:px-(--es-section-px) bg-bg-primary",
+				'relative overflow-hidden px-4 md:px-8 xl:px-(--es-section-px) py-(--es-section-py) bg-bg-primary',
 				className,
 			)}
 		>
@@ -143,7 +143,7 @@ export function BlogDetailBanner({
 								<div className="flex flex-wrap items-center justify-center gap-2">
 									{SOCIAL_CONFIG.map(({ key, label, Icon }) => {
 										const url =
-											key === "x"
+											key === 'x'
 												? (author.socials?.x ?? author.socials?.twitter)
 												: author.socials?.[key];
 										if (!url) return null;

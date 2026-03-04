@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from 'react';
 
 const DURATION_MS = 1800;
 const EASING = (t: number) => 1 - (1 - t) ** 3; // ease-out cubic
@@ -10,7 +10,7 @@ export function parseStatValue(display: string): {
 	const match = display.match(/^([\d.]+)(.*)$/);
 	if (!match) return { value: 0, suffix: display };
 	const num = Number.parseFloat(match[1]);
-	const suffix = match[2] ?? "";
+	const suffix = match[2] ?? '';
 	return { value: num, suffix };
 }
 
