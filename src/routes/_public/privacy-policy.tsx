@@ -5,7 +5,7 @@ import { getSiteOrigin } from '@/env';
 
 const SLUG = 'privacy-policy';
 
-export const Route = createFileRoute('/_main/privacy-policy')({
+export const Route = createFileRoute('/_public/privacy-policy')({
 	loader: () => {
 		const doc = getLegalBySlug(SLUG);
 		return { doc };
@@ -18,7 +18,7 @@ export const Route = createFileRoute('/_main/privacy-policy')({
 					{ title: 'Privacy Policy | Edushade' },
 					{ name: 'robots', content: 'noindex, follow' },
 				],
-			};
+			}
 		}
 		const origin = getSiteOrigin();
 		const title = `${doc.title} | Edushade`;
@@ -36,7 +36,7 @@ export const Route = createFileRoute('/_main/privacy-policy')({
 				{ name: 'twitter:description', content: description },
 			],
 			links: [{ rel: 'canonical', href: canonical }],
-		};
+		}
 	},
 	component: PrivacyPolicyPage,
 });
@@ -53,13 +53,13 @@ function PrivacyPolicyPage() {
 					The requested legal page could not be found.
 				</p>
 				<a
-					href="/"
+					href='/'
 					className="mt-4 inline-block font-medium text-brand-200 hover:underline"
 				>
 					Back to home
 				</a>
 			</main>
-		);
+		)
 	}
 	return <LegalPageView doc={doc} />;
 }

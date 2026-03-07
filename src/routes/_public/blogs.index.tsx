@@ -4,7 +4,7 @@ import RecentBlogSection from '@/components/landing/RecentBlogSection';
 import { getBlogListPage } from '@/constants/blogs';
 import { getSiteOrigin } from '@/env';
 
-export const Route = createFileRoute('/_main/blogs/')({
+export const Route = createFileRoute('/_public/blogs/')({
 	validateSearch: (search: Record<string, unknown>) => {
 		const page = Number(search?.page);
 		return { page: Number.isFinite(page) && page >= 1 ? page : 1 };
@@ -26,19 +26,19 @@ export const Route = createFileRoute('/_main/blogs/')({
 			page > 1 ? `${origin}/blogs?page=${page}` : `${origin}/blogs`;
 		const links: { rel: string; href: string }[] = [
 			{ rel: 'canonical', href: canonical },
-		];
+		]
 		if (page > 1) {
 			links.push({
 				rel: 'prev',
 				href:
 					page === 2 ? `${origin}/blogs` : `${origin}/blogs?page=${page - 1}`,
-			});
+			})
 		}
 		if (page < totalPages) {
 			links.push({
 				rel: 'next',
 				href: `${origin}/blogs?page=${page + 1}`,
-			});
+			})
 		}
 		return {
 			meta: [
@@ -53,7 +53,7 @@ export const Route = createFileRoute('/_main/blogs/')({
 				{ name: 'twitter:description', content: description },
 			],
 			links,
-		};
+		}
 	},
 	headers: () => ({
 		'Cache-Control':
@@ -76,5 +76,5 @@ function BlogsIndexPage() {
 				totalPages={totalPages}
 			/>
 		</main>
-	);
+	)
 }

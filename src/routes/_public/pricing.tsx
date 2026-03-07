@@ -4,7 +4,7 @@ import PricingSection from '@/components/pricing/PricingSection';
 import { CtaSection, FAQSection, LogosSection } from '@/components/shared';
 import { getSiteOrigin } from '@/env';
 
-export const Route = createFileRoute('/_main/pricing')({
+export const Route = createFileRoute('/_public/pricing')({
 	head: () => ({
 		meta: [
 			{ title: 'Pricing — Edushade' },
@@ -28,5 +28,5 @@ function PricingPage() {
 			<FAQSection />
 			<CtaSection />
 		</main>
-	);
+	)
 }

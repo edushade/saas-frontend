@@ -3,7 +3,7 @@ import { IntegrationDetails } from '@/components/integrations/IntegrationDetails
 import { getIntegrationDetail } from '@/constants/integrations';
 import { getSiteOrigin } from '@/env';
 
-export const Route = createFileRoute('/_main/integrations/$slug')({
+export const Route = createFileRoute('/_public/integrations/$slug')({
 	loader: ({ params }) => {
 		const integration = getIntegrationDetail(params?.slug ?? '');
 		return { integration };
@@ -16,7 +16,7 @@ export const Route = createFileRoute('/_main/integrations/$slug')({
 					{ title: 'Integration not found | Edushade' },
 					{ name: 'robots', content: 'noindex, follow' },
 				],
-			};
+			}
 		}
 		const origin = getSiteOrigin();
 		const title = `${integration.name} | Edushade`;
@@ -38,7 +38,7 @@ export const Route = createFileRoute('/_main/integrations/$slug')({
 				{ name: 'twitter:description', content: description },
 			],
 			links: [{ rel: 'canonical', href: canonical }],
-		};
+		}
 	},
 	headers: () => ({
 		'Cache-Control':
@@ -70,12 +70,12 @@ function IntegrationDetailPage() {
 					</a>
 				</div>
 			</main>
-		);
+		)
 	}
 
 	return (
 		<main className="min-h-screen  pt-(--es-section-pt)">
 			<IntegrationDetails integration={integration} />
 		</main>
-	);
+	)
 }

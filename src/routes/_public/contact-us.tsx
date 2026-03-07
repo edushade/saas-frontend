@@ -1,7 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { BannerContactUs, GetInTouch } from '@/components/contact-us';
 
-export const Route = createFileRoute('/_main/contact-us')({
+export const Route = createFileRoute('/_public/contact-us')({
 	component: ContactUsPage,
 });
 
@@ -11,5 +11,5 @@ function ContactUsPage() {
 			<BannerContactUs />
 			<GetInTouch />
 		</main>
-	);
+	)
 }

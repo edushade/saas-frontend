@@ -4,7 +4,7 @@ import { FeaturesListSections } from '@/components/features/FeaturesListSections
 import { CtaSection } from '@/components/shared';
 import { getSiteOrigin } from '@/env';
 
-export const Route = createFileRoute('/_main/features/')({
+export const Route = createFileRoute('/_public/features/')({
 	head: () => ({
 		meta: [
 			{ title: 'All Features | Edushade' },
@@ -26,5 +26,5 @@ function FeaturesPage() {
 			<FeaturesListSections />
 			<CtaSection />
 		</main>
-	);
+	)
 }

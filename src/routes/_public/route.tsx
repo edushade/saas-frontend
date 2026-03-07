@@ -2,7 +2,7 @@ import { createFileRoute, Outlet } from '@tanstack/react-router';
 import Footer from '@/components/shared/Footer';
 import Header from '@/components/shared/Header';
 
-export const Route = createFileRoute('/_main')({
+export const Route = createFileRoute('/_public')({
 	component: MainLayout,
 });
 

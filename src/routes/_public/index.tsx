@@ -1,20 +1,20 @@
 import { createFileRoute } from '@tanstack/react-router';
-import BuiltForTeachSection from '../components/landing/BuiltForTeachSection';
-import EducatorsSaySection from '../components/landing/EducatorsSaySection';
-import EverythingYouNeedSection from '../components/landing/EverythingYouNeedSection';
-import HeroSection from '../components/landing/HeroSection';
-import PersonalizedSection from '../components/landing/PersonalizedSection';
-import PowerYourEcosystemSection from '../components/landing/PowerYourEcosystemSection';
-import RecentBlogSection from '../components/landing/RecentBlogSection';
-import StartIn60SecondsSection from '../components/landing/StartIn60SecondsSection';
-import WhyEducatorsLoveSection from '../components/landing/WhyEducatorsLoveSection';
+import BuiltForTeachSection from '../../components/landing/BuiltForTeachSection';
+import EducatorsSaySection from '../../components/landing/EducatorsSaySection';
+import EverythingYouNeedSection from '../../components/landing/EverythingYouNeedSection';
+import HeroSection from '../../components/landing/HeroSection';
+import PersonalizedSection from '../../components/landing/PersonalizedSection';
+import PowerYourEcosystemSection from '../../components/landing/PowerYourEcosystemSection';
+import RecentBlogSection from '../../components/landing/RecentBlogSection';
+import StartIn60SecondsSection from '../../components/landing/StartIn60SecondsSection';
+import WhyEducatorsLoveSection from '../../components/landing/WhyEducatorsLoveSection';
 import {
 	CtaSection,
 	FAQSection,
 	GetStartedSection,
 	LogosSection,
-} from '../components/shared';
-import { getSiteOrigin } from '../env';
+} from '../../components/shared';
+import { getSiteOrigin } from '../../env';
 
 const ORGANIZATION_SCHEMA = {
 	'@context': 'https://schema.org',
@@ -28,7 +28,7 @@ const ORGANIZATION_SCHEMA = {
 	url: 'https://edushade.com',
 };
 
-export const Route = createFileRoute('/_main/')({
+export const Route = createFileRoute('/_public/')({
 	head: () => {
 		const origin = getSiteOrigin();
 		return {
@@ -72,7 +72,7 @@ export const Route = createFileRoute('/_main/')({
 					children: JSON.stringify({ ...ORGANIZATION_SCHEMA, url: origin }),
 				},
 			],
-		};
+		}
 	},
 	headers: () => ({
 		'Cache-Control':
@@ -98,5 +98,5 @@ function LandingPage() {
 			<FAQSection />
 			<CtaSection />
 		</main>
-	);
+	)
 }

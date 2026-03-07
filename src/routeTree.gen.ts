@@ -9,42 +9,42 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as OnboardingRouteImport } from './routes/onboarding'
-import { Route as MainRouteImport } from './routes/_main'
+import { Route as OnboardingRouteRouteImport } from './routes/onboarding/route'
+import { Route as PublicRouteRouteImport } from './routes/_public/route'
 import { Route as AuthRouteRouteImport } from './routes/_auth/route'
-import { Route as OnboardingIndexRouteImport } from './routes/onboarding.index'
-import { Route as MainIndexRouteImport } from './routes/_main.index'
+import { Route as OnboardingIndexRouteImport } from './routes/onboarding/index'
+import { Route as PublicIndexRouteImport } from './routes/_public/index'
 import { Route as ApiContactRouteImport } from './routes/api/contact'
-import { Route as MainTermsOfServiceRouteImport } from './routes/_main.terms-of-service'
-import { Route as MainRequestDemoRouteImport } from './routes/_main.request-demo'
-import { Route as MainPrivacyPolicyRouteImport } from './routes/_main.privacy-policy'
-import { Route as MainPricingRouteImport } from './routes/_main.pricing'
-import { Route as MainIntegrationsRouteImport } from './routes/_main.integrations'
-import { Route as MainFeaturesRouteImport } from './routes/_main.features'
-import { Route as MainCookiePolicyRouteImport } from './routes/_main.cookie-policy'
-import { Route as MainContactUsRouteImport } from './routes/_main.contact-us'
-import { Route as MainContactSalesRouteImport } from './routes/_main.contact-sales'
-import { Route as MainBlogsRouteImport } from './routes/_main.blogs'
+import { Route as PublicTermsOfServiceRouteImport } from './routes/_public/terms-of-service'
+import { Route as PublicRequestDemoRouteImport } from './routes/_public/request-demo'
+import { Route as PublicPrivacyPolicyRouteImport } from './routes/_public/privacy-policy'
+import { Route as PublicPricingRouteImport } from './routes/_public/pricing'
+import { Route as PublicIntegrationsRouteImport } from './routes/_public/integrations'
+import { Route as PublicFeaturesRouteImport } from './routes/_public/features'
+import { Route as PublicCookiePolicyRouteImport } from './routes/_public/cookie-policy'
+import { Route as PublicContactUsRouteImport } from './routes/_public/contact-us'
+import { Route as PublicContactSalesRouteImport } from './routes/_public/contact-sales'
+import { Route as PublicBlogsRouteImport } from './routes/_public/blogs'
 import { Route as AuthVerifyEmailRouteImport } from './routes/_auth/verify-email'
 import { Route as AuthRegisterRouteImport } from './routes/_auth/register'
 import { Route as AuthNewPasswordRouteImport } from './routes/_auth/new-password'
 import { Route as AuthLoginRouteImport } from './routes/_auth/login'
 import { Route as AuthForgotPasswordOtpRouteImport } from './routes/_auth/forgot-password-otp'
 import { Route as AuthForgotPasswordRouteImport } from './routes/_auth/forgot-password'
-import { Route as MainIntegrationsIndexRouteImport } from './routes/_main.integrations.index'
-import { Route as MainFeaturesIndexRouteImport } from './routes/_main.features.index'
-import { Route as MainBlogsIndexRouteImport } from './routes/_main.blogs.index'
-import { Route as MainIntegrationsSlugRouteImport } from './routes/_main.integrations.$slug'
-import { Route as MainFeaturesSlugRouteImport } from './routes/_main.features.$slug'
-import { Route as MainBlogsSlugRouteImport } from './routes/_main.blogs.$slug'
+import { Route as PublicIntegrationsIndexRouteImport } from './routes/_public/integrations.index'
+import { Route as PublicFeaturesIndexRouteImport } from './routes/_public/features.index'
+import { Route as PublicBlogsIndexRouteImport } from './routes/_public/blogs.index'
+import { Route as PublicIntegrationsSlugRouteImport } from './routes/_public/integrations.$slug'
+import { Route as PublicFeaturesSlugRouteImport } from './routes/_public/features.$slug'
+import { Route as PublicBlogsSlugRouteImport } from './routes/_public/blogs.$slug'
 
-const OnboardingRoute = OnboardingRouteImport.update({
+const OnboardingRouteRoute = OnboardingRouteRouteImport.update({
   id: '/onboarding',
   path: '/onboarding',
   getParentRoute: () => rootRouteImport,
 } as any)
-const MainRoute = MainRouteImport.update({
-  id: '/_main',
+const PublicRouteRoute = PublicRouteRouteImport.update({
+  id: '/_public',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthRouteRoute = AuthRouteRouteImport.update({
@@ -54,67 +54,67 @@ const AuthRouteRoute = AuthRouteRouteImport.update({
 const OnboardingIndexRoute = OnboardingIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => OnboardingRoute,
+  getParentRoute: () => OnboardingRouteRoute,
 } as any)
-const MainIndexRoute = MainIndexRouteImport.update({
+const PublicIndexRoute = PublicIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => MainRoute,
+  getParentRoute: () => PublicRouteRoute,
 } as any)
 const ApiContactRoute = ApiContactRouteImport.update({
   id: '/api/contact',
   path: '/api/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const MainTermsOfServiceRoute = MainTermsOfServiceRouteImport.update({
+const PublicTermsOfServiceRoute = PublicTermsOfServiceRouteImport.update({
   id: '/terms-of-service',
   path: '/terms-of-service',
-  getParentRoute: () => MainRoute,
+  getParentRoute: () => PublicRouteRoute,
 } as any)
-const MainRequestDemoRoute = MainRequestDemoRouteImport.update({
+const PublicRequestDemoRoute = PublicRequestDemoRouteImport.update({
   id: '/request-demo',
   path: '/request-demo',
-  getParentRoute: () => MainRoute,
+  getParentRoute: () => PublicRouteRoute,
 } as any)
-const MainPrivacyPolicyRoute = MainPrivacyPolicyRouteImport.update({
+const PublicPrivacyPolicyRoute = PublicPrivacyPolicyRouteImport.update({
   id: '/privacy-policy',
   path: '/privacy-policy',
-  getParentRoute: () => MainRoute,
+  getParentRoute: () => PublicRouteRoute,
 } as any)
-const MainPricingRoute = MainPricingRouteImport.update({
+const PublicPricingRoute = PublicPricingRouteImport.update({
   id: '/pricing',
   path: '/pricing',
-  getParentRoute: () => MainRoute,
+  getParentRoute: () => PublicRouteRoute,
 } as any)
-const MainIntegrationsRoute = MainIntegrationsRouteImport.update({
+const PublicIntegrationsRoute = PublicIntegrationsRouteImport.update({
   id: '/integrations',
   path: '/integrations',
-  getParentRoute: () => MainRoute,
+  getParentRoute: () => PublicRouteRoute,
 } as any)
-const MainFeaturesRoute = MainFeaturesRouteImport.update({
+const PublicFeaturesRoute = PublicFeaturesRouteImport.update({
   id: '/features',
   path: '/features',
-  getParentRoute: () => MainRoute,
+  getParentRoute: () => PublicRouteRoute,
 } as any)
-const MainCookiePolicyRoute = MainCookiePolicyRouteImport.update({
+const PublicCookiePolicyRoute = PublicCookiePolicyRouteImport.update({
   id: '/cookie-policy',
   path: '/cookie-policy',
-  getParentRoute: () => MainRoute,
+  getParentRoute: () => PublicRouteRoute,
 } as any)
-const MainContactUsRoute = MainContactUsRouteImport.update({
+const PublicContactUsRoute = PublicContactUsRouteImport.update({
   id: '/contact-us',
   path: '/contact-us',
-  getParentRoute: () => MainRoute,
+  getParentRoute: () => PublicRouteRoute,
 } as any)
-const MainContactSalesRoute = MainContactSalesRouteImport.update({
+const PublicContactSalesRoute = PublicContactSalesRouteImport.update({
   id: '/contact-sales',
   path: '/contact-sales',
-  getParentRoute: () => MainRoute,
+  getParentRoute: () => PublicRouteRoute,
 } as any)
-const MainBlogsRoute = MainBlogsRouteImport.update({
+const PublicBlogsRoute = PublicBlogsRouteImport.update({
   id: '/blogs',
   path: '/blogs',
-  getParentRoute: () => MainRoute,
+  getParentRoute: () => PublicRouteRoute,
 } as any)
 const AuthVerifyEmailRoute = AuthVerifyEmailRouteImport.update({
   id: '/verify-email',
@@ -146,119 +146,119 @@ const AuthForgotPasswordRoute = AuthForgotPasswordRouteImport.update({
   path: '/forgot-password',
   getParentRoute: () => AuthRouteRoute,
 } as any)
-const MainIntegrationsIndexRoute = MainIntegrationsIndexRouteImport.update({
+const PublicIntegrationsIndexRoute = PublicIntegrationsIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => MainIntegrationsRoute,
+  getParentRoute: () => PublicIntegrationsRoute,
 } as any)
-const MainFeaturesIndexRoute = MainFeaturesIndexRouteImport.update({
+const PublicFeaturesIndexRoute = PublicFeaturesIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => MainFeaturesRoute,
+  getParentRoute: () => PublicFeaturesRoute,
 } as any)
-const MainBlogsIndexRoute = MainBlogsIndexRouteImport.update({
+const PublicBlogsIndexRoute = PublicBlogsIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => MainBlogsRoute,
+  getParentRoute: () => PublicBlogsRoute,
 } as any)
-const MainIntegrationsSlugRoute = MainIntegrationsSlugRouteImport.update({
+const PublicIntegrationsSlugRoute = PublicIntegrationsSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
-  getParentRoute: () => MainIntegrationsRoute,
+  getParentRoute: () => PublicIntegrationsRoute,
 } as any)
-const MainFeaturesSlugRoute = MainFeaturesSlugRouteImport.update({
+const PublicFeaturesSlugRoute = PublicFeaturesSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
-  getParentRoute: () => MainFeaturesRoute,
+  getParentRoute: () => PublicFeaturesRoute,
 } as any)
-const MainBlogsSlugRoute = MainBlogsSlugRouteImport.update({
+const PublicBlogsSlugRoute = PublicBlogsSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
-  getParentRoute: () => MainBlogsRoute,
+  getParentRoute: () => PublicBlogsRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof MainIndexRoute
-  '/onboarding': typeof OnboardingRouteWithChildren
+  '/': typeof PublicIndexRoute
+  '/onboarding': typeof OnboardingRouteRouteWithChildren
   '/forgot-password': typeof AuthForgotPasswordRoute
   '/forgot-password-otp': typeof AuthForgotPasswordOtpRoute
   '/login': typeof AuthLoginRoute
   '/new-password': typeof AuthNewPasswordRoute
   '/register': typeof AuthRegisterRoute
   '/verify-email': typeof AuthVerifyEmailRoute
-  '/blogs': typeof MainBlogsRouteWithChildren
-  '/contact-sales': typeof MainContactSalesRoute
-  '/contact-us': typeof MainContactUsRoute
-  '/cookie-policy': typeof MainCookiePolicyRoute
-  '/features': typeof MainFeaturesRouteWithChildren
-  '/integrations': typeof MainIntegrationsRouteWithChildren
-  '/pricing': typeof MainPricingRoute
-  '/privacy-policy': typeof MainPrivacyPolicyRoute
-  '/request-demo': typeof MainRequestDemoRoute
-  '/terms-of-service': typeof MainTermsOfServiceRoute
+  '/blogs': typeof PublicBlogsRouteWithChildren
+  '/contact-sales': typeof PublicContactSalesRoute
+  '/contact-us': typeof PublicContactUsRoute
+  '/cookie-policy': typeof PublicCookiePolicyRoute
+  '/features': typeof PublicFeaturesRouteWithChildren
+  '/integrations': typeof PublicIntegrationsRouteWithChildren
+  '/pricing': typeof PublicPricingRoute
+  '/privacy-policy': typeof PublicPrivacyPolicyRoute
+  '/request-demo': typeof PublicRequestDemoRoute
+  '/terms-of-service': typeof PublicTermsOfServiceRoute
   '/api/contact': typeof ApiContactRoute
   '/onboarding/': typeof OnboardingIndexRoute
-  '/blogs/$slug': typeof MainBlogsSlugRoute
-  '/features/$slug': typeof MainFeaturesSlugRoute
-  '/integrations/$slug': typeof MainIntegrationsSlugRoute
-  '/blogs/': typeof MainBlogsIndexRoute
-  '/features/': typeof MainFeaturesIndexRoute
-  '/integrations/': typeof MainIntegrationsIndexRoute
+  '/blogs/$slug': typeof PublicBlogsSlugRoute
+  '/features/$slug': typeof PublicFeaturesSlugRoute
+  '/integrations/$slug': typeof PublicIntegrationsSlugRoute
+  '/blogs/': typeof PublicBlogsIndexRoute
+  '/features/': typeof PublicFeaturesIndexRoute
+  '/integrations/': typeof PublicIntegrationsIndexRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof MainIndexRoute
+  '/': typeof PublicIndexRoute
   '/forgot-password': typeof AuthForgotPasswordRoute
   '/forgot-password-otp': typeof AuthForgotPasswordOtpRoute
   '/login': typeof AuthLoginRoute
   '/new-password': typeof AuthNewPasswordRoute
   '/register': typeof AuthRegisterRoute
   '/verify-email': typeof AuthVerifyEmailRoute
-  '/contact-sales': typeof MainContactSalesRoute
-  '/contact-us': typeof MainContactUsRoute
-  '/cookie-policy': typeof MainCookiePolicyRoute
-  '/pricing': typeof MainPricingRoute
-  '/privacy-policy': typeof MainPrivacyPolicyRoute
-  '/request-demo': typeof MainRequestDemoRoute
-  '/terms-of-service': typeof MainTermsOfServiceRoute
+  '/contact-sales': typeof PublicContactSalesRoute
+  '/contact-us': typeof PublicContactUsRoute
+  '/cookie-policy': typeof PublicCookiePolicyRoute
+  '/pricing': typeof PublicPricingRoute
+  '/privacy-policy': typeof PublicPrivacyPolicyRoute
+  '/request-demo': typeof PublicRequestDemoRoute
+  '/terms-of-service': typeof PublicTermsOfServiceRoute
   '/api/contact': typeof ApiContactRoute
   '/onboarding': typeof OnboardingIndexRoute
-  '/blogs/$slug': typeof MainBlogsSlugRoute
-  '/features/$slug': typeof MainFeaturesSlugRoute
-  '/integrations/$slug': typeof MainIntegrationsSlugRoute
-  '/blogs': typeof MainBlogsIndexRoute
-  '/features': typeof MainFeaturesIndexRoute
-  '/integrations': typeof MainIntegrationsIndexRoute
+  '/blogs/$slug': typeof PublicBlogsSlugRoute
+  '/features/$slug': typeof PublicFeaturesSlugRoute
+  '/integrations/$slug': typeof PublicIntegrationsSlugRoute
+  '/blogs': typeof PublicBlogsIndexRoute
+  '/features': typeof PublicFeaturesIndexRoute
+  '/integrations': typeof PublicIntegrationsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/_auth': typeof AuthRouteRouteWithChildren
-  '/_main': typeof MainRouteWithChildren
-  '/onboarding': typeof OnboardingRouteWithChildren
+  '/_public': typeof PublicRouteRouteWithChildren
+  '/onboarding': typeof OnboardingRouteRouteWithChildren
   '/_auth/forgot-password': typeof AuthForgotPasswordRoute
   '/_auth/forgot-password-otp': typeof AuthForgotPasswordOtpRoute
   '/_auth/login': typeof AuthLoginRoute
   '/_auth/new-password': typeof AuthNewPasswordRoute
   '/_auth/register': typeof AuthRegisterRoute
   '/_auth/verify-email': typeof AuthVerifyEmailRoute
-  '/_main/blogs': typeof MainBlogsRouteWithChildren
-  '/_main/contact-sales': typeof MainContactSalesRoute
-  '/_main/contact-us': typeof MainContactUsRoute
-  '/_main/cookie-policy': typeof MainCookiePolicyRoute
-  '/_main/features': typeof MainFeaturesRouteWithChildren
-  '/_main/integrations': typeof MainIntegrationsRouteWithChildren
-  '/_main/pricing': typeof MainPricingRoute
-  '/_main/privacy-policy': typeof MainPrivacyPolicyRoute
-  '/_main/request-demo': typeof MainRequestDemoRoute
-  '/_main/terms-of-service': typeof MainTermsOfServiceRoute
+  '/_public/blogs': typeof PublicBlogsRouteWithChildren
+  '/_public/contact-sales': typeof PublicContactSalesRoute
+  '/_public/contact-us': typeof PublicContactUsRoute
+  '/_public/cookie-policy': typeof PublicCookiePolicyRoute
+  '/_public/features': typeof PublicFeaturesRouteWithChildren
+  '/_public/integrations': typeof PublicIntegrationsRouteWithChildren
+  '/_public/pricing': typeof PublicPricingRoute
+  '/_public/privacy-policy': typeof PublicPrivacyPolicyRoute
+  '/_public/request-demo': typeof PublicRequestDemoRoute
+  '/_public/terms-of-service': typeof PublicTermsOfServiceRoute
   '/api/contact': typeof ApiContactRoute
-  '/_main/': typeof MainIndexRoute
+  '/_public/': typeof PublicIndexRoute
   '/onboarding/': typeof OnboardingIndexRoute
-  '/_main/blogs/$slug': typeof MainBlogsSlugRoute
-  '/_main/features/$slug': typeof MainFeaturesSlugRoute
-  '/_main/integrations/$slug': typeof MainIntegrationsSlugRoute
-  '/_main/blogs/': typeof MainBlogsIndexRoute
-  '/_main/features/': typeof MainFeaturesIndexRoute
-  '/_main/integrations/': typeof MainIntegrationsIndexRoute
+  '/_public/blogs/$slug': typeof PublicBlogsSlugRoute
+  '/_public/features/$slug': typeof PublicFeaturesSlugRoute
+  '/_public/integrations/$slug': typeof PublicIntegrationsSlugRoute
+  '/_public/blogs/': typeof PublicBlogsIndexRoute
+  '/_public/features/': typeof PublicFeaturesIndexRoute
+  '/_public/integrations/': typeof PublicIntegrationsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -316,7 +316,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/_auth'
-    | '/_main'
+    | '/_public'
     | '/onboarding'
     | '/_auth/forgot-password'
     | '/_auth/forgot-password-otp'
@@ -324,31 +324,31 @@ export interface FileRouteTypes {
     | '/_auth/new-password'
     | '/_auth/register'
     | '/_auth/verify-email'
-    | '/_main/blogs'
-    | '/_main/contact-sales'
-    | '/_main/contact-us'
-    | '/_main/cookie-policy'
-    | '/_main/features'
-    | '/_main/integrations'
-    | '/_main/pricing'
-    | '/_main/privacy-policy'
-    | '/_main/request-demo'
-    | '/_main/terms-of-service'
+    | '/_public/blogs'
+    | '/_public/contact-sales'
+    | '/_public/contact-us'
+    | '/_public/cookie-policy'
+    | '/_public/features'
+    | '/_public/integrations'
+    | '/_public/pricing'
+    | '/_public/privacy-policy'
+    | '/_public/request-demo'
+    | '/_public/terms-of-service'
     | '/api/contact'
-    | '/_main/'
+    | '/_public/'
     | '/onboarding/'
-    | '/_main/blogs/$slug'
-    | '/_main/features/$slug'
-    | '/_main/integrations/$slug'
-    | '/_main/blogs/'
-    | '/_main/features/'
-    | '/_main/integrations/'
+    | '/_public/blogs/$slug'
+    | '/_public/features/$slug'
+    | '/_public/integrations/$slug'
+    | '/_public/blogs/'
+    | '/_public/features/'
+    | '/_public/integrations/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   AuthRouteRoute: typeof AuthRouteRouteWithChildren
-  MainRoute: typeof MainRouteWithChildren
-  OnboardingRoute: typeof OnboardingRouteWithChildren
+  PublicRouteRoute: typeof PublicRouteRouteWithChildren
+  OnboardingRouteRoute: typeof OnboardingRouteRouteWithChildren
   ApiContactRoute: typeof ApiContactRoute
 }
 
@@ -358,14 +358,14 @@ declare module '@tanstack/react-router' {
       id: '/onboarding'
       path: '/onboarding'
       fullPath: '/onboarding'
-      preLoaderRoute: typeof OnboardingRouteImport
+      preLoaderRoute: typeof OnboardingRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_main': {
-      id: '/_main'
+    '/_public': {
+      id: '/_public'
       path: ''
       fullPath: '/'
-      preLoaderRoute: typeof MainRouteImport
+      preLoaderRoute: typeof PublicRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_auth': {
@@ -380,14 +380,14 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/onboarding/'
       preLoaderRoute: typeof OnboardingIndexRouteImport
-      parentRoute: typeof OnboardingRoute
+      parentRoute: typeof OnboardingRouteRoute
     }
-    '/_main/': {
-      id: '/_main/'
+    '/_public/': {
+      id: '/_public/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof MainIndexRouteImport
-      parentRoute: typeof MainRoute
+      preLoaderRoute: typeof PublicIndexRouteImport
+      parentRoute: typeof PublicRouteRoute
     }
     '/api/contact': {
       id: '/api/contact'
@@ -396,75 +396,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiContactRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_main/terms-of-service': {
-      id: '/_main/terms-of-service'
+    '/_public/terms-of-service': {
+      id: '/_public/terms-of-service'
       path: '/terms-of-service'
       fullPath: '/terms-of-service'
-      preLoaderRoute: typeof MainTermsOfServiceRouteImport
-      parentRoute: typeof MainRoute
+      preLoaderRoute: typeof PublicTermsOfServiceRouteImport
+      parentRoute: typeof PublicRouteRoute
     }
-    '/_main/request-demo': {
-      id: '/_main/request-demo'
+    '/_public/request-demo': {
+      id: '/_public/request-demo'
       path: '/request-demo'
       fullPath: '/request-demo'
-      preLoaderRoute: typeof MainRequestDemoRouteImport
-      parentRoute: typeof MainRoute
+      preLoaderRoute: typeof PublicRequestDemoRouteImport
+      parentRoute: typeof PublicRouteRoute
     }
-    '/_main/privacy-policy': {
-      id: '/_main/privacy-policy'
+    '/_public/privacy-policy': {
+      id: '/_public/privacy-policy'
       path: '/privacy-policy'
       fullPath: '/privacy-policy'
-      preLoaderRoute: typeof MainPrivacyPolicyRouteImport
-      parentRoute: typeof MainRoute
+      preLoaderRoute: typeof PublicPrivacyPolicyRouteImport
+      parentRoute: typeof PublicRouteRoute
     }
-    '/_main/pricing': {
-      id: '/_main/pricing'
+    '/_public/pricing': {
+      id: '/_public/pricing'
       path: '/pricing'
       fullPath: '/pricing'
-      preLoaderRoute: typeof MainPricingRouteImport
-      parentRoute: typeof MainRoute
+      preLoaderRoute: typeof PublicPricingRouteImport
+      parentRoute: typeof PublicRouteRoute
     }
-    '/_main/integrations': {
-      id: '/_main/integrations'
+    '/_public/integrations': {
+      id: '/_public/integrations'
       path: '/integrations'
       fullPath: '/integrations'
-      preLoaderRoute: typeof MainIntegrationsRouteImport
-      parentRoute: typeof MainRoute
+      preLoaderRoute: typeof PublicIntegrationsRouteImport
+      parentRoute: typeof PublicRouteRoute
     }
-    '/_main/features': {
-      id: '/_main/features'
+    '/_public/features': {
+      id: '/_public/features'
       path: '/features'
       fullPath: '/features'
-      preLoaderRoute: typeof MainFeaturesRouteImport
-      parentRoute: typeof MainRoute
+      preLoaderRoute: typeof PublicFeaturesRouteImport
+      parentRoute: typeof PublicRouteRoute
     }
-    '/_main/cookie-policy': {
-      id: '/_main/cookie-policy'
+    '/_public/cookie-policy': {
+      id: '/_public/cookie-policy'
       path: '/cookie-policy'
       fullPath: '/cookie-policy'
-      preLoaderRoute: typeof MainCookiePolicyRouteImport
-      parentRoute: typeof MainRoute
+      preLoaderRoute: typeof PublicCookiePolicyRouteImport
+      parentRoute: typeof PublicRouteRoute
     }
-    '/_main/contact-us': {
-      id: '/_main/contact-us'
+    '/_public/contact-us': {
+      id: '/_public/contact-us'
       path: '/contact-us'
       fullPath: '/contact-us'
-      preLoaderRoute: typeof MainContactUsRouteImport
-      parentRoute: typeof MainRoute
+      preLoaderRoute: typeof PublicContactUsRouteImport
+      parentRoute: typeof PublicRouteRoute
     }
-    '/_main/contact-sales': {
-      id: '/_main/contact-sales'
+    '/_public/contact-sales': {
+      id: '/_public/contact-sales'
       path: '/contact-sales'
       fullPath: '/contact-sales'
-      preLoaderRoute: typeof MainContactSalesRouteImport
-      parentRoute: typeof MainRoute
+      preLoaderRoute: typeof PublicContactSalesRouteImport
+      parentRoute: typeof PublicRouteRoute
     }
-    '/_main/blogs': {
-      id: '/_main/blogs'
+    '/_public/blogs': {
+      id: '/_public/blogs'
       path: '/blogs'
       fullPath: '/blogs'
-      preLoaderRoute: typeof MainBlogsRouteImport
-      parentRoute: typeof MainRoute
+      preLoaderRoute: typeof PublicBlogsRouteImport
+      parentRoute: typeof PublicRouteRoute
     }
     '/_auth/verify-email': {
       id: '/_auth/verify-email'
@@ -508,47 +508,47 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthForgotPasswordRouteImport
       parentRoute: typeof AuthRouteRoute
     }
-    '/_main/integrations/': {
-      id: '/_main/integrations/'
+    '/_public/integrations/': {
+      id: '/_public/integrations/'
       path: '/'
       fullPath: '/integrations/'
-      preLoaderRoute: typeof MainIntegrationsIndexRouteImport
-      parentRoute: typeof MainIntegrationsRoute
+      preLoaderRoute: typeof PublicIntegrationsIndexRouteImport
+      parentRoute: typeof PublicIntegrationsRoute
     }
-    '/_main/features/': {
-      id: '/_main/features/'
+    '/_public/features/': {
+      id: '/_public/features/'
       path: '/'
       fullPath: '/features/'
-      preLoaderRoute: typeof MainFeaturesIndexRouteImport
-      parentRoute: typeof MainFeaturesRoute
+      preLoaderRoute: typeof PublicFeaturesIndexRouteImport
+      parentRoute: typeof PublicFeaturesRoute
     }
-    '/_main/blogs/': {
-      id: '/_main/blogs/'
+    '/_public/blogs/': {
+      id: '/_public/blogs/'
       path: '/'
       fullPath: '/blogs/'
-      preLoaderRoute: typeof MainBlogsIndexRouteImport
-      parentRoute: typeof MainBlogsRoute
+      preLoaderRoute: typeof PublicBlogsIndexRouteImport
+      parentRoute: typeof PublicBlogsRoute
     }
-    '/_main/integrations/$slug': {
-      id: '/_main/integrations/$slug'
+    '/_public/integrations/$slug': {
+      id: '/_public/integrations/$slug'
       path: '/$slug'
       fullPath: '/integrations/$slug'
-      preLoaderRoute: typeof MainIntegrationsSlugRouteImport
-      parentRoute: typeof MainIntegrationsRoute
+      preLoaderRoute: typeof PublicIntegrationsSlugRouteImport
+      parentRoute: typeof PublicIntegrationsRoute
     }
-    '/_main/features/$slug': {
-      id: '/_main/features/$slug'
+    '/_public/features/$slug': {
+      id: '/_public/features/$slug'
       path: '/$slug'
       fullPath: '/features/$slug'
-      preLoaderRoute: typeof MainFeaturesSlugRouteImport
-      parentRoute: typeof MainFeaturesRoute
+      preLoaderRoute: typeof PublicFeaturesSlugRouteImport
+      parentRoute: typeof PublicFeaturesRoute
     }
-    '/_main/blogs/$slug': {
-      id: '/_main/blogs/$slug'
+    '/_public/blogs/$slug': {
+      id: '/_public/blogs/$slug'
       path: '/$slug'
       fullPath: '/blogs/$slug'
-      preLoaderRoute: typeof MainBlogsSlugRouteImport
-      parentRoute: typeof MainBlogsRoute
+      preLoaderRoute: typeof PublicBlogsSlugRouteImport
+      parentRoute: typeof PublicBlogsRoute
     }
   }
 }
@@ -575,93 +575,95 @@ const AuthRouteRouteWithChildren = AuthRouteRoute._addFileChildren(
   AuthRouteRouteChildren,
 )
 
-interface MainBlogsRouteChildren {
-  MainBlogsSlugRoute: typeof MainBlogsSlugRoute
-  MainBlogsIndexRoute: typeof MainBlogsIndexRoute
+interface PublicBlogsRouteChildren {
+  PublicBlogsSlugRoute: typeof PublicBlogsSlugRoute
+  PublicBlogsIndexRoute: typeof PublicBlogsIndexRoute
 }
 
-const MainBlogsRouteChildren: MainBlogsRouteChildren = {
-  MainBlogsSlugRoute: MainBlogsSlugRoute,
-  MainBlogsIndexRoute: MainBlogsIndexRoute,
+const PublicBlogsRouteChildren: PublicBlogsRouteChildren = {
+  PublicBlogsSlugRoute: PublicBlogsSlugRoute,
+  PublicBlogsIndexRoute: PublicBlogsIndexRoute,
 }
 
-const MainBlogsRouteWithChildren = MainBlogsRoute._addFileChildren(
-  MainBlogsRouteChildren,
+const PublicBlogsRouteWithChildren = PublicBlogsRoute._addFileChildren(
+  PublicBlogsRouteChildren,
 )
 
-interface MainFeaturesRouteChildren {
-  MainFeaturesSlugRoute: typeof MainFeaturesSlugRoute
-  MainFeaturesIndexRoute: typeof MainFeaturesIndexRoute
+interface PublicFeaturesRouteChildren {
+  PublicFeaturesSlugRoute: typeof PublicFeaturesSlugRoute
+  PublicFeaturesIndexRoute: typeof PublicFeaturesIndexRoute
 }
 
-const MainFeaturesRouteChildren: MainFeaturesRouteChildren = {
-  MainFeaturesSlugRoute: MainFeaturesSlugRoute,
-  MainFeaturesIndexRoute: MainFeaturesIndexRoute,
+const PublicFeaturesRouteChildren: PublicFeaturesRouteChildren = {
+  PublicFeaturesSlugRoute: PublicFeaturesSlugRoute,
+  PublicFeaturesIndexRoute: PublicFeaturesIndexRoute,
 }
 
-const MainFeaturesRouteWithChildren = MainFeaturesRoute._addFileChildren(
-  MainFeaturesRouteChildren,
+const PublicFeaturesRouteWithChildren = PublicFeaturesRoute._addFileChildren(
+  PublicFeaturesRouteChildren,
 )
 
-interface MainIntegrationsRouteChildren {
-  MainIntegrationsSlugRoute: typeof MainIntegrationsSlugRoute
-  MainIntegrationsIndexRoute: typeof MainIntegrationsIndexRoute
+interface PublicIntegrationsRouteChildren {
+  PublicIntegrationsSlugRoute: typeof PublicIntegrationsSlugRoute
+  PublicIntegrationsIndexRoute: typeof PublicIntegrationsIndexRoute
 }
 
-const MainIntegrationsRouteChildren: MainIntegrationsRouteChildren = {
-  MainIntegrationsSlugRoute: MainIntegrationsSlugRoute,
-  MainIntegrationsIndexRoute: MainIntegrationsIndexRoute,
+const PublicIntegrationsRouteChildren: PublicIntegrationsRouteChildren = {
+  PublicIntegrationsSlugRoute: PublicIntegrationsSlugRoute,
+  PublicIntegrationsIndexRoute: PublicIntegrationsIndexRoute,
 }
 
-const MainIntegrationsRouteWithChildren =
-  MainIntegrationsRoute._addFileChildren(MainIntegrationsRouteChildren)
+const PublicIntegrationsRouteWithChildren =
+  PublicIntegrationsRoute._addFileChildren(PublicIntegrationsRouteChildren)
 
-interface MainRouteChildren {
-  MainBlogsRoute: typeof MainBlogsRouteWithChildren
-  MainContactSalesRoute: typeof MainContactSalesRoute
-  MainContactUsRoute: typeof MainContactUsRoute
-  MainCookiePolicyRoute: typeof MainCookiePolicyRoute
-  MainFeaturesRoute: typeof MainFeaturesRouteWithChildren
-  MainIntegrationsRoute: typeof MainIntegrationsRouteWithChildren
-  MainPricingRoute: typeof MainPricingRoute
-  MainPrivacyPolicyRoute: typeof MainPrivacyPolicyRoute
-  MainRequestDemoRoute: typeof MainRequestDemoRoute
-  MainTermsOfServiceRoute: typeof MainTermsOfServiceRoute
-  MainIndexRoute: typeof MainIndexRoute
+interface PublicRouteRouteChildren {
+  PublicBlogsRoute: typeof PublicBlogsRouteWithChildren
+  PublicContactSalesRoute: typeof PublicContactSalesRoute
+  PublicContactUsRoute: typeof PublicContactUsRoute
+  PublicCookiePolicyRoute: typeof PublicCookiePolicyRoute
+  PublicFeaturesRoute: typeof PublicFeaturesRouteWithChildren
+  PublicIntegrationsRoute: typeof PublicIntegrationsRouteWithChildren
+  PublicPricingRoute: typeof PublicPricingRoute
+  PublicPrivacyPolicyRoute: typeof PublicPrivacyPolicyRoute
+  PublicRequestDemoRoute: typeof PublicRequestDemoRoute
+  PublicTermsOfServiceRoute: typeof PublicTermsOfServiceRoute
+  PublicIndexRoute: typeof PublicIndexRoute
 }
 
-const MainRouteChildren: MainRouteChildren = {
-  MainBlogsRoute: MainBlogsRouteWithChildren,
-  MainContactSalesRoute: MainContactSalesRoute,
-  MainContactUsRoute: MainContactUsRoute,
-  MainCookiePolicyRoute: MainCookiePolicyRoute,
-  MainFeaturesRoute: MainFeaturesRouteWithChildren,
-  MainIntegrationsRoute: MainIntegrationsRouteWithChildren,
-  MainPricingRoute: MainPricingRoute,
-  MainPrivacyPolicyRoute: MainPrivacyPolicyRoute,
-  MainRequestDemoRoute: MainRequestDemoRoute,
-  MainTermsOfServiceRoute: MainTermsOfServiceRoute,
-  MainIndexRoute: MainIndexRoute,
+const PublicRouteRouteChildren: PublicRouteRouteChildren = {
+  PublicBlogsRoute: PublicBlogsRouteWithChildren,
+  PublicContactSalesRoute: PublicContactSalesRoute,
+  PublicContactUsRoute: PublicContactUsRoute,
+  PublicCookiePolicyRoute: PublicCookiePolicyRoute,
+  PublicFeaturesRoute: PublicFeaturesRouteWithChildren,
+  PublicIntegrationsRoute: PublicIntegrationsRouteWithChildren,
+  PublicPricingRoute: PublicPricingRoute,
+  PublicPrivacyPolicyRoute: PublicPrivacyPolicyRoute,
+  PublicRequestDemoRoute: PublicRequestDemoRoute,
+  PublicTermsOfServiceRoute: PublicTermsOfServiceRoute,
+  PublicIndexRoute: PublicIndexRoute,
 }
 
-const MainRouteWithChildren = MainRoute._addFileChildren(MainRouteChildren)
+const PublicRouteRouteWithChildren = PublicRouteRoute._addFileChildren(
+  PublicRouteRouteChildren,
+)
 
-interface OnboardingRouteChildren {
+interface OnboardingRouteRouteChildren {
   OnboardingIndexRoute: typeof OnboardingIndexRoute
 }
 
-const OnboardingRouteChildren: OnboardingRouteChildren = {
+const OnboardingRouteRouteChildren: OnboardingRouteRouteChildren = {
   OnboardingIndexRoute: OnboardingIndexRoute,
 }
 
-const OnboardingRouteWithChildren = OnboardingRoute._addFileChildren(
-  OnboardingRouteChildren,
+const OnboardingRouteRouteWithChildren = OnboardingRouteRoute._addFileChildren(
+  OnboardingRouteRouteChildren,
 )
 
 const rootRouteChildren: RootRouteChildren = {
   AuthRouteRoute: AuthRouteRouteWithChildren,
-  MainRoute: MainRouteWithChildren,
-  OnboardingRoute: OnboardingRouteWithChildren,
+  PublicRouteRoute: PublicRouteRouteWithChildren,
+  OnboardingRouteRoute: OnboardingRouteRouteWithChildren,
   ApiContactRoute: ApiContactRoute,
 }
 export const routeTree = rootRouteImport

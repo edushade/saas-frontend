@@ -3,9 +3,9 @@ import { LegalPageView } from '@/components/legal/LegalPageView';
 import { getLegalBySlug } from '@/constants/legal';
 import { getSiteOrigin } from '@/env';
 
-const SLUG = 'terms-of-service';
+const SLUG = 'cookie-policy';
 
-export const Route = createFileRoute('/_main/terms-of-service')({
+export const Route = createFileRoute('/_public/cookie-policy')({
 	loader: () => {
 		const doc = getLegalBySlug(SLUG);
 		return { doc };
@@ -15,15 +15,15 @@ export const Route = createFileRoute('/_main/terms-of-service')({
 		if (!doc) {
 			return {
 				meta: [
-					{ title: 'Terms of Service | Edushade' },
+					{ title: 'Cookie Policy | Edushade' },
 					{ name: 'robots', content: 'noindex, follow' },
 				],
-			};
+			}
 		}
 		const origin = getSiteOrigin();
 		const title = `${doc.title} | Edushade`;
 		const description = doc.description ?? doc.title;
-		const canonical = `${origin}/terms-of-service`;
+		const canonical = `${origin}/cookie-policy`;
 		return {
 			meta: [
 				{ title },
@@ -36,12 +36,12 @@ export const Route = createFileRoute('/_main/terms-of-service')({
 				{ name: 'twitter:description', content: description },
 			],
 			links: [{ rel: 'canonical', href: canonical }],
-		};
+		}
 	},
-	component: TermsOfServicePage,
+	component: CookiePolicyPage,
 });
 
-function TermsOfServicePage() {
+function CookiePolicyPage() {
 	const { doc } = Route.useLoaderData();
 	if (!doc) {
 		return (
@@ -53,13 +53,13 @@ function TermsOfServicePage() {
 					The requested legal page could not be found.
 				</p>
 				<a
-					href="/"
+					href='/'
 					className="mt-4 inline-block font-medium text-brand-200 hover:underline"
 				>
 					Back to home
 				</a>
 			</main>
-		);
+		)
 	}
 	return <LegalPageView doc={doc} />;
 }

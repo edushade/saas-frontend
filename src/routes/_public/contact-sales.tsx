@@ -2,7 +2,7 @@ import { createFileRoute } from '@tanstack/react-router';
 import { ContactSalesSection } from '@/components/contact-sales';
 import { CtaSection, FAQSection, LogosSection } from '@/components/shared';
 
-export const Route = createFileRoute('/_main/contact-sales')({
+export const Route = createFileRoute('/_public/contact-sales')({
 	component: ContactSalesPage,
 });
 
@@ -14,5 +14,5 @@ function ContactSalesPage() {
 			<FAQSection />
 			<CtaSection />
 		</main>
-	);
+	)
 }

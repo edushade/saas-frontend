@@ -3,7 +3,7 @@ import { BlogPostView } from '@/components/blog/BlogPostView';
 import { getBlogBySlug } from '@/constants/blogs';
 import { getSiteOrigin } from '@/env';
 
-export const Route = createFileRoute('/_main/blogs/$slug')({
+export const Route = createFileRoute('/_public/blogs/$slug')({
 	loader: ({ params }) => {
 		const post = getBlogBySlug(params?.slug ?? '');
 		return { post };
@@ -16,7 +16,7 @@ export const Route = createFileRoute('/_main/blogs/$slug')({
 					{ title: 'Post not found | Edushade' },
 					{ name: 'robots', content: 'noindex, follow' },
 				],
-			};
+			}
 		}
 		const origin = getSiteOrigin();
 		const title = `${post.title} | Edushade`;
@@ -42,7 +42,7 @@ export const Route = createFileRoute('/_main/blogs/$slug')({
 				{ name: 'twitter:image', content: imageUrl },
 			],
 			links: [{ rel: 'canonical', href: canonical }],
-		};
+		}
 	},
 	headers: () => ({
 		'Cache-Control':
@@ -65,18 +65,18 @@ function BlogPostPage() {
 					The blog post you're looking for doesn't exist or was removed.
 				</p>
 				<a
-					href="/blogs"
+					href='/blogs'
 					className="mt-4 inline-block font-medium text-brand-200 hover:underline"
 				>
 					Back to all posts
 				</a>
 			</main>
-		);
+		)
 	}
 
 	return (
 		<main className="min-h-screen bg-bg-primary pt-(--es-section-pt)">
 			<BlogPostView post={post} />
 		</main>
-	);
+	)
 }

@@ -3,9 +3,9 @@ import { LegalPageView } from '@/components/legal/LegalPageView';
 import { getLegalBySlug } from '@/constants/legal';
 import { getSiteOrigin } from '@/env';
 
-const SLUG = 'cookie-policy';
+const SLUG = 'terms-of-service';
 
-export const Route = createFileRoute('/_main/cookie-policy')({
+export const Route = createFileRoute('/_public/terms-of-service')({
 	loader: () => {
 		const doc = getLegalBySlug(SLUG);
 		return { doc };
@@ -15,7 +15,7 @@ export const Route = createFileRoute('/_main/cookie-policy')({
 		if (!doc) {
 			return {
 				meta: [
-					{ title: 'Cookie Policy | Edushade' },
+					{ title: 'Terms of Service | Edushade' },
 					{ name: 'robots', content: 'noindex, follow' },
 				],
 			};
@@ -23,7 +23,7 @@ export const Route = createFileRoute('/_main/cookie-policy')({
 		const origin = getSiteOrigin();
 		const title = `${doc.title} | Edushade`;
 		const description = doc.description ?? doc.title;
-		const canonical = `${origin}/cookie-policy`;
+		const canonical = `${origin}/terms-of-service`;
 		return {
 			meta: [
 				{ title },
@@ -38,10 +38,10 @@ export const Route = createFileRoute('/_main/cookie-policy')({
 			links: [{ rel: 'canonical', href: canonical }],
 		};
 	},
-	component: CookiePolicyPage,
+	component: TermsOfServicePage,
 });
 
-function CookiePolicyPage() {
+function TermsOfServicePage() {
 	const { doc } = Route.useLoaderData();
 	if (!doc) {
 		return (

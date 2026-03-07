@@ -27,15 +27,9 @@ function OnboardingPage() {
 
 	return (
 		<>
-			{step === 'platform' && (
-				<OnboardingStep1 onNext={() => goTo('what')} />
-			)}
-			{step === 'what' && (
-				<OnboardingStep2 onNext={() => goTo('invite')} />
-			)}
-			{step === 'invite' && (
-				<OnboardingStep3 onNext={() => goTo('course')} />
-			)}
+			{step === 'platform' && <OnboardingStep1 onNext={() => goTo('what')} />}
+			{step === 'what' && <OnboardingStep2 onNext={() => goTo('invite')} />}
+			{step === 'invite' && <OnboardingStep3 onNext={() => goTo('course')} />}
 			{step === 'course' && (
 				<OnboardingStep4 onComplete={() => navigate({ to: '/' })} />
 			)}

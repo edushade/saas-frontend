@@ -8,7 +8,7 @@ import FeatureSplitSection from '@/components/features/FeatureSplitSection';
 import { CtaSection, FAQSection } from '@/components/shared';
 import { getFeatureBySlug } from '@/constants/features';
 
-export const Route = createFileRoute('/_main/features/$slug')({
+export const Route = createFileRoute('/_public/features/$slug')({
 	component: FeaturePage,
 	head: ({ params }) => {
 		const feature = getFeatureBySlug(params?.slug ?? '');
@@ -16,7 +16,7 @@ export const Route = createFileRoute('/_main/features/$slug')({
 		const description = feature?.description ?? 'Explore Edushade features.';
 		return {
 			meta: [{ title }, { name: 'description', content: description }],
-		};
+		}
 	},
 });
 
@@ -45,7 +45,7 @@ function FeaturePage() {
 					</Link>
 				</div>
 			</main>
-		);
+		)
 	}
 
 	return (
@@ -99,5 +99,5 @@ function FeaturePage() {
 			<FAQSection />
 			<CtaSection />
 		</main>
-	);
+	)
 }
