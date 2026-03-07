@@ -1,5 +1,5 @@
 import { Link, useRouterState } from '@tanstack/react-router';
-import { ArrowUpRight, Menu } from 'lucide-react';
+import { ArrowUpRight, ChevronUp, Menu } from 'lucide-react';
 import { useState } from 'react';
 import { DiamondIcon } from '@/assets/icons';
 import {
@@ -115,6 +115,14 @@ function FeaturesMenu({
 										</ul>
 									</div>
 								))}
+
+								<div className="col-span-4 py-6 flex justify-center">
+									<Button variant="outline" asChild>
+										<Link to="/features" onClick={() => onOpenChange(null)}>
+											Show All Features <ChevronUp size={14} />
+										</Link>
+									</Button>
+								</div>
 							</CardContent>
 
 							{/* CTA bar */}

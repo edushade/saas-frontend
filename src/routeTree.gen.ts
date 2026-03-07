@@ -11,7 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as OnboardingRouteImport } from './routes/onboarding'
 import { Route as MainRouteImport } from './routes/_main'
-import { Route as AuthRouteImport } from './routes/_auth'
+import { Route as AuthRouteRouteImport } from './routes/_auth/route'
 import { Route as OnboardingIndexRouteImport } from './routes/onboarding.index'
 import { Route as MainIndexRouteImport } from './routes/_main.index'
 import { Route as ApiContactRouteImport } from './routes/api/contact'
@@ -25,8 +25,12 @@ import { Route as MainCookiePolicyRouteImport } from './routes/_main.cookie-poli
 import { Route as MainContactUsRouteImport } from './routes/_main.contact-us'
 import { Route as MainContactSalesRouteImport } from './routes/_main.contact-sales'
 import { Route as MainBlogsRouteImport } from './routes/_main.blogs'
-import { Route as AuthRegisterRouteImport } from './routes/_auth.register'
-import { Route as AuthLoginRouteImport } from './routes/_auth.login'
+import { Route as AuthVerifyEmailRouteImport } from './routes/_auth/verify-email'
+import { Route as AuthRegisterRouteImport } from './routes/_auth/register'
+import { Route as AuthNewPasswordRouteImport } from './routes/_auth/new-password'
+import { Route as AuthLoginRouteImport } from './routes/_auth/login'
+import { Route as AuthForgotPasswordOtpRouteImport } from './routes/_auth/forgot-password-otp'
+import { Route as AuthForgotPasswordRouteImport } from './routes/_auth/forgot-password'
 import { Route as MainIntegrationsIndexRouteImport } from './routes/_main.integrations.index'
 import { Route as MainFeaturesIndexRouteImport } from './routes/_main.features.index'
 import { Route as MainBlogsIndexRouteImport } from './routes/_main.blogs.index'
@@ -43,7 +47,7 @@ const MainRoute = MainRouteImport.update({
   id: '/_main',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AuthRoute = AuthRouteImport.update({
+const AuthRouteRoute = AuthRouteRouteImport.update({
   id: '/_auth',
   getParentRoute: () => rootRouteImport,
 } as any)
@@ -112,15 +116,35 @@ const MainBlogsRoute = MainBlogsRouteImport.update({
   path: '/blogs',
   getParentRoute: () => MainRoute,
 } as any)
+const AuthVerifyEmailRoute = AuthVerifyEmailRouteImport.update({
+  id: '/verify-email',
+  path: '/verify-email',
+  getParentRoute: () => AuthRouteRoute,
+} as any)
 const AuthRegisterRoute = AuthRegisterRouteImport.update({
   id: '/register',
   path: '/register',
-  getParentRoute: () => AuthRoute,
+  getParentRoute: () => AuthRouteRoute,
+} as any)
+const AuthNewPasswordRoute = AuthNewPasswordRouteImport.update({
+  id: '/new-password',
+  path: '/new-password',
+  getParentRoute: () => AuthRouteRoute,
 } as any)
 const AuthLoginRoute = AuthLoginRouteImport.update({
   id: '/login',
   path: '/login',
-  getParentRoute: () => AuthRoute,
+  getParentRoute: () => AuthRouteRoute,
+} as any)
+const AuthForgotPasswordOtpRoute = AuthForgotPasswordOtpRouteImport.update({
+  id: '/forgot-password-otp',
+  path: '/forgot-password-otp',
+  getParentRoute: () => AuthRouteRoute,
+} as any)
+const AuthForgotPasswordRoute = AuthForgotPasswordRouteImport.update({
+  id: '/forgot-password',
+  path: '/forgot-password',
+  getParentRoute: () => AuthRouteRoute,
 } as any)
 const MainIntegrationsIndexRoute = MainIntegrationsIndexRouteImport.update({
   id: '/',
@@ -156,8 +180,12 @@ const MainBlogsSlugRoute = MainBlogsSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof MainIndexRoute
   '/onboarding': typeof OnboardingRouteWithChildren
+  '/forgot-password': typeof AuthForgotPasswordRoute
+  '/forgot-password-otp': typeof AuthForgotPasswordOtpRoute
   '/login': typeof AuthLoginRoute
+  '/new-password': typeof AuthNewPasswordRoute
   '/register': typeof AuthRegisterRoute
+  '/verify-email': typeof AuthVerifyEmailRoute
   '/blogs': typeof MainBlogsRouteWithChildren
   '/contact-sales': typeof MainContactSalesRoute
   '/contact-us': typeof MainContactUsRoute
@@ -179,8 +207,12 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof MainIndexRoute
+  '/forgot-password': typeof AuthForgotPasswordRoute
+  '/forgot-password-otp': typeof AuthForgotPasswordOtpRoute
   '/login': typeof AuthLoginRoute
+  '/new-password': typeof AuthNewPasswordRoute
   '/register': typeof AuthRegisterRoute
+  '/verify-email': typeof AuthVerifyEmailRoute
   '/contact-sales': typeof MainContactSalesRoute
   '/contact-us': typeof MainContactUsRoute
   '/cookie-policy': typeof MainCookiePolicyRoute
@@ -199,11 +231,15 @@ export interface FileRoutesByTo {
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/_auth': typeof AuthRouteWithChildren
+  '/_auth': typeof AuthRouteRouteWithChildren
   '/_main': typeof MainRouteWithChildren
   '/onboarding': typeof OnboardingRouteWithChildren
+  '/_auth/forgot-password': typeof AuthForgotPasswordRoute
+  '/_auth/forgot-password-otp': typeof AuthForgotPasswordOtpRoute
   '/_auth/login': typeof AuthLoginRoute
+  '/_auth/new-password': typeof AuthNewPasswordRoute
   '/_auth/register': typeof AuthRegisterRoute
+  '/_auth/verify-email': typeof AuthVerifyEmailRoute
   '/_main/blogs': typeof MainBlogsRouteWithChildren
   '/_main/contact-sales': typeof MainContactSalesRoute
   '/_main/contact-us': typeof MainContactUsRoute
@@ -229,8 +265,12 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/onboarding'
+    | '/forgot-password'
+    | '/forgot-password-otp'
     | '/login'
+    | '/new-password'
     | '/register'
+    | '/verify-email'
     | '/blogs'
     | '/contact-sales'
     | '/contact-us'
@@ -252,8 +292,12 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/forgot-password'
+    | '/forgot-password-otp'
     | '/login'
+    | '/new-password'
     | '/register'
+    | '/verify-email'
     | '/contact-sales'
     | '/contact-us'
     | '/cookie-policy'
@@ -274,8 +318,12 @@ export interface FileRouteTypes {
     | '/_auth'
     | '/_main'
     | '/onboarding'
+    | '/_auth/forgot-password'
+    | '/_auth/forgot-password-otp'
     | '/_auth/login'
+    | '/_auth/new-password'
     | '/_auth/register'
+    | '/_auth/verify-email'
     | '/_main/blogs'
     | '/_main/contact-sales'
     | '/_main/contact-us'
@@ -298,7 +346,7 @@ export interface FileRouteTypes {
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  AuthRoute: typeof AuthRouteWithChildren
+  AuthRouteRoute: typeof AuthRouteRouteWithChildren
   MainRoute: typeof MainRouteWithChildren
   OnboardingRoute: typeof OnboardingRouteWithChildren
   ApiContactRoute: typeof ApiContactRoute
@@ -324,7 +372,7 @@ declare module '@tanstack/react-router' {
       id: '/_auth'
       path: ''
       fullPath: '/'
-      preLoaderRoute: typeof AuthRouteImport
+      preLoaderRoute: typeof AuthRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/onboarding/': {
@@ -418,19 +466,47 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MainBlogsRouteImport
       parentRoute: typeof MainRoute
     }
+    '/_auth/verify-email': {
+      id: '/_auth/verify-email'
+      path: '/verify-email'
+      fullPath: '/verify-email'
+      preLoaderRoute: typeof AuthVerifyEmailRouteImport
+      parentRoute: typeof AuthRouteRoute
+    }
     '/_auth/register': {
       id: '/_auth/register'
       path: '/register'
       fullPath: '/register'
       preLoaderRoute: typeof AuthRegisterRouteImport
-      parentRoute: typeof AuthRoute
+      parentRoute: typeof AuthRouteRoute
+    }
+    '/_auth/new-password': {
+      id: '/_auth/new-password'
+      path: '/new-password'
+      fullPath: '/new-password'
+      preLoaderRoute: typeof AuthNewPasswordRouteImport
+      parentRoute: typeof AuthRouteRoute
     }
     '/_auth/login': {
       id: '/_auth/login'
       path: '/login'
       fullPath: '/login'
       preLoaderRoute: typeof AuthLoginRouteImport
-      parentRoute: typeof AuthRoute
+      parentRoute: typeof AuthRouteRoute
+    }
+    '/_auth/forgot-password-otp': {
+      id: '/_auth/forgot-password-otp'
+      path: '/forgot-password-otp'
+      fullPath: '/forgot-password-otp'
+      preLoaderRoute: typeof AuthForgotPasswordOtpRouteImport
+      parentRoute: typeof AuthRouteRoute
+    }
+    '/_auth/forgot-password': {
+      id: '/_auth/forgot-password'
+      path: '/forgot-password'
+      fullPath: '/forgot-password'
+      preLoaderRoute: typeof AuthForgotPasswordRouteImport
+      parentRoute: typeof AuthRouteRoute
     }
     '/_main/integrations/': {
       id: '/_main/integrations/'
@@ -477,17 +553,27 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface AuthRouteChildren {
+interface AuthRouteRouteChildren {
+  AuthForgotPasswordRoute: typeof AuthForgotPasswordRoute
+  AuthForgotPasswordOtpRoute: typeof AuthForgotPasswordOtpRoute
   AuthLoginRoute: typeof AuthLoginRoute
+  AuthNewPasswordRoute: typeof AuthNewPasswordRoute
   AuthRegisterRoute: typeof AuthRegisterRoute
+  AuthVerifyEmailRoute: typeof AuthVerifyEmailRoute
 }
 
-const AuthRouteChildren: AuthRouteChildren = {
+const AuthRouteRouteChildren: AuthRouteRouteChildren = {
+  AuthForgotPasswordRoute: AuthForgotPasswordRoute,
+  AuthForgotPasswordOtpRoute: AuthForgotPasswordOtpRoute,
   AuthLoginRoute: AuthLoginRoute,
+  AuthNewPasswordRoute: AuthNewPasswordRoute,
   AuthRegisterRoute: AuthRegisterRoute,
+  AuthVerifyEmailRoute: AuthVerifyEmailRoute,
 }
 
-const AuthRouteWithChildren = AuthRoute._addFileChildren(AuthRouteChildren)
+const AuthRouteRouteWithChildren = AuthRouteRoute._addFileChildren(
+  AuthRouteRouteChildren,
+)
 
 interface MainBlogsRouteChildren {
   MainBlogsSlugRoute: typeof MainBlogsSlugRoute
@@ -573,7 +659,7 @@ const OnboardingRouteWithChildren = OnboardingRoute._addFileChildren(
 )
 
 const rootRouteChildren: RootRouteChildren = {
-  AuthRoute: AuthRouteWithChildren,
+  AuthRouteRoute: AuthRouteRouteWithChildren,
   MainRoute: MainRouteWithChildren,
   OnboardingRoute: OnboardingRouteWithChildren,
   ApiContactRoute: ApiContactRoute,
