@@ -10,10 +10,23 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as OnboardingRouteRouteImport } from './routes/onboarding/route'
+import { Route as DashboardRouteRouteImport } from './routes/dashboard/route'
 import { Route as PublicRouteRouteImport } from './routes/_public/route'
 import { Route as AuthRouteRouteImport } from './routes/_auth/route'
 import { Route as OnboardingIndexRouteImport } from './routes/onboarding/index'
+import { Route as DashboardIndexRouteImport } from './routes/dashboard/index'
 import { Route as PublicIndexRouteImport } from './routes/_public/index'
+import { Route as DashboardUsageBreakdownRouteImport } from './routes/dashboard/usage-breakdown'
+import { Route as DashboardSupportRouteImport } from './routes/dashboard/support'
+import { Route as DashboardSessionsRouteImport } from './routes/dashboard/sessions'
+import { Route as DashboardSecurityRouteImport } from './routes/dashboard/security'
+import { Route as DashboardProfileRouteImport } from './routes/dashboard/profile'
+import { Route as DashboardPlansRouteImport } from './routes/dashboard/plans'
+import { Route as DashboardMembersRouteImport } from './routes/dashboard/members'
+import { Route as DashboardFeedbackRouteImport } from './routes/dashboard/feedback'
+import { Route as DashboardBillingRouteImport } from './routes/dashboard/billing'
+import { Route as DashboardAuthenticationsRouteImport } from './routes/dashboard/authentications'
+import { Route as DashboardAuditLogsRouteImport } from './routes/dashboard/audit-logs'
 import { Route as ApiContactRouteImport } from './routes/api/contact'
 import { Route as PublicTermsOfServiceRouteImport } from './routes/_public/terms-of-service'
 import { Route as PublicRequestDemoRouteImport } from './routes/_public/request-demo'
@@ -43,6 +56,11 @@ const OnboardingRouteRoute = OnboardingRouteRouteImport.update({
   path: '/onboarding',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DashboardRouteRoute = DashboardRouteRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PublicRouteRoute = PublicRouteRouteImport.update({
   id: '/_public',
   getParentRoute: () => rootRouteImport,
@@ -56,10 +74,71 @@ const OnboardingIndexRoute = OnboardingIndexRouteImport.update({
   path: '/',
   getParentRoute: () => OnboardingRouteRoute,
 } as any)
+const DashboardIndexRoute = DashboardIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => DashboardRouteRoute,
+} as any)
 const PublicIndexRoute = PublicIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => PublicRouteRoute,
+} as any)
+const DashboardUsageBreakdownRoute = DashboardUsageBreakdownRouteImport.update({
+  id: '/usage-breakdown',
+  path: '/usage-breakdown',
+  getParentRoute: () => DashboardRouteRoute,
+} as any)
+const DashboardSupportRoute = DashboardSupportRouteImport.update({
+  id: '/support',
+  path: '/support',
+  getParentRoute: () => DashboardRouteRoute,
+} as any)
+const DashboardSessionsRoute = DashboardSessionsRouteImport.update({
+  id: '/sessions',
+  path: '/sessions',
+  getParentRoute: () => DashboardRouteRoute,
+} as any)
+const DashboardSecurityRoute = DashboardSecurityRouteImport.update({
+  id: '/security',
+  path: '/security',
+  getParentRoute: () => DashboardRouteRoute,
+} as any)
+const DashboardProfileRoute = DashboardProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => DashboardRouteRoute,
+} as any)
+const DashboardPlansRoute = DashboardPlansRouteImport.update({
+  id: '/plans',
+  path: '/plans',
+  getParentRoute: () => DashboardRouteRoute,
+} as any)
+const DashboardMembersRoute = DashboardMembersRouteImport.update({
+  id: '/members',
+  path: '/members',
+  getParentRoute: () => DashboardRouteRoute,
+} as any)
+const DashboardFeedbackRoute = DashboardFeedbackRouteImport.update({
+  id: '/feedback',
+  path: '/feedback',
+  getParentRoute: () => DashboardRouteRoute,
+} as any)
+const DashboardBillingRoute = DashboardBillingRouteImport.update({
+  id: '/billing',
+  path: '/billing',
+  getParentRoute: () => DashboardRouteRoute,
+} as any)
+const DashboardAuthenticationsRoute =
+  DashboardAuthenticationsRouteImport.update({
+    id: '/authentications',
+    path: '/authentications',
+    getParentRoute: () => DashboardRouteRoute,
+  } as any)
+const DashboardAuditLogsRoute = DashboardAuditLogsRouteImport.update({
+  id: '/audit-logs',
+  path: '/audit-logs',
+  getParentRoute: () => DashboardRouteRoute,
 } as any)
 const ApiContactRoute = ApiContactRouteImport.update({
   id: '/api/contact',
@@ -179,6 +258,7 @@ const PublicBlogsSlugRoute = PublicBlogsSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof PublicIndexRoute
+  '/dashboard': typeof DashboardRouteRouteWithChildren
   '/onboarding': typeof OnboardingRouteRouteWithChildren
   '/forgot-password': typeof AuthForgotPasswordRoute
   '/forgot-password-otp': typeof AuthForgotPasswordOtpRoute
@@ -197,6 +277,18 @@ export interface FileRoutesByFullPath {
   '/request-demo': typeof PublicRequestDemoRoute
   '/terms-of-service': typeof PublicTermsOfServiceRoute
   '/api/contact': typeof ApiContactRoute
+  '/dashboard/audit-logs': typeof DashboardAuditLogsRoute
+  '/dashboard/authentications': typeof DashboardAuthenticationsRoute
+  '/dashboard/billing': typeof DashboardBillingRoute
+  '/dashboard/feedback': typeof DashboardFeedbackRoute
+  '/dashboard/members': typeof DashboardMembersRoute
+  '/dashboard/plans': typeof DashboardPlansRoute
+  '/dashboard/profile': typeof DashboardProfileRoute
+  '/dashboard/security': typeof DashboardSecurityRoute
+  '/dashboard/sessions': typeof DashboardSessionsRoute
+  '/dashboard/support': typeof DashboardSupportRoute
+  '/dashboard/usage-breakdown': typeof DashboardUsageBreakdownRoute
+  '/dashboard/': typeof DashboardIndexRoute
   '/onboarding/': typeof OnboardingIndexRoute
   '/blogs/$slug': typeof PublicBlogsSlugRoute
   '/features/$slug': typeof PublicFeaturesSlugRoute
@@ -221,6 +313,18 @@ export interface FileRoutesByTo {
   '/request-demo': typeof PublicRequestDemoRoute
   '/terms-of-service': typeof PublicTermsOfServiceRoute
   '/api/contact': typeof ApiContactRoute
+  '/dashboard/audit-logs': typeof DashboardAuditLogsRoute
+  '/dashboard/authentications': typeof DashboardAuthenticationsRoute
+  '/dashboard/billing': typeof DashboardBillingRoute
+  '/dashboard/feedback': typeof DashboardFeedbackRoute
+  '/dashboard/members': typeof DashboardMembersRoute
+  '/dashboard/plans': typeof DashboardPlansRoute
+  '/dashboard/profile': typeof DashboardProfileRoute
+  '/dashboard/security': typeof DashboardSecurityRoute
+  '/dashboard/sessions': typeof DashboardSessionsRoute
+  '/dashboard/support': typeof DashboardSupportRoute
+  '/dashboard/usage-breakdown': typeof DashboardUsageBreakdownRoute
+  '/dashboard': typeof DashboardIndexRoute
   '/onboarding': typeof OnboardingIndexRoute
   '/blogs/$slug': typeof PublicBlogsSlugRoute
   '/features/$slug': typeof PublicFeaturesSlugRoute
@@ -233,6 +337,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/_auth': typeof AuthRouteRouteWithChildren
   '/_public': typeof PublicRouteRouteWithChildren
+  '/dashboard': typeof DashboardRouteRouteWithChildren
   '/onboarding': typeof OnboardingRouteRouteWithChildren
   '/_auth/forgot-password': typeof AuthForgotPasswordRoute
   '/_auth/forgot-password-otp': typeof AuthForgotPasswordOtpRoute
@@ -251,7 +356,19 @@ export interface FileRoutesById {
   '/_public/request-demo': typeof PublicRequestDemoRoute
   '/_public/terms-of-service': typeof PublicTermsOfServiceRoute
   '/api/contact': typeof ApiContactRoute
+  '/dashboard/audit-logs': typeof DashboardAuditLogsRoute
+  '/dashboard/authentications': typeof DashboardAuthenticationsRoute
+  '/dashboard/billing': typeof DashboardBillingRoute
+  '/dashboard/feedback': typeof DashboardFeedbackRoute
+  '/dashboard/members': typeof DashboardMembersRoute
+  '/dashboard/plans': typeof DashboardPlansRoute
+  '/dashboard/profile': typeof DashboardProfileRoute
+  '/dashboard/security': typeof DashboardSecurityRoute
+  '/dashboard/sessions': typeof DashboardSessionsRoute
+  '/dashboard/support': typeof DashboardSupportRoute
+  '/dashboard/usage-breakdown': typeof DashboardUsageBreakdownRoute
   '/_public/': typeof PublicIndexRoute
+  '/dashboard/': typeof DashboardIndexRoute
   '/onboarding/': typeof OnboardingIndexRoute
   '/_public/blogs/$slug': typeof PublicBlogsSlugRoute
   '/_public/features/$slug': typeof PublicFeaturesSlugRoute
@@ -264,6 +381,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/dashboard'
     | '/onboarding'
     | '/forgot-password'
     | '/forgot-password-otp'
@@ -282,6 +400,18 @@ export interface FileRouteTypes {
     | '/request-demo'
     | '/terms-of-service'
     | '/api/contact'
+    | '/dashboard/audit-logs'
+    | '/dashboard/authentications'
+    | '/dashboard/billing'
+    | '/dashboard/feedback'
+    | '/dashboard/members'
+    | '/dashboard/plans'
+    | '/dashboard/profile'
+    | '/dashboard/security'
+    | '/dashboard/sessions'
+    | '/dashboard/support'
+    | '/dashboard/usage-breakdown'
+    | '/dashboard/'
     | '/onboarding/'
     | '/blogs/$slug'
     | '/features/$slug'
@@ -306,6 +436,18 @@ export interface FileRouteTypes {
     | '/request-demo'
     | '/terms-of-service'
     | '/api/contact'
+    | '/dashboard/audit-logs'
+    | '/dashboard/authentications'
+    | '/dashboard/billing'
+    | '/dashboard/feedback'
+    | '/dashboard/members'
+    | '/dashboard/plans'
+    | '/dashboard/profile'
+    | '/dashboard/security'
+    | '/dashboard/sessions'
+    | '/dashboard/support'
+    | '/dashboard/usage-breakdown'
+    | '/dashboard'
     | '/onboarding'
     | '/blogs/$slug'
     | '/features/$slug'
@@ -317,6 +459,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/_auth'
     | '/_public'
+    | '/dashboard'
     | '/onboarding'
     | '/_auth/forgot-password'
     | '/_auth/forgot-password-otp'
@@ -335,7 +478,19 @@ export interface FileRouteTypes {
     | '/_public/request-demo'
     | '/_public/terms-of-service'
     | '/api/contact'
+    | '/dashboard/audit-logs'
+    | '/dashboard/authentications'
+    | '/dashboard/billing'
+    | '/dashboard/feedback'
+    | '/dashboard/members'
+    | '/dashboard/plans'
+    | '/dashboard/profile'
+    | '/dashboard/security'
+    | '/dashboard/sessions'
+    | '/dashboard/support'
+    | '/dashboard/usage-breakdown'
     | '/_public/'
+    | '/dashboard/'
     | '/onboarding/'
     | '/_public/blogs/$slug'
     | '/_public/features/$slug'
@@ -348,6 +503,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   AuthRouteRoute: typeof AuthRouteRouteWithChildren
   PublicRouteRoute: typeof PublicRouteRouteWithChildren
+  DashboardRouteRoute: typeof DashboardRouteRouteWithChildren
   OnboardingRouteRoute: typeof OnboardingRouteRouteWithChildren
   ApiContactRoute: typeof ApiContactRoute
 }
@@ -359,6 +515,13 @@ declare module '@tanstack/react-router' {
       path: '/onboarding'
       fullPath: '/onboarding'
       preLoaderRoute: typeof OnboardingRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_public': {
@@ -382,12 +545,96 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof OnboardingIndexRouteImport
       parentRoute: typeof OnboardingRouteRoute
     }
+    '/dashboard/': {
+      id: '/dashboard/'
+      path: '/'
+      fullPath: '/dashboard/'
+      preLoaderRoute: typeof DashboardIndexRouteImport
+      parentRoute: typeof DashboardRouteRoute
+    }
     '/_public/': {
       id: '/_public/'
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof PublicIndexRouteImport
       parentRoute: typeof PublicRouteRoute
+    }
+    '/dashboard/usage-breakdown': {
+      id: '/dashboard/usage-breakdown'
+      path: '/usage-breakdown'
+      fullPath: '/dashboard/usage-breakdown'
+      preLoaderRoute: typeof DashboardUsageBreakdownRouteImport
+      parentRoute: typeof DashboardRouteRoute
+    }
+    '/dashboard/support': {
+      id: '/dashboard/support'
+      path: '/support'
+      fullPath: '/dashboard/support'
+      preLoaderRoute: typeof DashboardSupportRouteImport
+      parentRoute: typeof DashboardRouteRoute
+    }
+    '/dashboard/sessions': {
+      id: '/dashboard/sessions'
+      path: '/sessions'
+      fullPath: '/dashboard/sessions'
+      preLoaderRoute: typeof DashboardSessionsRouteImport
+      parentRoute: typeof DashboardRouteRoute
+    }
+    '/dashboard/security': {
+      id: '/dashboard/security'
+      path: '/security'
+      fullPath: '/dashboard/security'
+      preLoaderRoute: typeof DashboardSecurityRouteImport
+      parentRoute: typeof DashboardRouteRoute
+    }
+    '/dashboard/profile': {
+      id: '/dashboard/profile'
+      path: '/profile'
+      fullPath: '/dashboard/profile'
+      preLoaderRoute: typeof DashboardProfileRouteImport
+      parentRoute: typeof DashboardRouteRoute
+    }
+    '/dashboard/plans': {
+      id: '/dashboard/plans'
+      path: '/plans'
+      fullPath: '/dashboard/plans'
+      preLoaderRoute: typeof DashboardPlansRouteImport
+      parentRoute: typeof DashboardRouteRoute
+    }
+    '/dashboard/members': {
+      id: '/dashboard/members'
+      path: '/members'
+      fullPath: '/dashboard/members'
+      preLoaderRoute: typeof DashboardMembersRouteImport
+      parentRoute: typeof DashboardRouteRoute
+    }
+    '/dashboard/feedback': {
+      id: '/dashboard/feedback'
+      path: '/feedback'
+      fullPath: '/dashboard/feedback'
+      preLoaderRoute: typeof DashboardFeedbackRouteImport
+      parentRoute: typeof DashboardRouteRoute
+    }
+    '/dashboard/billing': {
+      id: '/dashboard/billing'
+      path: '/billing'
+      fullPath: '/dashboard/billing'
+      preLoaderRoute: typeof DashboardBillingRouteImport
+      parentRoute: typeof DashboardRouteRoute
+    }
+    '/dashboard/authentications': {
+      id: '/dashboard/authentications'
+      path: '/authentications'
+      fullPath: '/dashboard/authentications'
+      preLoaderRoute: typeof DashboardAuthenticationsRouteImport
+      parentRoute: typeof DashboardRouteRoute
+    }
+    '/dashboard/audit-logs': {
+      id: '/dashboard/audit-logs'
+      path: '/audit-logs'
+      fullPath: '/dashboard/audit-logs'
+      preLoaderRoute: typeof DashboardAuditLogsRouteImport
+      parentRoute: typeof DashboardRouteRoute
     }
     '/api/contact': {
       id: '/api/contact'
@@ -648,6 +895,40 @@ const PublicRouteRouteWithChildren = PublicRouteRoute._addFileChildren(
   PublicRouteRouteChildren,
 )
 
+interface DashboardRouteRouteChildren {
+  DashboardAuditLogsRoute: typeof DashboardAuditLogsRoute
+  DashboardAuthenticationsRoute: typeof DashboardAuthenticationsRoute
+  DashboardBillingRoute: typeof DashboardBillingRoute
+  DashboardFeedbackRoute: typeof DashboardFeedbackRoute
+  DashboardMembersRoute: typeof DashboardMembersRoute
+  DashboardPlansRoute: typeof DashboardPlansRoute
+  DashboardProfileRoute: typeof DashboardProfileRoute
+  DashboardSecurityRoute: typeof DashboardSecurityRoute
+  DashboardSessionsRoute: typeof DashboardSessionsRoute
+  DashboardSupportRoute: typeof DashboardSupportRoute
+  DashboardUsageBreakdownRoute: typeof DashboardUsageBreakdownRoute
+  DashboardIndexRoute: typeof DashboardIndexRoute
+}
+
+const DashboardRouteRouteChildren: DashboardRouteRouteChildren = {
+  DashboardAuditLogsRoute: DashboardAuditLogsRoute,
+  DashboardAuthenticationsRoute: DashboardAuthenticationsRoute,
+  DashboardBillingRoute: DashboardBillingRoute,
+  DashboardFeedbackRoute: DashboardFeedbackRoute,
+  DashboardMembersRoute: DashboardMembersRoute,
+  DashboardPlansRoute: DashboardPlansRoute,
+  DashboardProfileRoute: DashboardProfileRoute,
+  DashboardSecurityRoute: DashboardSecurityRoute,
+  DashboardSessionsRoute: DashboardSessionsRoute,
+  DashboardSupportRoute: DashboardSupportRoute,
+  DashboardUsageBreakdownRoute: DashboardUsageBreakdownRoute,
+  DashboardIndexRoute: DashboardIndexRoute,
+}
+
+const DashboardRouteRouteWithChildren = DashboardRouteRoute._addFileChildren(
+  DashboardRouteRouteChildren,
+)
+
 interface OnboardingRouteRouteChildren {
   OnboardingIndexRoute: typeof OnboardingIndexRoute
 }
@@ -663,6 +944,7 @@ const OnboardingRouteRouteWithChildren = OnboardingRouteRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   AuthRouteRoute: AuthRouteRouteWithChildren,
   PublicRouteRoute: PublicRouteRouteWithChildren,
+  DashboardRouteRoute: DashboardRouteRouteWithChildren,
   OnboardingRouteRoute: OnboardingRouteRouteWithChildren,
   ApiContactRoute: ApiContactRoute,
 }
