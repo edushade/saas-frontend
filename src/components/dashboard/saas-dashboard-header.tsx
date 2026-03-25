@@ -7,7 +7,6 @@ import { useRouterState } from '@tanstack/react-router';
 // 	BreadcrumbPage,
 // 	BreadcrumbSeparator,
 // } from '@/components/ui/breadcrumb';
-import { Separator } from '@/components/ui/separator';
 import { SidebarTrigger } from '@/components/ui/sidebar';
 import { Typography } from '../ui-custom/typography';
 import { DashboardBrandLogo } from './dashboard-brand-logo';
@@ -63,13 +62,7 @@ export default function SaasDashboardHeader() {
 				</div>
 			</div>
 
-			{/* sm+: trigger + breadcrumbs (sidebar is docked) */}
 			<div className="hidden h-full w-full items-center gap-2 px-4 sm:flex">
-				<SidebarTrigger className="text-text-primary shrink-0" />
-				<Separator
-					orientation="vertical"
-					className="mr-2 data-[orientation=vertical]:h-4"
-				/>
 				{/* <Breadcrumb className="min-w-0">
 					<BreadcrumbList>
 						{breadcrumbs.map((crumb, i) => (

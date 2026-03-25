@@ -18,10 +18,7 @@ export function SaasDashboardLayout({
 				} as React.CSSProperties
 			}
 		>
-			<SaasDashboardSidebar
-				variant="floating"
-				className="bg-bg-primary rounded-2xl"
-			/>
+			<SaasDashboardSidebar variant="sidebar" className="bg-bg-secondary" />
 			<SidebarInset className="min-w-0 border-none bg-bg-secondary">
 				<SaasDashboardHeader />
 				<div className="flex min-w-0 flex-1 flex-col gap-3 md:gap-4 px-3 md:px-4 pb-4">
