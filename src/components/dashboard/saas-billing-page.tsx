@@ -1,23 +1,18 @@
-import { Link } from "@tanstack/react-router";
-import { ArrowUp } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import {
-	Card,
-	CardContent,
-	CardHeader,
-	CardTitle,
-} from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
-import { Typography } from "@/components/ui-custom/typography";
-import { cn } from "@/lib/utils";
-import { BillingInvoicesPanel } from "./billing-invoices-panel";
+import { Link } from '@tanstack/react-router';
+import { ArrowUp } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Separator } from '@/components/ui/separator';
+import { Typography } from '@/components/ui-custom/typography';
+import { cn } from '@/lib/utils';
+import { BillingInvoicesPanel } from './billing-invoices-panel';
 
 function VisaMark({ className }: { className?: string }) {
 	return (
 		<div
 			className={cn(
-				"flex size-10 shrink-0 items-center justify-center rounded-lg border border-border-secondary bg-bg-primary",
+				'flex size-10 shrink-0 items-center justify-center rounded-lg border border-border-secondary bg-bg-primary',
 				className,
 			)}
 		>
@@ -38,16 +33,9 @@ function VisaMark({ className }: { className?: string }) {
 	);
 }
 
-/**
- * Billing overview: current plan, payment method, billing contact, and invoices (mock data).
- */
 export function SaasBillingPage() {
 	return (
-		<div className="flex flex-col gap-6">
-			<Typography variant="h5" className="font-semibold text-text-primary">
-				Billing
-			</Typography>
-
+		<div className="flex flex-col gap-6 max-w-[800px] w-full mx-auto">
 			<Card className="gap-0 rounded-xl border-border-secondary bg-bg-primary py-0 shadow-sm">
 				<CardHeader className="flex flex-row items-center justify-between space-y-0 border-b border-border-secondary px-6 py-5">
 					<CardTitle className="text-base font-semibold text-text-primary">

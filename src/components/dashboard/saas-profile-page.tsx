@@ -3,7 +3,7 @@ import { useId, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import { Typography } from '@/components/ui-custom/typography';
+import { InputGroup, InputGroupInput } from '@/components/ui/input-group';
 import { getProfileImageValidationError } from '@/lib/profile-image-validation';
 import { DashboardSettingsRow } from './dashboard-settings-row';
 
@@ -13,13 +13,9 @@ export function SaasProfilePage() {
 	const [imageError, setImageError] = useState<string | null>(null);
 
 	return (
-		<div className="flex flex-col gap-6">
-			<Typography variant="h5" className="font-semibold text-text-primary">
-				Profile
-			</Typography>
-
-			<Card className="gap-0 rounded-xl border-border-secondary bg-bg-primary py-0 shadow-sm">
-				<CardHeader className="border-b border-border-secondary px-6 py-5">
+		<div className="flex flex-col gap-6 max-w-[800px] w-full mx-auto">
+			<Card className="gap-0 rounded-xl border-border-secondary bg-bg-primary shadow-sm">
+				<CardHeader className="border-b border-border-secondary">
 					<CardTitle className="text-base font-semibold text-text-primary">
 						Account Information
 					</CardTitle>
@@ -29,20 +25,26 @@ export function SaasProfilePage() {
 						title="Name"
 						description="Enter your full name."
 					>
-						<div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-							<Input
+						<InputGroup className="flex h-9 min-w-0 w-full flex-nowrap">
+							<InputGroupInput
 								aria-label="First name"
 								autoComplete="given-name"
 								defaultValue="Saier"
 								placeholder="First name"
+								className="min-w-0 flex-1"
 							/>
-							<Input
+							<div
+								aria-hidden
+								className="bg-border w-px shrink-0 self-stretch"
+							/>
+							<InputGroupInput
 								aria-label="Last name"
 								autoComplete="family-name"
 								defaultValue="Irfan"
 								placeholder="Last name"
+								className="min-w-0 flex-1"
 							/>
-						</div>
+						</InputGroup>
 					</DashboardSettingsRow>
 
 					<DashboardSettingsRow

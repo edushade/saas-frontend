@@ -19,7 +19,7 @@ export function DashboardSettingsRow({
 	return (
 		<div
 			className={cn(
-				'grid grid-cols-1 gap-4 border-b border-border-secondary py-6 last:border-b-0 md:grid-cols-[minmax(0,260px)_1fr] md:items-start md:gap-8',
+				'grid grid-cols-1 gap-4 py-4 md:grid-cols-2 md:items-start md:gap-8',
 				className,
 			)}
 		>

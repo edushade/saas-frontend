@@ -1,19 +1,19 @@
-import { Link } from "@tanstack/react-router";
-import { ArrowDown, ArrowUp } from "lucide-react";
-import type { ReactNode } from "react";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Link } from '@tanstack/react-router';
+import { ArrowDown, ArrowUp } from 'lucide-react';
+import type { ReactNode } from 'react';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 import {
 	Card,
 	CardContent,
 	CardDescription,
 	CardHeader,
 	CardTitle,
-} from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
-import { Typography } from "@/components/ui-custom/typography";
-import { clampPercent } from "@/lib/usage/clamp-percent";
-import { cn } from "@/lib/utils";
+} from '@/components/ui/card';
+import { Progress } from '@/components/ui/progress';
+import { Typography } from '@/components/ui-custom/typography';
+import { clampPercent } from '@/lib/usage/clamp-percent';
+import { cn } from '@/lib/utils';
 
 type TrendProps = {
 	positive: boolean;
@@ -25,10 +25,10 @@ function TrendBadge({ positive, children, className }: TrendProps) {
 	return (
 		<span
 			className={cn(
-				"inline-flex items-center gap-0.5 text-xs font-medium",
+				'inline-flex items-center gap-0.5 text-xs font-medium',
 				positive
-					? "text-emerald-600 dark:text-emerald-400"
-					: "text-red-600 dark:text-red-400",
+					? 'text-emerald-600 dark:text-emerald-400'
+					: 'text-red-600 dark:text-red-400',
 				className,
 			)}
 		>
@@ -49,7 +49,12 @@ type SummaryMetricProps = {
 	footnote: string;
 };
 
-function SummaryMetricCard({ label, trend, value, footnote }: SummaryMetricProps) {
+function SummaryMetricCard({
+	label,
+	trend,
+	value,
+	footnote,
+}: SummaryMetricProps) {
 	return (
 		<Card className="rounded-xl border-border-secondary bg-bg-primary shadow-sm">
 			<CardContent className="space-y-2 p-5">
@@ -98,7 +103,6 @@ function UsageLimitRow({ label, usedLabel, percent, footer }: LimitRowProps) {
 	);
 }
 
-/** Demo metrics until usage API is available. */
 const USAGE_SNAPSHOT = {
 	learners: { current: 285, cap: 500, percent: 57 },
 	storageGb: { current: 12, cap: 50, percent: 24 },
@@ -106,14 +110,11 @@ const USAGE_SNAPSHOT = {
 	engagementPercent: 82,
 };
 
-/**
- * Usage breakdown dashboard: summary KPIs, plan limit progress, and engagement.
- */
 export function SaasUsageBreakdownPage() {
 	const { learners, storageGb, liveHours, engagementPercent } = USAGE_SNAPSHOT;
 
 	return (
-		<div className="flex flex-col gap-6">
+		<div className="flex flex-col gap-6 max-w-[1138px] w-full mx-auto">
 			<div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
 				<Typography variant="h5" className="font-semibold text-text-primary">
 					Usage Breakdown
@@ -157,7 +158,7 @@ export function SaasUsageBreakdownPage() {
 
 			<div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:items-start">
 				<Card className="rounded-xl border-border-secondary bg-bg-primary shadow-sm">
-					<CardHeader className="space-y-1.5 border-b border-border-secondary px-6 py-5">
+					<CardHeader className="border-b border-border-secondary">
 						<CardTitle className="text-base font-semibold text-text-primary">
 							Usage vs Plan Limits
 						</CardTitle>

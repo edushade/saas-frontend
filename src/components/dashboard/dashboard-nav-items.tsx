@@ -48,7 +48,7 @@ export function DashboardNavItems({ items }: { items: DashboardNavItem[] }) {
 										size="sm"
 										tooltip={item.title}
 										isActive={isActive}
-										className="text-text-primary data-[active=true]:text-brand-300 data-[active=true]:bg-brand-300/10"
+										className="text-text-primary data-[active=true]:text-text-primary data-[active=true]:bg-bg-tertiary"
 									>
 										<item.icon className="size-4 shrink-0" />
 										<span>{item.title}</span>
@@ -68,7 +68,7 @@ export function DashboardNavItems({ items }: { items: DashboardNavItem[] }) {
 													onClick={() => {
 														if (isMobile) toggleSidebar();
 													}}
-													className="text-text-primary data-[active=true]:font-semibold font-medium data-[active=true]:text-brand-300 data-[active=true]:bg-brand-300/10"
+													className="text-text-primary data-[active=true]:font-medium font-medium data-[active=true]:text-text-primary data-[active=true]:bg-bg-tertiary"
 												>
 													<Link to={subItem.url}>
 														<span>{subItem.title}</span>
@@ -93,7 +93,7 @@ export function DashboardNavItems({ items }: { items: DashboardNavItem[] }) {
 							onClick={() => {
 								if (isMobile) toggleSidebar();
 							}}
-							className="text-text-primary font-medium data-[active=true]:font-semibold text-sm data-[active=true]:text-brand-300 data-[active=true]:bg-brand-300/10"
+							className="text-text-primary font-medium data-[active=true]:font-medium text-sm data-[active=true]:text-text-primary data-[active=true]:bg-bg-tertiary"
 						>
 							<Link to={item.url}>
 								<item.icon className="size-4 shrink-0" />

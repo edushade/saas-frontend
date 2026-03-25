@@ -11,13 +11,11 @@ import {
 	SidebarMenu,
 	SidebarMenuButton,
 	SidebarMenuItem,
-	useSidebar,
 } from '@/components/ui/sidebar';
 import {
 	saasDashboardFooterNav,
 	saasDashboardNavSections,
 } from '@/lib/dashboard/saas-dashboard-navigation';
-import { cn } from '@/lib/utils';
 import { DashboardNavItems } from './dashboard-nav-items';
 import { OrganizationSwitcher } from './organization-switcher';
 
@@ -29,8 +27,6 @@ export function SaasDashboardSidebar({
 	...props
 }: React.ComponentProps<typeof Sidebar>) {
 	const pathname = useRouterState({ select: (s) => s.location.pathname });
-	const { open: isSidebarOpen, isMobile, openMobile } = useSidebar();
-	const sidebarIsOpen = isMobile ? openMobile : isSidebarOpen;
 
 	return (
 		<Sidebar collapsible="icon" {...props} className="p-1">

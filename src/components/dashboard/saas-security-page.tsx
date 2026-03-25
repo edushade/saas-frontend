@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { ReactNode } from 'react';
 import {
 	AlertDialog,
 	AlertDialogAction,
@@ -9,21 +9,18 @@ import {
 	AlertDialogHeader,
 	AlertDialogTitle,
 	AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
-import { Button } from "@/components/ui/button";
+} from '@/components/ui/alert-dialog';
+import { Button } from '@/components/ui/button';
 import {
 	Card,
 	CardContent,
 	CardDescription,
 	CardHeader,
 	CardTitle,
-} from "@/components/ui/card";
-import { Typography } from "@/components/ui-custom/typography";
-import {
-	FacebookOAuthIcon,
-	GoogleOAuthIcon,
-} from "./dashboard-oauth-icons";
-import { DashboardPasswordField } from "./dashboard-password-field";
+} from '@/components/ui/card';
+import { Typography } from '@/components/ui-custom/typography';
+import { FacebookOAuthIcon, GoogleOAuthIcon } from './dashboard-oauth-icons';
+import { DashboardPasswordField } from './dashboard-password-field';
 
 type ProviderRowProps = {
 	icon: ReactNode;
@@ -76,16 +73,9 @@ function OAuthProviderRow({
 	);
 }
 
-/**
- * Security dashboard view: linked accounts, password change, and account deletion (UI only).
- */
 export function SaasSecurityPage() {
 	return (
-		<div className="flex flex-col gap-6">
-			<Typography variant="h5" className="font-semibold text-text-primary">
-				Security
-			</Typography>
-
+		<div className="flex flex-col gap-6 max-w-[800px] w-full mx-auto">
 			<Card className="gap-0 rounded-xl border-border-secondary bg-bg-primary py-0 shadow-sm">
 				<CardHeader className="space-y-1.5 border-b border-border-secondary px-6 py-5">
 					<CardTitle className="text-base font-semibold text-text-primary">
@@ -152,8 +142,9 @@ export function SaasSecurityPage() {
 							Account Deletion
 						</p>
 						<p className="text-text-secondary max-w-2xl text-sm leading-relaxed">
-							Deleting your account is permanent. All organizations you own, billing
-							data, and personal settings will be removed. This cannot be undone.
+							Deleting your account is permanent. All organizations you own,
+							billing data, and personal settings will be removed. This cannot
+							be undone.
 						</p>
 					</div>
 					<AlertDialog>
@@ -166,8 +157,8 @@ export function SaasSecurityPage() {
 							<AlertDialogHeader>
 								<AlertDialogTitle>Delete your account?</AlertDialogTitle>
 								<AlertDialogDescription>
-									This action cannot be reversed. Your account and associated data
-									will be scheduled for deletion.
+									This action cannot be reversed. Your account and associated
+									data will be scheduled for deletion.
 								</AlertDialogDescription>
 							</AlertDialogHeader>
 							<AlertDialogFooter>

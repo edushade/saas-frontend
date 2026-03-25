@@ -1,14 +1,15 @@
-import { Link, useRouterState } from '@tanstack/react-router';
-import {
-	Breadcrumb,
-	BreadcrumbItem,
-	BreadcrumbLink,
-	BreadcrumbList,
-	BreadcrumbPage,
-	BreadcrumbSeparator,
-} from '@/components/ui/breadcrumb';
+import { useRouterState } from '@tanstack/react-router';
+// import {
+// 	Breadcrumb,
+// 	BreadcrumbItem,
+// 	BreadcrumbLink,
+// 	BreadcrumbList,
+// 	BreadcrumbPage,
+// 	BreadcrumbSeparator,
+// } from '@/components/ui/breadcrumb';
 import { Separator } from '@/components/ui/separator';
 import { SidebarTrigger } from '@/components/ui/sidebar';
+import { Typography } from '../ui-custom/typography';
 import { DashboardBrandLogo } from './dashboard-brand-logo';
 
 const SEGMENT_LABELS: Record<string, string> = {
@@ -69,7 +70,7 @@ export default function SaasDashboardHeader() {
 					orientation="vertical"
 					className="mr-2 data-[orientation=vertical]:h-4"
 				/>
-				<Breadcrumb className="min-w-0">
+				{/* <Breadcrumb className="min-w-0">
 					<BreadcrumbList>
 						{breadcrumbs.map((crumb, i) => (
 							<div
@@ -91,7 +92,11 @@ export default function SaasDashboardHeader() {
 							</div>
 						))}
 					</BreadcrumbList>
-				</Breadcrumb>
+				</Breadcrumb> */}
+				{/* need to title of current active page */}
+				<Typography variant="base" className="font-semibold text-text-primary">
+					{breadcrumbs[breadcrumbs.length - 1].label}
+				</Typography>
 			</div>
 		</header>
 	);
