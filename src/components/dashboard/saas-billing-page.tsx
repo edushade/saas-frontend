@@ -3,43 +3,10 @@ import { ArrowUp } from 'lucide-react';
 import { VisaIcon } from '@/assets/icons';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import {
-	Card,
-	CardContent,
-	CardFooter,
-	CardHeader,
-	CardTitle,
-} from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
-import { cn } from '@/lib/utils';
+import { Card, CardContent, CardFooter, CardTitle } from '@/components/ui/card';
 import { Typography } from '../ui-custom/typography';
 import { BillingInvoicesPanel } from './billing-invoices-panel';
 import SaasDashboardHeader from './saas-dashboard-header';
-
-function VisaMark({ className }: { className?: string }) {
-	return (
-		<div
-			className={cn(
-				'flex size-10 shrink-0 items-center justify-center rounded-lg border border-border-secondary bg-bg-primary',
-				className,
-			)}
-		>
-			<svg
-				className="h-3 w-10"
-				viewBox="0 0 48 16"
-				fill="none"
-				role="img"
-				aria-label="Visa"
-			>
-				<title>Visa</title>
-				<path
-					fill="#1A1F71"
-					d="M20.2 15.5h3.4l2.1-12.8h-3.4l-2.1 12.8zm13.6-8.3c0-1-.9-1.7-2.5-1.7-2.6 0-4.5 1.3-4.5 3.2 0 1.4 1.3 2.2 2.3 2.6 1 .5 1.4.8 1.4 1.2 0 .6-.8.9-1.6.9-1.1 0-1.7-.2-2.6-.6l-.4-.2-1 2.4c.9.4 2.1.7 3.5.7 2.8 0 4.6-1.4 4.6-3.4 0-1.1-.7-2-2.2-2.7-1-.4-1.5-.7-1.5-1.1 0-.4.5-.8 1.5-.8.9 0 1.6.2 2.1.4l.3.1 1-2.3zM45.5 2.7h-2.6c-.8 0-1.4.2-1.8 1.1l-5 11.7h3.5l.7-1.9h4.3l.4 1.9h3.1L45.5 2.7zm-5.1 7.6 1.6-4.4c0 .1.3-1 .3-1l.6 1 .6 4.4h-3.5zM15.8 2.7 12.5 15.5H9.3L6 2.7h3.6c.7 0 1.3.5 1.5 1.1l1.7 8.3 3.9-9.4h3.1z"
-				/>
-			</svg>
-		</div>
-	);
-}
 
 export function SaasBillingPage() {
 	return (
