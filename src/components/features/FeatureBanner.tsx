@@ -7,7 +7,7 @@ import { VideoCard } from '../shared';
 import { Card, CardContent } from '../ui/card';
 import { CardShadeOverlay } from '../ui-custom/card-shade-overlay';
 
-export interface FeatureBannerProps extends FeatureBannerContent {}
+export type FeatureBannerProps = Omit<FeatureBannerContent, 'slug'>;
 
 export function FeatureBanner({
 	tag,
@@ -17,7 +17,7 @@ export function FeatureBanner({
 	ctaTo,
 }: FeatureBannerProps) {
 	return (
-		<section className="relative bg-bg-primary px-4 md:px-8 xl:px-(--es-section-px) py-(--es-section-py)">
+		<section className="relative bg-bg-primary overflow-hidden px-4 md:px-8 xl:px-(--es-section-px) py-(--es-section-py)">
 			<div
 				aria-hidden
 				className="pointer-events-none absolute bottom-0 z-0 h-full w-full rounded-full bg-grad-lightblue"

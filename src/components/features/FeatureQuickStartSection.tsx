@@ -3,7 +3,7 @@ import { Typography } from '@/components/ui-custom/typography';
 import { cn } from '@/lib/utils';
 import { BannerTag } from '../ui-custom/BannerTag';
 
-export interface StartCourseStepItem {
+export interface QuickStartStepItem {
 	step: number;
 	title: string;
 	description: string;
@@ -11,18 +11,18 @@ export interface StartCourseStepItem {
 	imageAlt?: string;
 }
 
-export interface StartCourseIn60SecondsSectionProps {
+export interface FeatureQuickStartSectionProps {
 	title?: string;
 	subtitle?: string;
-	steps?: StartCourseStepItem[];
+	steps?: QuickStartStepItem[];
 	className?: string;
 }
 
-const DEFAULT_TITLE = 'Start a Course in 60 Seconds';
+const DEFAULT_TITLE = 'Get started in a few steps';
 const DEFAULT_SUBTITLE =
-	'Create, structure, and publish your course in three simple steps. No technical setup, no complex configuration. A quick, three-step process to get your course live.';
+	'Create, structure, and publish in three simple steps. No technical setup, no complex configuration.';
 
-const DEFAULT_STEPS: StartCourseStepItem[] = [
+const DEFAULT_STEPS: QuickStartStepItem[] = [
 	{
 		step: 1,
 		title: 'Create your course',
@@ -47,12 +47,16 @@ const DEFAULT_STEPS: StartCourseStepItem[] = [
 	},
 ];
 
-export function StartCourseIn60SecondsSection({
+/**
+ * Numbered steps with imagery for feature pages. Driven by `quickStart` in
+ * `content/features/<slug>.mdx`.
+ */
+export function FeatureQuickStartSection({
 	title = DEFAULT_TITLE,
 	subtitle = DEFAULT_SUBTITLE,
 	steps = DEFAULT_STEPS,
 	className,
-}: StartCourseIn60SecondsSectionProps) {
+}: FeatureQuickStartSectionProps) {
 	return (
 		<section
 			className={cn(

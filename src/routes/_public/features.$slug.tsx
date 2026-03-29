@@ -1,32 +1,34 @@
+import { MDXContent } from '@content-collections/mdx/react';
 import { createFileRoute, Link } from '@tanstack/react-router';
 import {
 	FeatureBanner,
-	StartCourseIn60SecondsSection,
-	WhatCoursesLetsYouDoSection,
+	FeatureCapabilityHighlightsSection,
+	FeatureQuickStartSection,
 } from '@/components/features';
 import FeatureSplitSection from '@/components/features/FeatureSplitSection';
 import { CtaSection, FAQSection } from '@/components/shared';
-import { getFeatureBySlug } from '@/constants/features';
+import { getFeatureDetailBySlug } from '@/constants/feature-details';
 
 export const Route = createFileRoute('/_public/features/$slug')({
 	component: FeaturePage,
 	head: ({ params }) => {
-		const feature = getFeatureBySlug(params?.slug ?? '');
-		const title = feature ? `${feature.tag} | Edushade` : 'Feature | Edushade';
-		const description = feature?.description ?? 'Explore Edushade features.';
+		const detail = getFeatureDetailBySlug(params?.slug ?? '');
+		const title = detail
+			? `${detail.banner.tag} | Edushade`
+			: 'Feature | Edushade';
+		const description =
+			detail?.banner.description ?? 'Explore Edushade features.';
 		return {
 			meta: [{ title }, { name: 'description', content: description }],
-		}
+		};
 	},
 });
 
-const COURSES_SLUG = 'courses';
-
 function FeaturePage() {
 	const { slug } = Route.useParams();
-	const feature = getFeatureBySlug(slug);
+	const detail = getFeatureDetailBySlug(slug);
 
-	if (!feature) {
+	if (!detail) {
 		return (
 			<main className="bg-bg-primary pt-(--es-nav-h)">
 				<div className="mx-auto max-w-(--es-max-w) px-4 py-16 text-center">
@@ -45,59 +47,36 @@ function FeaturePage() {
 					</Link>
 				</div>
 			</main>
-		)
+		);
 	}
 
 	return (
 		<main className="min-h-screen bg-bg-primary pt-(--es-section-pt)">
-			<FeatureBanner {...feature} />
-			{slug === COURSES_SLUG && <WhatCoursesLetsYouDoSection />}
-			{slug === COURSES_SLUG && (
-				<FeatureSplitSection
-					title="Choose the course type that fits your goals"
-					description="Design organized courses that guide learners step by step. Edushade gives educators full control over lessons, progression, and completion without turning course setup into a technical task."
-					lists={[
-						'Build structured courses with lessons, modules, and sections',
-						'Support self-paced and cohort-based course formats',
-						'Control learner progression with prerequisites and completion rules',
-						'Deliver consistent learning experiences at any scale',
-					]}
-					imgSrc="/svgs/courses/course-types.svg"
-					reverse={true}
-				/>
+			<FeatureBanner {...detail.banner} />
+			{detail?.capabilityHighlights != null && (
+				<FeatureCapabilityHighlightsSection {...detail.capabilityHighlights} />
 			)}
-			{slug === COURSES_SLUG && (
-				<FeatureSplitSection
-					title="Multiple Assessment Types for Better Learning"
-					description="Edushade lets educators evaluate understanding through quizzes, assignments, reflections, and more, without adding friction to the course flow."
-					lists={[
-						'Quizzes for quick knowledge checks',
-						'Assignments for deeper learning and practice',
-						'Reflections and written responses',
-						'Media-based submissions for flexible expression',
-					]}
-					imgSrc="/svgs/courses/assesments.svg"
-					reverse={false}
-				/>
+			{detail?.splitSections?.map((section) => (
+				<FeatureSplitSection key={section.title} {...section} />
+			))}
+			{detail?.quickStart != null && (
+				<FeatureQuickStartSection {...detail.quickStart} />
 			)}
-			{slug === COURSES_SLUG && (
-				<FeatureSplitSection
-					title="Manage Course Instructors with Ease"
-					description="Select, assign, and manage instructors across your courses. Edushade keeps roles clear so teams can focus on delivering quality learning."
-					lists={[
-						'Support single or multi-instructor courses',
-						'Role-based access for instructors and assistants',
-						'Clear ownership over course content',
-						'Smooth collaboration at scale',
-					]}
-					imgSrc="/svgs/courses/instructor.svg"
-					reverse={true}
-				/>
-			)}
-
-			{slug === COURSES_SLUG && <StartCourseIn60SecondsSection />}
+			{detail?.mdx ? (
+				<section className="bg-bg-primary px-4 py-(--es-section-py) md:px-8 xl:px-(--es-section-px)">
+					<div className="mx-auto max-w-(--es-max-w)">
+						<div
+							className="prose prose-neutral dark:prose-invert max-w-none
+							[&_a]:text-brand-200 [&_a]:underline
+							[&_p]:my-3 [&_p]:text-text-secondary"
+						>
+							<MDXContent code={detail.mdx} />
+						</div>
+					</div>
+				</section>
+			) : null}
 			<FAQSection />
 			<CtaSection />
 		</main>
-	)
+	);
 }
