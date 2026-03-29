@@ -28,7 +28,7 @@ export { ListIcon } from './list-icons';
 export { MenuIcon } from './menu-icons';
 export { NotebookBookmarkIcon, NotebookSquareIcon } from './notebook-icon';
 export { SidebarIcon } from './sidebar-icons';
-export { GithubIcon, GoogleIcon } from './social-icons';
+export { GithubIcon, GoogleIcon, VisaIcon } from './social-icons';
 export { StarIcon, StarsIcon } from './stars-icons';
 export { TeacherIcon } from './teacher-icon';
 export { TestTubeIcon } from './test-tube-icon';

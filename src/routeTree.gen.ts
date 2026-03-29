@@ -38,12 +38,15 @@ import { Route as PublicCookiePolicyRouteImport } from './routes/_public/cookie-
 import { Route as PublicContactUsRouteImport } from './routes/_public/contact-us'
 import { Route as PublicContactSalesRouteImport } from './routes/_public/contact-sales'
 import { Route as PublicBlogsRouteImport } from './routes/_public/blogs'
+import { Route as AuthVerifyPasswordSetupRouteImport } from './routes/_auth/verify-password-setup'
 import { Route as AuthVerifyEmailRouteImport } from './routes/_auth/verify-email'
 import { Route as AuthRegisterRouteImport } from './routes/_auth/register'
+import { Route as AuthPasswordCreatedRouteImport } from './routes/_auth/password-created'
 import { Route as AuthNewPasswordRouteImport } from './routes/_auth/new-password'
 import { Route as AuthLoginRouteImport } from './routes/_auth/login'
 import { Route as AuthForgotPasswordOtpRouteImport } from './routes/_auth/forgot-password-otp'
 import { Route as AuthForgotPasswordRouteImport } from './routes/_auth/forgot-password'
+import { Route as AuthCreatePasswordRouteImport } from './routes/_auth/create-password'
 import { Route as PublicIntegrationsIndexRouteImport } from './routes/_public/integrations.index'
 import { Route as PublicFeaturesIndexRouteImport } from './routes/_public/features.index'
 import { Route as PublicBlogsIndexRouteImport } from './routes/_public/blogs.index'
@@ -195,6 +198,11 @@ const PublicBlogsRoute = PublicBlogsRouteImport.update({
   path: '/blogs',
   getParentRoute: () => PublicRouteRoute,
 } as any)
+const AuthVerifyPasswordSetupRoute = AuthVerifyPasswordSetupRouteImport.update({
+  id: '/verify-password-setup',
+  path: '/verify-password-setup',
+  getParentRoute: () => AuthRouteRoute,
+} as any)
 const AuthVerifyEmailRoute = AuthVerifyEmailRouteImport.update({
   id: '/verify-email',
   path: '/verify-email',
@@ -203,6 +211,11 @@ const AuthVerifyEmailRoute = AuthVerifyEmailRouteImport.update({
 const AuthRegisterRoute = AuthRegisterRouteImport.update({
   id: '/register',
   path: '/register',
+  getParentRoute: () => AuthRouteRoute,
+} as any)
+const AuthPasswordCreatedRoute = AuthPasswordCreatedRouteImport.update({
+  id: '/password-created',
+  path: '/password-created',
   getParentRoute: () => AuthRouteRoute,
 } as any)
 const AuthNewPasswordRoute = AuthNewPasswordRouteImport.update({
@@ -223,6 +236,11 @@ const AuthForgotPasswordOtpRoute = AuthForgotPasswordOtpRouteImport.update({
 const AuthForgotPasswordRoute = AuthForgotPasswordRouteImport.update({
   id: '/forgot-password',
   path: '/forgot-password',
+  getParentRoute: () => AuthRouteRoute,
+} as any)
+const AuthCreatePasswordRoute = AuthCreatePasswordRouteImport.update({
+  id: '/create-password',
+  path: '/create-password',
   getParentRoute: () => AuthRouteRoute,
 } as any)
 const PublicIntegrationsIndexRoute = PublicIntegrationsIndexRouteImport.update({
@@ -260,12 +278,15 @@ export interface FileRoutesByFullPath {
   '/': typeof PublicIndexRoute
   '/dashboard': typeof DashboardRouteRouteWithChildren
   '/onboarding': typeof OnboardingRouteRouteWithChildren
+  '/create-password': typeof AuthCreatePasswordRoute
   '/forgot-password': typeof AuthForgotPasswordRoute
   '/forgot-password-otp': typeof AuthForgotPasswordOtpRoute
   '/login': typeof AuthLoginRoute
   '/new-password': typeof AuthNewPasswordRoute
+  '/password-created': typeof AuthPasswordCreatedRoute
   '/register': typeof AuthRegisterRoute
   '/verify-email': typeof AuthVerifyEmailRoute
+  '/verify-password-setup': typeof AuthVerifyPasswordSetupRoute
   '/blogs': typeof PublicBlogsRouteWithChildren
   '/contact-sales': typeof PublicContactSalesRoute
   '/contact-us': typeof PublicContactUsRoute
@@ -299,12 +320,15 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof PublicIndexRoute
+  '/create-password': typeof AuthCreatePasswordRoute
   '/forgot-password': typeof AuthForgotPasswordRoute
   '/forgot-password-otp': typeof AuthForgotPasswordOtpRoute
   '/login': typeof AuthLoginRoute
   '/new-password': typeof AuthNewPasswordRoute
+  '/password-created': typeof AuthPasswordCreatedRoute
   '/register': typeof AuthRegisterRoute
   '/verify-email': typeof AuthVerifyEmailRoute
+  '/verify-password-setup': typeof AuthVerifyPasswordSetupRoute
   '/contact-sales': typeof PublicContactSalesRoute
   '/contact-us': typeof PublicContactUsRoute
   '/cookie-policy': typeof PublicCookiePolicyRoute
@@ -339,12 +363,15 @@ export interface FileRoutesById {
   '/_public': typeof PublicRouteRouteWithChildren
   '/dashboard': typeof DashboardRouteRouteWithChildren
   '/onboarding': typeof OnboardingRouteRouteWithChildren
+  '/_auth/create-password': typeof AuthCreatePasswordRoute
   '/_auth/forgot-password': typeof AuthForgotPasswordRoute
   '/_auth/forgot-password-otp': typeof AuthForgotPasswordOtpRoute
   '/_auth/login': typeof AuthLoginRoute
   '/_auth/new-password': typeof AuthNewPasswordRoute
+  '/_auth/password-created': typeof AuthPasswordCreatedRoute
   '/_auth/register': typeof AuthRegisterRoute
   '/_auth/verify-email': typeof AuthVerifyEmailRoute
+  '/_auth/verify-password-setup': typeof AuthVerifyPasswordSetupRoute
   '/_public/blogs': typeof PublicBlogsRouteWithChildren
   '/_public/contact-sales': typeof PublicContactSalesRoute
   '/_public/contact-us': typeof PublicContactUsRoute
@@ -383,12 +410,15 @@ export interface FileRouteTypes {
     | '/'
     | '/dashboard'
     | '/onboarding'
+    | '/create-password'
     | '/forgot-password'
     | '/forgot-password-otp'
     | '/login'
     | '/new-password'
+    | '/password-created'
     | '/register'
     | '/verify-email'
+    | '/verify-password-setup'
     | '/blogs'
     | '/contact-sales'
     | '/contact-us'
@@ -422,12 +452,15 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/create-password'
     | '/forgot-password'
     | '/forgot-password-otp'
     | '/login'
     | '/new-password'
+    | '/password-created'
     | '/register'
     | '/verify-email'
+    | '/verify-password-setup'
     | '/contact-sales'
     | '/contact-us'
     | '/cookie-policy'
@@ -461,12 +494,15 @@ export interface FileRouteTypes {
     | '/_public'
     | '/dashboard'
     | '/onboarding'
+    | '/_auth/create-password'
     | '/_auth/forgot-password'
     | '/_auth/forgot-password-otp'
     | '/_auth/login'
     | '/_auth/new-password'
+    | '/_auth/password-created'
     | '/_auth/register'
     | '/_auth/verify-email'
+    | '/_auth/verify-password-setup'
     | '/_public/blogs'
     | '/_public/contact-sales'
     | '/_public/contact-us'
@@ -713,6 +749,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PublicBlogsRouteImport
       parentRoute: typeof PublicRouteRoute
     }
+    '/_auth/verify-password-setup': {
+      id: '/_auth/verify-password-setup'
+      path: '/verify-password-setup'
+      fullPath: '/verify-password-setup'
+      preLoaderRoute: typeof AuthVerifyPasswordSetupRouteImport
+      parentRoute: typeof AuthRouteRoute
+    }
     '/_auth/verify-email': {
       id: '/_auth/verify-email'
       path: '/verify-email'
@@ -725,6 +768,13 @@ declare module '@tanstack/react-router' {
       path: '/register'
       fullPath: '/register'
       preLoaderRoute: typeof AuthRegisterRouteImport
+      parentRoute: typeof AuthRouteRoute
+    }
+    '/_auth/password-created': {
+      id: '/_auth/password-created'
+      path: '/password-created'
+      fullPath: '/password-created'
+      preLoaderRoute: typeof AuthPasswordCreatedRouteImport
       parentRoute: typeof AuthRouteRoute
     }
     '/_auth/new-password': {
@@ -753,6 +803,13 @@ declare module '@tanstack/react-router' {
       path: '/forgot-password'
       fullPath: '/forgot-password'
       preLoaderRoute: typeof AuthForgotPasswordRouteImport
+      parentRoute: typeof AuthRouteRoute
+    }
+    '/_auth/create-password': {
+      id: '/_auth/create-password'
+      path: '/create-password'
+      fullPath: '/create-password'
+      preLoaderRoute: typeof AuthCreatePasswordRouteImport
       parentRoute: typeof AuthRouteRoute
     }
     '/_public/integrations/': {
@@ -801,21 +858,27 @@ declare module '@tanstack/react-router' {
 }
 
 interface AuthRouteRouteChildren {
+  AuthCreatePasswordRoute: typeof AuthCreatePasswordRoute
   AuthForgotPasswordRoute: typeof AuthForgotPasswordRoute
   AuthForgotPasswordOtpRoute: typeof AuthForgotPasswordOtpRoute
   AuthLoginRoute: typeof AuthLoginRoute
   AuthNewPasswordRoute: typeof AuthNewPasswordRoute
+  AuthPasswordCreatedRoute: typeof AuthPasswordCreatedRoute
   AuthRegisterRoute: typeof AuthRegisterRoute
   AuthVerifyEmailRoute: typeof AuthVerifyEmailRoute
+  AuthVerifyPasswordSetupRoute: typeof AuthVerifyPasswordSetupRoute
 }
 
 const AuthRouteRouteChildren: AuthRouteRouteChildren = {
+  AuthCreatePasswordRoute: AuthCreatePasswordRoute,
   AuthForgotPasswordRoute: AuthForgotPasswordRoute,
   AuthForgotPasswordOtpRoute: AuthForgotPasswordOtpRoute,
   AuthLoginRoute: AuthLoginRoute,
   AuthNewPasswordRoute: AuthNewPasswordRoute,
+  AuthPasswordCreatedRoute: AuthPasswordCreatedRoute,
   AuthRegisterRoute: AuthRegisterRoute,
   AuthVerifyEmailRoute: AuthVerifyEmailRoute,
+  AuthVerifyPasswordSetupRoute: AuthVerifyPasswordSetupRoute,
 }
 
 const AuthRouteRouteWithChildren = AuthRouteRoute._addFileChildren(

@@ -7,17 +7,8 @@ import {
 } from '@softimist/platejs';
 import { useMemo } from 'react';
 
-/**
- * Reusable Plate editor for forms. Follows Plate's form integration pattern:
- * uncontrolled editor, sync to form on onChange. See https://platejs.org/docs/form
- *
- * Accepts `value` as Plate Value (array) or JSON string; emits Plate Value in `onChange`.
- * Store in form as string (JSON.stringify) if your API expects string.
- */
 export interface PlateLiteEditorProps {
-	/** Current value: Plate Value (array of nodes) or JSON string. */
 	value?: any;
-	/** Called when content changes; receives Plate Value. Sync to form here (e.g. setValue / handleChange). */
 	onChange?: (value: any) => void;
 	placeholder?: string;
 	className?: string;

@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { DashboardPagePlaceholder } from '@/components/dashboard/dashboard-page-placeholder';
+import { SaasAuditLogsPage } from '@/components/dashboard/saas-audit-logs-page';
 
 export const Route = createFileRoute('/dashboard/audit-logs')({
-	component: () => <DashboardPagePlaceholder title="Audit logs" />,
+	component: SaasAuditLogsPage,
 });
