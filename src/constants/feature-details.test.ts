@@ -1,13 +1,18 @@
 import { allFeatureDetails } from 'content-collections';
 import { describe, expect, it } from 'vitest';
-import { getFeatureDetailBySlug } from './feature-details';
-import { FEATURE_SLUGS } from './features';
+import {
+	getFeatureBannerContentBySlug,
+	getFeatureDetailBySlug,
+} from './feature-details';
 
 describe('getFeatureDetailBySlug', () => {
 	it('returns the courses document when slug matches content/features/courses.mdx', () => {
 		const doc = getFeatureDetailBySlug('courses');
 		expect(doc).toBeDefined();
 		expect(doc?.slug).toBe('courses');
+		expect(doc?.id).toBe('courses');
+		expect(doc?.title).toBe('Courses');
+		expect(doc?.href).toBe('/features/courses');
 		expect(doc?.banner.tag).toBe('Courses');
 		expect(doc?.banner.headline.length).toBeGreaterThan(0);
 		expect(doc?.splitSections?.length).toBeGreaterThanOrEqual(1);
@@ -16,19 +21,17 @@ describe('getFeatureDetailBySlug', () => {
 		).toBeGreaterThanOrEqual(1);
 	});
 
-	it('has a content document for every feature slug in FEATURES_BY_SLUG', () => {
-		const slugs = new Set(
-			allFeatureDetails.map((d) => d.slug).filter(Boolean) as string[],
-		);
-		for (const slug of FEATURE_SLUGS) {
-			expect(slugs.has(slug), `missing content/features/${slug}.mdx`).toBe(
-				true,
-			);
-			const doc = getFeatureDetailBySlug(slug);
-			expect(doc?.banner?.headline.length ?? 0).toBeGreaterThan(0);
-			expect(doc?.splitSections?.length ?? 0).toBeGreaterThanOrEqual(1);
+	it('has unique slugs and required sections for every feature document', () => {
+		const seen = new Set<string>();
+		for (const doc of allFeatureDetails) {
+			const slug = doc.slug;
+			expect(slug).toBeTruthy();
+			expect(seen.has(slug!), `duplicate slug: ${slug}`).toBe(false);
+			seen.add(slug!);
+			expect(doc.banner?.headline.length ?? 0).toBeGreaterThan(0);
+			expect(doc.splitSections?.length ?? 0).toBeGreaterThanOrEqual(1);
 		}
-		expect(slugs.size).toBe(FEATURE_SLUGS.length);
+		expect(seen.size).toBe(allFeatureDetails.length);
 	});
 
 	it('returns undefined for unknown slugs', () => {
@@ -38,5 +41,18 @@ describe('getFeatureDetailBySlug', () => {
 	it('returns undefined for blank slugs', () => {
 		expect(getFeatureDetailBySlug('')).toBeUndefined();
 		expect(getFeatureDetailBySlug('   ')).toBeUndefined();
+	});
+});
+
+describe('getFeatureBannerContentBySlug', () => {
+	it('maps courses detail to banner content', () => {
+		const banner = getFeatureBannerContentBySlug('courses');
+		expect(banner?.slug).toBe('courses');
+		expect(banner?.tag).toBe('Courses');
+		expect(banner?.headline.length).toBeGreaterThan(0);
+	});
+
+	it('returns undefined for unknown slug', () => {
+		expect(getFeatureBannerContentBySlug('__missing__')).toBeUndefined();
 	});
 });

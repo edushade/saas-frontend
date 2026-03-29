@@ -3,20 +3,13 @@ import { Search } from 'lucide-react';
 import type { ElementType } from 'react';
 import * as React from 'react';
 import { Input } from '@/components/ui/input';
+import {
+	FEATURE_GROUP_DESCRIPTIONS,
+	type FeatureNavGroupTitle,
+} from '@/constants/feature-nav';
 import { FEATURES_GROUPS } from '@/constants/nav';
 import { cn } from '@/lib/utils';
 import { Typography } from '../ui-custom/typography';
-
-const CATEGORY_DESCRIPTIONS: Record<string, string> = {
-	'Build Learning':
-		'Edushade is designed by starting with how educators plan, teach, and support learners. Every part of the platform follows real instructional needs, not predefined software workflows.',
-	'Deliver & Engage':
-		'Reach learners in the format that works best \u2014 recorded video, live sessions, or structured paths. Keep engagement high with discussions, announcements, and feedback tools built directly into your platform.',
-	'Manage Roles':
-		"Give every user the experience that fits their responsibilities. Edushade's role-based panels keep students, educators, and admins focused on what matters most to them.",
-	'Track and Measure':
-		"Understand what's working across your platform. From individual learner progress to platform-wide completion rates, every data point is accessible and actionable.",
-};
 
 export function FeaturesListSections() {
 	const [query, setQuery] = React.useState('');
@@ -73,9 +66,13 @@ export function FeaturesListSections() {
 								>
 									{group.title}
 								</Typography>
-								{!q && CATEGORY_DESCRIPTIONS[group.title] && (
+								{!q && group.title in FEATURE_GROUP_DESCRIPTIONS && (
 									<p className="mt-3 text-sm leading-relaxed text-text-secondary md:text-base">
-										{CATEGORY_DESCRIPTIONS[group.title]}
+										{
+											FEATURE_GROUP_DESCRIPTIONS[
+												group.title as FeatureNavGroupTitle
+											]
+										}
 									</p>
 								)}
 							</div>

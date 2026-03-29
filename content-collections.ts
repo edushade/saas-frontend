@@ -48,7 +48,7 @@ const blogs = defineCollection({
 		const slug =
 			rawPath
 				.replace(/\.mdx?$/i, '')
-				.split('/')
+				.split(/[/\\]/)
 				.pop() ?? '';
 		return {
 			...document,
@@ -78,7 +78,7 @@ const legal = defineCollection({
 		const slug =
 			rawPath
 				.replace(/\.mdx?$/i, '')
-				.split('/')
+				.split(/[/\\]/)
 				.pop() ?? '';
 		return {
 			...document,
@@ -87,6 +87,35 @@ const legal = defineCollection({
 		};
 	},
 });
+
+/** Must match `NAV_FEATURE_ICON_KEYS` in `src/lib/features/nav-feature-icons.ts`. */
+const navFeatureIconKey = z.enum([
+	'notebookBookmark',
+	'userSpeakRounded',
+	'notebookSquare',
+	'testTube',
+	'calculatorMinimalistic',
+	'clipboardList',
+	'diploma',
+	'clapperboardPlay',
+	'routing',
+	'usersGroupTwoRounded',
+	'dialog',
+	'chatUnread',
+	'star',
+	'calendar',
+	'userHeartRounded',
+	'sidebar',
+	'windowFrame',
+	'userGroupRounded',
+	'stars',
+	'userBlock',
+	'pieChart3',
+	'chart2',
+	'cupStar',
+	'widget6',
+	'graphNewUp',
+]);
 
 /** Must match `FEATURE_CAPABILITY_ICON_KEYS` in `src/lib/features/feature-capability-icons.ts`. */
 const featureCapabilityIconKey = z.enum([
@@ -150,6 +179,13 @@ const featureDetailBannerSchema = z.object({
 });
 
 const featureDetailsSchema = z.object({
+	featureId: z.string(),
+	title: z.string(),
+	description: z.string(),
+	href: z.string(),
+	navGroup: z.string(),
+	navIcon: navFeatureIconKey,
+	navOrder: z.number().int().optional().default(0),
 	content: z.string(),
 	mdx: z.string().optional(),
 	slug: z.string().optional(),
@@ -168,15 +204,33 @@ const featureDetails = defineCollection({
 		const mdx = await compileMDX(context, document);
 		const rawPath =
 			(document as { _meta?: { path?: string } })._meta?.path ?? '';
-		const slug =
+		const pathSlug =
 			rawPath
 				.replace(/\.mdx?$/i, '')
-				.split('/')
+				.split(/[/\\]/)
 				.pop() ?? '';
+		if (document.featureId !== pathSlug) {
+			throw new Error(
+				`featureDetails "${pathSlug}.mdx": featureId must equal filename (got "${document.featureId}")`,
+			);
+		}
+		const expectedHref = `/features/${pathSlug}`;
+		if (document.href !== expectedHref) {
+			throw new Error(
+				`featureDetails "${pathSlug}.mdx": href must be "${expectedHref}" (got "${document.href}")`,
+			);
+		}
+		if (document.slug !== undefined && document.slug !== pathSlug) {
+			throw new Error(
+				`featureDetails "${pathSlug}.mdx": slug must match filename or be omitted`,
+			);
+		}
+		const { featureId, ...rest } = document;
 		return {
-			...document,
+			...rest,
+			id: featureId,
 			mdx,
-			slug,
+			slug: pathSlug,
 			splitSections: document.splitSections ?? [],
 		};
 	},
