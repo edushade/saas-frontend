@@ -25,7 +25,6 @@ import { Route as DashboardPlansRouteImport } from './routes/dashboard/plans'
 import { Route as DashboardMembersRouteImport } from './routes/dashboard/members'
 import { Route as DashboardFeedbackRouteImport } from './routes/dashboard/feedback'
 import { Route as DashboardBillingRouteImport } from './routes/dashboard/billing'
-import { Route as DashboardAuthenticationsRouteImport } from './routes/dashboard/authentications'
 import { Route as DashboardAuditLogsRouteImport } from './routes/dashboard/audit-logs'
 import { Route as ApiContactRouteImport } from './routes/api/contact'
 import { Route as PublicTermsOfServiceRouteImport } from './routes/_public/terms-of-service'
@@ -132,12 +131,6 @@ const DashboardBillingRoute = DashboardBillingRouteImport.update({
   path: '/billing',
   getParentRoute: () => DashboardRouteRoute,
 } as any)
-const DashboardAuthenticationsRoute =
-  DashboardAuthenticationsRouteImport.update({
-    id: '/authentications',
-    path: '/authentications',
-    getParentRoute: () => DashboardRouteRoute,
-  } as any)
 const DashboardAuditLogsRoute = DashboardAuditLogsRouteImport.update({
   id: '/audit-logs',
   path: '/audit-logs',
@@ -299,7 +292,6 @@ export interface FileRoutesByFullPath {
   '/terms-of-service': typeof PublicTermsOfServiceRoute
   '/api/contact': typeof ApiContactRoute
   '/dashboard/audit-logs': typeof DashboardAuditLogsRoute
-  '/dashboard/authentications': typeof DashboardAuthenticationsRoute
   '/dashboard/billing': typeof DashboardBillingRoute
   '/dashboard/feedback': typeof DashboardFeedbackRoute
   '/dashboard/members': typeof DashboardMembersRoute
@@ -338,7 +330,6 @@ export interface FileRoutesByTo {
   '/terms-of-service': typeof PublicTermsOfServiceRoute
   '/api/contact': typeof ApiContactRoute
   '/dashboard/audit-logs': typeof DashboardAuditLogsRoute
-  '/dashboard/authentications': typeof DashboardAuthenticationsRoute
   '/dashboard/billing': typeof DashboardBillingRoute
   '/dashboard/feedback': typeof DashboardFeedbackRoute
   '/dashboard/members': typeof DashboardMembersRoute
@@ -384,7 +375,6 @@ export interface FileRoutesById {
   '/_public/terms-of-service': typeof PublicTermsOfServiceRoute
   '/api/contact': typeof ApiContactRoute
   '/dashboard/audit-logs': typeof DashboardAuditLogsRoute
-  '/dashboard/authentications': typeof DashboardAuthenticationsRoute
   '/dashboard/billing': typeof DashboardBillingRoute
   '/dashboard/feedback': typeof DashboardFeedbackRoute
   '/dashboard/members': typeof DashboardMembersRoute
@@ -431,7 +421,6 @@ export interface FileRouteTypes {
     | '/terms-of-service'
     | '/api/contact'
     | '/dashboard/audit-logs'
-    | '/dashboard/authentications'
     | '/dashboard/billing'
     | '/dashboard/feedback'
     | '/dashboard/members'
@@ -470,7 +459,6 @@ export interface FileRouteTypes {
     | '/terms-of-service'
     | '/api/contact'
     | '/dashboard/audit-logs'
-    | '/dashboard/authentications'
     | '/dashboard/billing'
     | '/dashboard/feedback'
     | '/dashboard/members'
@@ -515,7 +503,6 @@ export interface FileRouteTypes {
     | '/_public/terms-of-service'
     | '/api/contact'
     | '/dashboard/audit-logs'
-    | '/dashboard/authentications'
     | '/dashboard/billing'
     | '/dashboard/feedback'
     | '/dashboard/members'
@@ -656,13 +643,6 @@ declare module '@tanstack/react-router' {
       path: '/billing'
       fullPath: '/dashboard/billing'
       preLoaderRoute: typeof DashboardBillingRouteImport
-      parentRoute: typeof DashboardRouteRoute
-    }
-    '/dashboard/authentications': {
-      id: '/dashboard/authentications'
-      path: '/authentications'
-      fullPath: '/dashboard/authentications'
-      preLoaderRoute: typeof DashboardAuthenticationsRouteImport
       parentRoute: typeof DashboardRouteRoute
     }
     '/dashboard/audit-logs': {
@@ -960,7 +940,6 @@ const PublicRouteRouteWithChildren = PublicRouteRoute._addFileChildren(
 
 interface DashboardRouteRouteChildren {
   DashboardAuditLogsRoute: typeof DashboardAuditLogsRoute
-  DashboardAuthenticationsRoute: typeof DashboardAuthenticationsRoute
   DashboardBillingRoute: typeof DashboardBillingRoute
   DashboardFeedbackRoute: typeof DashboardFeedbackRoute
   DashboardMembersRoute: typeof DashboardMembersRoute
@@ -975,7 +954,6 @@ interface DashboardRouteRouteChildren {
 
 const DashboardRouteRouteChildren: DashboardRouteRouteChildren = {
   DashboardAuditLogsRoute: DashboardAuditLogsRoute,
-  DashboardAuthenticationsRoute: DashboardAuthenticationsRoute,
   DashboardBillingRoute: DashboardBillingRoute,
   DashboardFeedbackRoute: DashboardFeedbackRoute,
   DashboardMembersRoute: DashboardMembersRoute,

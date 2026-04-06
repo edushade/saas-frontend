@@ -10,7 +10,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
-import { PlateLiteEditor } from '@/components/ui-custom/PlateLiteEditor';
+// import { PlateLiteEditor } from '@/components/ui-custom/PlateLiteEditor';
 import { ThumbnailUploader } from '@/components/ui-custom/thumbnail-uploader';
 import { Typography } from '@/components/ui-custom/typography';
 import { useAppForm } from '@/hooks/form';
@@ -80,7 +80,7 @@ export function OnboardingStep4({ onComplete }: Step4Props) {
 								</form.AppField>
 							</OnboardingField>
 
-							<OnboardingField label="Add Description to the Course">
+							{/* <OnboardingField label="Add Description to the Course">
 								<form.AppField name="description">
 									{(field) => (
 										<PlateLiteEditor
@@ -95,7 +95,7 @@ export function OnboardingStep4({ onComplete }: Step4Props) {
 										/>
 									)}
 								</form.AppField>
-							</OnboardingField>
+							</OnboardingField> */}
 
 							<OnboardingField label="Add Course Thumbnail">
 								<ThumbnailUploader

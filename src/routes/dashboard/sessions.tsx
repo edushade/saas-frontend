@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { DashboardPagePlaceholder } from '@/components/dashboard/dashboard-page-placeholder';
+import { SaasSessionsPage } from '@/components/dashboard/saas-sessions-page';
 
 export const Route = createFileRoute('/dashboard/sessions')({
-	component: DashboardPagePlaceholder,
+	component: SaasSessionsPage,
 });

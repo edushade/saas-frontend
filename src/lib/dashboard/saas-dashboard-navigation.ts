@@ -2,7 +2,6 @@ import type { LucideIcon } from 'lucide-react';
 import {
 	CreditCard,
 	FileBarChart,
-	KeyRound,
 	Layers,
 	LifeBuoy,
 	MonitorSmartphone,
@@ -56,11 +55,6 @@ export const saasDashboardNavSections: DashboardNavSection[] = [
 				title: 'Sessions',
 				url: '/dashboard/sessions',
 				icon: MonitorSmartphone,
-			},
-			{
-				title: 'Authentications',
-				url: '/dashboard/authentications',
-				icon: KeyRound,
 			},
 		],
 	},
