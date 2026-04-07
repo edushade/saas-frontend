@@ -1,13 +1,13 @@
-import { Link } from '@tanstack/react-router';
-import { Plus } from 'lucide-react';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Typography } from '@/components/ui-custom/typography';
+import { Link } from "@tanstack/react-router";
+import { Plus } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Typography } from "@/components/ui-custom/typography";
 import {
 	BLOG_CARD_FALLBACK_IMAGE,
 	type BlogPostCardItem,
-} from './blog-card-types';
+} from "../../lib/blog/blog-card-types";
 
 export interface BlogCardProps {
 	post: BlogPostCardItem;
@@ -54,7 +54,7 @@ export function VerticalBlogCard({ post }: BlogCardProps) {
 						>
 							{post.headline}
 						</Typography>
-						{post.description != null && post.description !== '' && (
+						{post.description != null && post.description !== "" && (
 							<Typography
 								variant="base"
 								className="line-clamp-2 font-normal text-text-secondary leading-snug"

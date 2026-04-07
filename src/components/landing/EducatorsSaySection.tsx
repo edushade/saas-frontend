@@ -1,16 +1,16 @@
-import { useState } from 'react';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Card, CardContent } from '@/components/ui/card';
-import type { Testimonial } from '@/constants/testimonials';
+import { useState } from "react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Card, CardContent } from "@/components/ui/card";
+import type { Testimonial } from "@/lib/testimonials";
 import {
 	TESTIMONIALS,
 	TESTIMONIALS_INITIAL_COUNT,
 	TESTIMONIALS_LOAD_MORE_COUNT,
-} from '@/constants/testimonials';
-import { cn } from '@/lib/utils';
-import { Button } from '../ui/button';
-import { CardShadeOverlay } from '../ui-custom/card-shade-overlay';
-import { Typography } from '../ui-custom/typography';
+} from "@/lib/testimonials/testimonials";
+import { cn } from "@/lib/utils";
+import { Button } from "../ui/button";
+import { CardShadeOverlay } from "../ui-custom/card-shade-overlay";
+import { Typography } from "../ui-custom/typography";
 
 export default function EducatorsSaySection() {
 	const [visibleCount, setVisibleCount] = useState(TESTIMONIALS_INITIAL_COUNT);
@@ -50,7 +50,7 @@ export default function EducatorsSaySection() {
 
 				<div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:grid-cols-3 md:gap-7 md:auto-rows-[minmax(200px,1fr)]">
 					{visible.map((t) => (
-						<div key={t.id} className={t.rowSpan === 2 ? 'md:row-span-2' : ''}>
+						<div key={t.id} className={t.rowSpan === 2 ? "md:row-span-2" : ""}>
 							<TestimonialCard {...t} />
 						</div>
 					))}
@@ -94,27 +94,27 @@ function TestimonialCard({
 	profileSrc,
 	logoSrc,
 }: Testimonial) {
-	const isGradient = variant === 'gradient';
-	const isId3 = id === '3';
-	const isId4 = id === '4';
+	const isGradient = variant === "gradient";
+	const isId3 = id === "3";
+	const isId4 = id === "4";
 
 	return (
 		<Card
 			className={cn(
-				'flex h-full min-h-0 flex-col overflow-hidden max-w-[408px] rounded-[20px] py-0 border-none shadow-none hover:shadow-lg transition-all duration-300 ease-out',
+				"flex h-full min-h-0 flex-col overflow-hidden max-w-[408px] rounded-[20px] py-0 border-none shadow-none hover:shadow-lg transition-all duration-300 ease-out",
 				isGradient
-					? 'border-0 text-text-on-brand'
-					: 'bg-bg-tertiary shadow-sm text-card-foreground',
-				isId3 && 'bg-rose-600',
-				isId4 && 'bg-success-600',
+					? "border-0 text-text-on-brand"
+					: "bg-bg-tertiary shadow-sm text-card-foreground",
+				isId3 && "bg-rose-600",
+				isId4 && "bg-success-600",
 			)}
 		>
 			{/* background gradient */}
 			<div
 				className={cn(
-					'relative z-20 flex  flex-1 flex-col gap-4 p-6',
-					isId3 && 'bg-grad-dark-1',
-					isId4 && 'bg-grad-success-1',
+					"relative z-20 flex  flex-1 flex-col gap-4 p-6",
+					isId3 && "bg-grad-dark-1",
+					isId4 && "bg-grad-success-1",
 				)}
 			>
 				{/* shade overlay */}
@@ -158,25 +158,25 @@ function TestimonialCard({
 				)}
 				<CardContent
 					className={cn(
-						'relative z-10 flex min-h-0 flex-1 flex-col gap-4 p-0',
-						isGradient && 'justify-end',
+						"relative z-10 flex min-h-0 flex-1 flex-col gap-4 p-0",
+						isGradient && "justify-end",
 					)}
 				>
 					<blockquote
 						className={cn(
-							'text-base font-normal leading-snug',
+							"text-base font-normal leading-snug",
 							isGradient
-								? 'shrink-0 text-text-on-brand'
-								: 'min-h-0 flex-1 text-text-primary',
+								? "shrink-0 text-text-on-brand"
+								: "min-h-0 flex-1 text-text-primary",
 						)}
 					>
 						&quot;{quote}&quot;
 					</blockquote>
 					<div
 						className={cn(
-							'flex shrink-0 items-center gap-3',
-							!isGradient && 'mt-auto',
-							isGradient && 'pt-2',
+							"flex shrink-0 items-center gap-3",
+							!isGradient && "mt-auto",
+							isGradient && "pt-2",
 						)}
 					>
 						<Avatar size="lg" className="size-16 shrink-0">
@@ -184,14 +184,14 @@ function TestimonialCard({
 								<AvatarImage
 									src={profileSrc ?? avatarSrc}
 									alt={name}
-									className={profileSrc ? 'object-contain' : 'object-cover'}
+									className={profileSrc ? "object-contain" : "object-cover"}
 								/>
 							)}
 							<AvatarFallback
 								className={`size-16 ${
 									isGradient
-										? 'bg-bg-tertiary text-text-on-brand'
-										: 'bg-bg-tertiary text-text-secondary'
+										? "bg-bg-tertiary text-text-on-brand"
+										: "bg-bg-tertiary text-text-secondary"
 								}`}
 							>
 								{initial}
@@ -200,13 +200,13 @@ function TestimonialCard({
 						<div className="min-w-0">
 							<Typography
 								variant="base"
-								className={`truncate font-semibold ${isGradient ? 'text-text-on-brand' : 'text-text-primary'}`}
+								className={`truncate font-semibold ${isGradient ? "text-text-on-brand" : "text-text-primary"}`}
 							>
 								{name}
 							</Typography>
 							<Typography
 								variant="base"
-								className={`truncate font-normal text-text-secondary ${isGradient ? 'text-text-on-brand' : 'text-text-secondary'}`}
+								className={`truncate font-normal text-text-secondary ${isGradient ? "text-text-on-brand" : "text-text-secondary"}`}
 							>
 								{role}
 							</Typography>

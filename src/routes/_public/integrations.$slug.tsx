@@ -1,11 +1,11 @@
-import { createFileRoute } from '@tanstack/react-router';
-import { IntegrationDetails } from '@/components/integrations/IntegrationDetails';
-import { getIntegrationDetail } from '@/constants/integrations';
-import { getSiteOrigin } from '@/env';
+import { createFileRoute } from "@tanstack/react-router";
+import { IntegrationDetails } from "@/components/integrations/IntegrationDetails";
+import { getSiteOrigin } from "@/env";
+import { getIntegrationDetail } from "@/lib/integrations/data";
 
-export const Route = createFileRoute('/_public/integrations/$slug')({
+export const Route = createFileRoute("/_public/integrations/$slug")({
 	loader: ({ params }) => {
-		const integration = getIntegrationDetail(params?.slug ?? '');
+		const integration = getIntegrationDetail(params?.slug ?? "");
 		return { integration };
 	},
 	head: ({ loaderData }) => {
@@ -13,10 +13,10 @@ export const Route = createFileRoute('/_public/integrations/$slug')({
 		if (!integration) {
 			return {
 				meta: [
-					{ title: 'Integration not found | Edushade' },
-					{ name: 'robots', content: 'noindex, follow' },
+					{ title: "Integration not found | Edushade" },
+					{ name: "robots", content: "noindex, follow" },
 				],
-			}
+			};
 		}
 		const origin = getSiteOrigin();
 		const title = `${integration.name} | Edushade`;
@@ -28,21 +28,21 @@ export const Route = createFileRoute('/_public/integrations/$slug')({
 		return {
 			meta: [
 				{ title },
-				{ name: 'description', content: description },
-				{ property: 'og:type', content: 'website' },
-				{ property: 'og:title', content: title },
-				{ property: 'og:description', content: description },
-				{ property: 'og:url', content: canonical },
-				{ name: 'twitter:card', content: 'summary' },
-				{ name: 'twitter:title', content: title },
-				{ name: 'twitter:description', content: description },
+				{ name: "description", content: description },
+				{ property: "og:type", content: "website" },
+				{ property: "og:title", content: title },
+				{ property: "og:description", content: description },
+				{ property: "og:url", content: canonical },
+				{ name: "twitter:card", content: "summary" },
+				{ name: "twitter:title", content: title },
+				{ name: "twitter:description", content: description },
 			],
-			links: [{ rel: 'canonical', href: canonical }],
-		}
+			links: [{ rel: "canonical", href: canonical }],
+		};
 	},
 	headers: () => ({
-		'Cache-Control':
-			'public, max-age=3600, s-maxage=3600, stale-while-revalidate=604800',
+		"Cache-Control":
+			"public, max-age=3600, s-maxage=3600, stale-while-revalidate=604800",
 	}),
 	staleTime: 5 * 60_000,
 	component: IntegrationDetailPage,
@@ -70,12 +70,12 @@ function IntegrationDetailPage() {
 					</a>
 				</div>
 			</main>
-		)
+		);
 	}
 
 	return (
 		<main className="min-h-screen  pt-(--es-section-pt)">
 			<IntegrationDetails integration={integration} />
 		</main>
-	)
+	);
 }

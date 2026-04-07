@@ -1,11 +1,11 @@
-import { Laptop, Monitor, Smartphone, Tablet } from 'lucide-react';
-import type { ComponentType } from 'react';
-import type { SessionDeviceType } from '@/data/demo-sessions';
-import { cn } from '@/lib/utils';
+import { Laptop, Monitor, Smartphone, Tablet } from "lucide-react";
+import type { ComponentType } from "react";
+import type { SessionDeviceType } from "@/lib/session/data";
+import { cn } from "@/lib/utils";
 
 const ICONS: Record<
 	SessionDeviceType,
-	ComponentType<{ className?: string; 'aria-hidden'?: boolean }>
+	ComponentType<{ className?: string; "aria-hidden"?: boolean }>
 > = {
 	laptop: Laptop,
 	phone: Smartphone,
@@ -32,10 +32,10 @@ export function SessionDeviceIcon({
 	return (
 		<div
 			className={cn(
-				'flex size-11 shrink-0 items-center justify-center rounded-lg',
+				"flex size-11 shrink-0 items-center justify-center rounded-lg",
 				highlight
-					? 'bg-brand-300/15 text-brand-300'
-					: 'bg-bg-tertiary text-text-tertiary',
+					? "bg-brand-300/15 text-brand-300"
+					: "bg-bg-tertiary text-text-tertiary",
 				className,
 			)}
 		>

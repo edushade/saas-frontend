@@ -1,14 +1,13 @@
-import type { Row } from '@tanstack/react-table';
+import type { Row } from "@tanstack/react-table";
 
-import type { BillingInvoiceRow } from '@/lib/billing/invoice-mock';
-
+import type { BillingInvoiceRow } from "@/lib/billing/constants";
 
 export function billingInvoicesGlobalFilterFn(
 	row: Row<BillingInvoiceRow>,
 	_columnId: string,
 	filterValue: unknown,
 ): boolean {
-	const q = String(filterValue ?? '')
+	const q = String(filterValue ?? "")
 		.trim()
 		.toLowerCase();
 	if (!q) {

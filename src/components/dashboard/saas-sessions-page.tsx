@@ -1,36 +1,36 @@
-import { Clock, Globe, LogOut, MapPin, ShieldCheck } from 'lucide-react';
-import { useMemo, useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Clock, Globe, LogOut, MapPin, ShieldCheck } from "lucide-react";
+import { useMemo, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
 	DEMO_SESSIONS,
 	type DemoSession,
 	getSessionSummaryStats,
-} from '@/data/demo-sessions';
-import { cn } from '@/lib/utils';
-import SaasDashboardHeader from './saas-dashboard-header';
-import { SessionDeviceIcon } from './sessions/session-device-icon';
-import { SessionStatCard } from './sessions/session-stat-card';
+} from "@/lib/session/data";
+import { cn } from "@/lib/utils";
+import SaasDashboardHeader from "./saas-dashboard-header";
+import { SessionDeviceIcon } from "./sessions/session-device-icon";
+import { SessionStatCard } from "./sessions/session-stat-card";
 
-function SessionStatusBadge({ status }: { status: DemoSession['status'] }) {
-	const isActive = status === 'active';
+function SessionStatusBadge({ status }: { status: DemoSession["status"] }) {
+	const isActive = status === "active";
 	return (
 		<span
 			className={cn(
-				'inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium',
+				"inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium",
 				isActive
-					? 'bg-emerald-500/15 text-emerald-700 dark:text-emerald-400'
-					: 'bg-bg-tertiary text-text-secondary',
+					? "bg-emerald-500/15 text-emerald-700 dark:text-emerald-400"
+					: "bg-bg-tertiary text-text-secondary",
 			)}
 		>
 			<span
 				className={cn(
-					'size-1.5 rounded-full',
-					isActive ? 'bg-emerald-500' : 'bg-text-tertiary',
+					"size-1.5 rounded-full",
+					isActive ? "bg-emerald-500" : "bg-text-tertiary",
 				)}
 				aria-hidden
 			/>
-			{isActive ? 'Active' : 'Idle'}
+			{isActive ? "Active" : "Idle"}
 		</span>
 	);
 }
@@ -51,7 +51,7 @@ function SessionMetaRow({
 	return (
 		<div
 			className={cn(
-				'flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-text-tertiary',
+				"flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-text-tertiary",
 				className,
 			)}
 		>

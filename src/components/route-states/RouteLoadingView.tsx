@@ -1,4 +1,4 @@
-import { Typography } from '@/components/ui-custom/typography';
+import { Typography } from "@/components/ui-custom/typography";
 
 export function RouteLoadingView() {
 	return (

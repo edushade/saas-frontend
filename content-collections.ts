@@ -236,6 +236,48 @@ const featureDetails = defineCollection({
 	},
 });
 
+const integrationsSchema = z.object({
+	name: z.string(),
+	tag: z.string(),
+	tagline: z.string(),
+	description: z.string(),
+	primaryButtonLabel: z.string(),
+	iconBgColor: z.string(),
+	imageSrc: z.string(),
+	descriptionParagraphs: z.array(z.string()).default([]),
+	content: z.string(),
+	mdx: z.string().optional(),
+	slug: z.string().optional(),
+});
+
+const integrations = defineCollection({
+	name: 'integrations',
+	directory: 'content/integrations',
+	include: '**/*.mdx',
+	schema: integrationsSchema,
+	transform: async (document, context) => {
+		const mdx = await compileMDX(context, document);
+		const rawPath =
+			(document as { _meta?: { path?: string } })._meta?.path ?? '';
+		const pathSlug =
+			rawPath
+				.replace(/\.mdx?$/i, '')
+				.split(/[/\\]/)
+				.pop() ?? '';
+		if (document.slug !== undefined && document.slug !== pathSlug) {
+			throw new Error(
+				`integrations "${pathSlug}.mdx": slug must match filename or be omitted`,
+			);
+		}
+		return {
+			...document,
+			mdx,
+			slug: pathSlug,
+			descriptionParagraphs: document.descriptionParagraphs ?? [],
+		};
+	},
+});
+
 export default defineConfig({
-	content: [blogs, legal, featureDetails],
+	content: [blogs, legal, featureDetails, integrations],
 });

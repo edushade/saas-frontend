@@ -1,6 +1,6 @@
-import { PricingPlanCard } from '@/components/pricing/pricing-plan-card';
-import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { type BillingCycle, PRICING_PLANS } from '@/constants/pricing';
+import { PricingPlanCard } from "@/components/pricing/pricing-plan-card";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { type BillingCycle, PRICING_PLANS } from "@/lib/pricing/data";
 export default function PricingPlansWithToggle({
 	billing,
 	onBillingChange,

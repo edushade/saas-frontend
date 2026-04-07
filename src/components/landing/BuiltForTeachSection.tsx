@@ -1,30 +1,30 @@
-import { Card, CardContent } from '@/components/ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { VideoCard } from '../shared';
-import { CardShadeOverlay } from '../ui-custom/card-shade-overlay';
-import { Typography } from '../ui-custom/typography';
+import { Card, CardContent } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { VideoCard } from "../shared";
+import { CardShadeOverlay } from "../ui-custom/card-shade-overlay";
+import { Typography } from "../ui-custom/typography";
 
 const TAB_CONTENT = {
 	creators: {
-		leftSrc: '/svgs/build-for-teach/1.svg',
-		leftAlt: 'Create Learning Path — assign learners',
-		rightSrc: '/videos/intro.mp4',
-		rightAlt: 'Watch Intro',
-		videoLabel: 'Watch Intro',
+		leftSrc: "/svgs/build-for-teach/1.svg",
+		leftAlt: "Create Learning Path — assign learners",
+		rightSrc: "/videos/intro.mp4",
+		rightAlt: "Watch Intro",
+		videoLabel: "Watch Intro",
 	},
 	academies: {
-		leftSrc: '/svgs/build-for-teach/1.svg',
-		leftAlt: 'For Academies — manage courses',
-		rightSrc: '/svgs/build-for-teach/2.svg',
-		rightAlt: 'Academy overview',
-		videoLabel: 'Watch Overview',
+		leftSrc: "/svgs/build-for-teach/1.svg",
+		leftAlt: "For Academies — manage courses",
+		rightSrc: "/svgs/build-for-teach/2.svg",
+		rightAlt: "Academy overview",
+		videoLabel: "Watch Overview",
 	},
 	schools: {
-		leftSrc: '/svgs/build-for-teach/1.svg',
-		leftAlt: 'For Schools — classroom tools',
-		rightSrc: '/svgs/build-for-teach/3.svg',
-		rightAlt: 'School intro',
-		videoLabel: 'Watch Intro',
+		leftSrc: "/svgs/build-for-teach/1.svg",
+		leftAlt: "For Schools — classroom tools",
+		rightSrc: "/svgs/build-for-teach/3.svg",
+		rightAlt: "School intro",
+		videoLabel: "Watch Intro",
 	},
 };
 
@@ -86,7 +86,7 @@ export default function BuiltForTeachSection() {
 						</TabsList>
 					</div>
 
-					{(['creators', 'academies', 'schools'] as const).map((tab) => {
+					{(["creators", "academies", "schools"] as const).map((tab) => {
 						const c = TAB_CONTENT[tab];
 						return (
 							<TabsContent

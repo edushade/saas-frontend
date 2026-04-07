@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import {
 	type Column,
@@ -6,12 +6,11 @@ import {
 	createColumnHelper,
 	type Row,
 	type Table,
-} from '@tanstack/react-table';
-import { Mail, MoreVertical, Pencil, Trash2 } from 'lucide-react';
-import * as React from 'react';
-import { GithubIcon, GoogleIcon } from '@/assets/icons';
-import { Button } from '@/components/ui/button';
-import { DataTableColumnHeader } from '@/components/ui/data-table';
+} from "@tanstack/react-table";
+import { Mail, MoreVertical, Pencil, Trash2 } from "lucide-react";
+import * as React from "react";
+import { GithubIcon, GoogleIcon } from "@/assets/icons";
+import { Button } from "@/components/ui/button";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -19,15 +18,16 @@ import {
 	DropdownMenuLabel,
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import type { DemoMemberRow, MemberAuthProvider } from '@/data/demo-members';
-import { cn } from '@/lib/utils';
+} from "@/components/ui/dropdown-menu";
+import { DataTableColumnHeader } from "@/components/ui-custom/data-table";
+import type { DemoMemberRow, MemberAuthProvider } from "@/lib/members/members";
+import { cn } from "@/lib/utils";
 
 function LoggedInWithCell({ auth }: { auth: MemberAuthProvider | null }) {
 	if (!auth) {
 		return <span className="text-text-tertiary">—</span>;
 	}
-	if (auth === 'google') {
+	if (auth === "google") {
 		return (
 			<span className="text-text-secondary flex items-center gap-2 text-sm">
 				<GoogleIcon />
@@ -35,7 +35,7 @@ function LoggedInWithCell({ auth }: { auth: MemberAuthProvider | null }) {
 			</span>
 		);
 	}
-	if (auth === 'github') {
+	if (auth === "github") {
 		return (
 			<span className="text-text-secondary flex items-center gap-2 text-sm">
 				<GithubIcon className="size-4 shrink-0" aria-hidden />
@@ -55,9 +55,9 @@ const columnHelper = createColumnHelper<DemoMemberRow>();
 
 /** Native `<input type="checkbox">` so TanStack `getToggle*Handler()` sees `event.target.checked` (Radix `Checkbox` is a button). */
 const selectCheckboxClass = cn(
-	'border-input text-primary focus-visible:ring-ring size-4 shrink-0 cursor-pointer rounded-[4px] border shadow-xs',
-	'focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none',
-	'disabled:cursor-not-allowed disabled:opacity-50 accent-primary',
+	"border-input text-primary focus-visible:ring-ring size-4 shrink-0 cursor-pointer rounded-[4px] border shadow-xs",
+	"focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none",
+	"disabled:cursor-not-allowed disabled:opacity-50 accent-primary",
 );
 
 function MembersSelectAllHeader({ table }: { table: Table<DemoMemberRow> }) {
@@ -141,10 +141,10 @@ export function createMemberColumns(
 	if (f.enableSelection) {
 		columns.push(
 			columnHelper.display({
-				id: 'select',
+				id: "select",
 				meta: {
-					headerClassName: 'w-12 pr-0',
-					cellClassName: 'w-12 pr-0',
+					headerClassName: "w-12 pr-0",
+					cellClassName: "w-12 pr-0",
 				},
 				header: ({ table }) => <MembersSelectAllHeader table={table} />,
 				cell: ({ row }) => <MembersSelectRowCheckbox row={row} />,
@@ -155,59 +155,59 @@ export function createMemberColumns(
 	}
 
 	columns.push(
-		columnHelper.accessor('pending', {
-			id: 'memberStatus',
+		columnHelper.accessor("pending", {
+			id: "memberStatus",
 			header: () => null,
 			cell: () => null,
 			enableSorting: false,
 			enableHiding: false,
 			filterFn: (row, _id, value) => {
-				if (value === undefined || value === '' || value === 'all') {
+				if (value === undefined || value === "" || value === "all") {
 					return true;
 				}
-				if (value === 'pending') {
+				if (value === "pending") {
 					return row.original.pending;
 				}
-				if (value === 'active') {
+				if (value === "active") {
 					return !row.original.pending;
 				}
 				return true;
 			},
 		}),
-		columnHelper.accessor('name', {
-			id: 'name',
+		columnHelper.accessor("name", {
+			id: "name",
 			enableHiding: f.enableColumnHiding,
-			header: sortableHeader('Name'),
+			header: sortableHeader("Name"),
 			cell: (info) => (
 				<span className="text-text-primary font-medium">
 					{info.getValue() ?? <span className="text-text-tertiary">—</span>}
 				</span>
 			),
 		}),
-		columnHelper.accessor('email', {
+		columnHelper.accessor("email", {
 			enableHiding: f.enableColumnHiding,
-			header: sortableHeader('Email'),
+			header: sortableHeader("Email"),
 			cell: (info) => (
 				<span className="text-text-secondary text-sm">{info.getValue()}</span>
 			),
 		}),
-		columnHelper.accessor('auth', {
-			id: 'auth',
+		columnHelper.accessor("auth", {
+			id: "auth",
 			enableHiding: f.enableColumnHiding,
-			header: sortableHeader('Logged in with'),
+			header: sortableHeader("Logged in with"),
 			cell: (info) => <LoggedInWithCell auth={info.getValue()} />,
 		}),
-		columnHelper.accessor('role', {
+		columnHelper.accessor("role", {
 			enableHiding: f.enableColumnHiding,
-			header: sortableHeader('Role'),
+			header: sortableHeader("Role"),
 			cell: (info) => (
 				<span className="text-text-primary text-sm">
 					{info.getValue() ?? <span className="text-text-tertiary">—</span>}
 				</span>
 			),
 		}),
-		columnHelper.accessor('joinedLabel', {
-			id: 'joined',
+		columnHelper.accessor("joinedLabel", {
+			id: "joined",
 			enableHiding: f.enableColumnHiding,
 			sortingFn: (rowA, rowB) => {
 				const ta = joinedToTime(rowA.original);
@@ -217,14 +217,14 @@ export function createMemberColumns(
 				}
 				return ta < tb ? -1 : 1;
 			},
-			header: sortableHeader('Joined at'),
+			header: sortableHeader("Joined at"),
 			cell: (info) => {
 				const row = info.row.original;
 				return (
 					<span
 						className={cn(
-							'text-sm',
-							row.pending ? 'text-text-tertiary italic' : 'text-text-secondary',
+							"text-sm",
+							row.pending ? "text-text-tertiary italic" : "text-text-secondary",
 						)}
 					>
 						{info.getValue()}
@@ -233,10 +233,10 @@ export function createMemberColumns(
 			},
 		}),
 		columnHelper.display({
-			id: 'actions',
+			id: "actions",
 			header: () => <span className="sr-only">Actions</span>,
 			meta: {
-				headerClassName: 'w-12',
+				headerClassName: "w-12",
 			},
 			enableHiding: false,
 			cell: ({ row }) => {

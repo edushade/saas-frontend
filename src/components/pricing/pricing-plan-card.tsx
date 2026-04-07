@@ -1,11 +1,11 @@
 import { CheckBoldIcon } from "@/assets/icons";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { CardShadeOverlay } from "@/components/ui-custom/card-shade-overlay";
 import { Typography } from "@/components/ui-custom/typography";
-import type { BillingCycle, PricingPlan } from "@/constants/pricing";
+import type { BillingCycle, PricingPlan } from "@/lib/pricing/data";
 import { cn } from "@/lib/utils";
 
 export type PricingPlanCardProps = {

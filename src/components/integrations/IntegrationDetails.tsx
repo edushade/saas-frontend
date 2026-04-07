@@ -1,9 +1,9 @@
-import { Link } from '@tanstack/react-router';
-import { ArrowLeftIcon } from '@/assets/icons';
-import { Typography } from '@/components/ui-custom/typography';
-import type { IntegrationDetail } from '@/constants/integrations';
-import { cn } from '@/lib/utils';
-import { Badge } from '../ui/badge';
+import { Link } from "@tanstack/react-router";
+import { ArrowLeftIcon } from "@/assets/icons";
+import { Typography } from "@/components/ui-custom/typography";
+import type { IntegrationDetail } from "@/lib/integrations/types";
+import { cn } from "@/lib/utils";
+import { Badge } from "../ui/badge";
 
 export interface IntegrationDetailsProps {
 	integration: IntegrationDetail;
@@ -11,8 +11,8 @@ export interface IntegrationDetailsProps {
 
 export function IntegrationDetails({ integration }: IntegrationDetailsProps) {
 	return (
-		<div className="px-4 md:px-8 xl:px-(--es-section-px) py-(--es-section-py) bg-bg-primary">
-			<div className="mx-auto max-w-[760px] flex flex-col gap-2 md:gap-6">
+		<div className="px-4 py-(--es-section-py) bg-bg-primary md:px-8 xl:px-(--es-section-px)">
+			<div className="mx-auto flex max-w-[760px] flex-col gap-2 md:gap-6">
 				<Link
 					to="/integrations"
 					className="inline-flex items-center gap-2 text-text-primary transition-colors hover:text-brand-200"
@@ -26,17 +26,17 @@ export function IntegrationDetails({ integration }: IntegrationDetailsProps) {
 					</Typography>
 				</Link>
 
-				<div className="flex flex-col gap-6 mt-2 md:mt-8">
-					<div className="flex flex-col gap-6 ">
+				<div className="mt-2 flex flex-col gap-6 md:mt-8">
+					<div className="flex flex-col gap-6">
 						<div
 							className={cn(
-								'flex size-[80px] shrink-0 rounded-xl items-center shadow-md p-0.5 justify-center  text-lg font-semibold text-white',
+								"flex size-[80px] shrink-0 items-center justify-center rounded-xl p-0.5 text-lg font-semibold text-white shadow-md",
 							)}
 						>
 							<img
 								src={integration.imageSrc}
 								alt={integration.name}
-								className="size-full object-contain rounded-xl"
+								className="size-full rounded-xl object-contain"
 							/>
 						</div>
 						<div className="min-w-0 flex-1">
@@ -49,7 +49,7 @@ export function IntegrationDetails({ integration }: IntegrationDetailsProps) {
 								</Typography>
 								<Badge
 									variant="default"
-									className="rounded-full bg-bg-tertiary px-3  text-text-primary"
+									className="rounded-full bg-bg-tertiary px-3 text-text-primary"
 								>
 									<Typography
 										variant="base"

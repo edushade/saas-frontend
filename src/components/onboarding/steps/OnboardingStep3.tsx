@@ -1,25 +1,25 @@
-import { Plus } from 'lucide-react';
-import { useCallback, useState } from 'react';
+import { Plus } from "lucide-react";
+import { useCallback, useState } from "react";
 import {
 	OnboardingHeader,
 	OnboardingNav,
 	OnboardingShell,
-} from '@/components/onboarding/OnboardingShell';
-import { Button } from '@/components/ui/button';
+} from "@/components/onboarding/OnboardingShell";
+import { Button } from "@/components/ui/button";
 import {
 	InputGroup,
 	InputGroupAddon,
 	InputGroupInput,
-} from '@/components/ui/input-group';
+} from "@/components/ui/input-group";
 import {
 	Select,
 	SelectContent,
 	SelectItem,
 	SelectTrigger,
 	SelectValue,
-} from '@/components/ui/select';
+} from "@/components/ui/select";
 
-const ROLES = ['Admin', 'Instructor', 'Support'] as const;
+const ROLES = ["Admin", "Instructor", "Support"] as const;
 
 interface InviteRow {
 	id: string;
@@ -33,12 +33,12 @@ interface Step3Props {
 
 export function OnboardingStep3({ onNext }: Step3Props) {
 	const [rows, setRows] = useState<InviteRow[]>([
-		{ id: crypto.randomUUID(), email: '', role: '' },
-		{ id: crypto.randomUUID(), email: '', role: '' },
+		{ id: crypto.randomUUID(), email: "", role: "" },
+		{ id: crypto.randomUUID(), email: "", role: "" },
 	]);
 
 	const updateRow = useCallback(
-		(id: string, field: 'email' | 'role', value: string) => {
+		(id: string, field: "email" | "role", value: string) => {
 			setRows((prev) =>
 				prev.map((r) => (r.id === id ? { ...r, [field]: value } : r)),
 			);
@@ -49,7 +49,7 @@ export function OnboardingStep3({ onNext }: Step3Props) {
 	const addRow = useCallback(() => {
 		setRows((prev) => [
 			...prev,
-			{ id: crypto.randomUUID(), email: '', role: '' },
+			{ id: crypto.randomUUID(), email: "", role: "" },
 		]);
 	}, []);
 
@@ -74,7 +74,7 @@ export function OnboardingStep3({ onNext }: Step3Props) {
 								type="email"
 								placeholder="name@example.com"
 								value={row.email}
-								onChange={(e) => updateRow(row.id, 'email', e.target.value)}
+								onChange={(e) => updateRow(row.id, "email", e.target.value)}
 							/>
 							<InputGroupAddon
 								align="inline-end"
@@ -82,7 +82,7 @@ export function OnboardingStep3({ onNext }: Step3Props) {
 							>
 								<Select
 									value={row.role || undefined}
-									onValueChange={(v) => updateRow(row.id, 'role', v)}
+									onValueChange={(v) => updateRow(row.id, "role", v)}
 								>
 									<SelectTrigger
 										className="h-full min-h-9 w-[130px] rounded-none border-0 bg-transparent shadow-none focus-visible:ring-0"

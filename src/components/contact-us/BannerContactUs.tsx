@@ -1,26 +1,26 @@
-import { Link } from '@tanstack/react-router';
-import { ArrowUpRight } from 'lucide-react';
-import { DialogIcon, HeadphoneIcon, VideoIcon } from '@/assets/icons';
-import { Typography } from '@/components/ui-custom/typography';
+import { Link } from "@tanstack/react-router";
+import { ArrowUpRight } from "lucide-react";
+import { DialogIcon, HeadphoneIcon, VideoIcon } from "@/assets/icons";
+import { Typography } from "@/components/ui-custom/typography";
 import {
 	CONTACT_FORM_SECTION_ID,
 	CONTACT_US_CARDS,
-} from '@/constants/contact-us';
-import { Card, CardContent } from '../ui/card';
-import { BannerTag } from '../ui-custom/BannerTag';
-import { CardShadeOverlay } from '../ui-custom/card-shade-overlay';
+} from "@/lib/contact-us/contact-us";
+import { Card, CardContent } from "../ui/card";
+import { BannerTag } from "../ui-custom/BannerTag";
+import { CardShadeOverlay } from "../ui-custom/card-shade-overlay";
 
 function ContactCardIcon({
 	iconId,
 }: {
-	iconId: (typeof CONTACT_US_CARDS)[number]['iconId'];
+	iconId: (typeof CONTACT_US_CARDS)[number]["iconId"];
 }) {
 	switch (iconId) {
-		case 'general':
+		case "general":
 			return <DialogIcon className="size-11 text-text-primary" />;
-		case 'support':
+		case "support":
 			return <HeadphoneIcon className="size-11 text-text-primary" />;
-		case 'schedule':
+		case "schedule":
 			return <VideoIcon className="size-11 text-text-primary" />;
 		default:
 			return null;
@@ -96,8 +96,8 @@ export default function BannerContactUs() {
 							</Card>
 						);
 
-						return card.href.startsWith('/') ? (
-							<Link key={card.title} to={card.href as '/request-demo'}>
+						return card.href.startsWith("/") ? (
+							<Link key={card.title} to={card.href as "/request-demo"}>
 								{cardContent}
 							</Link>
 						) : (

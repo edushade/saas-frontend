@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
-import { type ColumnDef, createColumnHelper } from '@tanstack/react-table';
-import { Check, Download } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { DataTableColumnHeader } from '@/components/ui/data-table';
-import { formatInvoiceTableDate } from '@/lib/billing/format-invoice-datetime';
-import type { BillingInvoiceRow } from '@/lib/billing/invoice-mock';
-import { cn } from '@/lib/utils';
+import { type ColumnDef, createColumnHelper } from "@tanstack/react-table";
+import { Check, Download } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { DataTableColumnHeader } from "@/components/ui-custom/data-table";
+import type { BillingInvoiceRow } from "@/lib/billing/constants";
+import { formatInvoiceTableDate } from "@/lib/billing/utils";
+import { cn } from "@/lib/utils";
 
 function formatMoney(cents: number): string {
-	const sign = cents < 0 ? '-' : '';
+	const sign = cents < 0 ? "-" : "";
 	const abs = Math.abs(cents);
 	return `${sign}$${(abs / 100).toFixed(2)}`;
 }
@@ -17,8 +17,8 @@ function formatMoney(cents: number): string {
 const columnHelper = createColumnHelper<BillingInvoiceRow>();
 
 export const billingInvoiceColumns = [
-	columnHelper.accessor('id', {
-		id: 'id',
+	columnHelper.accessor("id", {
+		id: "id",
 		header: ({ column }) => (
 			<DataTableColumnHeader column={column} title="ID" />
 		),
@@ -30,8 +30,8 @@ export const billingInvoiceColumns = [
 				numeric: true,
 			}),
 	}),
-	columnHelper.accessor('dateIso', {
-		id: 'dateIso',
+	columnHelper.accessor("dateIso", {
+		id: "dateIso",
 		header: ({ column }) => (
 			<DataTableColumnHeader column={column} title="Date" />
 		),
@@ -44,8 +44,8 @@ export const billingInvoiceColumns = [
 			new Date(rowA.original.dateIso).getTime() -
 			new Date(rowB.original.dateIso).getTime(),
 	}),
-	columnHelper.accessor('amountCents', {
-		id: 'amountCents',
+	columnHelper.accessor("amountCents", {
+		id: "amountCents",
 		header: ({ column }) => (
 			<DataTableColumnHeader column={column} title="Amount" />
 		),
@@ -53,8 +53,8 @@ export const billingInvoiceColumns = [
 			<span className="text-text-primary">{formatMoney(ctx.getValue())}</span>
 		),
 	}),
-	columnHelper.accessor('status', {
-		id: 'status',
+	columnHelper.accessor("status", {
+		id: "status",
 		header: ({ column }) => (
 			<DataTableColumnHeader column={column} title="Status" />
 		),
@@ -62,8 +62,8 @@ export const billingInvoiceColumns = [
 			if (
 				filterValue === undefined ||
 				filterValue === null ||
-				filterValue === 'all' ||
-				filterValue === ''
+				filterValue === "all" ||
+				filterValue === ""
 			) {
 				return true;
 			}
@@ -72,11 +72,11 @@ export const billingInvoiceColumns = [
 		enableSorting: false,
 		cell: (ctx) => {
 			const status = ctx.getValue();
-			return status === 'paid' ? (
+			return status === "paid" ? (
 				<span
 					className={cn(
-						'inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium',
-						'bg-emerald-500/15 text-emerald-700 dark:text-emerald-400',
+						"inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium",
+						"bg-emerald-500/15 text-emerald-700 dark:text-emerald-400",
 					)}
 				>
 					<Check className="size-3" aria-hidden />
@@ -85,8 +85,8 @@ export const billingInvoiceColumns = [
 			) : (
 				<span
 					className={cn(
-						'inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium',
-						'bg-red-500/12 text-red-700 dark:text-red-400',
+						"inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium",
+						"bg-red-500/12 text-red-700 dark:text-red-400",
 					)}
 				>
 					<span className="size-1.5 rounded-full bg-red-500" aria-hidden />
@@ -96,15 +96,15 @@ export const billingInvoiceColumns = [
 		},
 	}),
 	columnHelper.display({
-		id: 'actions',
+		id: "actions",
 		meta: {
-			headerClassName: 'text-right',
-			cellClassName: 'text-right',
+			headerClassName: "text-right",
+			cellClassName: "text-right",
 		},
 		header: () => <span className="text-text-primary font-medium">Action</span>,
 		cell: ({ row }) => {
 			const inv = row.original;
-			return inv.status === 'unpaid' ? (
+			return inv.status === "unpaid" ? (
 				<Button
 					type="button"
 					variant="link"

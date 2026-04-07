@@ -1,20 +1,20 @@
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
 	Tooltip,
 	TooltipProvider,
 	TooltipTrigger,
-} from '@/components/ui/tooltip';
-import { Typography } from '@/components/ui-custom/typography';
+} from "@/components/ui/tooltip";
+import { Typography } from "@/components/ui-custom/typography";
 import {
 	type BillingCycle,
 	PRICING_PLANS,
 	type PricingPlan,
-} from '@/constants/pricing';
-import { cn } from '@/lib/utils';
-import { PricingCompareTable } from './PricingCompareTable';
+} from "@/lib/pricing/data";
+import { cn } from "@/lib/utils";
+import { PricingCompareTable } from "./PricingCompareTable";
 
 function CompareCard({
 	plan,
@@ -24,19 +24,19 @@ function CompareCard({
 	billing: BillingCycle;
 }) {
 	const isFeatured = plan.featured === true;
-	const isAnnually = billing === 'annually';
+	const isAnnually = billing === "annually";
 	const displayPrice =
 		isAnnually && plan.annualPrice != null ? plan.annualPrice : plan.price;
 	const displayPeriod =
 		isAnnually && plan.annualPeriod != null ? plan.annualPeriod : plan.period;
 	const isContact =
-		displayPrice.toLowerCase() === 'contact us' ||
-		plan.price.toLowerCase() === 'contact us';
+		displayPrice.toLowerCase() === "contact us" ||
+		plan.price.toLowerCase() === "contact us";
 
 	return (
 		<Card
 			className={cn(
-				'flex min-h-[184px] w-full flex-col rounded-2xl border border-border-secondary bg-bg-primary shadow-sm transition-shadow hover:shadow-md',
+				"flex min-h-[184px] w-full flex-col rounded-2xl border border-border-secondary bg-bg-primary shadow-sm transition-shadow hover:shadow-md",
 			)}
 		>
 			<CardContent className="flex w-full flex-1 flex-col gap-4">
@@ -65,12 +65,12 @@ function CompareCard({
 
 				<Button
 					className={cn(
-						'mt-auto w-full rounded-md font-medium',
+						"mt-auto w-full rounded-md font-medium",
 						isFeatured
-							? 'bg-brand-300 text-text-on-brand hover:bg-brand-200'
-							: 'bg-bg-tertiary text-text-primary hover:bg-bg-quaternary',
+							? "bg-brand-300 text-text-on-brand hover:bg-brand-200"
+							: "bg-bg-tertiary text-text-primary hover:bg-bg-quaternary",
 					)}
-					variant={isFeatured ? 'default' : 'secondary'}
+					variant={isFeatured ? "default" : "secondary"}
 				>
 					{plan.ctaLabel}
 				</Button>
@@ -80,7 +80,7 @@ function CompareCard({
 }
 
 export default function ComparePricingSection() {
-	const [billing, setBilling] = useState<BillingCycle>('monthly');
+	const [billing, setBilling] = useState<BillingCycle>("monthly");
 
 	return (
 		<section className="bg-bg-primary py-8 md:py-(--es-section-py) px-4 md:px-8 xl:px-(--es-section-px)">

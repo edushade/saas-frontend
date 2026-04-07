@@ -1,42 +1,46 @@
-import { Link } from '@tanstack/react-router';
-import { ArrowRight } from 'lucide-react';
-import { useState } from 'react';
+import { Link } from "@tanstack/react-router";
+import { ArrowRight } from "lucide-react";
+import { useState } from "react";
 import {
 	OnboardingField,
 	OnboardingHeader,
 	OnboardingNav,
 	OnboardingShell,
-} from '@/components/onboarding/OnboardingShell';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Skeleton } from '@/components/ui/skeleton';
+} from "@/components/onboarding/OnboardingShell";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Skeleton } from "@/components/ui/skeleton";
 // import { PlateLiteEditor } from '@/components/ui-custom/PlateLiteEditor';
-import { ThumbnailUploader } from '@/components/ui-custom/thumbnail-uploader';
-import { Typography } from '@/components/ui-custom/typography';
-import { useAppForm } from '@/hooks/form';
-import { plateValueToPlainText, stripHtml, truncate } from '@/lib/text-utils';
-import { cn } from '@/lib/utils';
+import { ThumbnailUploader } from "@/components/ui-custom/thumbnail-uploader";
+import { Typography } from "@/components/ui-custom/typography";
+import { useAppForm } from "@/hooks/form";
+import { cn } from "@/lib/utils";
+import {
+	plateValueToPlainText,
+	stripHtml,
+	truncate,
+} from "@/lib/utils/text-utils";
 
 const DESCRIPTION_PREVIEW_LENGTH = 120;
 const TITLE_PREVIEW_LENGTH = 56;
 const MAX_THUMBNAILS = 2;
 
 const defaultValues = {
-	title: '',
-	description: '',
+	title: "",
+	description: "",
 	thumbnails: { urls: [] as string[], selectedIndex: 0 },
 };
 
 function getDescriptionPreviewText(description: string): string {
 	if (!description || !description.trim())
-		return 'Course description will appear here.';
+		return "Course description will appear here.";
 	const trimmed = description.trim();
-	if (trimmed.startsWith('['))
+	if (trimmed.startsWith("["))
 		return (
 			plateValueToPlainText(description) ||
-			'Course description will appear here.'
+			"Course description will appear here."
 		);
-	return stripHtml(description) || 'Course description will appear here.';
+	return stripHtml(description) || "Course description will appear here.";
 }
 
 interface Step4Props {
@@ -120,8 +124,8 @@ export function OnboardingStep4({ onComplete }: Step4Props) {
 				<div className="flex min-h-[320px] min-w-0 md:min-h-full items-center justify-center bg-bg-secondary px-4 py-6 md:px-10 md:py-10">
 					<form.Subscribe
 						selector={(state) => ({
-							title: state.values.title ?? '',
-							description: state.values.description ?? '',
+							title: state.values.title ?? "",
+							description: state.values.description ?? "",
 						})}
 					>
 						{(values) => (
@@ -200,10 +204,10 @@ function CreateCoursePreview({
 
 				<Button
 					className={cn(
-						'mt-2 w-full gap-1.5 rounded-lg bg-bg-tertiary text-text-secondary text-sm font-medium',
+						"mt-2 w-full gap-1.5 rounded-lg bg-bg-tertiary text-text-secondary text-sm font-medium",
 						previewTitle && previewDescription
-							? 'btn-brand-1'
-							: 'text-text-secondary pointer-events-none',
+							? "btn-brand-1"
+							: "text-text-secondary pointer-events-none",
 					)}
 					disabled={!previewTitle || !previewDescription}
 					asChild

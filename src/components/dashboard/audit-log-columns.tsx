@@ -1,19 +1,19 @@
-'use client';
+"use client";
 
-import { type ColumnDef, createColumnHelper } from '@tanstack/react-table';
-import { format } from 'date-fns';
-import { DataTableColumnHeader } from '@/components/ui/data-table';
-import type { AuditLogRow } from '@/lib/audit/audit-log-mock';
+import { type ColumnDef, createColumnHelper } from "@tanstack/react-table";
+import { format } from "date-fns";
+import { DataTableColumnHeader } from "@/components/ui-custom/data-table";
+import type { AuditLogRow } from "@/lib/audit/constants";
 
 function formatActedAt(iso: string): string {
-	return format(new Date(iso), 'MMM d, yyyy; h:mm aa');
+	return format(new Date(iso), "MMM d, yyyy; h:mm aa");
 }
 
 const columnHelper = createColumnHelper<AuditLogRow>();
 
 export const auditLogColumns: ColumnDef<AuditLogRow, any>[] = [
-	columnHelper.accessor('event', {
-		id: 'event',
+	columnHelper.accessor("event", {
+		id: "event",
 		header: ({ column }) => (
 			<DataTableColumnHeader column={column} title="Events" />
 		),
@@ -22,11 +22,11 @@ export const auditLogColumns: ColumnDef<AuditLogRow, any>[] = [
 		),
 		sortingFn: (a, b) =>
 			a.original.event.localeCompare(b.original.event, undefined, {
-				sensitivity: 'base',
+				sensitivity: "base",
 			}),
 	}),
-	columnHelper.accessor('type', {
-		id: 'type',
+	columnHelper.accessor("type", {
+		id: "type",
 		header: ({ column }) => (
 			<DataTableColumnHeader column={column} title="Type" />
 		),
@@ -34,8 +34,8 @@ export const auditLogColumns: ColumnDef<AuditLogRow, any>[] = [
 			if (
 				filterValue === undefined ||
 				filterValue === null ||
-				filterValue === '' ||
-				filterValue === 'all'
+				filterValue === "" ||
+				filterValue === "all"
 			) {
 				return true;
 			}
@@ -46,32 +46,32 @@ export const auditLogColumns: ColumnDef<AuditLogRow, any>[] = [
 			<span className="text-text-secondary text-sm">{ctx.getValue()}</span>
 		),
 	}),
-	columnHelper.accessor('actedBy', {
-		id: 'actedBy',
-		header: 'Acted By',
+	columnHelper.accessor("actedBy", {
+		id: "actedBy",
+		header: "Acted By",
 		enableSorting: false,
 		cell: (ctx) => (
 			<span className="text-text-primary text-sm">{ctx.getValue()}</span>
 		),
 	}),
-	columnHelper.accessor('email', {
-		id: 'email',
-		header: 'Email',
+	columnHelper.accessor("email", {
+		id: "email",
+		header: "Email",
 		enableSorting: false,
 		cell: (ctx) => (
 			<span className="text-text-secondary text-sm">{ctx.getValue()}</span>
 		),
 	}),
-	columnHelper.accessor('role', {
-		id: 'role',
-		header: 'Role',
+	columnHelper.accessor("role", {
+		id: "role",
+		header: "Role",
 		enableSorting: false,
 		cell: (ctx) => (
 			<span className="text-text-primary text-sm">{ctx.getValue()}</span>
 		),
 	}),
-	columnHelper.accessor('ipAddress', {
-		id: 'ipAddress',
+	columnHelper.accessor("ipAddress", {
+		id: "ipAddress",
 		header: ({ column }) => (
 			<DataTableColumnHeader column={column} title="IP Address" />
 		),
@@ -85,8 +85,8 @@ export const auditLogColumns: ColumnDef<AuditLogRow, any>[] = [
 				numeric: true,
 			}),
 	}),
-	columnHelper.accessor('dateIso', {
-		id: 'dateIso',
+	columnHelper.accessor("dateIso", {
+		id: "dateIso",
 		header: ({ column }) => (
 			<DataTableColumnHeader column={column} title="Date Acted" />
 		),

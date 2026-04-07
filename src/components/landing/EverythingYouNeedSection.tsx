@@ -1,14 +1,14 @@
-import { Plus } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { Plus } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import {
 	Carousel,
 	CarouselContent,
 	CarouselItem,
-} from '@/components/ui/carousel';
-import { Typography } from '@/components/ui-custom/typography';
-import { PLATFORM_FEATURES } from '@/constants/platforms-features';
-import { cn } from '@/lib/utils';
+} from "@/components/ui/carousel";
+import { Typography } from "@/components/ui-custom/typography";
+import { PLATFORM_FEATURES } from "@/data/platforms-features";
+import { cn } from "@/lib/utils";
 
 export default function EverythingYouNeedSection() {
 	return (
@@ -34,7 +34,7 @@ export default function EverythingYouNeedSection() {
 
 					<CardContent className="relative -mr-4 md:-mr-6 overflow-hidden pt-0">
 						<Carousel
-							opts={{ align: 'start', loop: true, dragFree: false }}
+							opts={{ align: "start", loop: true, dragFree: false }}
 							className="w-full"
 						>
 							<CarouselContent className="-ml-6 md:-ml-8 pl-6 md:pl-8 pr-6 md:pr-8">
@@ -64,19 +64,19 @@ export default function EverythingYouNeedSection() {
 }
 
 const CARD_GRADIENT_SHADOW =
-	'!border-none !shadow-[0px_0px_0px_1px_#0A090B0D,0px_2px_7px_0px_#0A090B0D,0px_2px_5px_-2px_#0A090B0F]';
+	"!border-none !shadow-[0px_0px_0px_1px_#0A090B0D,0px_2px_7px_0px_#0A090B0D,0px_2px_5px_-2px_#0A090B0F]";
 
 const CARD_1_CLASSNAME =
-	'!bg-[linear-gradient(180deg,#FFFFFF_0%,#FFFFFF_22%,#C5D1FF_100%)] ' +
+	"!bg-[linear-gradient(180deg,#FFFFFF_0%,#FFFFFF_22%,#C5D1FF_100%)] " +
 	CARD_GRADIENT_SHADOW;
 const CARD_2_CLASSNAME =
-	'!bg-[linear-gradient(180deg,#FFFFFF_0%,#FFFFFF_22%,#C5FFE6_100%)] ' +
+	"!bg-[linear-gradient(180deg,#FFFFFF_0%,#FFFFFF_22%,#C5FFE6_100%)] " +
 	CARD_GRADIENT_SHADOW;
 const CARD_3_CLASSNAME =
-	'!bg-[linear-gradient(180deg,#FFFFFF_0%,#FFFFFF_22%,#F2FFC5_100%)] ' +
+	"!bg-[linear-gradient(180deg,#FFFFFF_0%,#FFFFFF_22%,#F2FFC5_100%)] " +
 	CARD_GRADIENT_SHADOW;
 const CARD_4_CLASSNAME =
-	'!bg-[linear-gradient(180deg,#FFFFFF_0%,#FFFFFF_22%,#FFC5F0_100%)] ' +
+	"!bg-[linear-gradient(180deg,#FFFFFF_0%,#FFFFFF_22%,#FFC5F0_100%)] " +
 	CARD_GRADIENT_SHADOW;
 
 const CARD_VARIANT_CLASSNAMES = [
@@ -104,7 +104,7 @@ function PlatformFeatureCard({
 	return (
 		<Card
 			className={cn(
-				'flex max-h-[372px] max-w-[336px] h-full gap-0 flex-col overflow-hidden rounded-3xl border border-border-primary bg-bg-primary shadow-sm pb-0',
+				"flex max-h-[372px] max-w-[336px] h-full gap-0 flex-col overflow-hidden rounded-3xl border border-border-primary bg-bg-primary shadow-sm pb-0",
 				cardClassName,
 			)}
 		>

@@ -1,11 +1,11 @@
-import { createFileRoute } from '@tanstack/react-router';
-import { LegalPageView } from '@/components/legal/LegalPageView';
-import { getLegalBySlug } from '@/constants/legal';
-import { getSiteOrigin } from '@/env';
+import { createFileRoute } from "@tanstack/react-router";
+import { LegalPageView } from "@/components/legal/LegalPageView";
+import { getSiteOrigin } from "@/env";
+import { getLegalBySlug } from "@/lib/legals/legal";
 
-const SLUG = 'terms-of-service';
+const SLUG = "terms-of-service";
 
-export const Route = createFileRoute('/_public/terms-of-service')({
+export const Route = createFileRoute("/_public/terms-of-service")({
 	loader: () => {
 		const doc = getLegalBySlug(SLUG);
 		return { doc };
@@ -15,8 +15,8 @@ export const Route = createFileRoute('/_public/terms-of-service')({
 		if (!doc) {
 			return {
 				meta: [
-					{ title: 'Terms of Service | Edushade' },
-					{ name: 'robots', content: 'noindex, follow' },
+					{ title: "Terms of Service | Edushade" },
+					{ name: "robots", content: "noindex, follow" },
 				],
 			};
 		}
@@ -27,15 +27,15 @@ export const Route = createFileRoute('/_public/terms-of-service')({
 		return {
 			meta: [
 				{ title },
-				{ name: 'description', content: description },
-				{ property: 'og:title', content: title },
-				{ property: 'og:description', content: description },
-				{ property: 'og:url', content: canonical },
-				{ name: 'twitter:card', content: 'summary' },
-				{ name: 'twitter:title', content: title },
-				{ name: 'twitter:description', content: description },
+				{ name: "description", content: description },
+				{ property: "og:title", content: title },
+				{ property: "og:description", content: description },
+				{ property: "og:url", content: canonical },
+				{ name: "twitter:card", content: "summary" },
+				{ name: "twitter:title", content: title },
+				{ name: "twitter:description", content: description },
 			],
-			links: [{ rel: 'canonical', href: canonical }],
+			links: [{ rel: "canonical", href: canonical }],
 		};
 	},
 	component: TermsOfServicePage,

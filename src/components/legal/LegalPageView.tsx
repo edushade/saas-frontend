@@ -1,6 +1,6 @@
-import { MDXContent } from '@content-collections/mdx/react';
-import { Typography } from '@/components/ui-custom/typography';
-import type { LegalDocument } from '@/constants/legal';
+import { MDXContent } from "@content-collections/mdx/react";
+import { Typography } from "@/components/ui-custom/typography";
+import type { LegalDocument } from "@/lib/legals/legal";
 
 export interface LegalPageViewProps {
 	doc: LegalDocument;

@@ -1,9 +1,9 @@
-import { Typography } from '@/components/ui-custom/typography';
-import { CONTACT_SALES_HELP_TAGS } from '@/constants/contact-sales';
-import { Badge } from '../ui/badge';
-import { BannerTag } from '../ui-custom/BannerTag';
-import { CardShadeOverlay } from '../ui-custom/card-shade-overlay';
-import { ContactSalesForm } from './ContactSalesForm';
+import { Typography } from "@/components/ui-custom/typography";
+import { CONTACT_SALES_HELP_TAGS } from "@/lib/contact-sales/constants";
+import { Badge } from "../ui/badge";
+import { BannerTag } from "../ui-custom/BannerTag";
+import { CardShadeOverlay } from "../ui-custom/card-shade-overlay";
+import { ContactSalesForm } from "./ContactSalesForm";
 
 export default function ContactSalesSection() {
 	return (

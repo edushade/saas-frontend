@@ -1,13 +1,7 @@
-import { ArrowUpDown, Calendar, Clock, Plus, Search } from 'lucide-react';
-import { useMemo } from 'react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardTitle } from '@/components/ui/card';
-import {
-	DataTable,
-	DataTableToolbar,
-	DataTableViewOptions,
-	useDataTable,
-} from '@/components/ui/data-table';
+import { ArrowUpDown, Calendar, Clock, Plus, Search } from "lucide-react";
+import { useMemo } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -15,17 +9,23 @@ import {
 	DropdownMenuLabel,
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { Input } from '@/components/ui/input';
-import type { DemoMemberRow } from '@/data/demo-members';
-import { DEMO_MEMBERS } from '@/data/demo-members';
-import { cn } from '@/lib/utils';
-import { createMemberColumns } from './members/members-columns';
-import { membersGlobalFilterFn } from './members/members-global-filter';
-import SaasDashboardHeader from './saas-dashboard-header';
+} from "@/components/ui/dropdown-menu";
+import { Input } from "@/components/ui/input";
+import {
+	DataTable,
+	DataTableToolbar,
+	DataTableViewOptions,
+	useDataTable,
+} from "@/components/ui-custom/data-table";
+import type { DemoMemberRow } from "@/lib/members/members";
+import { DEMO_MEMBERS } from "@/lib/members/members";
+import { cn } from "@/lib/utils";
+import { createMemberColumns } from "./members/members-columns";
+import { membersGlobalFilterFn } from "./members/members-global-filter";
+import SaasDashboardHeader from "./saas-dashboard-header";
 
 const DASHED_TOOLBAR_BTN =
-	'border-dashed border-border-secondary bg-bg-primary text-text-secondary hover:bg-bg-tertiary';
+	"border-dashed border-border-secondary bg-bg-primary text-text-secondary hover:bg-bg-tertiary";
 
 /**
  * Feature flags for the members table:
@@ -98,8 +98,8 @@ export function SaasMembersPage() {
 							wrapperClassName="mt-3"
 							emptyLabel={
 								MEMBERS_TABLE_FEATURES.enableFiltering
-									? 'No members match your filters.'
-									: 'No members.'
+									? "No members match your filters."
+									: "No members."
 							}
 							pagination={{
 								showSelectionSummary: MEMBERS_TABLE_FEATURES.enableSelection,
@@ -114,7 +114,7 @@ export function SaasMembersPage() {
 											/>
 											<Input
 												type="search"
-												value={String(table.getState().globalFilter ?? '')}
+												value={String(table.getState().globalFilter ?? "")}
 												onChange={(e) => {
 													table.setGlobalFilter(e.target.value);
 													resetPage();
@@ -127,10 +127,10 @@ export function SaasMembersPage() {
 									) : null}
 									<div
 										className={cn(
-											'flex flex-wrap items-center gap-2',
+											"flex flex-wrap items-center gap-2",
 											MEMBERS_TABLE_FEATURES.enableFiltering
-												? 'lg:ml-auto lg:justify-end'
-												: 'w-full justify-end',
+												? "lg:ml-auto lg:justify-end"
+												: "w-full justify-end",
 										)}
 									>
 										{MEMBERS_TABLE_FEATURES.enableFiltering ? (
@@ -152,7 +152,7 @@ export function SaasMembersPage() {
 													<DropdownMenuItem
 														onClick={() => {
 															table
-																.getColumn('memberStatus')
+																.getColumn("memberStatus")
 																?.setFilterValue(undefined);
 															resetPage();
 														}}
@@ -162,8 +162,8 @@ export function SaasMembersPage() {
 													<DropdownMenuItem
 														onClick={() => {
 															table
-																.getColumn('memberStatus')
-																?.setFilterValue('active');
+																.getColumn("memberStatus")
+																?.setFilterValue("active");
 															resetPage();
 														}}
 													>
@@ -172,8 +172,8 @@ export function SaasMembersPage() {
 													<DropdownMenuItem
 														onClick={() => {
 															table
-																.getColumn('memberStatus')
-																?.setFilterValue('pending');
+																.getColumn("memberStatus")
+																?.setFilterValue("pending");
 															resetPage();
 														}}
 													>
@@ -202,7 +202,7 @@ export function SaasMembersPage() {
 														<DropdownMenuItem
 															onClick={() => {
 																table.setSorting([
-																	{ id: 'joined', desc: true },
+																	{ id: "joined", desc: true },
 																]);
 																resetPage();
 															}}
@@ -242,7 +242,7 @@ export function SaasMembersPage() {
 														</DropdownMenuItem>
 														<DropdownMenuItem
 															onClick={() => {
-																table.setSorting([{ id: 'name', desc: false }]);
+																table.setSorting([{ id: "name", desc: false }]);
 																resetPage();
 															}}
 														>
@@ -250,7 +250,7 @@ export function SaasMembersPage() {
 														</DropdownMenuItem>
 														<DropdownMenuItem
 															onClick={() => {
-																table.setSorting([{ id: 'role', desc: false }]);
+																table.setSorting([{ id: "role", desc: false }]);
 																resetPage();
 															}}
 														>
@@ -259,7 +259,7 @@ export function SaasMembersPage() {
 														<DropdownMenuItem
 															onClick={() => {
 																table.setSorting([
-																	{ id: 'joined', desc: true },
+																	{ id: "joined", desc: true },
 																]);
 																resetPage();
 															}}

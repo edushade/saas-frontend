@@ -1,10 +1,10 @@
-import { useState } from 'react';
-import PricingPlansWithToggle from '@/components/pricing/PricingPlansWithToggle';
-import type { BillingCycle } from '@/constants/pricing';
-import SaasDashboardHeader from './saas-dashboard-header';
+import { useState } from "react";
+import PricingPlansWithToggle from "@/components/pricing/PricingPlansWithToggle";
+import type { BillingCycle } from "@/lib/pricing/data";
+import SaasDashboardHeader from "./saas-dashboard-header";
 
 export function SaasPlansPage() {
-	const [billing, setBilling] = useState<BillingCycle>('monthly');
+	const [billing, setBilling] = useState<BillingCycle>("monthly");
 
 	return (
 		<div className="flex flex-col gap-3 md:gap-4">

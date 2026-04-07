@@ -1,6 +1,6 @@
-import { Marquee } from '@/components/ui-custom/marquee';
-import { PLATFORMS } from '@/constants/platforms';
-import { Typography } from '../ui-custom/typography';
+import { Marquee } from "@/components/ui-custom/marquee";
+import { PLATFORMS } from "@/lib/platform/data";
+import { Typography } from "../ui-custom/typography";
 
 function PlatformCard({ name, stat, logo }: (typeof PLATFORMS)[number]) {
 	return (

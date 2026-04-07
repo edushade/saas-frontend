@@ -1,19 +1,19 @@
-import { useCallback, useState } from 'react';
-import { CheckCircleIcon } from '@/assets/icons';
+import { useCallback, useState } from "react";
+import { CheckCircleIcon } from "@/assets/icons";
 import {
 	OnboardingField,
 	OnboardingHeader,
 	OnboardingNav,
 	OnboardingShell,
-} from '@/components/onboarding/OnboardingShell';
-import { Input } from '@/components/ui/input';
+} from "@/components/onboarding/OnboardingShell";
+import { Input } from "@/components/ui/input";
 import {
 	InputGroup,
 	InputGroupAddon,
 	InputGroupInput,
 	InputGroupText,
-} from '@/components/ui/input-group';
-import { Typography } from '@/components/ui-custom/typography';
+} from "@/components/ui/input-group";
+import { Typography } from "@/components/ui-custom/typography";
 
 const SUBDOMAIN_REGEX = /^[a-z0-9]([a-z0-9-]{1,61}[a-z0-9])?$/;
 const MIN_SUBDOMAIN_LEN = 3;
@@ -24,14 +24,14 @@ interface Step1Props {
 }
 
 export function OnboardingStep1({ onNext }: Step1Props) {
-	const [platformName, setPlatformName] = useState('');
-	const [subdomain, setSubdomain] = useState('');
+	const [platformName, setPlatformName] = useState("");
+	const [subdomain, setSubdomain] = useState("");
 	const [subdomainTouched, setSubdomainTouched] = useState(false);
 
 	const normalizedSubdomain = subdomain
 		.toLowerCase()
-		.replace(/\s/g, '-')
-		.replace(/[^a-z0-9-]/g, '');
+		.replace(/\s/g, "-")
+		.replace(/[^a-z0-9-]/g, "");
 
 	const isValidSubdomain =
 		normalizedSubdomain.length >= MIN_SUBDOMAIN_LEN &&

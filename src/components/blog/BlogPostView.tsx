@@ -1,10 +1,10 @@
-import { MDXContent } from '@content-collections/mdx/react';
-import type { BlogDetailBannerAuthorSocials } from '@/components/blog/BlogDetailBanner';
-import { BlogDetailBanner } from '@/components/blog/BlogDetailBanner';
-import { Typography } from '@/components/ui-custom/typography';
-import type { BlogDocument } from '@/constants/blogs';
-import { getSiteOrigin } from '@/env';
-import { formatPostDate } from '@/lib/date-utils';
+import { MDXContent } from "@content-collections/mdx/react";
+import type { BlogDetailBannerAuthorSocials } from "@/components/blog/BlogDetailBanner";
+import { BlogDetailBanner } from "@/components/blog/BlogDetailBanner";
+import { Typography } from "@/components/ui-custom/typography";
+import { getSiteOrigin } from "@/env";
+import type { BlogDocument } from "@/lib/blog/blogs";
+import { formatPostDate } from "@/lib/utils/date-utils";
 
 type PostWithAuthorSocials = BlogDocument & {
 	authorWebsite?: string;
@@ -49,37 +49,37 @@ export interface BlogPostViewProps {
 
 export function BlogPostView({ post }: BlogPostViewProps) {
 	const origin = getSiteOrigin();
-	const canonical = `${origin}/blogs/${post.slug ?? ''}`;
-	const imageUrl = post.imageSrc.startsWith('http')
+	const canonical = `${origin}/blogs/${post.slug ?? ""}`;
+	const imageUrl = post.imageSrc.startsWith("http")
 		? post.imageSrc
 		: `${origin}${post.imageSrc}`;
 	const jsonLd = {
-		'@context': 'https://schema.org',
-		'@type': 'Article',
+		"@context": "https://schema.org",
+		"@type": "Article",
 		headline: post.title,
 		description: post.description ?? post.title,
 		datePublished: post.date,
 		url: canonical,
 		image: imageUrl,
 		publisher: {
-			'@type': 'Organization',
-			name: 'Edushade',
+			"@type": "Organization",
+			name: "Edushade",
 			url: origin,
 		},
 	};
 
 	const author =
-		post.authorName != null && post.authorName !== ''
+		post.authorName != null && post.authorName !== ""
 			? {
 					name: post.authorName,
-					role: post.authorRole ?? 'Team',
-					avatarUrl: post.authorAvatar?.startsWith('http')
+					role: post.authorRole ?? "Team",
+					avatarUrl: post.authorAvatar?.startsWith("http")
 						? post.authorAvatar
 						: post.authorAvatar
 							? `${origin}${post.authorAvatar}`
 							: undefined,
 					bio:
-						'authorBio' in post
+						"authorBio" in post
 							? (post as { authorBio?: string }).authorBio
 							: undefined,
 					socials: buildAuthorSocials(post),
@@ -88,7 +88,7 @@ export function BlogPostView({ post }: BlogPostViewProps) {
 
 	const p = post as PostWithAuthorSocials;
 	const coverImageSrc = p.coverImage
-		? p.coverImage.startsWith('http')
+		? p.coverImage.startsWith("http")
 			? p.coverImage
 			: `${origin}${p.coverImage}`
 		: undefined;
@@ -99,7 +99,7 @@ export function BlogPostView({ post }: BlogPostViewProps) {
 				title={post.title}
 				date={formatPostDate(post.date)}
 				readTimeMinutes={
-					'readTimeMinutes' in post && typeof post.readTimeMinutes === 'number'
+					"readTimeMinutes" in post && typeof post.readTimeMinutes === "number"
 						? post.readTimeMinutes
 						: undefined
 				}
@@ -123,7 +123,7 @@ export function BlogPostView({ post }: BlogPostViewProps) {
 					<div className="mb-8 w-full max-w-(--es-max-w) mx-auto overflow-hidden rounded-2xl  flex items-center justify-center">
 						<img
 							src={coverImageSrc}
-							alt={p.coverImageAlt ?? ''}
+							alt={p.coverImageAlt ?? ""}
 							className="max-h-[452px] w-full object-contain object-center"
 						/>
 					</div>

@@ -1,22 +1,22 @@
-import { Plus } from 'lucide-react';
-import { useMemo } from 'react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { DataTable, useDataTable } from '@/components/ui/data-table';
+import { Plus } from "lucide-react";
+import { useMemo } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
 	DropdownMenuItem,
 	DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { Input } from '@/components/ui/input';
-import { billingInvoicesGlobalFilterFn } from '@/lib/billing/billing-invoices-global-filter';
-import { MOCK_BILLING_INVOICES } from '@/lib/billing/invoice-mock';
-import { billingInvoiceColumns } from './billing-invoices-columns';
+} from "@/components/ui/dropdown-menu";
+import { Input } from "@/components/ui/input";
+import { DataTable, useDataTable } from "@/components/ui-custom/data-table";
+import { billingInvoicesGlobalFilterFn } from "@/lib/billing/billing-invoices-global-filter";
+import { MOCK_BILLING_INVOICES } from "@/lib/billing/constants";
+import { billingInvoiceColumns } from "./billing-invoices-columns";
 
 const PAGE_SIZE = 5;
 
-type StatusFilter = 'all' | 'paid' | 'unpaid';
+type StatusFilter = "all" | "paid" | "unpaid";
 
 export function BillingInvoicesPanel() {
 	const data = useMemo(() => [...MOCK_BILLING_INVOICES], []);
@@ -27,7 +27,7 @@ export function BillingInvoicesPanel() {
 		getRowId: (row) => row.id,
 		defaultPageSize: PAGE_SIZE,
 		initialState: {
-			sorting: [{ id: 'dateIso', desc: true }],
+			sorting: [{ id: "dateIso", desc: true }],
 			pagination: { pageIndex: 0, pageSize: PAGE_SIZE },
 		},
 		globalFilterFn: billingInvoicesGlobalFilterFn,
@@ -38,17 +38,17 @@ export function BillingInvoicesPanel() {
 
 	const statusFilter = table
 		.getState()
-		.columnFilters.find((f) => f.id === 'status')?.value;
+		.columnFilters.find((f) => f.id === "status")?.value;
 	const status: StatusFilter =
-		statusFilter === 'paid' || statusFilter === 'unpaid' ? statusFilter : 'all';
+		statusFilter === "paid" || statusFilter === "unpaid" ? statusFilter : "all";
 
 	const statusLabel =
-		status === 'all' ? 'Status' : status === 'paid' ? 'Paid' : 'Unpaid';
+		status === "all" ? "Status" : status === "paid" ? "Paid" : "Unpaid";
 
 	const setStatusFilter = (next: StatusFilter) => {
 		table
-			.getColumn('status')
-			?.setFilterValue(next === 'all' ? undefined : next);
+			.getColumn("status")
+			?.setFilterValue(next === "all" ? undefined : next);
 		table.setPageIndex(0);
 	};
 
@@ -71,7 +71,7 @@ export function BillingInvoicesPanel() {
 						<div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
 							<Input
 								placeholder="Search titles..."
-								value={String(table.getState().globalFilter ?? '')}
+								value={String(table.getState().globalFilter ?? "")}
 								onChange={(e) => {
 									table.setGlobalFilter(e.target.value);
 									table.setPageIndex(0);
@@ -92,14 +92,14 @@ export function BillingInvoicesPanel() {
 										</Button>
 									</DropdownMenuTrigger>
 									<DropdownMenuContent align="end">
-										<DropdownMenuItem onSelect={() => setStatusFilter('all')}>
+										<DropdownMenuItem onSelect={() => setStatusFilter("all")}>
 											All
 										</DropdownMenuItem>
-										<DropdownMenuItem onSelect={() => setStatusFilter('paid')}>
+										<DropdownMenuItem onSelect={() => setStatusFilter("paid")}>
 											Paid
 										</DropdownMenuItem>
 										<DropdownMenuItem
-											onSelect={() => setStatusFilter('unpaid')}
+											onSelect={() => setStatusFilter("unpaid")}
 										>
 											Unpaid
 										</DropdownMenuItem>
@@ -119,7 +119,7 @@ export function BillingInvoicesPanel() {
 									<DropdownMenuContent align="end">
 										<DropdownMenuItem
 											onSelect={() => {
-												table.setSorting([{ id: 'dateIso', desc: true }]);
+												table.setSorting([{ id: "dateIso", desc: true }]);
 												table.setPageIndex(0);
 											}}
 										>
@@ -127,7 +127,7 @@ export function BillingInvoicesPanel() {
 										</DropdownMenuItem>
 										<DropdownMenuItem
 											onSelect={() => {
-												table.setSorting([{ id: 'dateIso', desc: false }]);
+												table.setSorting([{ id: "dateIso", desc: false }]);
 												table.setPageIndex(0);
 											}}
 										>
@@ -135,7 +135,7 @@ export function BillingInvoicesPanel() {
 										</DropdownMenuItem>
 										<DropdownMenuItem
 											onSelect={() => {
-												table.setSorting([{ id: 'amountCents', desc: true }]);
+												table.setSorting([{ id: "amountCents", desc: true }]);
 												table.setPageIndex(0);
 											}}
 										>
@@ -143,7 +143,7 @@ export function BillingInvoicesPanel() {
 										</DropdownMenuItem>
 										<DropdownMenuItem
 											onSelect={() => {
-												table.setSorting([{ id: 'amountCents', desc: false }]);
+												table.setSorting([{ id: "amountCents", desc: false }]);
 												table.setPageIndex(0);
 											}}
 										>

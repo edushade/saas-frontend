@@ -1,28 +1,28 @@
-'use client';
+"use client";
 
-import { ArrowUpDown, Calendar, Plus, Search } from 'lucide-react';
-import { useMemo } from 'react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { DataTable, useDataTable } from '@/components/ui/data-table';
+import { ArrowUpDown, Calendar, Plus, Search } from "lucide-react";
+import { useMemo } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
 	DropdownMenuItem,
 	DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { Input } from '@/components/ui/input';
-import { auditLogGlobalFilterFn } from '@/lib/audit/audit-log-global-filter';
-import { MOCK_AUDIT_LOG_ROWS } from '@/lib/audit/audit-log-mock';
-import { cn } from '@/lib/utils';
-import { auditLogColumns } from './audit-log-columns';
+} from "@/components/ui/dropdown-menu";
+import { Input } from "@/components/ui/input";
+import { DataTable, useDataTable } from "@/components/ui-custom/data-table";
+import { auditLogGlobalFilterFn } from "@/lib/audit/audit-log-global-filter";
+import { MOCK_AUDIT_LOG_ROWS } from "@/lib/audit/constants";
+import { cn } from "@/lib/utils";
+import { auditLogColumns } from "./audit-log-columns";
 
 const PAGE_SIZE = 10;
 
 const DASHED_TOOLBAR_BTN =
-	'border-dashed border-border-secondary bg-bg-primary text-text-secondary hover:bg-bg-tertiary';
+	"border-dashed border-border-secondary bg-bg-primary text-text-secondary hover:bg-bg-tertiary";
 
-type TypeFilter = 'all' | 'Auth' | 'Billing' | 'Team' | 'Security' | 'Settings';
+type TypeFilter = "all" | "Auth" | "Billing" | "Team" | "Security" | "Settings";
 
 export function AuditLogsActivitiesPanel() {
 	const data = useMemo(() => [...MOCK_AUDIT_LOG_ROWS], []);
@@ -33,7 +33,7 @@ export function AuditLogsActivitiesPanel() {
 		getRowId: (row) => row.id,
 		defaultPageSize: PAGE_SIZE,
 		initialState: {
-			sorting: [{ id: 'dateIso', desc: true }],
+			sorting: [{ id: "dateIso", desc: true }],
 			pagination: { pageIndex: 0, pageSize: PAGE_SIZE },
 		},
 		globalFilterFn: auditLogGlobalFilterFn,
@@ -44,20 +44,20 @@ export function AuditLogsActivitiesPanel() {
 
 	const typeRaw = table
 		.getState()
-		.columnFilters.find((f) => f.id === 'type')?.value;
+		.columnFilters.find((f) => f.id === "type")?.value;
 	const typeFilter: TypeFilter =
-		typeRaw === 'Auth' ||
-		typeRaw === 'Billing' ||
-		typeRaw === 'Team' ||
-		typeRaw === 'Security' ||
-		typeRaw === 'Settings'
+		typeRaw === "Auth" ||
+		typeRaw === "Billing" ||
+		typeRaw === "Team" ||
+		typeRaw === "Security" ||
+		typeRaw === "Settings"
 			? typeRaw
-			: 'all';
+			: "all";
 
-	const statusLabel = typeFilter === 'all' ? 'Status' : typeFilter;
+	const statusLabel = typeFilter === "all" ? "Status" : typeFilter;
 
 	const setTypeFilter = (next: TypeFilter) => {
-		table.getColumn('type')?.setFilterValue(next === 'all' ? undefined : next);
+		table.getColumn("type")?.setFilterValue(next === "all" ? undefined : next);
 		table.setPageIndex(0);
 	};
 
@@ -85,7 +85,7 @@ export function AuditLogsActivitiesPanel() {
 								/>
 								<Input
 									placeholder="Search titles..."
-									value={String(table.getState().globalFilter ?? '')}
+									value={String(table.getState().globalFilter ?? "")}
 									onChange={(e) => {
 										table.setGlobalFilter(e.target.value);
 										table.setPageIndex(0);
@@ -108,25 +108,25 @@ export function AuditLogsActivitiesPanel() {
 										</Button>
 									</DropdownMenuTrigger>
 									<DropdownMenuContent align="end" className="w-44">
-										<DropdownMenuItem onSelect={() => setTypeFilter('all')}>
+										<DropdownMenuItem onSelect={() => setTypeFilter("all")}>
 											All types
 										</DropdownMenuItem>
-										<DropdownMenuItem onSelect={() => setTypeFilter('Auth')}>
+										<DropdownMenuItem onSelect={() => setTypeFilter("Auth")}>
 											Auth
 										</DropdownMenuItem>
-										<DropdownMenuItem onSelect={() => setTypeFilter('Billing')}>
+										<DropdownMenuItem onSelect={() => setTypeFilter("Billing")}>
 											Billing
 										</DropdownMenuItem>
-										<DropdownMenuItem onSelect={() => setTypeFilter('Team')}>
+										<DropdownMenuItem onSelect={() => setTypeFilter("Team")}>
 											Team
 										</DropdownMenuItem>
 										<DropdownMenuItem
-											onSelect={() => setTypeFilter('Security')}
+											onSelect={() => setTypeFilter("Security")}
 										>
 											Security
 										</DropdownMenuItem>
 										<DropdownMenuItem
-											onSelect={() => setTypeFilter('Settings')}
+											onSelect={() => setTypeFilter("Settings")}
 										>
 											Settings
 										</DropdownMenuItem>
@@ -148,7 +148,7 @@ export function AuditLogsActivitiesPanel() {
 									<DropdownMenuContent align="end" className="w-48">
 										<DropdownMenuItem
 											onSelect={() => {
-												table.setSorting([{ id: 'dateIso', desc: true }]);
+												table.setSorting([{ id: "dateIso", desc: true }]);
 												table.setPageIndex(0);
 											}}
 										>
@@ -156,7 +156,7 @@ export function AuditLogsActivitiesPanel() {
 										</DropdownMenuItem>
 										<DropdownMenuItem
 											onSelect={() => {
-												table.setSorting([{ id: 'dateIso', desc: false }]);
+												table.setSorting([{ id: "dateIso", desc: false }]);
 												table.setPageIndex(0);
 											}}
 										>
@@ -180,7 +180,7 @@ export function AuditLogsActivitiesPanel() {
 									<DropdownMenuContent align="end" className="w-52">
 										<DropdownMenuItem
 											onSelect={() => {
-												table.setSorting([{ id: 'dateIso', desc: true }]);
+												table.setSorting([{ id: "dateIso", desc: true }]);
 												table.setPageIndex(0);
 											}}
 										>
@@ -188,7 +188,7 @@ export function AuditLogsActivitiesPanel() {
 										</DropdownMenuItem>
 										<DropdownMenuItem
 											onSelect={() => {
-												table.setSorting([{ id: 'dateIso', desc: false }]);
+												table.setSorting([{ id: "dateIso", desc: false }]);
 												table.setPageIndex(0);
 											}}
 										>
@@ -196,7 +196,7 @@ export function AuditLogsActivitiesPanel() {
 										</DropdownMenuItem>
 										<DropdownMenuItem
 											onSelect={() => {
-												table.setSorting([{ id: 'ipAddress', desc: false }]);
+												table.setSorting([{ id: "ipAddress", desc: false }]);
 												table.setPageIndex(0);
 											}}
 										>
@@ -204,7 +204,7 @@ export function AuditLogsActivitiesPanel() {
 										</DropdownMenuItem>
 										<DropdownMenuItem
 											onSelect={() => {
-												table.setSorting([{ id: 'ipAddress', desc: true }]);
+												table.setSorting([{ id: "ipAddress", desc: true }]);
 												table.setPageIndex(0);
 											}}
 										>
@@ -212,7 +212,7 @@ export function AuditLogsActivitiesPanel() {
 										</DropdownMenuItem>
 										<DropdownMenuItem
 											onSelect={() => {
-												table.setSorting([{ id: 'event', desc: false }]);
+												table.setSorting([{ id: "event", desc: false }]);
 												table.setPageIndex(0);
 											}}
 										>
@@ -220,7 +220,7 @@ export function AuditLogsActivitiesPanel() {
 										</DropdownMenuItem>
 										<DropdownMenuItem
 											onSelect={() => {
-												table.setSorting([{ id: 'event', desc: true }]);
+												table.setSorting([{ id: "event", desc: true }]);
 												table.setPageIndex(0);
 											}}
 										>

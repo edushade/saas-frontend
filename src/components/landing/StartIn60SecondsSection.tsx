@@ -1,11 +1,11 @@
-import { CheckRightIcon } from '@/assets/icons/check-icons';
-import { Button } from '@/components/ui/button';
-import { Typography } from '../ui-custom/typography';
+import { CheckRightIcon } from "@/assets/icons/check-icons";
+import { Button } from "@/components/ui/button";
+import { Typography } from "../ui-custom/typography";
 
 const BENEFITS = [
-	'No coding or integrations required',
-	'Ready-to-use structure from day one',
-	'Customize as you grow',
+	"No coding or integrations required",
+	"Ready-to-use structure from day one",
+	"Customize as you grow",
 ];
 
 export default function StartIn60SecondsSection() {

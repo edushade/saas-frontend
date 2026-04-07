@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import nodemailer from "nodemailer";
-import type { ContactFormValue } from "@/components/contact-sales/types/contact-sales-form";
+import type { ContactFormValue } from "@/lib/contact-sales/contact-sales-form";
 
 function isContactBody(
 	body: unknown,

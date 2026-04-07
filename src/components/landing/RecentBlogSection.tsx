@@ -1,11 +1,11 @@
-import { Link } from '@tanstack/react-router';
-import { HorizontalBlogCard, VerticalBlogCard } from '@/components/blog';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { getRecentBlogPosts } from '@/constants/blogs';
-import { Typography } from '../ui-custom/typography';
+import { Link } from "@tanstack/react-router";
+import { HorizontalBlogCard, VerticalBlogCard } from "@/components/blog";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { getRecentBlogPosts } from "@/lib/blog/blogs";
+import { Typography } from "../ui-custom/typography";
 
 export default function RecentBlogSection() {
 	const recentPosts = getRecentBlogPosts();
