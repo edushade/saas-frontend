@@ -42,7 +42,7 @@ export default function StartIn60SecondsSection() {
 							))}
 						</ul>
 						<div>
-							<Button className="btn-brand-2 rounded-2xl h-auto px-5 hover:bg-brand-200/80 py-3 text-base font-medium">
+							<Button className="btn-brand-2 rounded-2xl h-auto px-5hover:bg-brand-200/80 py-2 text-base font-medium">
 								Get Started Free
 							</Button>
 						</div>

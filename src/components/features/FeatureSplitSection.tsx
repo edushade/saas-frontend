@@ -58,7 +58,7 @@ export default function FeatureSplitSection({
 						</ul>
 
 						<div>
-							<Button className="btn-brand-2 rounded-xl h-auto px-5 hover:bg-brand-200/90 py-3 text-base font-medium">
+							<Button className="btn-brand-2 rounded-xl h-auto px-5 hover:bg-brand-200/90 py-2 text-base font-medium">
 								Get Started Free
 							</Button>
 						</div>

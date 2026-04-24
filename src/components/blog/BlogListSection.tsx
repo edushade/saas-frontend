@@ -53,7 +53,7 @@ export function BlogListSection({
 							<PaginationItem>
 								{currentPage > 1 ? (
 									<Link
-										to="/blogs"
+										to="/"
 										search={{ page: currentPage - 1 }}
 										aria-label="Go to previous page"
 										className={cn(
@@ -61,7 +61,7 @@ export function BlogListSection({
 											buttonVariants({ variant: "outline", size: "default" }),
 										)}
 									>
-										<span className="hidden sm:block">Previous</span>
+										<span className=" sm:block">Previous</span>
 									</Link>
 								) : (
 									<span
@@ -72,7 +72,7 @@ export function BlogListSection({
 											"pointer-events-none opacity-50",
 										)}
 									>
-										<span className="hidden sm:block">Previous</span>
+										<span className=" sm:block">Previous</span>
 									</span>
 								)}
 							</PaginationItem>
@@ -83,7 +83,7 @@ export function BlogListSection({
 							{currentPage > 2 && (
 								<PaginationItem>
 									<Link
-										to="/blogs"
+										to="/"
 										search={{ page: 1 }}
 										className={cn(
 											buttonVariants({
@@ -108,7 +108,7 @@ export function BlogListSection({
 								.map((p) => (
 									<PaginationItem key={p}>
 										<Link
-											to="/blogs"
+											to="/"
 											search={{ page: p }}
 											className={cn(
 												"",
@@ -131,7 +131,7 @@ export function BlogListSection({
 							{currentPage < totalPages - 1 && (
 								<PaginationItem>
 									<Link
-										to="/blogs"
+										to="/"
 										search={{ page: totalPages }}
 										className={cn(
 											buttonVariants({
@@ -155,7 +155,7 @@ export function BlogListSection({
 							<PaginationItem>
 								{currentPage < totalPages ? (
 									<Link
-										to="/blogs"
+										to="/"
 										search={{ page: currentPage + 1 }}
 										aria-label="Go to next page"
 										className={cn(
@@ -163,7 +163,7 @@ export function BlogListSection({
 											buttonVariants({ variant: "outline", size: "default" }),
 										)}
 									>
-										<span className="hidden sm:block">Next</span>
+										<span className="sm:block">Next</span>
 									</Link>
 								) : (
 									<span
@@ -174,7 +174,7 @@ export function BlogListSection({
 											"pointer-events-none opacity-50",
 										)}
 									>
-										<span className="hidden sm:block">Next</span>
+										<span className="sm:block">Next</span>
 									</span>
 								)}
 							</PaginationItem>

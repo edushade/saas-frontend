@@ -7,6 +7,7 @@ import {
 	CarouselItem,
 } from "@/components/ui/carousel";
 import { Typography } from "@/components/ui-custom/typography";
+import Autoplay from "embla-carousel-autoplay";
 import { PLATFORM_FEATURES } from "@/data/platforms-features";
 import { cn } from "@/lib/utils";
 
@@ -34,8 +35,14 @@ export default function EverythingYouNeedSection() {
 
 					<CardContent className="relative -mr-4 md:-mr-6 overflow-hidden pt-0">
 						<Carousel
-							opts={{ align: "start", loop: true, dragFree: false }}
-							className="w-full"
+							opts={{ align: "start", loop: true }}
+                             plugins={[
+                             Autoplay({
+                            delay: 3000, 
+                            stopOnInteraction: false,
+                           }),
+                          ]}
+                          className="w-full"
 						>
 							<CarouselContent className="-ml-6 md:-ml-8 pl-6 md:pl-8 pr-6 md:pr-8">
 								{PLATFORM_FEATURES.map((feature, index) => (

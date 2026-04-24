@@ -53,6 +53,8 @@ const FOOTER_COLUMNS = [
 	},
 ];
 
+const year = new Date().getFullYear();
+
 const BOTTOM_LINKS = [
 	{ label: 'Privacy Policy', to: '/privacy-policy' },
 	{ label: 'Terms of Service', to: '/terms-of-service' },
@@ -123,7 +125,7 @@ export default function Footer() {
 							className="text-center text-text-quaternary font-normal sm:order-0"
 						>
 							<span className="font-medium text-text-quaternary">
-								Copyright © 2025 Edushade. All rights reserved.
+								Copyright © {year} Edushade. All rights reserved.
 							</span>
 						</Typography>
 						<div className="flex items-center gap-1">
