@@ -1,6 +1,7 @@
 import { BannerTag } from '@/components/ui-custom/BannerTag';
 import { CardShadeOverlay } from '@/components/ui-custom/card-shade-overlay';
 import { Typography } from '@/components/ui-custom/typography';
+import { FeaturesSearchDialog } from './FeaturesSearchDialog';
 
 export function FeaturesBanner() {
 	return (
@@ -26,6 +27,8 @@ export function FeaturesBanner() {
 					Create courses, engage learners, track progress, and manage your
 					academy with tools designed to work together.
 				</Typography>
+
+				<FeaturesSearchDialog className="mt-2 w-full max-w-xl" />
 			</div>
 		</section>
 	);

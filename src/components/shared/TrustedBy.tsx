@@ -1,6 +1,6 @@
-import { Marquee } from "@/components/ui-custom/marquee";
-import { PLATFORMS } from "@/lib/platform/data";
-import { Typography } from "../ui-custom/typography";
+import { Marquee } from '@/components/ui-custom/marquee';
+import { PLATFORMS } from '@/lib/platform/data';
+import { Typography } from '../ui-custom/typography';
 
 function PlatformCard({ name, stat, logo }: (typeof PLATFORMS)[number]) {
 	return (
@@ -19,7 +19,7 @@ function PlatformCard({ name, stat, logo }: (typeof PLATFORMS)[number]) {
 	);
 }
 
-export default function LogosSection() {
+export default function TrustedBy() {
 	return (
 		<section className="relative flex w-full flex-col items-center gap-4 overflow-hidden py-(--es-section-py)">
 			<Typography

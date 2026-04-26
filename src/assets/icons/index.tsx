@@ -23,6 +23,7 @@ export { FileIcon } from './file-icons';
 export { HeadphoneIcon } from './headphone-icons';
 export { InfoIcon } from './info-icons';
 export { InstagramIcon } from './instagram-icon';
+export { LargeLogoIcon } from './large-logo-icon';
 export { LinkedinIcon } from './linkedin-icon';
 export { ListIcon } from './list-icons';
 export { MenuIcon } from './menu-icons';

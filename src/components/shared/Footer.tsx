@@ -1,4 +1,5 @@
 import { Link } from '@tanstack/react-router';
+import { LargeLogoIcon } from '@/assets/icons';
 import { DiscordIcon } from '@/assets/icons/discord-icon';
 import { FacebookIcon } from '@/assets/icons/facebook-icon';
 import { InstagramIcon } from '@/assets/icons/instagram-icon';
@@ -26,7 +27,7 @@ const FOOTER_COLUMNS = [
 			{ label: 'For Training Teams', to: '/' },
 		],
 	},
-	{
+	/* {
 		heading: 'Resources',
 		links: [
 			{ label: 'Documentation', to: '/' },
@@ -34,7 +35,7 @@ const FOOTER_COLUMNS = [
 			{ label: 'Changelog', to: '/' },
 			{ label: 'Videos', to: '/' },
 		],
-	},
+	}, */
 	{
 		heading: 'Company',
 		links: [
@@ -72,11 +73,11 @@ export default function Footer() {
 		<footer className="relative w-full overflow-hidden bg-[linear-gradient(180deg,#000000_0%,rgba(0,0,0,0)_100%),linear-gradient(180deg,#222222_0%,#07003D_100%)]">
 			<div className="relative mx-auto flex max-w-(--es-max-w) flex-col gap-10 pb-0 pt-8 px-4 md:px-8 xl:px-(--es-section-px) md:pt-12">
 				<nav
-					className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 items-stretch gap-y-8"
+					className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 items-stretch gap-y-8"
 					aria-label="Footer navigation"
 				>
 					{FOOTER_COLUMNS.map((column) => (
-						<div key={column.heading} className="flex flex-col gap-8">
+						<div key={column.heading} className="flex flex-col gap-4 lg:gap-8">
 							<Typography
 								variant="extraSmall"
 								className="font-semibold tracking-widest text-text-on-brand"
@@ -144,19 +145,11 @@ export default function Footer() {
 				</div>
 			</div>
 
-			{/* Large decorative wordmark — aligned with footer content padding */}
 			<div
-				className="w-full  max-w-(--es-max-w) mx-auto px-4 md:px-8 xl:px-(--es-section-px) pointer-events-none animate-[pulse_4s_infinite]"
+				className="w-full pt-10 lg:pt-16  max-w-(--es-max-w) mx-auto px-4 md:px-8 xl:px-(--es-section-px) pointer-events-none"
 				aria-hidden="true"
 			>
-				<div className="@container w-full overflow-hidden">
-					<span
-						className="block font-medium leading-none text-text-white-alpha whitespace-nowrap"
-						style={{ fontSize: '20.5cqw' }}
-					>
-						Edushade
-					</span>
-				</div>
+				<LargeLogoIcon />
 			</div>
 		</footer>
 	);

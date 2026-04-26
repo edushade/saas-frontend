@@ -1,4 +1,4 @@
-import type { ElementType } from "react";
+import type { ElementType } from 'react';
 import {
 	CheckPlainIcon,
 	FileIcon,
@@ -6,8 +6,8 @@ import {
 	ListIcon,
 	MenuIcon,
 	VideoIcon,
-} from "@/assets/icons";
-import { buildFeatureNavGroups } from "./feature-nav";
+} from '@/assets/icons';
+import { buildFeatureNavGroups } from './feature-nav';
 
 export interface NavFeatureItem {
 	label: string;
@@ -42,21 +42,21 @@ export interface NavLinkItem {
 export const FEATURES_GROUPS: NavFeatureGroup[] = buildFeatureNavGroups();
 
 export const FEATURES_CTA: NavCta = {
-	highlight: "Want to launch fast?",
-	text: "Launch your EdTech platform in 60 seconds",
-	button: "Get Started",
+	highlight: 'Curious how it works?',
+	text: 'Book a personalized demo and explore Edushade in action.',
+	button: 'Try Demo',
 };
 
 export const RESOURCES_ITEMS: NavResourceItem[] = [
-	{ label: "Documentation", icon: FileIcon, href: "#" },
-	{ label: "Integrations", icon: MenuIcon, href: "/integrations" },
-	{ label: "Blog", icon: ListIcon, href: "/blogs" },
-	{ label: "Changelog", icon: CheckPlainIcon, href: "#" },
-	{ label: "Videos", icon: VideoIcon, href: "#" },
-	{ label: "Help Center", icon: HeadphoneIcon, href: "#" },
+	{ label: 'Documentation', icon: FileIcon, href: '#' },
+	{ label: 'Integrations', icon: MenuIcon, href: '/integrations' },
+	{ label: 'Blog', icon: ListIcon, href: '/blogs' },
+	{ label: 'Changelog', icon: CheckPlainIcon, href: '#' },
+	{ label: 'Videos', icon: VideoIcon, href: '#' },
+	{ label: 'Help Center', icon: HeadphoneIcon, href: '#' },
 ];
 
 export const NAV_LINKS: NavLinkItem[] = [
-	{ label: "Pricing", href: "/pricing" },
-	{ label: "Contact Sales", href: "/contact-sales" },
+	// { label: "Pricing", href: "/pricing" },
+	{ label: 'Contact Sales', href: '/contact-sales' },
 ];

@@ -1,5 +1,5 @@
 import { Link, useRouterState } from '@tanstack/react-router';
-import { ArrowUpRight, ChevronUp, Menu } from 'lucide-react';
+import { ArrowUpRight, ChevronDown, Menu } from 'lucide-react';
 import { useState } from 'react';
 import { DiamondIcon } from '@/assets/icons';
 import {
@@ -29,7 +29,7 @@ import {
 	FEATURES_CTA,
 	FEATURES_GROUPS,
 	NAV_LINKS,
-	RESOURCES_ITEMS,
+	// RESOURCES_ITEMS,
 } from '@/constants/nav';
 import { cn } from '@/lib/utils';
 import { Typography } from '../ui-custom/typography';
@@ -86,8 +86,8 @@ function FeaturesMenu({
 														)}
 													>
 														<div className="bg-bg-tertiary rounded-md p-0.5 hover:bg-bg-secondary">
-															<div className=" flex p-1 shrink-0 items-center justify-center rounded-md bg-bg-primary hover:bg-bg-secondary">
-																<item.icon className="text-brand-200 size-7 hover:text-brand-300" />
+															<div className="relative flex p-1 shrink-0 items-center justify-center rounded-md bg-bg-primary hover:bg-bg-secondary bg-[url('/svgs/small-grid.svg')] bg-center bg-no-repeat bg-contain">
+																<item.icon className="relative z-10 text-brand-200 size-7 hover:text-brand-300" />
 															</div>
 														</div>
 														<div className="flex flex-col gap-1">
@@ -115,15 +115,15 @@ function FeaturesMenu({
 										</ul>
 									</div>
 								))}
-
-								<div className="col-span-4 py-6 flex justify-center">
-									<Button variant="outline" asChild>
-										<Link to="/features" onClick={() => onOpenChange(null)}>
-											Show All Features <ChevronUp size={14} />
-										</Link>
-									</Button>
-								</div>
 							</CardContent>
+
+							<div className="col-span-4 flex justify-center py-4">
+								<Button variant="outline" asChild>
+									<Link to="/features" onClick={() => onOpenChange(null)}>
+										Show All Features <ChevronDown size={14} />
+									</Link>
+								</Button>
+							</div>
 
 							{/* CTA bar */}
 							<CardFooter className="border-t border-border-secondary   items-center w-full">
@@ -143,7 +143,7 @@ function FeaturesMenu({
 									</div>
 
 									<Button className="btn-brand-1 rounded-full" asChild>
-										<Link to="/" onClick={() => onOpenChange(null)}>
+										<Link to="/request-demo" onClick={() => onOpenChange(null)}>
 											{FEATURES_CTA.button}
 										</Link>
 									</Button>
@@ -157,7 +157,7 @@ function FeaturesMenu({
 	);
 }
 
-function ResourcesMenu({
+/* function ResourcesMenu({
 	openNav,
 	onOpenChange,
 }: {
@@ -220,7 +220,7 @@ function ResourcesMenu({
 			</NavigationMenuList>
 		</NavigationMenu>
 	);
-}
+} */
 
 function MobileMenu() {
 	const [open, setOpen] = useState(false);
@@ -241,7 +241,7 @@ function MobileMenu() {
 			<SheetContent side="right" className="w-72 p-0 flex flex-col">
 				<SheetHeader className="border-b border-border-primary">
 					<SheetTitle className="flex items-center">
-						<img src="/svgs/logo.svg" alt="Edushade" className="h-8" />
+						<img src="/svgs/logo-1.svg" alt="Edushade" className="h-8" />
 					</SheetTitle>
 				</SheetHeader>
 
@@ -278,7 +278,7 @@ function MobileMenu() {
 						</AccordionItem>
 
 						{/* Resources */}
-						<AccordionItem value="resources" className="border-none">
+						{/* <AccordionItem value="resources" className="border-none">
 							<AccordionTrigger className="py-3 text-sm font-medium text-text-secondary hover:text-text-primary hover:no-underline">
 								Resources
 							</AccordionTrigger>
@@ -298,7 +298,7 @@ function MobileMenu() {
 									</Link>
 								))}
 							</AccordionContent>
-						</AccordionItem>
+						</AccordionItem> */}
 					</Accordion>
 
 					{/* Flat nav links */}
@@ -316,12 +316,17 @@ function MobileMenu() {
 
 				{/* Footer CTA */}
 				<div className="border-t border-border-primary px-4 py-4 flex flex-col gap-2">
-					<Button variant="outline" asChild className="w-full">
+					{/* <Button variant="outline" asChild className="w-full">
 						<Link to="/">Sign In</Link>
-					</Button>
-					<Button asChild className="btn-brand-1 w-full rounded-full gap-1.5">
+					</Button> */}
+					{/* 	<Button asChild className="btn-brand-1 w-full rounded-full gap-1.5">
 						<Link to="/request-demo" onClick={() => setOpen(false)}>
 							Request a Demo <ArrowUpRight size={14} />
+						</Link>
+					</Button> */}
+					<Button asChild className="btn-brand-1 w-full rounded-full gap-1.5">
+						<Link to="/request-demo" onClick={() => setOpen(false)}>
+							Try Demo <ArrowUpRight size={14} />
 						</Link>
 					</Button>
 				</div>
@@ -337,9 +342,9 @@ export default function Header() {
 	return (
 		<header className="fixed top-0 left-0  right-0 z-50 flex items-center px-4 md:px-8 xl:px-(--es-section-px) h-(--es-nav-h) bg-bg-primary">
 			<div className="mx-auto w-full max-w-(--es-max-w) flex items-center justify-between">
-				<Link to="/" className="flex items-center h-11">
+				<Link to="/" className="flex items-center h-8 max-w-[132px] w-full">
 					<img
-						src="/svgs/logo.svg"
+						src="/svgs/logo-1.svg"
 						alt="Edushade"
 						className="w-full h-full object-contain"
 					/>
@@ -348,7 +353,7 @@ export default function Header() {
 				<div className="flex items-center gap-3 shrink-0">
 					<nav className="hidden md:flex items-center ">
 						<FeaturesMenu openNav={openNav} onOpenChange={setOpenNav} />
-						<ResourcesMenu openNav={openNav} onOpenChange={setOpenNav} />
+						{/* <ResourcesMenu openNav={openNav} onOpenChange={setOpenNav} /> */}
 						{NAV_LINKS.map((link) => {
 							const isLinkActive =
 								pathname === link.href ||
@@ -372,19 +377,28 @@ export default function Header() {
 					</nav>
 
 					<div className="hidden md:flex items-center gap-3 shrink-0">
-						<Button
+						{/* <Button
 							variant="outline"
 							asChild
 							className="text-text-dark-2 rounded-full text-sm font-medium hover:text-brand-300 hover:bg-bg-secondary py-3"
 						>
 							<Link to="/login">Sign In</Link>
-						</Button>
-						<Button
+						</Button> */}
+						{/* <Button
 							asChild
 							className="btn-brand-1 py-3 text-text-primary rounded-full gap-1.5 text-sm font-medium"
 						>
 							<Link to="/request-demo">
 								Request a Demo
+								<ArrowUpRight size={14} strokeWidth={2.5} />
+							</Link>
+						</Button> */}
+						<Button
+							asChild
+							className="btn-brand-1 py-3 text-text-primary rounded-full gap-1.5 text-sm font-medium"
+						>
+							<Link to="/request-demo">
+								Try Demo
 								<ArrowUpRight size={14} strokeWidth={2.5} />
 							</Link>
 						</Button>
