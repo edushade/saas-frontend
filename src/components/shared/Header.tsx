@@ -143,9 +143,14 @@ function FeaturesMenu({
 									</div>
 
 									<Button className="btn-brand-1 rounded-full" asChild>
-										<Link to="/request-demo" onClick={() => onOpenChange(null)}>
+										<a
+											href="https://default.edushade.com/"
+											target="_blank"
+											rel="noopener noreferrer"
+											onClick={() => onOpenChange(null)}
+										>
 											{FEATURES_CTA.button}
-										</Link>
+										</a>
 									</Button>
 								</div>
 							</CardFooter>
@@ -325,9 +330,14 @@ function MobileMenu() {
 						</Link>
 					</Button> */}
 					<Button asChild className="btn-brand-1 w-full rounded-full gap-1.5">
-						<Link to="/request-demo" onClick={() => setOpen(false)}>
+						<a
+							href="https://default.edushade.com/"
+							target="_blank"
+							rel="noopener noreferrer"
+							onClick={() => setOpen(false)}
+						>
 							Try Demo <ArrowUpRight size={14} />
-						</Link>
+						</a>
 					</Button>
 				</div>
 			</SheetContent>
@@ -397,10 +407,14 @@ export default function Header() {
 							asChild
 							className="btn-brand-1 py-3 text-text-primary rounded-full gap-1.5 text-sm font-medium"
 						>
-							<Link to="/request-demo">
+							<a
+								href="https://default.edushade.com/"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
 								Try Demo
 								<ArrowUpRight size={14} strokeWidth={2.5} />
-							</Link>
+							</a>
 						</Button>
 					</div>
 				</div>
