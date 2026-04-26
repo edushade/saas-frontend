@@ -101,8 +101,9 @@ export function ComposeModelTags({
 								type="radio"
 								name={name}
 								value={tag}
-								checked={isControlled ? controlledValue === tag : undefined}
-								defaultChecked={!isControlled && tag === selected}
+								{...(isControlled
+									? { checked: controlledValue === tag }
+									: { defaultChecked: tag === selected })}
 								onChange={
 									onChange
 										? (e) => e.target.checked && onChange(tag)

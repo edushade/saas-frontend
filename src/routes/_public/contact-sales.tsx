@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { ContactSalesSection } from '@/components/contact-sales';
-import { CtaSection, FAQSection, LogosSection } from '@/components/shared';
+import { CtaSection, FAQSection, TrustedBy } from '@/components/shared';
 
 export const Route = createFileRoute('/_public/contact-sales')({
 	component: ContactSalesPage,
@@ -10,9 +10,9 @@ function ContactSalesPage() {
 	return (
 		<main className="pt-(--es-section-pt)">
 			<ContactSalesSection />
-			<LogosSection />
+			<TrustedBy />
 			<FAQSection />
 			<CtaSection />
 		</main>
-	)
+	);
 }

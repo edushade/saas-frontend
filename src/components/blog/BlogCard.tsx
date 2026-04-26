@@ -1,13 +1,13 @@
-import { Link } from "@tanstack/react-router";
-import { Plus } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Typography } from "@/components/ui-custom/typography";
+import { Link } from '@tanstack/react-router';
+import { Plus } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Typography } from '@/components/ui-custom/typography';
 import {
 	BLOG_CARD_FALLBACK_IMAGE,
 	type BlogPostCardItem,
-} from "../../lib/blog/blog-card-types";
+} from '../../lib/blog/blog-card-types';
 
 export interface BlogCardProps {
 	post: BlogPostCardItem;
@@ -54,7 +54,7 @@ export function VerticalBlogCard({ post }: BlogCardProps) {
 						>
 							{post.headline}
 						</Typography>
-						{post.description != null && post.description !== "" && (
+						{post.description != null && post.description !== '' && (
 							<Typography
 								variant="base"
 								className="line-clamp-2 font-normal text-text-secondary leading-snug"
@@ -79,7 +79,7 @@ export function VerticalBlogCard({ post }: BlogCardProps) {
 							<Button
 								variant="default"
 								size="icon"
-								className="bg-bg-tertiary size-10 shadow-none border-none text-text-primary"
+								className="bg-bg-tertiary size-10 shadow-none border-none text-text-primary hover:bg-bg-secondary hover:text-text-primary"
 							>
 								<Plus className="size-4 text-text-secondary" />
 								<span className="sr-only">More</span>
@@ -128,7 +128,7 @@ export function HorizontalBlogCard({ post }: BlogCardProps) {
 						<Button
 							variant="default"
 							size="icon"
-							className="bg-white text-text-primary shadow-sm"
+							className="bg-white text-text-primary shadow-sm hover:bg-bg-secondary hover:text-text-primary"
 						>
 							<Plus className="size-4" />
 							<span className="sr-only">More</span>

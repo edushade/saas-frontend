@@ -12,7 +12,7 @@ import {
 	CtaSection,
 	FAQSection,
 	GetStartedSection,
-	LogosSection,
+	TrustedBy,
 } from '../../components/shared';
 import { getSiteOrigin } from '../../env';
 
@@ -72,7 +72,7 @@ export const Route = createFileRoute('/_public/')({
 					children: JSON.stringify({ ...ORGANIZATION_SCHEMA, url: origin }),
 				},
 			],
-		}
+		};
 	},
 	headers: () => ({
 		'Cache-Control':
@@ -85,7 +85,7 @@ function LandingPage() {
 	return (
 		<main className="pt-(--es-section-pt)">
 			<HeroSection />
-			<LogosSection />
+			<TrustedBy />
 			<BuiltForTeachSection />
 			<PowerYourEcosystemSection />
 			<EverythingYouNeedSection />
@@ -94,9 +94,9 @@ function LandingPage() {
 			<StartIn60SecondsSection />
 			<EducatorsSaySection />
 			<GetStartedSection />
-			<RecentBlogSection />
+			<RecentBlogSection showBrowseAll />
 			<FAQSection />
 			<CtaSection />
 		</main>
-	)
+	);
 }

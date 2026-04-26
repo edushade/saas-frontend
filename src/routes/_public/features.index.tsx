@@ -1,6 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { FeaturesBanner } from '@/components/features/FeaturesBanner';
 import { FeaturesListSections } from '@/components/features/FeaturesListSections';
+import { MissingFeatureSection } from '@/components/features/MissingFeatureSection';
 import { CtaSection } from '@/components/shared';
 import { getSiteOrigin } from '@/env';
 
@@ -24,7 +25,8 @@ function FeaturesPage() {
 		<main className="bg-bg-primary pt-(--es-section-pt)">
 			<FeaturesBanner />
 			<FeaturesListSections />
+			<MissingFeatureSection />
 			<CtaSection />
 		</main>
-	)
+	);
 }

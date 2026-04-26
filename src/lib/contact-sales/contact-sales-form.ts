@@ -22,7 +22,7 @@ export const DEFAULT_CONTACT_FORM_VALUES: ContactFormValue = {
 
 export function getContactFormValidators() {
 	return {
-		onBlur: ({ value }: { value: ContactFormValue }) => {
+		onSubmit: ({ value }: { value: ContactFormValue }) => {
 			const errors: { fields: Record<string, string> } = { fields: {} };
 			if (!value.firstName?.trim())
 				errors.fields.firstName = 'First name is required';

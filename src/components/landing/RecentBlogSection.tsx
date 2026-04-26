@@ -1,16 +1,22 @@
-import { Link } from "@tanstack/react-router";
-import { HorizontalBlogCard, VerticalBlogCard } from "@/components/blog";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { getRecentBlogPosts } from "@/lib/blog/blogs";
-import { Typography } from "../ui-custom/typography";
+import { Link } from '@tanstack/react-router';
+import { HorizontalBlogCard, VerticalBlogCard } from '@/components/blog';
+import { Badge } from '@/components/ui/badge';
+// import { Button } from '@/components/ui/button';
+// import { Card, CardContent } from '@/components/ui/card';
+// import { Input } from '@/components/ui/input';
+import { getRecentBlogPosts } from '@/lib/blog/blogs';
+import { Typography } from '../ui-custom/typography';
 
-export default function RecentBlogSection() {
+interface RecentBlogSectionProps {
+	showBrowseAll?: boolean;
+}
+
+export default function RecentBlogSection({
+	showBrowseAll = false,
+}: RecentBlogSectionProps = {}) {
 	const recentPosts = getRecentBlogPosts();
 	const featuredPost = recentPosts[0];
-	const sidePosts = recentPosts.slice(1, 3);
+	const sidePosts = recentPosts.slice(0, 3);
 
 	return (
 		<section className="bg-bg-primary py-(--es-section-py) px-4 md:px-8 xl:px-(--es-section-px)">
@@ -31,15 +37,17 @@ export default function RecentBlogSection() {
 							delivering modern learning experiences.
 						</Typography>
 					</div>
-					<Badge
-						variant="outline"
-						className="rounded-lg px-6 text-text-primary h-10 text-sm font-medium"
-						asChild
-					>
-						<Link to="/blogs" search={{ page: 1 }}>
-							Browse All Posts
-						</Link>
-					</Badge>
+					{showBrowseAll && (
+						<Badge
+							variant="outline"
+							className="rounded-lg px-6 text-text-primary h-10 text-sm font-medium"
+							asChild
+						>
+							<Link to="/blogs" search={{ page: 1 }}>
+								Browse All Posts
+							</Link>
+						</Badge>
+					)}
 				</div>
 
 				<div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:items-stretch">
@@ -53,7 +61,7 @@ export default function RecentBlogSection() {
 							/>
 						))}
 
-						<Card className="mt-auto shrink-0 overflow-hidden rounded-4xl border-0 bg-[#1A1918]">
+						{/* <Card className="mt-auto shrink-0 overflow-hidden rounded-4xl border-0 bg-[#1A1918]">
 							<CardContent className="flex flex-col gap-4">
 								<Typography
 									variant="h4"
@@ -75,7 +83,7 @@ export default function RecentBlogSection() {
 									</Button>
 								</form>
 							</CardContent>
-						</Card>
+						</Card> */}
 					</div>
 				</div>
 			</div>

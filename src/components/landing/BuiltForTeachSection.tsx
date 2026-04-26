@@ -19,11 +19,11 @@ const TAB_CONTENT = {
 		rightAlt: "Academy overview",
 		videoLabel: "Watch Overview",
 	},
-	schools: {
+	marketplace: {
 		leftSrc: "/svgs/build-for-teach/1.svg",
-		leftAlt: "For Schools — classroom tools",
+		leftAlt: "For Marketplace — list and sell courses",
 		rightSrc: "/svgs/build-for-teach/3.svg",
-		rightAlt: "School intro",
+		rightAlt: "Marketplace intro",
 		videoLabel: "Watch Intro",
 	},
 };
@@ -78,15 +78,15 @@ export default function BuiltForTeachSection() {
 								For Academies
 							</TabsTrigger>
 							<TabsTrigger
-								value="schools"
+								value="marketplace"
 								className="data-[state=active]:bg-brand-300 data-[state=active]:text-white data-[state=active]:shadow-sm rounded-xl px-4 h-full py-2 text-sm font-medium"
 							>
-								For Schools
+								For Marketplace
 							</TabsTrigger>
 						</TabsList>
 					</div>
 
-					{(["creators", "academies", "schools"] as const).map((tab) => {
+					{(["creators", "academies", "marketplace"] as const).map((tab) => {
 						const c = TAB_CONTENT[tab];
 						return (
 							<TabsContent

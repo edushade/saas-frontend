@@ -1,16 +1,16 @@
-import { Link } from "@tanstack/react-router";
-import { useState } from "react";
-import { parsePhoneNumber } from "react-phone-number-input";
-import { Typography } from "@/components/ui-custom/typography";
-import { useAppForm } from "@/hooks/form";
-import { cn } from "@/lib/utils";
+import { Link } from '@tanstack/react-router';
+import { useState } from 'react';
+import { parsePhoneNumber } from 'react-phone-number-input';
+import { Typography } from '@/components/ui-custom/typography';
+import { useAppForm } from '@/hooks/form';
+import { cn } from '@/lib/utils';
 import {
 	type ContactFormValue,
 	DEFAULT_CONTACT_FORM_VALUES,
 	getContactFormValidators,
-} from "../../lib/contact-sales/contact-sales-form";
-import { Card, CardContent } from "../ui/card";
-import { Label } from "../ui/label";
+} from '../../lib/contact-sales/contact-sales-form';
+import { Card, CardContent } from '../ui/card';
+import { Label } from '../ui/label';
 
 export interface ContactSalesFormProps {
 	title?: string;
@@ -23,18 +23,18 @@ export interface ContactSalesFormProps {
 }
 
 const defaultOnSubmit = (value: ContactFormValue) => {
-	console.log("Contact sales submit", value);
+	console.log('Contact sales submit', value);
 	alert("Message sent! We'll get back to you soon.");
 };
 
 export function ContactSalesForm({
-	title = "Please fill out the form",
+	title = 'Please fill out the form',
 	note,
-	submitLabel = "Send Message",
-	termsLinkTo = "/terms-of-service",
+	submitLabel = 'Send Message',
+	termsLinkTo = '/terms-of-service',
 	onSubmit = defaultOnSubmit,
-	contactApiUrl = "/api/contact",
-	className = "bg-[#FFFFFF99] border-none shadow-none",
+	contactApiUrl = '/api/contact',
+	className = 'bg-[#FFFFFF99] border-none shadow-none',
 }: ContactSalesFormProps) {
 	const [submitError, setSubmitError] = useState<string | null>(null);
 
@@ -46,8 +46,8 @@ export function ContactSalesForm({
 			const parsed = value.phone?.trim()
 				? parsePhoneNumber(value.phone)
 				: undefined;
-			const phoneCountry = parsed ? `+${parsed.countryCallingCode}` : "";
-			const phoneNumber = parsed?.nationalNumber ?? "";
+			const phoneCountry = parsed ? `+${parsed.countryCallingCode}` : '';
+			const phoneNumber = parsed?.nationalNumber ?? '';
 			const payload: ContactFormValue = {
 				...value,
 				phoneCountry,
@@ -56,8 +56,8 @@ export function ContactSalesForm({
 
 			try {
 				const res = await fetch(contactApiUrl, {
-					method: "POST",
-					headers: { "Content-Type": "application/json" },
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
 					body: JSON.stringify(payload),
 				});
 				const data = (await res.json().catch(() => ({}))) as {
@@ -67,7 +67,7 @@ export function ContactSalesForm({
 
 				if (!res.ok) {
 					setSubmitError(
-						data?.message ?? "Something went wrong. Please try again.",
+						data?.message ?? 'Something went wrong. Please try again.',
 					);
 					return;
 				}
@@ -75,9 +75,9 @@ export function ContactSalesForm({
 					onSubmit(payload);
 					return;
 				}
-				setSubmitError(data?.message ?? "Message could not be sent.");
+				setSubmitError(data?.message ?? 'Message could not be sent.');
 			} catch {
-				setSubmitError("Network error. Please try again.");
+				setSubmitError('Network error. Please try again.');
 			}
 		},
 	});
@@ -85,7 +85,7 @@ export function ContactSalesForm({
 	return (
 		<Card
 			className={cn(
-				"rounded-3xl relative border border-border-primary",
+				'rounded-3xl relative border border-border-primary',
 				className,
 			)}
 		>
@@ -112,8 +112,8 @@ export function ContactSalesForm({
 							<form.AppField
 								name="firstName"
 								validators={{
-									onBlur: ({ value }) =>
-										!value?.trim() ? "First name is required" : undefined,
+									onSubmit: ({ value }) =>
+										!value?.trim() ? 'First name is required' : undefined,
 								}}
 							>
 								{(field) => <field.TextField placeholder="First Name" />}
@@ -121,8 +121,8 @@ export function ContactSalesForm({
 							<form.AppField
 								name="lastName"
 								validators={{
-									onBlur: ({ value }) =>
-										!value?.trim() ? "Last name is required" : undefined,
+									onSubmit: ({ value }) =>
+										!value?.trim() ? 'Last name is required' : undefined,
 								}}
 							>
 								{(field) => <field.TextField placeholder="Last Name" />}
@@ -137,10 +137,10 @@ export function ContactSalesForm({
 						<form.AppField
 							name="email"
 							validators={{
-								onBlur: ({ value }) => {
-									if (!value?.trim()) return "Email is required";
+								onSubmit: ({ value }) => {
+									if (!value?.trim()) return 'Email is required';
 									if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value))
-										return "Invalid email address";
+										return 'Invalid email address';
 									return undefined;
 								},
 							}}
@@ -156,8 +156,8 @@ export function ContactSalesForm({
 						<form.AppField
 							name="phone"
 							validators={{
-								onBlur: ({ value }) =>
-									!value?.trim() ? "Phone number is required" : undefined,
+								onSubmit: ({ value }) =>
+									!value?.trim() ? 'Phone number is required' : undefined,
 							}}
 						>
 							{(field) => <field.PhoneInputField />}
@@ -179,14 +179,14 @@ export function ContactSalesForm({
 					<form.AppField
 						name="agreeTerms"
 						validators={{
-							onBlur: ({ value }) =>
-								!value ? "You must agree to the Terms & Conditions" : undefined,
+							onSubmit: ({ value }) =>
+								!value ? 'You must agree to the Terms & Conditions' : undefined,
 						}}
 					>
 						{(field) => (
 							<field.Checkbox>
 								<Link to={termsLinkTo} className="hover:underline">
-									<span>I have read and agree to the</span>{" "}
+									<span>I have read and agree to the</span>{' '}
 									<span className="text-brand-300">Terms & Conditions</span>
 								</Link>
 							</field.Checkbox>
