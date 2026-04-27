@@ -324,10 +324,12 @@ export function Checkbox({
 	className,
 	label,
 	children,
+	trailing,
 }: {
 	className?: string;
 	label?: string;
 	children?: React.ReactNode;
+	trailing?: React.ReactNode;
 }) {
 	const field = useFieldContext<boolean>();
 	const errors = useStore(field.store, (state) => state.meta.errors);
@@ -347,6 +349,7 @@ export function Checkbox({
 				>
 					{children ?? label}
 				</Label>
+				{trailing}
 			</div>
 			{field.state.meta.isTouched && <ErrorMessages errors={errors} />}
 		</div>

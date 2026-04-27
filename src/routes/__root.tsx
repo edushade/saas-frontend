@@ -8,6 +8,7 @@ import {
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools';
 import { NotFoundView } from '../components/route-states/NotFoundView';
 import { RouteErrorView } from '../components/route-states/RouteErrorView';
+import { Toaster } from '../components/ui/sonner';
 import { getSiteOrigin } from '../env';
 
 import TanStackQueryDevtools from '../integrations/tanstack-query/devtools';
@@ -123,6 +124,8 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 			<body suppressHydrationWarning>
 				<TanStackQueryProvider>
 					<div className="flex min-h-screen flex-col">{children}</div>
+
+					<Toaster position="top-center" richColors closeButton />
 
 					<TanStackDevtools
 						config={{

@@ -33,6 +33,8 @@ export function getContactFormValidators() {
 				errors.fields.email = 'Invalid email address';
 			if (!value.phone?.trim())
 				errors.fields.phone = 'Phone number is required';
+			if (!value.message?.trim())
+				errors.fields.message = 'Message is required';
 			if (!value.agreeTerms)
 				errors.fields.agreeTerms = 'You must agree to the Terms & Conditions';
 			return errors;

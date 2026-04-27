@@ -6,23 +6,23 @@ import { Typography } from "../ui-custom/typography";
 
 const TAB_CONTENT = {
 	creators: {
-		leftSrc: "/svgs/build-for-teach/1.svg",
-		leftAlt: "Create Learning Path — assign learners",
+		leftSrc: "/svgs/hero/curriculumn_items.png",
+		leftAlt: "Curriculum items overview",
 		rightSrc: "/videos/intro.mp4",
 		rightAlt: "Watch Intro",
 		videoLabel: "Watch Intro",
 	},
 	academies: {
-		leftSrc: "/svgs/build-for-teach/1.svg",
-		leftAlt: "For Academies — manage courses",
-		rightSrc: "/svgs/build-for-teach/2.svg",
-		rightAlt: "Academy overview",
+		leftSrc: "/svgs/hero/curriculumn_items.png",
+		leftAlt: "Curriculum items overview",
+		rightSrc: "/videos/intro.mp4",
+		rightAlt: "Watch Overview",
 		videoLabel: "Watch Overview",
 	},
 	marketplace: {
-		leftSrc: "/svgs/build-for-teach/1.svg",
-		leftAlt: "For Marketplace — list and sell courses",
-		rightSrc: "/svgs/build-for-teach/3.svg",
+		leftSrc: "/svgs/hero/curriculumn_items.png",
+		leftAlt: "Curriculum items overview",
+		rightSrc: "/videos/intro.mp4",
 		rightAlt: "Marketplace intro",
 		videoLabel: "Watch Intro",
 	},
@@ -30,14 +30,12 @@ const TAB_CONTENT = {
 
 function ImageCard({ src, alt }: { src: string; alt: string }) {
 	return (
-		<div className="w-full overflow-hidden shadow-xl">
-			<div className="h-full w-full overflow-hidden ">
-				<img
-					src={src}
-					alt={alt}
-					className="h-full w-full object-cover object-top"
-				/>
-			</div>
+		<div className="w-full h-full overflow-hidden">
+			<img
+				src={src}
+				alt={alt}
+				className="h-full w-full object-contain object-center"
+			/>
 		</div>
 	);
 }

@@ -19,7 +19,7 @@ export const CONTACT_US_CARDS = [
 		title: "Schedule a Call",
 		description:
 			"Prefer to speak directly with our team? Book a call and we'll walk you through everything you need.",
-		href: "/request-demo",
+		href: "/contact-sales",
 		label: "Schedule a Call",
 		iconId: "schedule",
 	},

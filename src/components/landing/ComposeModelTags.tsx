@@ -1,14 +1,11 @@
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Typography } from "@/components/ui-custom/typography";
 import { cn } from "@/lib/utils";
 
 const RADIO_GROUP_NAME = "compose-model-tags";
-const AUTO_ROTATE_INTERVAL_MS = 2500;
-const AUTO_ROTATE_DELAY_MS = 2000;
-
-const LABEL_SELECTED =
-	"[&:has(input:checked)>*]:border-brand-300 [&:has(input:checked)>*]:bg-brand-light [&:has(input:checked)>*]:text-brand-300 [&:has(input:checked)>*]:font-medium";
+const AUTO_ROTATE_INTERVAL_MS = 5000;
+const PAUSE_AFTER_INTERACTION_MS = 10000;
 
 export interface ComposeModelTagsProps {
 	tags: string[];
@@ -20,7 +17,7 @@ export interface ComposeModelTagsProps {
 	className?: string;
 	autoRotate?: boolean;
 	autoRotateIntervalMs?: number;
-	autoRotateDelayMs?: number;
+	pauseAfterInteractionMs?: number;
 }
 
 export function ComposeModelTags({
@@ -33,54 +30,101 @@ export function ComposeModelTags({
 	className,
 	autoRotate = true,
 	autoRotateIntervalMs = AUTO_ROTATE_INTERVAL_MS,
-	autoRotateDelayMs = AUTO_ROTATE_DELAY_MS,
+	pauseAfterInteractionMs = PAUSE_AFTER_INTERACTION_MS,
 }: ComposeModelTagsProps) {
-	const fieldsetRef = useRef<HTMLFieldSetElement>(null);
-	const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 	const isControlled = controlledValue !== undefined && onChange !== undefined;
-	const selected = isControlled
-		? controlledValue
-		: (defaultSelected ?? tags[0]);
+	const [internalValue, setInternalValue] = useState<string>(
+		defaultSelected ?? tags[0] ?? "",
+	);
+	const selected = isControlled ? controlledValue : internalValue;
+	const activeIndex = Math.max(0, tags.indexOf(selected));
+
+	const [progress, setProgress] = useState(0);
+	const [isPaused, setIsPaused] = useState(false);
+	const progressRef = useRef(0);
+	const lastTickRef = useRef(0);
+	const rafRef = useRef<number>(0);
+	const pauseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+	const setSelected = useCallback(
+		(tag: string) => {
+			if (isControlled) {
+				onChange?.(tag);
+			} else {
+				setInternalValue(tag);
+			}
+		},
+		[isControlled, onChange],
+	);
+
+	const handleSelect = useCallback(
+		(tag: string) => {
+			setSelected(tag);
+			progressRef.current = 0;
+			setProgress(0);
+			setIsPaused(true);
+			if (pauseTimerRef.current) clearTimeout(pauseTimerRef.current);
+			pauseTimerRef.current = setTimeout(
+				() => setIsPaused(false),
+				pauseAfterInteractionMs,
+			);
+		},
+		[setSelected, pauseAfterInteractionMs],
+	);
 
 	useEffect(() => {
-		if (!autoRotate || tags.length <= 1) return;
-		const el = fieldsetRef.current;
-		if (!el) return;
+		progressRef.current = 0;
+		setProgress(0);
+	}, []);
 
-		const radios = el.querySelectorAll<HTMLInputElement>('input[type="radio"]');
-		if (radios.length === 0) return;
+	useEffect(() => {
+		if (!autoRotate || tags.length <= 1 || isPaused) {
+			lastTickRef.current = 0;
+			return;
+		}
 
-		const startId = window.setTimeout(() => {
-			const id = setInterval(() => {
-				let currentIndex = -1;
-				for (let i = 0; i < radios.length; i++) {
-					if (radios[i].checked) {
-						currentIndex = i;
-						break;
-					}
-				}
-				const nextIndex = (currentIndex + 1) % radios.length;
-				const nextTag = tags[nextIndex];
-				if (onChange) {
-					onChange(nextTag);
-				} else {
-					radios[nextIndex].checked = true;
-				}
-			}, autoRotateIntervalMs);
-			intervalRef.current = id;
-		}, autoRotateDelayMs);
+		lastTickRef.current = 0;
 
-		return () => {
-			window.clearTimeout(startId);
-			if (intervalRef.current !== null) clearInterval(intervalRef.current);
+		const tick = (timestamp: number) => {
+			if (lastTickRef.current === 0) lastTickRef.current = timestamp;
+			const delta = timestamp - lastTickRef.current;
+			lastTickRef.current = timestamp;
+
+			progressRef.current += delta / autoRotateIntervalMs;
+			if (progressRef.current >= 1) {
+				progressRef.current = 0;
+				setProgress(0);
+				const nextIndex = (activeIndex + 1) % tags.length;
+				setSelected(tags[nextIndex]);
+			} else {
+				setProgress(progressRef.current);
+			}
+
+			rafRef.current = requestAnimationFrame(tick);
 		};
-	}, [autoRotate, autoRotateIntervalMs, autoRotateDelayMs, tags, onChange]);
+
+		rafRef.current = requestAnimationFrame(tick);
+		return () => cancelAnimationFrame(rafRef.current);
+	}, [
+		autoRotate,
+		autoRotateIntervalMs,
+		isPaused,
+		activeIndex,
+		tags,
+		setSelected,
+	]);
+
+	useEffect(() => {
+		return () => {
+			if (pauseTimerRef.current) clearTimeout(pauseTimerRef.current);
+			if (rafRef.current) cancelAnimationFrame(rafRef.current);
+		};
+	}, []);
 
 	if (tags.length === 0) return null;
 
 	return (
 		<fieldset
-			ref={fieldsetRef}
 			className={cn("border-0 p-0", className)}
 			aria-label="Learning model options"
 		>
@@ -94,38 +138,47 @@ export function ComposeModelTags({
 				</Typography>
 			) : null}
 			<ul className="flex flex-wrap gap-3 max-w-[580px] list-none p-0 m-0">
-				{tags.map((tag) => (
-					<li key={tag}>
-						<label className={`cursor-pointer ${LABEL_SELECTED}`}>
-							<input
-								type="radio"
-								name={name}
-								value={tag}
-								{...(isControlled
-									? { checked: controlledValue === tag }
-									: { defaultChecked: tag === selected })}
-								onChange={
-									onChange
-										? (e) => e.target.checked && onChange(tag)
-										: undefined
-								}
-								className="sr-only"
-								aria-label={`Learning model: ${tag}`}
-							/>
-							<Badge
-								variant="outline"
-								className={cn(
-									"cursor-pointer rounded-full  px-2 py-1	 text-base  transition-colors hover:border-brand-300 hover:text-brand-300",
-									selected === tag
-										? "border-brand-200 bg-[#E6F0FF] font-semibold text-brand-300"
-										: "border-border-primary text-text-secondary",
-								)}
-							>
-								{tag}
-							</Badge>
-						</label>
-					</li>
-				))}
+				{tags.map((tag) => {
+					const isActive = selected === tag;
+					return (
+						<li key={tag}>
+							<label className="cursor-pointer">
+								<input
+									type="radio"
+									name={name}
+									value={tag}
+									checked={isActive}
+									onChange={(e) => {
+										if (e.target.checked) handleSelect(tag);
+									}}
+									className="sr-only"
+									aria-label={`Learning model: ${tag}`}
+								/>
+								<Badge
+									variant="outline"
+									className={cn(
+										"relative cursor-pointer rounded-full px-2 py-1 text-base transition-colors duration-300 hover:border-brand-300 hover:text-brand-300",
+										isActive
+											? "border-brand-200 font-semibold text-brand-300"
+											: "border-border-primary text-text-secondary",
+									)}
+								>
+									{isActive ? (
+										<span
+											aria-hidden
+											className="absolute inset-0 rounded-full bg-[#E6F0FF]"
+											style={{
+												transform: `scaleX(${progress})`,
+												transformOrigin: "left",
+											}}
+										/>
+									) : null}
+									<span className="relative z-10">{tag}</span>
+								</Badge>
+							</label>
+						</li>
+					);
+				})}
 			</ul>
 		</fieldset>
 	);

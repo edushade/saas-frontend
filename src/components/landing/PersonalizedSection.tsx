@@ -5,6 +5,23 @@ import { Card, CardContent } from "../ui/card";
 import { CardShadeOverlay } from "../ui-custom/card-shade-overlay";
 import { Typography } from "../ui-custom/typography";
 
+const ROLE_PANELS: Record<RoleId, { src: string; alt: string }> = {
+	student: {
+		src: "/svgs/hero/learner_panel.png",
+		alt: "Learner dashboard",
+	},
+	teacher: {
+		src: "/svgs/hero/curriculumn_items.png",
+		alt: "Teacher dashboard",
+	},
+	admin: {
+		src: "/svgs/hero/admin_all_courses.png",
+		alt: "Admin dashboard",
+	},
+};
+
+const ROLE_IDS: RoleId[] = ["student", "teacher", "admin"];
+
 function RoleCard({
 	role,
 	isActive,
@@ -22,7 +39,6 @@ function RoleCard({
 				"w-full max-w-xl flex items-center gap-4 rounded-2xl px-5 py-4 text-left cursor-pointer",
 				isActive ? "role-card-active" : " bg-bg-primary hover:bg-bg-secondary",
 			)}
-			onMouseEnter={onActivate}
 			onClick={onActivate}
 		>
 			<div
@@ -88,31 +104,28 @@ export default function PersonalizedSection() {
 						</div>
 					</div>
 
-					<Card className="relative  h-full min-h-0 overflow-hidden border-border-tertiary p-0 shadow-none lg:block bg-grad-cyan-1">
-						<CardShadeOverlay className="backdrop-blur-[100px] bg-[repeating-linear-gradient(180deg,rgba(255,255,255,0)_0px,rgba(255,255,255,0.1)_47.15px,rgba(255,255,255,0.3)_85.33px)]" />
-						<CardContent className="relative z-10 h-full min-h-0 p-0">
-							<div className="h-full min-h-0 rounded-2xl  pt-8 pl-8 shadow-2xl ">
-								{activeRole === "student" && (
-									<img
-										src="/svgs/hero/banner.svg"
-										alt="Dashboard"
-										className="h-full w-full object-cover object-top rounded-2xl"
-									/>
-								)}
-								{activeRole === "teacher" && (
-									<img
-										src="/svgs/hero/banner.svg"
-										alt="Dashboard"
-										className="h-full w-full object-cover object-top"
-									/>
-								)}
-								{activeRole === "admin" && (
-									<img
-										src="/svgs/hero/banner.svg"
-										alt="Dashboard"
-										className="h-full w-full object-cover object-top"
-									/>
-								)}
+					<Card className="relative overflow-hidden rounded-2xl border-none bg-bg-tertiary p-0">
+						<CardShadeOverlay className="backdrop-blur-[80px] bg-[linear-gradient(180deg,rgba(255,255,255,0)_0%,rgba(255,255,255,0.08)_55%,rgba(255,255,255,0.2)_100%)]" />
+						<CardContent className="relative z-10 p-0">
+							<div className="relative w-full h-full overflow-hidden">
+								{ROLE_IDS.map((id) => {
+									const isActive = id === activeRole;
+									const { src, alt } = ROLE_PANELS[id];
+									return (
+										<img
+											key={id}
+											src={src}
+											alt={alt}
+											aria-hidden={!isActive}
+											className={cn(
+												"h-full w-full object-contain object-center transition-opacity duration-500 ease-out",
+												isActive
+													? "relative opacity-100"
+													: "absolute inset-0 pointer-events-none opacity-0",
+											)}
+										/>
+									);
+								})}
 							</div>
 						</CardContent>
 					</Card>

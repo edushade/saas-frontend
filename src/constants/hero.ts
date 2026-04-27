@@ -6,51 +6,51 @@ export const TAGS = [
 	"Live Exam",
 	"Live Class",
 	"Recorded",
+	"Learning Paths",
 	"Problem Solving",
-	"PDFs",
 ];
 
 export const HERO_TAG_IMAGES: Record<string, { src: string; alt: string }> = {
 	Courses: {
-		src: "/svgs/hero/banner.svg",
+		src: "/svgs/hero/hero_image.png",
 		alt: "Dashboard preview for courses and content",
 	},
 	Analytics: {
-		src: "/svgs/hero/banner.svg",
+		src: "/svgs/hero/hero_image.png",
 		alt: "Dashboard preview showing course analytics",
 	},
 	Cohorts: {
-		src: "/svgs/hero/banner.svg",
+		src: "/svgs/hero/hero_image.png",
 		alt: "Dashboard preview for cohorts",
 	},
 	Quizzes: {
-		src: "/svgs/hero/banner.svg",
+		src: "/svgs/hero/hero_image.png",
 		alt: "Dashboard preview for quizzes",
 	},
 	"Live Exam": {
-		src: "/svgs/hero/banner.svg",
+		src: "/svgs/hero/hero_image.png",
 		alt: "Dashboard preview for live exams",
 	},
 	"Live Class": {
-		src: "/svgs/hero/banner.svg",
+		src: "/svgs/hero/hero_image.png",
 		alt: "Dashboard preview for live classes",
 	},
 	Recorded: {
-		src: "/svgs/hero/banner.svg",
+		src: "/svgs/hero/hero_image.png",
 		alt: "Dashboard preview for recorded content",
 	},
-	"Problem Solving": {
-		src: "/svgs/hero/banner.svg",
-		alt: "Dashboard preview for problem solving",
+	"Learning Paths": {
+		src: "/svgs/hero/hero_image.png",
+		alt: "Dashboard preview for learning paths",
 	},
-	PDFs: {
-		src: "/svgs/hero/banner.svg",
-		alt: "Dashboard preview for PDFs",
+	"Problem Solving": {
+		src: "/svgs/hero/hero_image.png",
+		alt: "Dashboard preview for problem solving",
 	},
 };
 
 const DEFAULT_HERO_IMAGE = {
-	src: "/svgs/hero/banner.svg",
+	src: "/svgs/hero/hero_image.png",
 	alt: "Dashboard preview showing course analytics and content",
 };
 

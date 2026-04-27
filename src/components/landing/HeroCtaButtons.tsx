@@ -1,3 +1,4 @@
+import { Link } from '@tanstack/react-router';
 import { useState } from 'react';
 import { VideoWatchIcon } from '@/assets/icons';
 import { Button } from '@/components/ui/button';
@@ -10,8 +11,11 @@ export function HeroCtaButtons() {
 	return (
 		<>
 			<div className="flex flex-row items-center gap-2 md:gap-5">
-				<Button className="btn-brand-1 font-medium md:text-lg rounded-full text-white h-auto">
-					Build Your Academy
+				<Button
+					asChild
+					className="btn-brand-1 font-medium md:text-lg rounded-full text-white h-auto"
+				>
+					<Link to="/contact-sales">Build Your Academy</Link>
 				</Button>
 				<Button
 					variant="ghost"

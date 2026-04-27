@@ -1,15 +1,23 @@
-import { Marquee } from '@/components/ui-custom/marquee';
-import { PLATFORMS } from '@/lib/platform/data';
-import { Typography } from '../ui-custom/typography';
+import { Marquee } from "@/components/ui-custom/marquee";
+import { PLATFORMS } from "@/lib/platform/data";
+import { Typography } from "../ui-custom/typography";
 
-function PlatformCard({ name, stat, logo }: (typeof PLATFORMS)[number]) {
+function PlatformCard({
+	name,
+	stat,
+	logo,
+	logoScale = 1,
+}: (typeof PLATFORMS)[number]) {
 	return (
 		<div className="flex flex-col items-center justify-center px-4  md:px-8">
-			<div className="flex items-center justify-center gap-1">
+			<div className="flex h-[40px] w-[120px] md:h-[60px] md:w-[180px] items-center justify-center gap-1">
 				<img
 					src={logo}
 					alt={name}
-					className="h-[40px] w-[120px] md:h-[60px] md:w-[180px] object-contain"
+					className="h-full w-full object-contain"
+					style={
+						logoScale !== 1 ? { transform: `scale(${logoScale})` } : undefined
+					}
 				/>
 			</div>
 			<Typography variant="small" className="font-normal text-text-tertiary">

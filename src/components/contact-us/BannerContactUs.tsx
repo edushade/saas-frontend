@@ -97,7 +97,7 @@ export default function BannerContactUs() {
 						);
 
 						return card.href.startsWith("/") ? (
-							<Link key={card.title} to={card.href as "/request-demo"}>
+							<Link key={card.title} to={card.href as "/contact-sales"}>
 								{cardContent}
 							</Link>
 						) : (

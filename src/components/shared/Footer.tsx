@@ -1,30 +1,29 @@
-import { Link } from '@tanstack/react-router';
-import { LargeLogoIcon } from '@/assets/icons';
-import { DiscordIcon } from '@/assets/icons/discord-icon';
-import { FacebookIcon } from '@/assets/icons/facebook-icon';
-import { InstagramIcon } from '@/assets/icons/instagram-icon';
-import { LinkedinIcon } from '@/assets/icons/linkedin-icon';
-import { XIcon } from '@/assets/icons/X-icon';
-import { Typography } from '../ui-custom/typography';
+import { Link } from "@tanstack/react-router";
+import { LargeLogoIcon } from "@/assets/icons";
+import { DiscordIcon } from "@/assets/icons/discord-icon";
+import { FacebookIcon } from "@/assets/icons/facebook-icon";
+import { InstagramIcon } from "@/assets/icons/instagram-icon";
+import { LinkedinIcon } from "@/assets/icons/linkedin-icon";
+import { XIcon } from "@/assets/icons/X-icon";
+import { Typography } from "../ui-custom/typography";
 
 const FOOTER_COLUMNS = [
 	{
-		heading: 'Products',
+		heading: "Products",
 		links: [
-			{ label: 'Student Panel', to: '/' },
-			{ label: 'Teacher Panel', to: '/' },
-			{ label: 'Admin Panel', to: '/' },
-			{ label: 'Pricing', to: '/pricing' },
+			{ label: "Student Panel", to: "/" },
+			{ label: "Teacher Panel", to: "/" },
+			{ label: "Admin Panel", to: "/" },
 		],
 	},
 	{
-		heading: 'Use Cases',
+		heading: "Use Cases",
 		links: [
-			{ label: 'For Tutors', to: '/' },
-			{ label: 'For Educators', to: '/' },
-			{ label: 'For Academies', to: '/' },
-			{ label: 'For Schools & Universities', to: '/' },
-			{ label: 'For Training Teams', to: '/' },
+			{ label: "For Tutors", to: "/" },
+			{ label: "For Educators", to: "/" },
+			{ label: "For Academies", to: "/" },
+			{ label: "For Schools & Universities", to: "/" },
+			{ label: "For Training Teams", to: "/" },
 		],
 	},
 	/* {
@@ -37,35 +36,35 @@ const FOOTER_COLUMNS = [
 		],
 	}, */
 	{
-		heading: 'Company',
+		heading: "Company",
 		links: [
-			{ label: 'About Us', to: '/' },
-			{ label: 'Careers', to: '/' },
-			{ label: 'Contact', to: '/contact-us' },
+			{ label: "About Us", to: "/" },
+			{ label: "Careers", to: "/" },
+			{ label: "Contact", to: "/contact-us" },
 		],
 	},
 	{
-		heading: 'Legal',
+		heading: "Legal",
 		links: [
-			{ label: 'Terms of Service', to: '/terms-of-service' },
-			{ label: 'Privacy Policy', to: '/privacy-policy' },
-			{ label: 'Cookie Policy', to: '/cookie-policy' },
+			{ label: "Terms of Service", to: "/terms-of-service" },
+			{ label: "Privacy Policy", to: "/privacy-policy" },
+			{ label: "Cookie Policy", to: "/cookie-policy" },
 		],
 	},
 ];
 
 const BOTTOM_LINKS = [
-	{ label: 'Privacy Policy', to: '/privacy-policy' },
-	{ label: 'Terms of Service', to: '/terms-of-service' },
-	{ label: 'Cookie Policy', to: '/cookie-policy' },
+	{ label: "Privacy Policy", to: "/privacy-policy" },
+	{ label: "Terms of Service", to: "/terms-of-service" },
+	{ label: "Cookie Policy", to: "/cookie-policy" },
 ];
 
 const SOCIAL_ICONS = [
-	{ Icon: LinkedinIcon, label: 'LinkedIn', href: '#' },
-	{ Icon: InstagramIcon, label: 'Instagram', href: '#' },
-	{ Icon: XIcon, label: 'X', href: '#' },
-	{ Icon: FacebookIcon, label: 'Facebook', href: '#' },
-	{ Icon: DiscordIcon, label: 'Discord', href: '#' },
+	{ Icon: LinkedinIcon, label: "LinkedIn", href: "https://www.linkedin.com/company/edushade" },
+	{ Icon: InstagramIcon, label: "Instagram", href: "#" },
+	{ Icon: XIcon, label: "X", href: "#" },
+	{ Icon: FacebookIcon, label: "Facebook", href: "https://www.facebook.com/edushade.lms/" },
+	{ Icon: DiscordIcon, label: "Discord", href: "#" },
 ];
 
 export default function Footer() {
@@ -124,7 +123,7 @@ export default function Footer() {
 							className="text-center text-text-quaternary font-normal sm:order-0"
 						>
 							<span className="font-medium text-text-quaternary">
-								Copyright © 2025 Edushade. All rights reserved.
+								Copyright © {new Date().getFullYear()} Edushade. All rights reserved.
 							</span>
 						</Typography>
 						<div className="flex items-center gap-1">

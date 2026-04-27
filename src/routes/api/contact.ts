@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import nodemailer from "nodemailer";
+import { buildContactEmail } from "@/lib/contact-sales/contact-email";
 import type { ContactFormValue } from "@/lib/contact-sales/contact-sales-form";
 
 function isContactBody(
@@ -14,15 +15,6 @@ function isContactBody(
 		typeof b.phone === "string" &&
 		typeof b.agreeTerms === "boolean"
 	);
-}
-
-function escapeHtml(s: string): string {
-	return s
-		.replace(/&/g, "&amp;")
-		.replace(/</g, "&lt;")
-		.replace(/>/g, "&gt;")
-		.replace(/"/g, "&quot;")
-		.replace(/'/g, "&#39;");
 }
 
 export const Route = createFileRoute("/api/contact")({
@@ -85,32 +77,23 @@ export const Route = createFileRoute("/api/contact")({
 						process.env.EMAIL_FROM?.trim() ||
 						user;
 
-					const mailOptions = {
+					const { subject, text, html } = buildContactEmail({
+						firstName: body.firstName,
+						lastName: body.lastName,
+						email: body.email,
+						phone: body.phone,
+						message: body.message ?? "",
+						siteOrigin: process.env.SITE_ORIGIN,
+					});
+
+					await transporter.sendMail({
 						from: fromAddress,
 						to: toAddress,
 						replyTo: body.email,
-						subject: `Contact: ${body.firstName} ${body.lastName}`,
-						text: [
-							`Name: ${body.firstName} ${body.lastName}`,
-							`Email: ${body.email}`,
-							`Phone: ${body.phone}`,
-							body.message?.trim() ? `Message:\n${body.message}` : "",
-						]
-							.filter(Boolean)
-							.join("\n\n"),
-						html: [
-							`<p><strong>Name:</strong> ${escapeHtml(body.firstName)} ${escapeHtml(body.lastName)}</p>`,
-							`<p><strong>Email:</strong> <a href="mailto:${escapeHtml(body.email)}">${escapeHtml(body.email)}</a></p>`,
-							`<p><strong>Phone:</strong> ${escapeHtml(body.phone)}</p>`,
-							body.message?.trim()
-								? `<p><strong>Message:</strong></p><p>${escapeHtml(body.message)}</p>`
-								: "",
-						]
-							.filter(Boolean)
-							.join(""),
-					};
-
-					await transporter.sendMail(mailOptions);
+						subject,
+						text,
+						html,
+					});
 
 					return Response.json({
 						ok: true,

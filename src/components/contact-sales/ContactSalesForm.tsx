@@ -1,6 +1,6 @@
-import { Link } from '@tanstack/react-router';
 import { useState } from 'react';
 import { parsePhoneNumber } from 'react-phone-number-input';
+import { toast } from 'sonner';
 import { Typography } from '@/components/ui-custom/typography';
 import { useAppForm } from '@/hooks/form';
 import { cn } from '@/lib/utils';
@@ -22,9 +22,11 @@ export interface ContactSalesFormProps {
 	className?: string;
 }
 
-const defaultOnSubmit = (value: ContactFormValue) => {
-	console.log('Contact sales submit', value);
-	alert("Message sent! We'll get back to you soon.");
+const defaultOnSubmit = (_value: ContactFormValue) => {
+	toast.success('Message sent', {
+		description: "Thanks for reaching out — we'll get back to you within 1 business day.",
+		duration: 5000,
+	});
 };
 
 export function ContactSalesForm({
@@ -165,14 +167,17 @@ export function ContactSalesForm({
 					</div>
 
 					<div className="space-y-2">
-						<div className="flex items-center justify-between gap-2">
-							<Label className="font-medium text-text-primary">
-								Your Message
-							</Label>
-							<span className="text-xs text-text-tertiary">Optional</span>
-						</div>
-						<form.AppField name="message">
-							{(field) => <field.TextArea suffix="Optional" />}
+						<Label className="font-medium text-text-primary">
+							Your Message
+						</Label>
+						<form.AppField
+							name="message"
+							validators={{
+								onSubmit: ({ value }) =>
+									!value?.trim() ? 'Message is required' : undefined,
+							}}
+						>
+							{(field) => <field.TextArea />}
 						</form.AppField>
 					</div>
 
@@ -184,12 +189,19 @@ export function ContactSalesForm({
 						}}
 					>
 						{(field) => (
-							<field.Checkbox>
-								<Link to={termsLinkTo} className="hover:underline">
-									<span>I have read and agree to the</span>{' '}
-									<span className="text-brand-300">Terms & Conditions</span>
-								</Link>
-							</field.Checkbox>
+							<field.Checkbox
+								label="I have read and agree to the"
+								trailing={
+									<a
+										href={termsLinkTo}
+										target="_blank"
+										rel="noopener noreferrer"
+										className="text-sm font-medium text-brand-300 hover:underline"
+									>
+										Terms &amp; Conditions
+									</a>
+								}
+							/>
 						)}
 					</form.AppField>
 

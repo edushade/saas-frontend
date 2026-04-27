@@ -1,15 +1,15 @@
-import { Link, useRouterState } from '@tanstack/react-router';
-import { ArrowUpRight, ChevronDown, Menu } from 'lucide-react';
-import { useState } from 'react';
-import { DiamondIcon } from '@/assets/icons';
+import { Link, useRouterState } from "@tanstack/react-router";
+import { ArrowUpRight, ChevronDown, Menu } from "lucide-react";
+import { useState } from "react";
+import { DiamondIcon } from "@/assets/icons";
 import {
 	Accordion,
 	AccordionContent,
 	AccordionItem,
 	AccordionTrigger,
-} from '@/components/ui/accordion';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter } from '@/components/ui/card';
+} from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import {
 	NavigationMenu,
 	NavigationMenuContent,
@@ -17,22 +17,22 @@ import {
 	NavigationMenuList,
 	NavigationMenuTrigger,
 	navigationMenuTriggerStyle,
-} from '@/components/ui/navigation-menu';
+} from "@/components/ui/navigation-menu";
 import {
 	Sheet,
 	SheetContent,
 	SheetHeader,
 	SheetTitle,
 	SheetTrigger,
-} from '@/components/ui/sheet';
+} from "@/components/ui/sheet";
 import {
 	FEATURES_CTA,
 	FEATURES_GROUPS,
 	NAV_LINKS,
 	// RESOURCES_ITEMS,
-} from '@/constants/nav';
-import { cn } from '@/lib/utils';
-import { Typography } from '../ui-custom/typography';
+} from "@/constants/nav";
+import { cn } from "@/lib/utils";
+import { Typography } from "../ui-custom/typography";
 
 function FeaturesMenu({
 	openNav,
@@ -42,22 +42,22 @@ function FeaturesMenu({
 	onOpenChange: (v: string | null) => void;
 }) {
 	const pathname = useRouterState({ select: (s) => s.location.pathname });
-	const isFeaturesActive = pathname.startsWith('/features');
+	const isFeaturesActive = pathname.startsWith("/features");
 
 	return (
 		<NavigationMenu
 			viewport={false}
-			value={openNav === 'features' ? 'features' : ''}
+			value={openNav === "features" ? "features" : ""}
 			onValueChange={(v) => onOpenChange(v || null)}
 		>
 			<NavigationMenuList>
 				<NavigationMenuItem value="features">
 					<NavigationMenuTrigger
 						className={cn(
-							'bg-transparent text-text-dark-2 rounded-full text-sm font-medium',
-							'hover:text-brand-300 hover:bg-bg-secondary',
-							'data-[state=open]:bg-bg-secondary data-[state=open]:text-brand-300',
-							isFeaturesActive && 'bg-bg-secondary text-brand-300',
+							"bg-transparent text-text-dark-2 rounded-full text-sm font-medium",
+							"hover:text-brand-300 hover:bg-bg-secondary",
+							"data-[state=open]:bg-bg-secondary data-[state=open]:text-brand-300",
+							isFeaturesActive && "bg-bg-secondary text-brand-300",
 						)}
 					>
 						Features
@@ -80,9 +80,9 @@ function FeaturesMenu({
 														to={item.href}
 														onClick={() => onOpenChange(null)}
 														className={cn(
-															'flex items-start gap-3 rounded-lg py-2 transition-colors hover:bg-bg-secondary',
+															"flex items-start gap-3 rounded-lg py-2 transition-colors hover:bg-bg-secondary",
 															pathname === item.href &&
-																'bg-bg-secondary text-brand-300',
+																"bg-bg-secondary text-brand-300",
 														)}
 													>
 														<div className="bg-bg-tertiary rounded-md p-0.5 hover:bg-bg-secondary">
@@ -94,10 +94,10 @@ function FeaturesMenu({
 															<Typography
 																variant="small"
 																className={cn(
-																	'leading-tight font-medium',
+																	"leading-tight font-medium",
 																	pathname === item.href
-																		? 'text-brand-300'
-																		: 'text-text-primary',
+																		? "text-brand-300"
+																		: "text-text-primary",
 																)}
 															>
 																{item.label}
@@ -130,12 +130,12 @@ function FeaturesMenu({
 								<div className="bg-bg-secondary w-full px-3 py-2 flex items-center justify-between rounded-lg">
 									<div className="flex items-center gap-3">
 										<div className="p-1 rounded-full bg-brand-200 shrink-0 hover:bg-bg-secondary">
-											<DiamondIcon className="text-brand-300" />
+											<DiamondIcon className="text-white" />
 										</div>
 										<Typography variant="small" className="leading-relaxed">
 											<span className="font-medium text-text-primary">
 												{FEATURES_CTA.highlight}
-											</span>{' '}
+											</span>{" "}
 											<span className="font-normal leading-relaxed text-text-secondary">
 												{FEATURES_CTA.text}
 											</span>
@@ -243,14 +243,14 @@ function MobileMenu() {
 				</Button>
 			</SheetTrigger>
 
-			<SheetContent side="right" className="w-72 p-0 flex flex-col">
-				<SheetHeader className="border-b border-border-primary">
+			<SheetContent side="right" className="w-72 p-0 gap-0 flex flex-col">
+				<SheetHeader className="border-b border-border-primary py-3">
 					<SheetTitle className="flex items-center">
 						<img src="/svgs/logo-1.svg" alt="Edushade" className="h-8" />
 					</SheetTitle>
 				</SheetHeader>
 
-				<nav className="flex-1 overflow-y-auto px-4 py-3">
+				<nav className="flex-1 overflow-y-auto px-4 pt-1 pb-3">
 					<Accordion type="single" collapsible>
 						{/* Features */}
 						<AccordionItem value="features" className="border-none">
@@ -271,8 +271,7 @@ function MobileMenu() {
 												className="flex items-center gap-2.5 rounded-md px-2 py-2 text-sm text-text-secondary transition-colors hover:bg-bg-secondary hover:text-text-primary"
 											>
 												<item.icon
-													size={14}
-													className="shrink-0 text-text-tertiary"
+													className="size-5 shrink-0 text-text-tertiary"
 												/>
 												{item.label}
 											</Link>
@@ -325,7 +324,7 @@ function MobileMenu() {
 						<Link to="/">Sign In</Link>
 					</Button> */}
 					{/* 	<Button asChild className="btn-brand-1 w-full rounded-full gap-1.5">
-						<Link to="/request-demo" onClick={() => setOpen(false)}>
+						<Link to="/contact-sales" onClick={() => setOpen(false)}>
 							Request a Demo <ArrowUpRight size={14} />
 						</Link>
 					</Button> */}
@@ -367,17 +366,17 @@ export default function Header() {
 						{NAV_LINKS.map((link) => {
 							const isLinkActive =
 								pathname === link.href ||
-								(link.href !== '/' && pathname.startsWith(`${link.href}/`));
+								(link.href !== "/" && pathname.startsWith(`${link.href}/`));
 							return (
 								<Link
 									key={link.label}
 									to={link.href}
 									className={cn(
 										navigationMenuTriggerStyle(),
-										'bg-transparent text-text-dark-2 rounded-full text-sm font-medium',
-										'hover:text-brand-300 hover:bg-bg-secondary',
-										'data-[state=open]:bg-bg-secondary data-[state=open]:text-brand-300',
-										isLinkActive && 'bg-bg-secondary text-brand-300',
+										"bg-transparent text-text-dark-2 rounded-full text-sm font-medium",
+										"hover:text-brand-300 hover:bg-bg-secondary",
+										"data-[state=open]:bg-bg-secondary data-[state=open]:text-brand-300",
+										isLinkActive && "bg-bg-secondary text-brand-300",
 									)}
 								>
 									{link.label}
@@ -398,7 +397,7 @@ export default function Header() {
 							asChild
 							className="btn-brand-1 py-3 text-text-primary rounded-full gap-1.5 text-sm font-medium"
 						>
-							<Link to="/request-demo">
+							<Link to="/contact-sales">
 								Request a Demo
 								<ArrowUpRight size={14} strokeWidth={2.5} />
 							</Link>

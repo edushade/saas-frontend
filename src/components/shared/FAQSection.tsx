@@ -1,13 +1,14 @@
-import { Minus, Plus } from 'lucide-react';
+import { Link } from "@tanstack/react-router";
+import { Minus, Plus } from "lucide-react";
 import {
 	Accordion,
 	AccordionContent,
 	AccordionItem,
 	AccordionTrigger,
-} from '@/components/ui/accordion';
-import { Button } from '@/components/ui/button';
-import { FAQ_ITEMS } from '@/constants/faq';
-import { Typography } from '../ui-custom/typography';
+} from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
+import { FAQ_ITEMS } from "@/constants/faq";
+import { Typography } from "../ui-custom/typography";
 
 export default function FAQSection() {
 	return (
@@ -35,8 +36,11 @@ export default function FAQSection() {
 							>
 								Can&apos;t find what you&apos;re looking for?
 							</Typography>
-							<Button className="w-fit btn-brand-1 text-white h-auto px-5 py-2.5">
-								Contact Support
+							<Button
+								asChild
+								className="w-fit btn-brand-1 text-white h-auto px-5 py-2.5"
+							>
+								<Link to="/contact-sales">Contact Sales</Link>
 							</Button>
 						</div>
 					</div>
@@ -44,7 +48,7 @@ export default function FAQSection() {
 					<Accordion
 						type="single"
 						collapsible
-						defaultValue="faq-1"
+						defaultValue="faq-0"
 						className="w-full space-y-4"
 					>
 						{FAQ_ITEMS.map((item, index) => (

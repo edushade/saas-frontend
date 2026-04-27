@@ -50,7 +50,7 @@ export default function StartIn60SecondsSection() {
 
 					<div className="flex items-center justify-center">
 						<img
-							src="/svgs/BG.svg"
+							src="/svgs/hero/onboard.png"
 							alt=""
 							aria-hidden="true"
 							className="w-full h-auto object-contain"

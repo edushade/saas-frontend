@@ -1,3 +1,4 @@
+import { Link } from '@tanstack/react-router';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { CardShadeOverlay } from '../ui-custom/card-shade-overlay';
@@ -39,10 +40,11 @@ export default function CtaSection() {
 							educators, and administrators.
 						</Typography>
 						<Button
+							asChild
 							size="lg"
 							className="btn-brand-1 rounded-xl px-5 hover:bg-brand-200/90 py-3 text-base font-medium"
 						>
-							Build Your Academy
+							<Link to="/contact-sales">Build Your Academy</Link>
 						</Button>
 					</CardContent>
 				</Card>

@@ -115,6 +115,18 @@ const navFeatureIconKey = z.enum([
 	'cupStar',
 	'widget6',
 	'graphNewUp',
+	'build',
+	'structure',
+	'diamond',
+	'teacher',
+	'headphone',
+	'analyz',
+	'cap',
+	'visa',
+	'info',
+	'list',
+	'admin',
+	'file',
 ]);
 
 /** Must match `FEATURE_CAPABILITY_ICON_KEYS` in `src/lib/features/feature-capability-icons.ts`. */

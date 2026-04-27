@@ -1,4 +1,6 @@
+import AutoScroll from "embla-carousel-auto-scroll";
 import { Plus } from "lucide-react";
+import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import {
@@ -10,7 +12,24 @@ import { Typography } from "@/components/ui-custom/typography";
 import { PLATFORM_FEATURES } from "@/data/platforms-features";
 import { cn } from "@/lib/utils";
 
+const LOOP_REPEAT = 3;
+
 export default function EverythingYouNeedSection() {
+	const autoScrollPlugin = useRef(
+		AutoScroll({
+			speed: 0.7,
+			startDelay: 600,
+			stopOnInteraction: false,
+			stopOnMouseEnter: true,
+			stopOnFocusIn: true,
+		}),
+	);
+
+	const loopedFeatures = Array.from(
+		{ length: LOOP_REPEAT },
+		() => PLATFORM_FEATURES,
+	).flat();
+
 	return (
 		<section className="bg-bg-primary py-(--es-section-py) px-4 md:px-8 xl:px-(--es-section-px)">
 			<div className="mx-auto max-w-(--es-max-w)">
@@ -34,26 +53,36 @@ export default function EverythingYouNeedSection() {
 
 					<CardContent className="relative -mr-4 md:-mr-6 overflow-hidden pt-0">
 						<Carousel
-							opts={{ align: "start", loop: true, dragFree: false }}
+							opts={{
+								align: "start",
+								loop: true,
+								dragFree: true,
+								containScroll: false,
+								watchDrag: true,
+							}}
+							plugins={[autoScrollPlugin.current]}
 							className="w-full"
 						>
 							<CarouselContent className="-ml-6 md:-ml-8 pl-6 md:pl-8 pr-6 md:pr-8">
-								{PLATFORM_FEATURES.map((feature, index) => (
-									<CarouselItem
-										key={feature.title}
-										className="pl-6 basis-[min(100%,336px)] sm:basis-[336px]"
-									>
-										<PlatformFeatureCard
-											title={feature.title}
-											description={feature.description}
-											imageSrc={feature.imageSrc}
-											imageAlt={feature.imageAlt}
-											cardClassName={
-												CARD_VARIANT_CLASSNAMES[index] ?? undefined
-											}
-										/>
-									</CarouselItem>
-								))}
+								{loopedFeatures.map((feature, index) => {
+									const variantIndex = index % PLATFORM_FEATURES.length;
+									return (
+										<CarouselItem
+											key={`${feature.title}-${index}`}
+											className="pl-6 basis-[min(100%,336px)] sm:basis-[336px]"
+										>
+											<PlatformFeatureCard
+												title={feature.title}
+												description={feature.description}
+												imageSrc={feature.imageSrc}
+												imageAlt={feature.imageAlt}
+												cardClassName={
+													CARD_VARIANT_CLASSNAMES[variantIndex] ?? undefined
+												}
+											/>
+										</CarouselItem>
+									);
+								})}
 							</CarouselContent>
 						</Carousel>
 					</CardContent>
