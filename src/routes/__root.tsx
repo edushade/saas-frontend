@@ -6,6 +6,7 @@ import {
 	Scripts,
 } from '@tanstack/react-router';
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools';
+import { Analytics } from '@vercel/analytics/react';
 import { NotFoundView } from '../components/route-states/NotFoundView';
 import { RouteErrorView } from '../components/route-states/RouteErrorView';
 import { Toaster } from '../components/ui/sonner';
@@ -153,6 +154,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 					<div className="flex min-h-screen flex-col">{children}</div>
 
 					<FacebookPixelTracker />
+					<Analytics />
 
 					<Toaster position="top-center" richColors closeButton />
 
