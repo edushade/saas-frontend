@@ -23,6 +23,10 @@ export const env = createEnv({
 		VITE_APP_TITLE: z.string().min(1).optional(),
 		/** Canonical site origin for canonical links, OG tags (e.g. https://edushade.com) */
 		VITE_SITE_ORIGIN: z.string().url().optional(),
+		/** Microsoft Clarity project ID. When set, the Clarity tag is injected. */
+		VITE_CLARITY_PROJECT_ID: z.string().min(1).optional(),
+		/** Meta (Facebook) Pixel ID. When set, the Pixel tag + PageView tracking is injected. */
+		VITE_FACEBOOK_PIXEL_ID: z.string().min(1).optional(),
 	},
 
 	/**
