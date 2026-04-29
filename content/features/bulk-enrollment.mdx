@@ -1,27 +1,150 @@
 ---
 featureId: "bulk-enrollment"
 title: "Bulk Enrollment"
-description: "Enroll teams in batches"
+description: "Enroll a whole class, a company team or a fresh cohort in one go. Pick the program, pick the people, and Edushade does the rest."
 href: "/features/bulk-enrollment"
 navGroup: "Manage Roles"
 navIcon: list
 navOrder: 60
 banner:
   tag: "Bulk Enrollment"
-  headline: "Onboard a Cohort, Class, or Company in One Action"
-  description: "Upload a list, hit enrol — Edushade adds learners to courses, paths, or cohorts in batches with audit-friendly tracking."
-  ctaText: "Get Started"
+  headline: "Get a hundred learners into a program in a single action"
+  description: "Onboarding a new class, a corporate team or a fresh cohort should not be a hundred clicks. With Bulk Enrollment, you select the program, you pick the people, and Edushade enrolls everyone in one move — sending the right welcome to each learner, telling the instructor a new group is in, and giving you a clean report of who got in and who didn't, with the reason."
+  ctaText: "See It In Action"
   ctaTo: "/contact-sales"
+capabilityHighlights:
+  title: "Designed for the way real onboarding actually happens"
+  description: "Bulk enrollment isn't a separate workflow you have to learn. It lives inside the same admin you use every day. Pick a program, pick the people, set an expiry if the access is time-limited, and you're done. Everything that fires for a single enrollment still fires for every learner in the batch."
+  capabilities:
+    - title: "One Action, Hundreds of Learners"
+      description: "Up to a thousand learners in a single batch. Pick from your existing user list, or invite new people first — either way, one button finishes the job."
+      icon: clipboardList
+    - title: "Works Across Every Program Type"
+      description: "Drop a batch into a course, a learning path or a cohort. The same flow, the same form, regardless of which program shape you're filling."
+      icon: routing
+    - title: "Time-Limited Access If You Need It"
+      description: "Need access to expire on a date? Add the expiry once at the batch level and every learner inherits it. Skip it and access stays open."
+      icon: arrowRight
+    - title: "Smart Skip on Conflicts"
+      description: "If a learner is already enrolled, or already in a different cohort of the same program, they're skipped with a clear reason — the rest of the batch still goes through."
+      icon: notebookBookmark
+    - title: "All the Right Notifications"
+      description: "Every learner gets the same welcome email a single enrollment would send. The instructor hears about the new group. A bulk-created event fires for any system that wants to listen."
+      icon: clapperboardPlay
+    - title: "A Clean Report Every Time"
+      description: "When the batch finishes, you get a count of who's in, who isn't, and a per-person reason for each skip. No guessing, no spreadsheet diffing."
+      icon: diploma
 splitSections:
-  - title: "Enrollments at the speed of an admin"
-    description: "Bulk operations turn what used to be a hundred clicks into a single, traceable action — with notifications still firing exactly the way you'd expect."
+  - title: "Pick the program, pick the people, you're done"
+    description: "Open the program in admin, jump to the Enrollments tab, hit Bulk Enroll. Search and select learners from your user list, paste in a comma-separated set of IDs, or filter by something useful and select all. If access should expire on a date, set it once for the whole batch. Hit Enroll. The platform takes it from there."
     lists:
-      - "Bulk-enrol learners into courses, cohorts, or learning paths"
-      - "Per-enrolment notifications still trigger for learners and instructors"
-      - "Bulk eligibility checks before access is granted"
-      - "Full audit trail captured for every batch operation"
-    imgSrc: "/svgs/hero/banner.svg"
+      - "Enroll into a course, a learning path or a specific cohort"
+      - "Pick people from the user list with search and filters"
+      - "Set a single expiry date for the whole batch (optional)"
+      - "Up to a thousand learners in one go"
+    imgSrc: "/svgs/educator-love/4-integrated.svg"
     reverse: true
+  - title: "Conflicts get a sensible answer, not a hard stop"
+    description: "Real lists are messy. Some people are already enrolled. Some are in another cohort of the same program. Some accounts aren't ready yet. Edushade walks through the batch one learner at a time and only skips the ones with a real conflict — the rest still get enrolled. You see exactly who landed, who didn't, and why."
+    lists:
+      - "Already enrolled? Skipped with a clear reason"
+      - "Already in another cohort of the same program? Skipped with a clear reason"
+      - "Account in a non-active state? Skipped with a clear reason"
+      - "Everyone else gets enrolled — no all-or-nothing failure"
+    imgSrc: "/svgs/courses/instructor.svg"
+    reverse: false
+  - title: "Notifications fire just like a single enrollment"
+    description: "Bulk doesn't mean silent. Every learner in the batch gets the same enrollment-created email, in-app alert, SMS or push that a one-by-one enrollment would have triggered — in their language, with their content. The instructor gets a heads-up that the cohort grew. A bulk-created event fires too, in case another system in your stack wants to act on it."
+    lists:
+      - "Personalized welcome to every learner — email, SMS, in-app, push"
+      - "Heads-up to the instructor that the program just gained learners"
+      - "A separate bulk-created event for downstream automations"
+      - "Templates are the same ones you've already tuned for single enrollments"
+    imgSrc: "/svgs/educator-love/2-analytics.svg"
+    reverse: true
+  - title: "Bulk operations don't stop at enrolling"
+    description: "Once people are in, the same batch tools handle the rest of the work. Update enrollments in bulk — extend access, change a status, set a new expiry. Export the entire enrollment table to a CSV for an external system or an audit. Delete a batch when a program retires. The right people, in the right state, with one move."
+    lists:
+      - "Bulk update — change status or extend access for a whole batch"
+      - "Bulk export — full enrollment data to CSV in one click"
+      - "Bulk delete — clean retirement when a program closes"
+      - "For scholarships, batch eligibility checks across every applicant"
+    imgSrc: "/svgs/educator-love/5-scalability.svg"
+    reverse: false
+quickStart:
+  title: "From a fresh list to a fully onboarded class"
+  subtitle: "It's three steps and around a minute. The form is the same one your admin team already knows from single-learner enrollment — just with a multi-select on the people side."
+  steps:
+    - step: 1
+      title: "Open the program and hit Bulk Enroll"
+      description: "From the course, learning path or cohort detail in admin, jump to the Enrollments tab. The Bulk Enroll button sits next to the standard Add Learner button — same form, multi-select people picker."
+      imageAlt: "Enrollment tab on a course with a Bulk Enroll button next to Add Learner"
+      imageSrc: "/svgs/courses/course-create.svg"
+    - step: 2
+      title: "Pick your people, set your expiry"
+      description: "Search by name, email or unique ID. Multi-select what you need. Want access to expire on a specific date? Set it once at the batch level. Skip it and the group has open-ended access."
+      imageAlt: "Multi-select user picker with optional expiry date field"
+      imageSrc: "/svgs/educator-love/4-integrated.svg"
+    - step: 3
+      title: "Enroll, then read the report"
+      description: "Hit Enroll. When it finishes, you'll see how many learners landed, how many were skipped, and a per-person reason for every skip. Every learner who made it in gets a welcome message right away."
+      imageAlt: "Bulk enrollment result panel with enrolled count, failed count and per-user reasons"
+      imageSrc: "/svgs/courses/course-publish.svg"
+faq:
+  title: "Bulk Enrollment FAQ"
+  description: "Questions people usually ask before they run their first batch."
+  items:
+    - question: "How many learners can I enroll at once?"
+      answer: "Up to a thousand in a single batch. If you have a bigger list, run it as two or three batches — the workflow is the same, and the result reports are independent so you can keep clean records of each."
+    - question: "Which programs can I bulk-enroll into?"
+      answer: "Three: a course, a learning path or a specific cohort. Whichever one you opened the Bulk Enroll flow from is what the batch enrolls into — you're never surprised by where people landed."
+    - question: "What if some of the learners are already enrolled?"
+      answer: "They'll be skipped with a clear reason on the result report — usually 'already enrolled in this program'. The rest of the batch still goes through. You don't have to clean the list before running the action."
+    - question: "Can a person be enrolled in two cohorts of the same course at once?"
+      answer: "No. The platform checks for that and skips the duplicate with a reason. If someone needs to move from one cohort to another, that's a transfer, not a second enrollment — and the bulk update flow handles it cleanly."
+    - question: "Do learners still get the welcome email when they're enrolled in bulk?"
+      answer: "Yes. Every learner in the batch gets the same enrollment-created notification a one-by-one enrollment would have triggered — email, in-app, SMS and push, in the language they're set to. Bulk doesn't mean silent."
+    - question: "Does the instructor know that a batch came in?"
+      answer: "Yes. The instructor on the program gets the standard new-enrollments notification. They also see a bulk-enrollment-created event in their notification feed, so they know it was a group, not one learner trickling in."
+    - question: "Can I set a single expiry date for the whole group?"
+      answer: "Yes — it's a single field on the batch form. Add a date and every learner in the batch gets that expiry. Leave it blank and the access stays open. If you need different expiries per learner, the standard per-enrollment flow handles that."
+    - question: "What happens to the people that get skipped?"
+      answer: "Nothing — they stay where they were. The result report tells you why each one didn't make it in (already enrolled, already in another cohort, account inactive, and so on), so you can fix what's fixable and re-run the batch. There's no half-state to clean up."
+    - question: "What about updating or removing enrollments in bulk?"
+      answer: "Same toolkit. Bulk update lets you change status, extend access or set a new expiry across many enrollments at once. Bulk delete cleans things up when a program retires. Bulk export gives you the full enrollment table as a CSV in one click — useful for audits or external systems."
+    - question: "Is there an audit trail?"
+      answer: "Yes. Every bulk operation lands as an audit entry — who ran it, against which program, how many landed, how many were skipped, and the timestamp. The same audit log surfaces every other privileged change in the platform, so it's all in one place."
+    - question: "What permission does a team member need to run a bulk enroll?"
+      answer: "The same one they'd need to enroll a single learner. If a role can enroll one person into a course, it can run a batch into that course — no separate bulk-only permission to manage."
+    - question: "Can I do this for scholarships too?"
+      answer: "Yes. Scholarships have their own bulk eligibility check — paste in or select the applicants you want to evaluate, and the platform runs the eligibility rules across every one of them at once and gives you a result list. The flow is built for the same scale."
+    - question: "Does this work in a private course?"
+      answer: "If the course is set to private, the platform protects it — bulk enroll on a private course is blocked at the program level, the same way single enrollment is. Move the course to published or open enrollment first, or invite each learner explicitly."
+    - question: "What if the program is full?"
+      answer: "If the batch would push the program past its max enrollments cap, the action is rejected before any enrollment is created. You'll see a clear message about the seat limit, and nothing changes on the platform. Trim the list or raise the cap and try again."
 ---
 
-Bulk Enrollment is the difference between a platform that scales and a platform that grinds your admin team to a halt.
+## Suggested visuals for this page
+
+The hero, capability cards, FAQ and quick-start steps render directly from the data above. The four split sections and the three quick-start steps each carry an image. The current build reuses the closest existing illustrations from `/svgs/courses` and `/svgs/educator-love`, but a future design pass should ship dedicated artwork. Drop the new files at the listed paths and they will swap in without any code change.
+
+**Split section 1 — `imgSrc: /svgs/educator-love/4-integrated.svg` (placeholder)**
+Suggested artwork: the bulk-enroll modal — program selector at the top (course/path/cohort tabs), a multi-select user picker filling the centre with a few rows already chosen, an optional expiry date field below it, and a big Enroll button at the bottom.
+
+**Split section 2 — `imgSrc: /svgs/courses/instructor.svg` (placeholder)**
+Suggested artwork: a result panel after a batch — a green stat for "Enrolled (47)" and a yellow stat for "Skipped (3)", with three skip rows underneath each showing a reason chip ("already enrolled", "already in cohort", "account inactive").
+
+**Split section 3 — `imgSrc: /svgs/educator-love/2-analytics.svg` (placeholder)**
+Suggested artwork: a notification card stack — a learner welcome email preview on the left, an instructor "47 new learners" alert in the middle, and a small system event card on the right marked "bulk_created".
+
+**Split section 4 — `imgSrc: /svgs/educator-love/5-scalability.svg` (placeholder)**
+Suggested artwork: an enrollments table with a header bar showing four bulk-action buttons (Enroll, Update, Export CSV, Delete) and a few rows checked beneath, with a subtle "47 selected" count.
+
+**Quick-start step 1 — `imageSrc: /svgs/courses/course-create.svg` (placeholder)**
+Suggested artwork: a course's Enrollments tab with two buttons side by side — Add Learner and Bulk Enroll — and a slim hint reading "Up to 1,000 at a time".
+
+**Quick-start step 2 — `imageSrc: /svgs/educator-love/4-integrated.svg` (placeholder)**
+Suggested artwork: the bulk-enroll dialog mid-fill — search bar with "@acme.com" typed, six result rows checked, and the optional expiry chip showing "Expires Dec 31".
+
+**Quick-start step 3 — `imageSrc: /svgs/courses/course-publish.svg` (placeholder)**
+Suggested artwork: a finished-batch summary screen — large Enrolled count, smaller Skipped count, a download-CSV link for the result report, and a small toast reading "Welcomes are on the way".

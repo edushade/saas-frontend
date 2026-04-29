@@ -1,27 +1,150 @@
 ---
 featureId: "multi-language"
 title: "Multi-Language"
-description: "Reach a global audience"
+description: "Twenty built-in languages, three URL structures, real RTL with per-locale fonts, fallback chains and region-aware formatting — wired through pages, posts, forms, menus and SEO."
 href: "/features/multi-language"
 navGroup: "Deliver & Engage"
 navIcon: dialog
 navOrder: 70
 banner:
   tag: "Multi-Language"
-  headline: "Teach in Every Language Your Learners Speak"
-  description: "Localize pages, posts, forms, menus, and SEO fields. Edushade ships proper RTL support, per-locale typography, and clean subdirectory URLs."
-  ctaText: "Get Started"
+  headline: "Localization that goes deeper than a translate button"
+  description: "Edushade ships a real localization system — twenty languages with flags ready to enable, three URL structures, a fallback chain per locale, true RTL with per-locale font overrides, and region-aware date, time, number and currency formats. Every page, post, form, menu and SEO field carries its own value per locale, so a learner reads your platform in their language without scaffolding around a translation tool."
+  ctaText: "Localize Your Platform"
   ctaTo: "/contact-sales"
+capabilityHighlights:
+  title: "Everything localization actually demands, in one settings tab"
+  description: "Localization in Edushade is not a wrapper around a translation API. It is a first-class part of the data model — every localized field is a `LocalizedField` keyed by locale, every block stores localized content, every URL is routed by locale, and every typography choice can vary per language. One settings tab controls all of it."
+  capabilities:
+    - title: "Twenty Built-In Languages"
+      description: "English, Spanish, French, German, Italian, Portuguese, Russian, Japanese, Korean, Chinese, Arabic, Hindi, Bengali, Turkish, Dutch, Polish, Swedish, Danish, Norwegian and Finnish — each with the right flag emoji and ready to enable in one click."
+      icon: clipboardList
+    - title: "Three URL Structures"
+      description: "Subdirectory (example.com/en/page), subdomain (en.example.com) or query parameter (?lang=en). Switch between them from the same dropdown — the routing layer adapts."
+      icon: routing
+    - title: "Real RTL Support"
+      description: "Arabic, Hebrew, Persian and Urdu auto-detect as right-to-left when added. The platform sets html lang and dir, and the theme system flips alignment, padding and margins automatically."
+      icon: arrowRight
+    - title: "Fallback Locale Per Language"
+      description: "Each non-primary locale picks its own fallback. If a Bengali page is missing a meta title, the platform pulls from the chosen fallback (English by default) instead of showing an empty field."
+      icon: notebookBookmark
+    - title: "Per-Locale Typography"
+      description: "Pick a different font-sans, font-serif and font-mono for each language. Edushade emits :lang() CSS rules so an Arabic learner sees a script-appropriate font without you swapping it manually."
+      icon: clapperboardPlay
+    - title: "Region-Aware Formatting"
+      description: "Default date format, 12h vs 24h time, number format (1,234.56 vs 1.234,56), currency and timezone — all stored on the localization config and applied across formatting helpers."
+      icon: diploma
 splitSections:
-  - title: "Localization that respects each language"
-    description: "Configure a primary language, enable additional locales, and let learners read your content in the language that fits them best."
+  - title: "Adding a language is one dropdown, not a checklist"
+    description: "Open the localization settings and the Enabled Languages table lists every locale on your site — flag, label, code, direction, fallback and primary status, all in one row. Pick a language from the Add Language dropdown and it lands in the table with a sensible default. Promote any locale to primary, set its RTL and fallback chain, and the rest of the platform picks up the change."
     lists:
-      - "Per-locale code, label, flag, and right-to-left support"
-      - "Subdirectory URL structure (e.g. /ar/courses)"
-      - "Localized page titles, meta tags, and SEO fields"
-      - "Per-locale typography overrides for non-Latin scripts"
-    imgSrc: "/svgs/hero/banner.svg"
+      - "Twenty languages with flags ready to enable from a dropdown"
+      - "Code, label, RTL toggle, fallback, primary and remove on every row"
+      - "Primary locale cannot be removed; the table always keeps at least one"
+      - "RTL detection is automatic for ar, he, fa and ur — toggleable per locale"
+    imgSrc: "/svgs/courses/course-curriculum.svg"
     reverse: true
+  - title: "URL routing that fits your stack, not the other way around"
+    description: "Pick the URL structure that fits your domain strategy. Subdirectory keeps the same hostname and stamps the locale code into the path — the cleanest option for SEO. Subdomain gives each locale its own host. Query parameter is the fastest to wire if you cannot touch DNS. The router and the SSR loader respect whichever you choose, and Auto-detect User Locale uses the Accept-Language header to land first-time visitors on the right page."
+    lists:
+      - "Three URL structures: subdirectory, subdomain, query parameter"
+      - "Auto-detect User Locale honours the browser's Accept-Language header"
+      - "Locale persists in localStorage across visits, scoped per browser"
+      - "html lang attribute set automatically — :lang() CSS selectors just work"
+    imgSrc: "/svgs/educator-love/4-integrated.svg"
+    reverse: false
+  - title: "Localized fields wherever your team writes content"
+    description: "A localized field in Edushade is not a sidebar plugin — it is a first-class data type. Pages, posts, forms, menus, blocks and the SEO config all use the same LocalizedField shape, so the admin renders a locale switcher next to the field and the renderer falls back to the chosen fallback locale when a value is missing. No empty page when the Spanish version is in flight."
+    lists:
+      - "Page title, slug, meta title and meta description per locale"
+      - "Post title, excerpt and full content per locale"
+      - "Form title, description, field labels, placeholders, submit text and success message"
+      - "Menu item labels, block content, SEO templates and system-page metadata"
+    imgSrc: "/svgs/courses/course-types.svg"
+    reverse: true
+  - title: "Per-locale typography for the languages that need it"
+    description: "Latin and non-Latin scripts deserve different fonts. Edushade lets you set font-sans, font-serif and font-mono per locale — the design theme stores the override and the platform emits :lang() CSS selectors that switch fonts automatically when the html lang attribute changes. An Arabic learner sees a script-appropriate font; an English learner sees yours; nobody sees a fallback box."
+    lists:
+      - "Per-locale font-sans, font-serif and font-mono on the design theme"
+      - "CSS emits :lang(ar) { font-family: ... } rules automatically"
+      - "Font picker filters to the languages each typeface actually supports"
+      - "Light + dark themes inherit the same per-locale typography stack"
+    imgSrc: "/svgs/educator-love/5-scalability.svg"
+    reverse: false
+quickStart:
+  title: "From a single-language site to multilingual in three steps"
+  subtitle: "Localization lives under Admin → Website → Settings → Localization. Add a language, pick a URL structure, translate the fields that matter — your content, menus and forms come along."
+  steps:
+    - step: 1
+      title: "Add languages and set the primary"
+      description: "Open Localization Settings. Pick your primary locale, then add languages from the dropdown — flag, code and label are filled in for you. Toggle RTL on Arabic, Hebrew, Persian or Urdu. Pick a fallback locale per language so missing translations don't render blank."
+      imageAlt: "Enabled Languages table with flag, code, RTL toggle, fallback dropdown and primary badge"
+      imageSrc: "/svgs/courses/course-create.svg"
+    - step: 2
+      title: "Pick a URL structure and turn on auto-detect"
+      description: "Choose subdirectory, subdomain or query parameter — whichever fits your domain setup. Flip Auto-detect User Locale on so first-time visitors land in their browser language, then jump to Regional Settings to set default date, time, number, currency and timezone."
+      imageAlt: "URL structure selector with subdirectory/subdomain/query options and auto-detect toggle"
+      imageSrc: "/svgs/courses/course-curriculum.svg"
+    - step: 3
+      title: "Translate where it matters and ship"
+      description: "Open a page, post, form or menu — every localized field shows a locale switcher inline. Translate what matters now, leave the rest, and the renderer falls back through the chain you configured. The locale switcher on the public site lets learners pick their own language at any time."
+      imageAlt: "Page editor with localized title field showing English and a locale switcher"
+      imageSrc: "/svgs/courses/course-publish.svg"
+faq:
+  title: "Multi-Language FAQ"
+  description: "How locales, URLs, RTL, fallbacks, typography and region-aware formatting actually work inside Edushade."
+  items:
+    - question: "Which languages ship by default?"
+      answer: "Twenty are ready to enable from the dropdown — English, Spanish, French, German, Italian, Portuguese, Russian, Japanese, Korean, Chinese, Arabic, Hindi, Bengali, Turkish, Dutch, Polish, Swedish, Danish, Norwegian and Finnish — each with the matching flag emoji. The locale code is two characters (`en`, `es`), so a custom locale you add later still slots in."
+    - question: "Can I add a language that is not in the preset list?"
+      answer: "Yes. The locale schema accepts any code from 2 to 5 characters, a label and a flag, so a locale Edushade does not pre-register can be added by editing the localization config — the rest of the platform treats it the same as a preset locale, including fallback, RTL toggle and per-locale typography."
+    - question: "How does right-to-left support work?"
+      answer: "Arabic, Hebrew, Persian and Urdu auto-detect as RTL when added. The platform sets the html dir and lang attributes from the active locale, the theme system flips alignment, padding and margin utilities, and the locale switcher itself respects direction. RTL can also be toggled per locale on the Enabled Languages table — useful for an LTR locale that needs to render mixed content."
+    - question: "What is a fallback locale?"
+      answer: "Each non-primary locale picks one. If a learner is on the Bengali version of a page and the meta title for Bengali is missing, the platform pulls from that locale's fallback (English by default). The chain prevents empty headers, empty meta tags and empty form labels while the team is mid-translation. Primary locale falls back to itself."
+    - question: "Which URL structures are supported?"
+      answer: "Three: subdirectory (example.com/en/page), subdomain (en.example.com/page) and query parameter (example.com/page?lang=en). Subdirectory is the most SEO-friendly and ships as the default. Subdomain works when each locale has its own host. Query parameter is the lightest to set up if you cannot touch DNS or routing today."
+    - question: "How does the platform decide which locale to load?"
+      answer: "Resolution runs in this order: explicit URL (path or query), then the Accept-Language header (when Auto-detect User Locale is on), then localStorage (a returning visitor's last choice), then the primary locale. Every step validates against the enabled-locales list, so a stale URL or a header for a disabled language quietly falls back instead of erroring."
+    - question: "What does Auto-detect User Locale do?"
+      answer: "It enables the Accept-Language fallback in the resolution chain. With it on, a first-time visitor whose browser is set to Spanish lands on the Spanish version of your site even without a `/es` segment in the URL. The locale switcher overrides the auto-detect, and the override is stored in localStorage so it persists between visits."
+    - question: "Which content types carry localized values?"
+      answer: "Pages (title, slug, meta title, meta description), posts (title, excerpt, content), forms (title, description, every field's label and placeholder, submit-button text, success message), menus (item labels), blocks (content for hero, text and similar text-bearing blocks), SEO (meta title template, meta description, meta keywords) and system-page metadata. Every one uses the same `LocalizedField` shape — switch the locale and the value swaps."
+    - question: "Can I use a different font for non-Latin scripts?"
+      answer: "Yes. Pick a font-sans, font-serif and font-mono per locale on the design theme. Edushade stores the per-locale typography map and emits :lang() CSS rules — so a learner whose document.lang is `ar` sees the Arabic typeface automatically, while an English learner on the same page keeps yours. Light and dark themes share the typography stack, so the override only needs to be set once per locale."
+    - question: "How are dates, times, numbers and currencies formatted?"
+      answer: "Localization carries default date format (DD/MM/YYYY, MM/DD/YYYY, YYYY-MM-DD, DD MMM YYYY, MMMM DD, YYYY), time format (12h or 24h), number format (en-US, en-GB, de-DE, fr-FR, es-ES) and a default currency (USD, EUR, GBP, JPY, INR, AUD, CAD) plus timezone. Formatters across the platform read from this config so a single change updates every page that renders a date or a price."
+    - question: "Can a learner switch language on the public site?"
+      answer: "Yes. The locale switcher renders next to the navigation. Picking a language updates the URL (path, subdomain or query parameter, depending on your URL structure), writes to localStorage so the choice persists and triggers a re-render with the new locale's content. The html lang attribute updates so :lang() CSS rules — including per-locale fonts — switch with it."
+    - question: "Does multi-language work with server-side rendering?"
+      answer: "Yes. The locale resolver runs both on the server (using the request URL and Accept-Language header) and on the client (using localStorage and the URL). The server picks the right locale before rendering, the html lang attribute is correct on first paint, and the client takes over without reflowing the page."
+    - question: "Does the menu and navigation get localized too?"
+      answer: "Yes. Menu items carry localized labels, so a Hindi learner sees the menu in Hindi. The CMS surfaces a locale switcher inline on the menu editor, the same way pages and posts do, so a translator can fill in labels without leaving the menu builder."
+    - question: "How are SEO fields localized?"
+      answer: "Site-wide SEO carries a localized meta title template (with `{page_title} | {site_name}` interpolation), localized meta description and localized meta keywords. Per-page SEO inherits from these defaults and lets you override per locale — so the Spanish version of a page gets a Spanish meta title, a Spanish description and Spanish keywords, while sharing the same template structure."
 ---
 
-A learning platform that speaks your learners' language earns trust the moment they land on the page.
+## Suggested visuals for this page
+
+The hero, capability cards, FAQ and quick-start steps render directly from the data above. The four split sections and the three quick-start steps each carry an image. The current build reuses the closest existing illustrations from `/svgs/courses` and `/svgs/educator-love`, but a future design pass should ship dedicated artwork. Drop the new files at the listed paths and they will swap in without any code change.
+
+**Split section 1 — `imgSrc: /svgs/courses/course-curriculum.svg` (placeholder)**
+Suggested artwork: the Enabled Languages table from the localization settings — flag, label, code, RTL toggle, fallback dropdown, primary badge — with three rows visible (English / Arabic / Bengali) and a "+ Add Language" dropdown opened.
+
+**Split section 2 — `imgSrc: /svgs/educator-love/4-integrated.svg` (placeholder)**
+Suggested artwork: a URL structure picker with the three options stacked — `example.com/en/page`, `en.example.com/page`, `example.com/page?lang=en` — and an auto-detect toggle next to it, with a small browser strip showing Accept-Language flowing into the right URL.
+
+**Split section 3 — `imgSrc: /svgs/courses/course-types.svg` (placeholder)**
+Suggested artwork: a page-editor canvas with a localized title field rendered in two locales (English on top, Bengali below), each in its own card, plus a small "fallback: English" pill on the Bengali card.
+
+**Split section 4 — `imgSrc: /svgs/educator-love/5-scalability.svg` (placeholder)**
+Suggested artwork: a typography panel with three font slots (font-sans, font-serif, font-mono) and a locale tab strip ("English | Arabic") above them, showing different font choices per locale.
+
+**Quick-start step 1 — `imageSrc: /svgs/courses/course-create.svg` (placeholder)**
+Suggested artwork: the Enabled Languages table from above with the Add Language dropdown opened and a flag list visible.
+
+**Quick-start step 2 — `imageSrc: /svgs/courses/course-curriculum.svg` (placeholder)**
+Suggested artwork: the URL structure picker plus the Regional Settings card (date, time, number, currency, timezone) on the same screen.
+
+**Quick-start step 3 — `imageSrc: /svgs/courses/course-publish.svg` (placeholder)**
+Suggested artwork: a page editor with a localized title field, an inline locale switcher above the field, and the public site preview on the right rendered in the selected language.

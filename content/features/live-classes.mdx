@@ -1,36 +1,125 @@
 ---
 featureId: "live-classes"
 title: "Live Classes"
-description: "Teach in real time"
+description: "Scheduled live sessions inside a course"
 href: "/features/live-classes"
 navGroup: "Deliver & Engage"
 navIcon: userSpeakRounded
 navOrder: 10
 banner:
   tag: "Live Classes"
-  headline: "Teach in Real Time"
-  description: "Run live sessions with video, screen share, and interactive tools for engaging learner experiences."
-  ctaText: "Get Started"
+  headline: "Live sessions that live inside the course"
+  description: "A live class in Edushade is a curriculum item — not a separate calendar tool. Schedule the session, pick a provider, drop in the link, and the lesson sits next to videos and PDFs in the same course tree. Learners join with one click; attendance lands on the progress record automatically."
+  ctaText: "Schedule a Live Class"
   ctaTo: "/contact-sales"
+capabilityHighlights:
+  title: "A live session is just another lesson type"
+  description: "Live classes are modeled as a lesson_type on the curriculum, not a parallel feature. The same builder that holds videos, PDFs and quizzes holds your live session, with its own provider, meeting URL, start time and password. The result: one course tree, one progress record, no separate dashboard for synchronous content."
+  capabilities:
+    - title: "Four Meeting Providers"
+      description: "Google Meet, Zoom, Microsoft Teams or any other URL — each session picks its own. The same course can run a Zoom workshop and a Meet office hour without switching anything platform-wide."
+      icon: routing
+    - title: "Inside the Course Curriculum"
+      description: "Live classes are curriculum items, ordered alongside videos, PDFs and quizzes. Drip rules, prerequisites and access rules apply the same way."
+      icon: notebookBookmark
+    - title: "Scheduled Start Time"
+      description: "Pick a date, time and timezone. The learner side shows a countdown until the session starts, then surfaces the join button only inside the meeting window."
+      icon: clapperboardPlay
+    - title: "Password Protection"
+      description: "Toggle password_protected on the lesson and add a meeting password. Edushade reveals it to enrolled learners with a show/hide toggle, kept off by default."
+      icon: diploma
+    - title: "Join Tracked Automatically"
+      description: "When a learner clicks join, Edushade marks the lesson in-progress, opens the meeting URL in a new tab, and writes a progress record — no manual roll call required."
+      icon: arrowRight
+    - title: "Multi-Instructor Roster"
+      description: "Assign multiple instructors per lesson — primary host plus guest experts — pulled from your platform users."
+      icon: clipboardList
 splitSections:
-  - title: "Run sessions learners actually show up for"
-    description: "Host live classes with reliable video, clear audio, and layouts that keep focus on teaching—not troubleshooting tools."
+  - title: "Live sessions that live where the curriculum lives"
+    description: "Edushade does not split synchronous and asynchronous content into different products. A live class is a Lesson with lesson_type set to 'live', sitting in the same course tree as your video lessons. Drip rules, prerequisites and access controls apply unchanged. The course is one place, not two."
     lists:
-      - "HD video and audio tuned for teaching, not generic meetings"
-      - "Screen share and presentation modes for demos and walkthroughs"
-      - "Participant controls so you can manage attention and pace"
-      - "Session scheduling that ties into cohorts and courses"
-    imgSrc: "/svgs/platforms/1-sidebar.svg"
+      - "Live class is a lesson_type, not a separate entity"
+      - "Same curriculum tree as video, audio, text, PDF and iframe lessons"
+      - "Inherits the course's drip rules, prerequisites and access rules"
+      - "Lives next to recorded follow-ups in the same section"
+    imgSrc: "/svgs/courses/course-curriculum.svg"
     reverse: true
-  - title: "Interaction without chaos"
-    description: "Use chat, reactions, and structured participation so learners stay engaged without derailing the flow of your lesson."
+  - title: "Pick a provider, drop in the link"
+    description: "Choose between Google Meet, Zoom, Microsoft Teams or 'Other' for any URL-based provider. Paste the meeting link, set a start time and timezone, and optionally turn on password protection. Edushade keeps the provider, link and password on the lesson record so the learner sees a single, branded join page — not a wall of tabs."
     lists:
-      - "Moderated chat and Q&A for orderly discussion"
-      - "Raise-hand and permission flows for speaking turns"
-      - "Recordings aligned to courses for catch-up and review"
-      - "Consistent experience across desktop and tablet"
+      - "Provider radio with Google Meet, Zoom, Microsoft Teams and Other"
+      - "Meeting URL stored on the lesson with full timezone awareness"
+      - "Password protection toggle with a separate meeting password field"
+      - "Optional duration so the learner card can show a finish time"
     imgSrc: "/svgs/educator-love/4-integrated.svg"
     reverse: false
+  - title: "A countdown learners can plan around"
+    description: "From the moment the lesson is published, the learner card surfaces the meeting status — upcoming with a countdown, live now with a join button, or finished with a 'session ended' state. The join button is disabled outside the meeting window so a learner does not click into an empty room, and the timezone shown matches the learner's locale, not the instructor's."
+    lists:
+      - "Countdown timer until meeting_starts_at"
+      - "Live-now badge once the session is open"
+      - "Join button gated by canJoin logic, disabled outside the window"
+      - "Session-ended state with link to the recording when one is uploaded"
+    imgSrc: "/svgs/platforms/2-progress.svg"
+    reverse: true
+  - title: "Attendance tracked the moment a learner joins"
+    description: "Click join and Edushade does the bookkeeping. The progress record flips to in_progress, a join event is timestamped, and on session close the lesson moves to completed automatically. No separate attendance roster, no manual ticking — the same progress engine that tracks video watch time tracks live class attendance."
+    lists:
+      - "useJoinLiveClass hook records the join event server-side"
+      - "Progress record updates to in_progress with started_at timestamp"
+      - "Lesson auto-completes on session close for credit toward the course"
+      - "All attendance flows into the same learning_progress table as videos and quizzes"
+    imgSrc: "/svgs/educator-love/2-analytics.svg"
+    reverse: false
+quickStart:
+  title: "From draft to live class in three steps"
+  subtitle: "Live classes use the same lesson modal as the rest of your curriculum. Pick the type, paste the link, schedule the time — and the lesson is ready to publish."
+  steps:
+    - step: 1
+      title: "Add a live lesson to the curriculum"
+      description: "Open the course builder, drop in a new lesson, and pick Live Session as the lesson type. Set a title, optional description and assign one or more instructors."
+      imageAlt: "Lesson modal with the Live Session radio selected and a title field filled in"
+      imageSrc: "/svgs/courses/course-create.svg"
+    - step: 2
+      title: "Pick the provider and schedule"
+      description: "Choose Google Meet, Zoom, Microsoft Teams or Other. Paste the meeting URL, pick the start date and time with the right timezone, and turn on password protection if the session needs one."
+      imageAlt: "Live session form with provider radio, meeting URL textarea, datetime picker and password switch"
+      imageSrc: "/svgs/courses/course-curriculum.svg"
+    - step: 3
+      title: "Publish and let learners join"
+      description: "Save the lesson and the countdown goes live for every enrolled learner. When the meeting window opens, the join button activates, attendance is tracked automatically, and the lesson completes itself when the session ends."
+      imageAlt: "Learner curriculum sidebar with the live class showing a live-now badge and join button"
+      imageSrc: "/svgs/courses/course-publish.svg"
+faq:
+  title: "Live Classes FAQ"
+  description: "How live classes work in Edushade — providers, scheduling, joining, attendance and how they relate to the rest of the curriculum."
+  items:
+    - question: "What is a live class in Edushade?"
+      answer: "A lesson inside a course with lesson_type set to 'live'. It sits in the curriculum tree alongside video, audio, text, PDF and iframe lessons, and carries its own meeting provider, meeting URL, start time and optional password — but it is not a separate entity, so the same drip rules, prerequisites and progress engine all apply."
+    - question: "How is a live class different from a workshop?"
+      answer: "A workshop is a standalone, time-bound session with its own registration, capacity and participant list — independent from any course. A live class is part of a course curriculum, runs for the learners enrolled in that course, and contributes to course progress and completion. Use a workshop for a one-off; use a live class when synchronous instruction is part of a larger learning track."
+    - question: "Which meeting providers are supported?"
+      answer: "Google Meet, Zoom, Microsoft Teams and a generic 'Other' option for any URL-based provider. The provider is picked per lesson, so a single course can run different sessions on different platforms without changing anything platform-wide."
+    - question: "Can I password-protect a live session?"
+      answer: "Yes. Toggle password_protected on the lesson and add a meeting password. Enrolled learners see the password with a show/hide toggle on their lesson card; everyone else gets nothing."
+    - question: "How does scheduling work?"
+      answer: "Set meeting_starts_at as a date-time with timezone awareness. Edushade renders the countdown in the learner's locale and gates the join button to the meeting window. An optional duration lets the card display a finish time so learners can plan around it."
+    - question: "How is attendance recorded?"
+      answer: "When a learner clicks join, the useJoinLiveClass flow records the event server-side, marks the lesson in_progress with a started_at timestamp, and writes the join time into the learning_progress table. On session close, the lesson auto-completes — no separate attendance roster, no manual ticking."
+    - question: "Can a single course mix live and recorded lessons?"
+      answer: "Yes. The same course tree holds video, audio, text, PDF, iframe and live lessons together. A typical week could be a recorded video, a live discussion, a downloadable worksheet and a quiz — all inside one curriculum, all tracked by the same progress engine."
+    - question: "Do drip rules apply to live classes?"
+      answer: "Yes. Live lessons are curriculum items, so drip rules — fixed date, enrollment offset, completion-based or manual — work the same way they do for videos. Use a completion-based rule to require a prerequisite quiz before the live class unlocks, or a fixed-date rule to release the session at the start of a cohort week."
+    - question: "Can I assign multiple instructors to one live class?"
+      answer: "Yes. The instructor_ids field accepts an array of platform users, so a primary host and a guest expert can be assigned to the same lesson. The list surfaces on the learner side so attendees know who they are joining."
+    - question: "Is the recording handled automatically?"
+      answer: "The recording itself happens in the meeting provider — Zoom, Meet, Teams. Once you have the recording URL, you can either update the live lesson with the link, or attach a separate video lesson next to it as the on-demand follow-up. The follow-up plays in Edushade's own video player with full progress tracking."
+    - question: "What happens if a learner misses the live class?"
+      answer: "The lesson stays in not_started state on their progress record. If you have configured a recording or attached a follow-up video lesson, they consume that asynchronously — the same drip and prerequisite rules apply. Course completion logic considers the lesson complete based on whichever path you have set up."
+    - question: "Can a live class be free or paid?"
+      answer: "Pricing applies at the course level, not per lesson. The live class participates in whatever pricing the parent course uses — free, one-time, installments or part of a bundle. For a paid standalone live session, use a Workshop instead, which has its own pricing layer."
+    - question: "Does the platform integrate directly with the meeting providers?"
+      answer: "Edushade supports Google Meet, Zoom, Microsoft Teams and any other URL-based provider by capturing the meeting URL on the lesson. The session itself runs in the provider; Edushade is where the schedule, password, attendance and progress live."
+    - question: "Can I export attendance for a live class?"
+      answer: "Live class attendance lives on the learning_progress table, the same as every other lesson type. Pull progress records by entity_type='lesson' and entity_id=<lesson_id> to get the full attendance, with started_at, completed_at and time_spent for every learner."
 ---
-
-Live classes on Edushade are built for instruction: fewer distractions, clearer roles, and a path from live session to recorded follow-up inside your programs.

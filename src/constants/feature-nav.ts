@@ -57,6 +57,7 @@ export function buildFeatureNavGroups(): NavFeatureGroup[] {
 				icon: Icon,
 				slug,
 				href: doc.href,
+				comingSoon: doc.comingSoon ?? false,
 			};
 		});
 

@@ -1,27 +1,150 @@
 ---
 featureId: "instructor-management"
 title: "Instructor Management"
-description: "Build and manage your team"
+description: "Multi-instructor courses with three roles, four assignment scopes, public instructor pages and notification + payout coverage out of the box."
 href: "/features/instructor-management"
 navGroup: "Manage Roles"
 navIcon: teacher
 navOrder: 25
 banner:
   tag: "Instructor Management"
-  headline: "Build a Teaching Team That Scales"
-  description: "Invite instructors, assign them to specific courses or even individual lessons, and track payouts — all from one shared workspace."
-  ctaText: "Get Started"
+  headline: "A teaching team that scales without losing the thread"
+  description: "Edushade ships a real instructor model — one composite-key record on the instructors table for every (tenant, entity, instructor, role) tuple — so a course can carry a lead instructor, a co-instructor and three assistants without bending the schema. Assign people to a whole course, a single cohort, a learning path or one specific lesson; flag the featured instructor; surface a public profile; and the notification + payout pipeline handles the rest."
+  ctaText: "Build Your Teaching Team"
   ctaTo: "/contact-sales"
+capabilityHighlights:
+  title: "Everything that goes into running a teaching team"
+  description: "Instructor Management is not a single-field instructor pointer on a course. It is a first-class many-to-many model — composite-keyed on (tenant_id, entity_type, entity_id, instructor_id) — that supports three roles, four assignment scopes, a featured flag, public profiles tied to the user record, and a notification + payout pipeline already wired into the platform."
+  capabilities:
+    - title: "Three Instructor Roles"
+      description: "Instructor, co-instructor and assistant — stored on the instructors row itself, so a course can clearly attribute the lead, the co-host and the TAs without juggling separate models."
+      icon: clipboardList
+    - title: "Four Assignment Scopes"
+      description: "Assign at the course, cohort, learning path or individual lesson level. A guest expert can own one session in one cohort without getting access to the rest."
+      icon: routing
+    - title: "Featured Instructor Flag"
+      description: "Pin one instructor on a course page as the featured face. The flag is a single column on the assignment, so it is editable without losing any other instructor on the same program."
+      icon: arrowRight
+    - title: "Public Instructor Profile"
+      description: "Every instructor links back to a tenant user with name, avatar, bio, professional summary, designation, expertise tags and six social links — surfaced on the public website."
+      icon: notebookBookmark
+    - title: "Course-Event Notifications"
+      description: "Instructors get an email/SMS/in-app/push alert on every course event they should hear about — published, unpublished, approved, rejected, submitted for review, content added, plus assignment, quiz and review events."
+      icon: clapperboardPlay
+    - title: "Payout Notifications"
+      description: "Payout processed and payout failed templates ship with the platform on every channel, so an instructor knows the moment money moves — or fails to move."
+      icon: diploma
 splitSections:
-  - title: "Many instructors, clear ownership"
-    description: "Edushade supports multi-instructor courses without losing the thread. Each instructor gets the visibility and credit that matches their contribution."
+  - title: "An assignment record that carries everything that matters"
+    description: "Every instructor relationship is one row on the instructors table, keyed by (tenant_id, entity_type, entity_id, instructor_id) — so the same person can be a lead on one course, a co-instructor on another and an assistant on a single lesson, all on the same tenant without conflict. The role column distinguishes instructor / co-instructor / assistant; the is_featured flag pins the headline face on the public page; soft delete keeps the audit trail intact when someone steps away."
     lists:
-      - "Assign multiple instructors to courses, paths, or single lessons"
-      - "Public instructor profiles with social links and bios"
-      - "Per-instructor notifications on course events"
-      - "Built-in payout tracking with success and failure alerts"
-    imgSrc: "/svgs/hero/banner.svg"
+      - "Composite-keyed (tenant_id, entity_type, entity_id, instructor_id)"
+      - "Role values: instructor, co-instructor, assistant"
+      - "is_featured flag for the public-page headline assignment"
+      - "Soft delete preserves history when an instructor is removed"
+    imgSrc: "/svgs/courses/instructor.svg"
     reverse: true
+  - title: "Assign at the level the work actually happens"
+    description: "Edushade lets you scope an assignment to whatever level matches the lesson. A senior instructor owns the course. A specialist co-runs a cohort. A teaching assistant supports a learning path. A guest expert teaches one specific lesson — and gets access only to that lesson, nothing else on the program. The same model powers all four scopes, so the admin UI and the permissions engine stay consistent."
+    lists:
+      - "Course-level assignment for full ownership"
+      - "Cohort-level assignment for batch-specific staffing"
+      - "Learning-path-level assignment for journey-wide guides"
+      - "Lesson-level assignment for guest experts on a single session"
+    imgSrc: "/svgs/courses/course-curriculum.svg"
+    reverse: false
+  - title: "A profile that does double duty"
+    description: "Each instructor record links to a tenant user, so the public instructor page and the in-app profile share one source of truth. Avatar, name, bio, professional summary, designation, expertise tags and six social links — LinkedIn, Twitter, Facebook, Instagram, YouTube and a personal website — all live on the same record. A public stats endpoint exposes their teaching footprint, and the front end renders consistent profiles wherever the instructor is featured."
+    lists:
+      - "Linked to the auth-service user record (one source of truth)"
+      - "Avatar, name, bio, professional summary, designation, expertise"
+      - "Six social links: LinkedIn, Twitter, Facebook, Instagram, YouTube, website"
+      - "Public instructor stats endpoint for the public-site profile page"
+    imgSrc: "/svgs/educator-love/4-integrated.svg"
+    reverse: true
+  - title: "Notifications and payouts, already wired up"
+    description: "An instructor does not need a separate dashboard to know what happened. The platform fires course-event notifications on the channels they have on — course published, unpublished, approved, rejected, submitted for review, new content added — plus the engagement loop (review received, response received) and the payout loop (processed, failed). Templates ship with email, SMS, in-app and push variants, all editable from the notification settings UI."
+    lists:
+      - "Course events: published, unpublished, approved, rejected, submitted, content added"
+      - "Engagement: review received, response received on a review"
+      - "Payouts: processed, failed — both editable templates ship with the platform"
+      - "Channels: email, SMS, in-app and push, toggled per template"
+    imgSrc: "/svgs/educator-love/5-scalability.svg"
+    reverse: false
+quickStart:
+  title: "From inviting a teacher to a public course page"
+  subtitle: "The whole loop — invite an instructor, assign them, surface their profile — lives inside the admin shell. No separate teacher app, no exports between tools."
+  steps:
+    - step: 1
+      title: "Invite or add the instructor"
+      description: "Open Admin → Platform → People → Instructors and use the invite flow, or pick an existing user. The invitation sets the user as is_instructor and pre-assigns the instructor role with one click."
+      imageAlt: "Admin Instructors view with invite flow and a role picker"
+      imageSrc: "/svgs/courses/course-create.svg"
+    - step: 2
+      title: "Assign at the right scope"
+      description: "Open the course, cohort, learning path or even a single lesson. Pick instructor, co-instructor or assistant. Toggle is_featured on the lead. Repeat for as many people as the program needs — no schema bending required."
+      imageAlt: "Course instructors panel with role chips and a featured toggle"
+      imageSrc: "/svgs/courses/instructor.svg"
+    - step: 3
+      title: "Ship the public profile"
+      description: "Fill in bio, professional summary, designation, expertise and six social links on the user record. The public instructor page renders straight from those fields, and the course page shows the right faces with the right roles automatically."
+      imageAlt: "Public instructor profile with avatar, bio and social links"
+      imageSrc: "/svgs/courses/course-publish.svg"
+faq:
+  title: "Instructor Management FAQ"
+  description: "How instructors are stored, assigned, surfaced and notified inside Edushade."
+  items:
+    - question: "How does Edushade represent an instructor?"
+      answer: "As a row on the instructors table with a composite primary key — tenant_id, entity_type, entity_id, instructor_id. The same user can hold one instructor record per program they teach, with a role (instructor / co-instructor / assistant), an is_featured flag and the usual created_at / updated_at / deleted_at audit fields. Soft delete keeps the history when someone moves off a course."
+    - question: "Can a single course carry multiple instructors?"
+      answer: "Yes. The composite key is built for it. A course can have one instructor, three co-instructors and two assistants — each as their own row, each with their own role and featured state. The admin UI surfaces all of them on the course page, and the public instructor section renders them in the right order with the right credit."
+    - question: "What roles ship out of the box?"
+      answer: "Three: instructor, co-instructor and assistant. Instructor is the lead. Co-instructor shares ownership and shows up on the course page. Assistant has a teaching-assistant scope — visible to learners as support staff, with the same permission scope as instructors. Custom variations live on top of the platform's RBAC system if you need them."
+    - question: "Where can I assign an instructor?"
+      answer: "Four scopes: course, cohort, learning path and individual lesson. Lesson-level is the most precise — a guest expert can own one specific lesson without getting access to the rest of the course. The same instructors panel surfaces in every program type, so the workflow is identical wherever you assign."
+    - question: "What is the featured-instructor flag for?"
+      answer: "It pins one instructor as the headline face on the public course page. Useful when a course is taught by a team but marketed around a lead. Toggle it on the assignment row — no other instructor is removed, the visual order on the public page just respects the featured flag first."
+    - question: "Where does the public instructor profile come from?"
+      answer: "From the linked user record. Avatar, name, bio, professional summary, designation, expertise tags and six social links — LinkedIn, Twitter, Facebook, Instagram, YouTube, personal website — all live on the user. The public site reads from there, and a public stats endpoint exposes the instructor's teaching footprint so a profile page can show the courses, paths and cohorts they are on."
+    - question: "Which notifications does an instructor receive?"
+      answer: "Course-event notifications on every channel they have on: course published, unpublished, approved, rejected, submitted for review, new content added. The engagement pipeline adds review.received and review.response_received. Assignment-graded, quiz-completion and certificate events fire on the same pipeline. Templates ship with email, SMS, in-app and push variants."
+    - question: "Are payouts handled in the platform?"
+      answer: "The notification side ships with payout.processed and payout.failed templates on every channel. The actual payout calculation lives in the billing service — pricing, revenue share and payout amount are billing concerns — but the moment a payout moves or fails, the platform fires the right notification to the instructor automatically."
+    - question: "How is the user marked as an instructor?"
+      answer: "A boolean is_instructor flag on the user record carries the instructor type at the auth-service level. The flag is set when an admin invites a user as an instructor or assigns the instructor role. The flag drives the unique-ID prefix the platform generates per tenant, the visibility of the instructor in People → Instructors, and the role-based gating the admin sidebar applies."
+    - question: "Is an instructor also a tenant role?"
+      answer: "Yes. The instructor role lives in the tenant's RBAC system as a real role with a permission set, separate from the type flag. The admin sidebar reads the role to decide which menu items render, so an instructor signs into /admin and sees a teaching-scoped subset (courses, paths, cohorts, enrollments, learners, content bank, grading, bookings, communication and course analytics) without admin-only items like billing, audit or system settings."
+    - question: "Can I run a guest-expert flow without giving them course-wide access?"
+      answer: "Yes. Lesson-level assignment is the path. Add a single instructors row scoped to (entity_type='lesson', entity_id=<lessonID>) with the guest's user ID and a role of instructor. Permissions stay scoped to that lesson, so the guest sees only what they teach and the rest of the course is invisible to them."
+    - question: "Does instructor data export?"
+      answer: "Yes. The standard CSV export pipeline covers users — including the is_instructor flag — and every program (course, cohort, learning path) carries its instructor relations alongside its own metadata. Bulk export from People → Instructors is gated by user.export, and per-program instructor lists ride along on the course / path / cohort exports."
+    - question: "What happens when an instructor is removed?"
+      answer: "Soft delete. The instructors row is stamped with deleted_at and disappears from the active assignments, but the historical relationship is preserved. The user record itself is untouched, so a removed instructor on one course can keep their assignments on every other course they teach. Past notifications, past payouts and past course events stay intact for audit."
+    - question: "Can two tenants share an instructor?"
+      answer: "No — the platform is multi-tenant with hard isolation at the tenant_id boundary. Every instructors row carries a tenant_id, and queries always filter by it. If the same person teaches at two organizations on Edushade, they hold two user records (one per tenant) and two sets of instructor assignments. There is no cross-tenant view by design."
 ---
 
-Instructor Management gives every teacher the right level of access and acknowledgement — whether they own a course or guest-teach a single lesson.
+## Suggested visuals for this page
+
+The hero, capability cards, FAQ and quick-start steps render directly from the data above. The four split sections and the three quick-start steps each carry an image. The current build reuses the closest existing illustrations from `/svgs/courses` and `/svgs/educator-love`, but a future design pass should ship dedicated artwork. Drop the new files at the listed paths and they will swap in without any code change.
+
+**Split section 1 — `imgSrc: /svgs/courses/instructor.svg` (placeholder)**
+Suggested artwork: a course header with three avatar chips — Lead Instructor (with a "Featured" badge), Co-instructor, Assistant — and a small composite-key label underneath showing (course, instructor) to communicate the data model.
+
+**Split section 2 — `imgSrc: /svgs/courses/course-curriculum.svg` (placeholder)**
+Suggested artwork: a layered diagram showing the four scopes — Course at the top, Cohort and Learning Path on the second layer, Individual Lesson on the third — with a single instructor avatar pinned to one Lesson card to show guest-expert scoping.
+
+**Split section 3 — `imgSrc: /svgs/educator-love/4-integrated.svg` (placeholder)**
+Suggested artwork: a public instructor profile card — avatar, name, designation, expertise tags, two-line bio and a row of six social-link icons (LinkedIn, Twitter, Facebook, Instagram, YouTube, website).
+
+**Split section 4 — `imgSrc: /svgs/educator-love/5-scalability.svg` (placeholder)**
+Suggested artwork: a notification panel for an instructor showing four cards — "Course Published", "New Review (5★)", "Payout Processed ($420)", "Payout Failed" — with channel chips (email, SMS, in-app, push) on each.
+
+**Quick-start step 1 — `imageSrc: /svgs/courses/course-create.svg` (placeholder)**
+Suggested artwork: the Admin Instructors view with a "+ Invite Instructor" button, a list with two existing instructors and an invite modal showing email + role picker.
+
+**Quick-start step 2 — `imageSrc: /svgs/courses/instructor.svg` (placeholder)**
+Suggested artwork: the course's Instructors panel with two rows (Lead + Co-instructor), a role chip on each, and a featured toggle visible on the lead row.
+
+**Quick-start step 3 — `imageSrc: /svgs/courses/course-publish.svg` (placeholder)**
+Suggested artwork: a public instructor profile page with avatar, name, designation, expertise pills, bio paragraph, social-link row and a list of "Courses I Teach" cards underneath.

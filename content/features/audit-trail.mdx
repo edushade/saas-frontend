@@ -1,27 +1,150 @@
 ---
 featureId: "audit-trail"
 title: "Audit Trail"
-description: "Track every admin action"
+description: "A clear, searchable record of every change that matters — and every action your learners take. Built in, not bolted on."
 href: "/features/audit-trail"
 navGroup: "Manage Roles"
 navIcon: file
 navOrder: 80
 banner:
   tag: "Audit Trail"
-  headline: "Know Who Did What, Always"
-  description: "Edushade records created-by, updated-by, and deleted-by metadata on every entity — so platform changes are never a mystery."
-  ctaText: "Get Started"
+  headline: "When something changes, you'll know who did it"
+  description: "Whether you're answering a compliance question, looking back at a refund decision, or just trying to remember who flipped a setting last Tuesday — Edushade has the answer ready. Every important change is written down automatically, with the person, the moment, what they changed and what it looked like before. No extra tools, no manual logging, no guessing."
+  ctaText: "See It For Yourself"
   ctaTo: "/contact-sales"
+capabilityHighlights:
+  title: "A record that's actually useful when you need it"
+  description: "Most audit logs are a wall of text you can't read on a Friday afternoon. Edushade keeps two clear, searchable streams — one for the changes admins and instructors make to the platform, one for the day-to-day activity of your learners — so the right answer is always one filter away."
+  capabilities:
+    - title: "Two Streams, One Story"
+      description: "An admin Audit Log for the changes your team makes, and an Activity Log for everything your learners do. Two views, one source of truth."
+      icon: clipboardList
+    - title: "Who, What, When, From Where"
+      description: "Every entry tells you the person, the action, the time, the IP and the device — so a record reads as a sentence, not a hex dump."
+      icon: routing
+    - title: "See the Before and After"
+      description: "When a setting changes, the entry shows what it was and what it became — so you can roll back in your head before you roll back in the app."
+      icon: arrowRight
+    - title: "Impersonation Stays Visible"
+      description: "When support signs in as a learner to debug, the action is recorded against the learner with the support agent's name on the side. No invisible footprints."
+      icon: notebookBookmark
+    - title: "Filter, Search, Export"
+      description: "Narrow by person, by action, by resource, by module, by date. Pull a CSV or a JSON export to send to legal, finance or the auditor of the day."
+      icon: clapperboardPlay
+    - title: "Keep What Matters, Retire the Rest"
+      description: "Set how long each stream lives. Older entries roll off automatically on the schedule you choose, so the log stays focused on what's relevant."
+      icon: diploma
 splitSections:
-  - title: "Accountability built into the platform, not bolted on"
-    description: "Every course, enrolment, role change, and deletion carries its own paper trail. Soft-delete keeps history recoverable when you need to roll something back."
+  - title: "Two clear streams, not one tangled log"
+    description: "There are two kinds of questions teams ask about an LMS. \"Who changed this setting?\" is one. \"What did this learner actually do?\" is the other. Edushade keeps them in separate views so neither one drowns the other. The Audit Log carries the privileged moves your team makes — courses created, prices changed, roles assigned, refunds approved. The Activity Log carries every user action — sign-ins, enrollments, lesson views, quiz attempts. They live next to each other in the admin so you can switch between them without losing your place."
     lists:
-      - "created_by, updated_by, deleted_by on every record"
-      - "Soft-delete with full audit preservation"
-      - "Filter activity by user, role, or entity type"
-      - "Support compliance reviews without spelunking through logs"
-    imgSrc: "/svgs/hero/banner.svg"
+      - "Audit Log for the changes admins and instructors make"
+      - "Activity Log for everything your learners do day-to-day"
+      - "Both share the same filters and the same look"
+      - "Each entry links back to the person and the resource it touched"
+    imgSrc: "/svgs/educator-love/4-integrated.svg"
     reverse: true
+  - title: "Every entry reads like a sentence, not a riddle"
+    description: "Open any entry and the story is right there. The person who did it, with their name and avatar. What they did, in plain words. Which part of the platform — billing, learning, communication, the website, anywhere it could happen. The exact time. The IP address and the device they used. And when the change is an update, the old value sits next to the new value so you can see what shifted without opening another window. There's nothing to decode."
+    lists:
+      - "The actor's name, photo and role next to the action"
+      - "A short, plain-English description of what happened"
+      - "Module tag — billing, learning, communication, website, etc."
+      - "Before and after values for updates, so the change is obvious"
+    imgSrc: "/svgs/courses/instructor.svg"
+    reverse: false
+  - title: "Find any moment without a treasure hunt"
+    description: "Audit logs only earn their keep if you can actually find what you need. The admin filters let you narrow by who took the action, what kind of action, which resource, which part of the platform, and a date range — by themselves or together. When you find the right entries, pull a CSV or JSON export with the same filters applied. It lands in your inbox in a shape your finance team or your auditor can open without help from engineering."
+    lists:
+      - "Filter by person, action, resource, module or date range"
+      - "Export the filtered set to CSV or JSON in one click"
+      - "Open any single entry for the full detail card"
+      - "Each user can also view their own activity history from their profile"
+    imgSrc: "/svgs/educator-love/2-analytics.svg"
+    reverse: true
+  - title: "Keep what matters, retire what doesn't"
+    description: "An audit trail you never throw away becomes a haystack. Edushade lets you set how long each stream lives — for example, eighteen months for the admin Audit Log, ninety days for the Activity Log — and the platform quietly retires older entries on the schedule you set. The records you still need are easy to find. The ones you no longer do don't slow anyone down. And if a regulator asks for the long view, lift the retention window and the archive is back."
+    lists:
+      - "Configurable retention windows, set independently per stream"
+      - "Cleanup runs automatically in the background"
+      - "Recent entries stay quick to query and export"
+      - "Adjust the window any time without losing the past month's data"
+    imgSrc: "/svgs/educator-love/5-scalability.svg"
+    reverse: false
+quickStart:
+  title: "From a question to a clear answer in three steps"
+  subtitle: "It's faster than going through emails. Open the right log, narrow with a filter or two, and you've got the answer — usually in under a minute."
+  steps:
+    - step: 1
+      title: "Open the right log"
+      description: "Under the admin's Audit menu, you'll see Audit Logs and Activity Logs side by side. Pick the one that matches your question — \"who changed this?\" sits in Audit Logs; \"what did this learner do?\" sits in Activity Logs."
+      imageAlt: "Audit menu with Audit Logs and Activity Logs visible side by side"
+      imageSrc: "/svgs/courses/course-create.svg"
+    - step: 2
+      title: "Narrow it down"
+      description: "Use the filters along the top — person, action, resource, module, date range. You can stack them. The list updates live, so you'll see the right entries the moment your filter is in place."
+      imageAlt: "Audit log table with filter chips for actor, action, module and a date range"
+      imageSrc: "/svgs/educator-love/4-integrated.svg"
+    - step: 3
+      title: "Open the detail or export the proof"
+      description: "Click any entry to see the full story — who, what, when, where from, before and after. Or hit Export to download exactly the rows you've filtered to as a CSV or JSON, ready to send on."
+      imageAlt: "An audit log detail view with before and after values, plus an Export button"
+      imageSrc: "/svgs/courses/course-publish.svg"
+faq:
+  title: "Audit Trail FAQ"
+  description: "The questions that come up the first time you sit down with the audit logs."
+  items:
+    - question: "What's the difference between the Audit Log and the Activity Log?"
+      answer: "The Audit Log is for the privileged changes your team makes — creating a course, changing a price, assigning a role, approving a refund. The Activity Log is for everything your learners do — signing in, enrolling, opening a lesson, attempting a quiz. Both live in the same admin view, but they answer different questions."
+    - question: "What does each entry actually contain?"
+      answer: "The person who did it (name and avatar), what they did (action), what they did it to (the resource), where in the platform it happened (module), the date and time, the IP address and the device. For updates, you also see what the value was before and after, so the change reads as a clear before-and-after."
+    - question: "Do I need to set this up?"
+      answer: "No. The audit and activity streams are on by default the moment your tenant is created. Every change made through the admin and every action your learners take is recorded automatically. There's no opt-in step, no manual instrumentation, no extra config."
+    - question: "What kinds of changes get audited?"
+      answer: "The privileged ones across every part of the platform — courses, learning paths, cohorts, lessons, quizzes, assignments, enrollments, prices, scholarships, transactions, roles, permissions, users, notices, notifications, the website builder. If a member of your team changes something material, it's on the record."
+    - question: "Can I see what changed, not just that something changed?"
+      answer: "Yes. When the action is an update, the entry stores the value before and after. So if someone changed a course's passing grade from 70% to 75%, the log shows you both numbers right there. You don't need to dig through commits or compare snapshots."
+    - question: "Does impersonation get tracked?"
+      answer: "Yes — and clearly. When a support admin signs in as a learner to debug, the actions show up against the learner's account, but the entry also names the admin who was driving. So an account never quietly does something its owner didn't do."
+    - question: "Can my learners see their own activity?"
+      answer: "Yes. Each user can pull up their own activity history from their profile — sign-ins, enrollments, lessons opened, quiz attempts. It's the same data the admin sees in the Activity Log, just scoped to them. Useful for transparency and for resolving \"did I really do that?\" questions."
+    - question: "Can I filter to find what I need?"
+      answer: "Yes. Both logs share a filter row — person, action, resource, module and date range. You can mix and match as many as you like; the list narrows as you add. \"Show me everything Sara did in billing last week\" is a four-click query."
+    - question: "What about exports?"
+      answer: "There's an Export button on the audit log view. It pulls the same set you've filtered to, in either CSV or JSON, and gives you a file ready to send to legal, finance, an external auditor or your own data warehouse."
+    - question: "How long are entries kept?"
+      answer: "As long as you want. Each stream has its own retention window — you might keep admin Audit Logs for eighteen months and Activity Logs for ninety days, or any other split that makes sense. Older entries are retired automatically on the schedule you pick. Adjust the window any time."
+    - question: "Who on my team can see the audit logs?"
+      answer: "Admins with the audit-read permission. Instructors don't see the audit log by default — it's an admin-only surface — but if your organization wants a custom role with audit visibility (a compliance officer, an auditor), you can create one in Roles & Permissions and grant audit-read to it."
+    - question: "Is the data tenant-isolated?"
+      answer: "Yes. Every entry belongs to a single tenant, and queries always filter by it. An admin on one organization can never see another organization's audit history, even by accident."
+    - question: "Will turning audit logging on slow down the platform?"
+      answer: "No. The platform writes audit and activity events on a separate stream from the action itself, so the user-facing flow doesn't wait on the log being persisted. The recording happens in the background."
+    - question: "What if something goes wrong with logging?"
+      answer: "The user's action still completes. Logging is a side channel — it never stops a learner from finishing a lesson or an admin from saving a setting. The platform retries the write and surfaces gaps in the operations dashboard so you know if a stream needs attention."
 ---
 
-An Audit Trail is the difference between "we don't know what happened" and "we know exactly what happened, who did it, and we can undo it."
+## Suggested visuals for this page
+
+The hero, capability cards, FAQ and quick-start steps render directly from the data above. The four split sections and the three quick-start steps each carry an image. The current build reuses the closest existing illustrations from `/svgs/courses` and `/svgs/educator-love`, but a future design pass should ship dedicated artwork. Drop the new files at the listed paths and they will swap in without any code change.
+
+**Split section 1 — `imgSrc: /svgs/educator-love/4-integrated.svg` (placeholder)**
+Suggested artwork: a tabbed admin view with Audit Logs and Activity Logs as two pills at the top, the Audit Logs side showing rows with admin avatars and actions like "changed price", the Activity Logs side showing learner avatars and actions like "started lesson".
+
+**Split section 2 — `imgSrc: /svgs/courses/instructor.svg` (placeholder)**
+Suggested artwork: a single audit entry expanded — actor avatar + name on the left, a clean sentence ("Sara updated the passing grade for Algebra 101"), a Module pill (Learning), a timestamp and IP, plus a Before / After diff card at the bottom showing 70% → 75%.
+
+**Split section 3 — `imgSrc: /svgs/educator-love/2-analytics.svg` (placeholder)**
+Suggested artwork: the audit log table with four filter chips along the top (Person, Action, Module, Date Range), the table narrowing to a few matching rows, and an Export button (CSV / JSON menu) in the corner.
+
+**Split section 4 — `imgSrc: /svgs/educator-love/5-scalability.svg` (placeholder)**
+Suggested artwork: a small Settings card titled "Retention" with two sliders or input pairs — Audit Logs: 540 days, Activity Logs: 90 days — and a tiny scheduled-cleanup chip indicating "Runs nightly".
+
+**Quick-start step 1 — `imageSrc: /svgs/courses/course-create.svg` (placeholder)**
+Suggested artwork: the admin sidebar with the Audit menu open, showing Audit Logs and Activity Logs as two clickable items.
+
+**Quick-start step 2 — `imageSrc: /svgs/educator-love/4-integrated.svg` (placeholder)**
+Suggested artwork: the audit log table mid-filter — chips for Actor (Sara), Action (updated), Module (Billing), Date (last 7 days) — with a few rows showing as the live results.
+
+**Quick-start step 3 — `imageSrc: /svgs/courses/course-publish.svg` (placeholder)**
+Suggested artwork: an audit log detail panel open in a side sheet with the full story — actor, action, before / after, IP, device, timestamp — and an Export selected button highlighted.

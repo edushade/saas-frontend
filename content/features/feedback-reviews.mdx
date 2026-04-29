@@ -1,36 +1,146 @@
 ---
 featureId: "feedback-reviews"
 title: "Feedback & Reviews"
-description: "Collect learner input"
+description: "Star ratings and written reviews on courses, paths, cohorts, events and quizzes — with moderation, instructor notifications and an aggregate satisfaction dashboard."
 href: "/features/feedback-reviews"
 navGroup: "Deliver & Engage"
 navIcon: star
 navOrder: 50
 banner:
   tag: "Feedback & Reviews"
-  headline: "Collect Learner Input"
-  description: "Gather reviews, ratings, and feedback to improve your courses."
-  ctaText: "Learn More"
+  headline: "Honest learner feedback, built into the course flow"
+  description: "Edushade ships a real review system, not a star widget bolted onto a course page. Learners rate and review the exact thing they enrolled in — a course, a learning path, a cohort, an event or a quiz. Admins moderate, instructors get notified, and a built-in dashboard turns every rating into a satisfaction trend you can act on."
+  ctaText: "Start Collecting Reviews"
   ctaTo: "/contact-sales"
+capabilityHighlights:
+  title: "Reviews that match how learning is actually delivered"
+  description: "Each review carries a 1–5 rating, a written body up to 10,000 characters, a status, and an audit trail. The same model works across courses, learning paths, cohorts, events and quizzes — so a single moderation queue covers every program type your team runs."
+  capabilities:
+    - title: "Star Rating + Written Review"
+      description: "Every review captures a 1–5 star rating and a body of up to 10,000 characters. Both are required, so a feedback record is never just a click."
+      icon: clipboardList
+    - title: "Five Reviewable Entities"
+      description: "Courses, learning paths, cohorts, live events and quizzes each accept reviews — one review system for every program type, not five disconnected widgets."
+      icon: routing
+    - title: "Pending → Active → Archived"
+      description: "Learner submissions land in pending, an admin moves them to active to publish, or to archived to retire — the record stays for audit either way."
+      icon: notebookBookmark
+    - title: "Per-Program Rating Toggle"
+      description: "Each course and learning path carries a rating-enabled flag, so an instructor can switch reviews off on a sensitive program without disabling them platform-wide."
+      icon: arrowRight
+    - title: "Multi-Channel Notifications"
+      description: "Instructors get an email, SMS, in-app and push alert when a new review lands. Learners get the same when an instructor responds — already wired up, no setup."
+      icon: clapperboardPlay
+    - title: "Satisfaction Dashboard"
+      description: "Average rating, current vs previous month growth, six-month satisfaction trend and a batch-ratings API — all calculated from the same reviews table."
+      icon: diploma
 splitSections:
-  - title: "Listen to learners systematically"
-    description: "Collect ratings, reviews, and structured feedback so improvement is based on evidence—not anecdotes."
+  - title: "A real review record, not just a star count"
+    description: "Every review in Edushade is a full record on the reviews table — a 1–5 rating, a written body, a status, a creator, an entity type and ID, plus the usual audit fields. The same shape powers a course review, a cohort review and a learning-path review, so reporting and moderation work the same everywhere."
     lists:
-      - "Course and session-level feedback where it is relevant"
-      - "Configurable prompts for qualitative insight"
-      - "Aggregation for administrators and lead instructors"
-      - "Respects privacy and moderation where needed"
+      - "1–5 star rating with a written body up to 10,000 characters"
+      - "Reviewable entities: course, learning_path, cohort, event, quiz"
+      - "Reviews on cohort-based courses roll up to the cohort automatically"
+      - "Tenant-scoped, soft-deleted, with created_by and updated_by attribution"
     imgSrc: "/svgs/educator-love/2-analytics.svg"
     reverse: true
-  - title: "Close the loop on quality"
-    description: "Spot trends, celebrate what works, and prioritize changes that raise completion and satisfaction."
+  - title: "Moderation that fits a real classroom"
+    description: "Learner submissions land as pending. Admins move them to active to publish on the public site, or to archived to retire without losing the record. When a learner edits their own review, the status drops back to pending — so a quiet rewrite still gets a second look. Admins create reviews on behalf when needed, and those go straight to active."
     lists:
-      - "Compare feedback across cohorts and time periods"
-      - "Pair qualitative comments with quantitative signals"
-      - "Supports continuous improvement cycles"
-      - "Helps new instructors learn from proven courses"
-    imgSrc: "/svgs/small-grid.svg"
+      - "Three statuses: pending, active, archived — only active is visible publicly"
+      - "Learners can only review programs they are actually enrolled in"
+      - "Learner edits revert the review to pending for re-moderation"
+      - "Admin-created reviews skip the queue and publish on save"
+    imgSrc: "/svgs/courses/course-publish.svg"
     reverse: false
+  - title: "Notifications that close the loop with the instructor"
+    description: "When a new review lands, the instructor gets a notification on every channel they have on — in-app, email, SMS and push — with the rating, the reviewer and a preview of the body. When the instructor responds, the learner gets the same. No external integration, no extra service to wire up; the templates ship with the platform."
+    lists:
+      - "review.received fires to the instructor on every new review"
+      - "review.response_received fires to the learner on instructor reply"
+      - "Channels: in-app bell, email, SMS and push — toggle per channel"
+      - "Templates are editable from the notification settings UI"
+    imgSrc: "/svgs/educator-love/4-integrated.svg"
+    reverse: true
+  - title: "Turn ratings into a satisfaction signal"
+    description: "Reviews are not just a leaderboard. The platform aggregates the same data into an average rating, a current-month vs previous-month rating growth, a six-month satisfaction line, a batch-ratings API for any 1,000 entities at once, and a per-program rating + total-reviews count on every course card. Every chart pulls from the same reviews table, so the numbers always agree."
+    lists:
+      - "Course-entity average rating with month-over-month growth percentage"
+      - "Six-month satisfaction trend (avg_rating / 5 × 100, per month)"
+      - "Batch average-ratings API for up to 1,000 entities in one call"
+      - "Per-program rating and review count on course, path and cohort cards"
+    imgSrc: "/svgs/educator-love/5-scalability.svg"
+    reverse: false
+quickStart:
+  title: "From first rating to a moderated, public review"
+  subtitle: "Every step lives inside Edushade — a learner submits, an admin moderates from the program's Reviews tab, and the rating flows straight into the course card and the satisfaction dashboard."
+  steps:
+    - step: 1
+      title: "Learner writes the review"
+      description: "On the course, path, cohort, event or quiz they are enrolled in, the learner picks a star rating and writes a review. One review per learner per entity. The submission lands as pending."
+      imageAlt: "Review form modal with five-star rating and body textarea"
+      imageSrc: "/svgs/courses/course-create.svg"
+    - step: 2
+      title: "Admin moderates from the Reviews tab"
+      description: "Open the program's Reviews tab in the admin. Each row shows the reviewer, the rating, the status badge and the comment. Move a review to active to publish, archived to retire, or edit the body and rating in place."
+      imageAlt: "Admin reviews data table with status badges, star rating column and bulk actions"
+      imageSrc: "/svgs/courses/course-curriculum.svg"
+    - step: 3
+      title: "Rating shows up everywhere it counts"
+      description: "The active review is visible on the public program page, the instructor gets a review.received notification, and the rating + total count flow into the satisfaction dashboard, the program card and the batch-ratings API automatically."
+      imageAlt: "Public program page with star rating, review count and recent reviews block"
+      imageSrc: "/svgs/courses/course-publish.svg"
+faq:
+  title: "Feedback & Reviews FAQ"
+  description: "How ratings, written reviews, moderation, notifications and the satisfaction dashboard work inside Edushade."
+  items:
+    - question: "What can a learner review in Edushade?"
+      answer: "Five entity types share the same review system: courses, learning paths, cohorts, live events and quizzes. The shape of a review — 1–5 rating, written body, status, creator, audit fields — is identical across all of them, so reporting and moderation behave the same everywhere."
+    - question: "Who is allowed to leave a review?"
+      answer: "Reviews are gated by enrollment. The platform checks that the learner is actually enrolled in the program before accepting the submission, which keeps drive-by ratings out of the dataset. Admins can post a review on behalf of someone when needed — those skip the moderation queue and publish on save."
+    - question: "What is the moderation lifecycle?"
+      answer: "Three statuses: pending, active and archived. Learner submissions start as pending. An admin moves them to active to make them visible on the public site, or to archived to retire without losing the record. When a learner edits their own review, the status drops back to pending so the change is re-checked."
+    - question: "How do reviews behave on cohort-based courses?"
+      answer: "If a learner is enrolled in a cohort under a course or learning path, the review is stored against the cohort automatically — so reviews track the actual batch they took, not the parent template. Aggregations roll cohort reviews back up to the parent program when reporting at that level."
+    - question: "Can an instructor disable reviews on a single program?"
+      answer: "Yes. Each course and learning path carries a rating-enabled flag, on by default. Switching it off keeps the review form from rendering on that program without affecting any other course on the platform — useful for sensitive content, preview programs, or pilots."
+    - question: "What does the learner see on a program page?"
+      answer: "An average rating in the form of X.X/5, a star row, a distribution bar for 5/4/3/2/1 ratings, the total review count, and a Write a Review button. If the learner has already reviewed that program, the button shows Already Reviewed and does not open the form again."
+    - question: "How does the admin manage reviews?"
+      answer: "Each program in the admin has a Reviews tab with a data table — reviewer name and avatar, rating as a star row, status badge (pending/active/archived), comment, review date, plus row-level edit and delete. Bulk actions cover CSV export and bulk delete, and there is a Create Review action for admin-side submissions."
+    - question: "Are notifications sent when reviews come in?"
+      answer: "Yes — both directions are wired up. review.received fires to the instructor when a new review lands; review.response_received fires to the learner when the instructor responds. Both ship as in-app, email, SMS and push templates, all editable from the notification settings UI."
+    - question: "What aggregate metrics ship with reviews?"
+      answer: "Average rating, total reviews, current-month vs previous-month rating growth, a six-month satisfaction line (avg_rating / 5 × 100, per month), and a batch average-ratings endpoint that returns ratings + counts for up to 1,000 entities in one call. Course cards, path cards and the satisfaction dashboard all read from this data."
+    - question: "Can reviews be exported?"
+      answer: "Yes. The admin Reviews table exposes a CSV export with full metadata — reviewer ID, entity type and ID, rating, status, body, created and updated timestamps, plus the audit fields — so reviews can be backed up, audited or moved into another system whenever you need to."
+    - question: "What controls who can manage reviews on the admin side?"
+      answer: "The platform ships with five RBAC permissions for reviews: review.list, review.view, review.create, review.update and review.delete. Assign them to a role and any user with that role inherits the access, scoped to the tenant. Course and cohort scoping comes from the existing program permissions."
+    - question: "How long can a review body be?"
+      answer: "Up to 10,000 characters, with a minimum of 1 character — both rating and body are required to submit. That is enough room for a real piece of feedback, not just a one-liner, and the form uses a textarea so longer responses are easy to write and edit."
 ---
 
-Feedback and reviews help you refine content and delivery—without relying on scattered forms or disconnected survey tools.
+## Suggested visuals for this page
+
+The hero, capability cards and FAQ on this page render from the data above. The four split sections and the three quick-start steps each carry an image. The current build reuses the closest existing illustrations from `/svgs/educator-love` and `/svgs/courses`, but a future design pass should ship dedicated artwork. Drop the new files at the listed paths and they will swap in without any code change.
+
+**Split section 1 — `imgSrc: /svgs/educator-love/2-analytics.svg` (placeholder)**
+Suggested artwork: a learner-facing review card showing a 5-star rating, a name + avatar, a short review body, and a small "course" entity tag — to communicate that reviews live on the program, not on the platform at large.
+
+**Split section 2 — `imgSrc: /svgs/courses/course-publish.svg` (placeholder)**
+Suggested artwork: a moderation queue with three columns (Pending, Active, Archived) and a single review card flowing from one column to the next.
+
+**Split section 3 — `imgSrc: /svgs/educator-love/4-integrated.svg` (placeholder)**
+Suggested artwork: an instructor's notification panel surfacing "New 5-Star Review on Advanced Algebra", with email, SMS and push channel chips alongside the in-app entry.
+
+**Split section 4 — `imgSrc: /svgs/educator-love/5-scalability.svg` (placeholder)**
+Suggested artwork: a satisfaction dashboard with one large average-rating tile, a six-month line chart, and a small ratings-distribution bar chart for the current month.
+
+**Quick-start step 1 — `imageSrc: /svgs/courses/course-create.svg` (placeholder)**
+Suggested artwork: the learner-side Review form modal with five tappable stars and a populated body textarea.
+
+**Quick-start step 2 — `imageSrc: /svgs/courses/course-curriculum.svg` (placeholder)**
+Suggested artwork: the admin Reviews data table with rows showing avatars, star ratings, the status badge (Active / Pending / Archived) and the row action menu.
+
+**Quick-start step 3 — `imageSrc: /svgs/courses/course-publish.svg` (placeholder)**
+Suggested artwork: a public course card with the star rating + review count badge, plus a stacked review excerpt below.

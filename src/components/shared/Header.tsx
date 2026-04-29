@@ -62,71 +62,79 @@ function FeaturesMenu({
 					>
 						Features
 					</NavigationMenuTrigger>
-					<NavigationMenuContent className="w-(--es-max-w)! bg-bg-primary border-border-secondary shadow-[0px_0px_3px_-1px_#0A090B0A,0px_32px_33px_0px_#0A090B24]! fixed! left-1/2! -translate-x-1/2! top-(--es-nav-h)! p-0">
-						<Card className="border-none shadow-none bg-transparent gap-0 overflow-hidden">
-							<CardContent className="grid grid-cols-4 gap-8">
-								{FEATURES_GROUPS.map((group) => (
-									<div key={group.title}>
-										<Typography
-											variant="extraSmall"
-											className="mb-3 font-medium uppercase tracking-widest text-text-quaternary"
-										>
-											{group.title}
-										</Typography>
-										<ul className="space-y-0.5">
-											{group.items.map((item) => (
-												<li key={item.label}>
-													<Link
-														to={item.href}
-														onClick={() => onOpenChange(null)}
-														className={cn(
-															"flex items-start gap-3 rounded-lg py-2 transition-colors hover:bg-bg-secondary",
-															pathname === item.href &&
-																"bg-bg-secondary text-brand-300",
-														)}
-													>
-														<div className="bg-bg-tertiary rounded-md p-0.5 hover:bg-bg-secondary">
-															<div className="relative flex p-1 shrink-0 items-center justify-center rounded-md bg-bg-primary hover:bg-bg-secondary bg-[url('/svgs/small-grid.svg')] bg-center bg-no-repeat bg-contain">
-																<item.icon className="relative z-10 text-brand-200 size-7 hover:text-brand-300" />
+					<NavigationMenuContent className="w-(--es-max-w)! bg-bg-primary border-border-secondary shadow-[0px_0px_3px_-1px_#0A090B0A,0px_32px_33px_0px_#0A090B24]! fixed! left-1/2! -translate-x-1/2! top-(--es-nav-h)! p-0 max-h-[calc(100dvh-var(--es-nav-h))] flex flex-col">
+						<Card className="border-none shadow-none bg-transparent gap-0 flex flex-col min-h-0 flex-1">
+							<div className="flex-1 min-h-0 overflow-y-auto">
+								<CardContent className="grid grid-cols-4 gap-8">
+									{FEATURES_GROUPS.map((group) => (
+										<div key={group.title}>
+											<Typography
+												variant="extraSmall"
+												className="mb-3 font-medium uppercase tracking-widest text-text-quaternary"
+											>
+												{group.title}
+											</Typography>
+											<ul className="space-y-0.5">
+												{group.items.map((item) => (
+													<li key={item.label}>
+														<Link
+															to={item.href}
+															onClick={(e) => {
+																if (item.comingSoon) {
+																	e.preventDefault();
+																	return;
+																}
+																onOpenChange(null);
+															}}
+															className={cn(
+																"flex items-start gap-3 rounded-lg py-2 transition-colors hover:bg-bg-secondary",
+																pathname === item.href &&
+																	"bg-bg-secondary text-brand-300",
+															)}
+														>
+															<div className="bg-bg-tertiary rounded-md p-0.5 hover:bg-bg-secondary">
+																<div className="relative flex p-1 shrink-0 items-center justify-center rounded-md bg-bg-primary hover:bg-bg-secondary bg-[url('/svgs/small-grid.svg')] bg-center bg-no-repeat bg-contain">
+																	<item.icon className="relative z-10 text-brand-200 size-7 hover:text-brand-300" />
+																</div>
 															</div>
-														</div>
-														<div className="flex flex-col gap-1">
-															<Typography
-																variant="small"
-																className={cn(
-																	"leading-tight font-medium",
-																	pathname === item.href
-																		? "text-brand-300"
-																		: "text-text-primary",
-																)}
-															>
-																{item.label}
-															</Typography>
-															<Typography
-																variant="extraSmall"
-																className="font-normal leading-relaxed text-text-secondary mt-0.5"
-															>
-																{item.description}
-															</Typography>
-														</div>
-													</Link>
-												</li>
-											))}
-										</ul>
-									</div>
-								))}
-							</CardContent>
+															<div className="flex flex-col gap-1">
+																<Typography
+																	variant="small"
+																	className={cn(
+																		"leading-tight font-medium",
+																		pathname === item.href
+																			? "text-brand-300"
+																			: "text-text-primary",
+																	)}
+																>
+																	{item.label}
+																</Typography>
+																<Typography
+																	variant="extraSmall"
+																	className="font-normal leading-relaxed text-text-secondary mt-0.5 line-clamp-1"
+																>
+																	{item.description}
+																</Typography>
+															</div>
+														</Link>
+													</li>
+												))}
+											</ul>
+										</div>
+									))}
+								</CardContent>
 
-							<div className="col-span-4 flex justify-center py-4">
-								<Button variant="outline" asChild>
-									<Link to="/features" onClick={() => onOpenChange(null)}>
-										Show All Features <ChevronDown size={14} />
-									</Link>
-								</Button>
+								<div className="flex justify-center py-4">
+									<Button variant="outline" className="rounded-full" asChild>
+										<Link to="/features" onClick={() => onOpenChange(null)}>
+											Show All Features <ChevronDown size={14} />
+										</Link>
+									</Button>
+								</div>
 							</div>
 
 							{/* CTA bar */}
-							<CardFooter className="border-t border-border-secondary   items-center w-full">
+							<CardFooter className="shrink-0 border-t border-border-secondary items-center w-full">
 								<div className="bg-bg-secondary w-full px-3 py-2 flex items-center justify-between rounded-lg">
 									<div className="flex items-center gap-3">
 										<div className="p-1 rounded-full bg-brand-200 shrink-0 hover:bg-bg-secondary">
@@ -267,7 +275,13 @@ function MobileMenu() {
 											<Link
 												key={item.label}
 												to={item.href}
-												onClick={() => setOpen(false)}
+												onClick={(e) => {
+													if (item.comingSoon) {
+														e.preventDefault();
+														return;
+													}
+													setOpen(false);
+												}}
 												className="flex items-center gap-2.5 rounded-md px-2 py-2 text-sm text-text-secondary transition-colors hover:bg-bg-secondary hover:text-text-primary"
 											>
 												<item.icon

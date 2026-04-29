@@ -10,7 +10,31 @@ import { Button } from "@/components/ui/button";
 import { FAQ_ITEMS } from "@/constants/faq";
 import { Typography } from "../ui-custom/typography";
 
-export default function FAQSection() {
+export interface FAQItem {
+	question: string;
+	answer: string;
+}
+
+export interface FAQSectionProps {
+	title?: React.ReactNode;
+	description?: string;
+	items?: FAQItem[];
+}
+
+const DEFAULT_TITLE = (
+	<>
+		Frequently <br /> Asked Questions
+	</>
+);
+
+const DEFAULT_DESCRIPTION =
+	"Answers to common questions about how Edushade works, pricing, and getting started.";
+
+export default function FAQSection({
+	title = DEFAULT_TITLE,
+	description = DEFAULT_DESCRIPTION,
+	items = FAQ_ITEMS,
+}: FAQSectionProps = {}) {
 	return (
 		<section className="bg-bg-primary py-(--es-section-py) px-4 md:px-8 xl:px-(--es-section-px)">
 			<div className="mx-auto max-w-(--es-max-w) ">
@@ -20,14 +44,13 @@ export default function FAQSection() {
 							variant="h1"
 							className="text-2xl md:text-[2rem] lg:text-[2.75rem] leading-tight font-medium text-text-primary"
 						>
-							Frequently <br /> Asked Questions
+							{title}
 						</Typography>
 						<Typography
 							variant="h6"
 							className="font-normal  leading-relaxed text-text-secondary max-w-lg"
 						>
-							Answers to common questions about how Edushade works, pricing, and
-							getting started.
+							{description}
 						</Typography>
 						<div className="flex flex-col gap-3 pt-1">
 							<Typography
@@ -51,7 +74,7 @@ export default function FAQSection() {
 						defaultValue="faq-0"
 						className="w-full space-y-4"
 					>
-						{FAQ_ITEMS.map((item, index) => (
+						{items.map((item, index) => (
 							<AccordionItem
 								key={item.question}
 								value={`faq-${index}`}

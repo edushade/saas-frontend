@@ -1,27 +1,152 @@
 ---
 featureId: "live-bookings"
 title: "Live Bookings"
-description: "Schedule 1-on-1 sessions"
+description: "A Calendly-style booking surface for coaching calls, office hours and paid one-on-one sessions — bookable plans, calendar sync, group seats, request flows and payment gating."
 href: "/features/live-bookings"
 navGroup: "Deliver & Engage"
 navIcon: headphone
 navOrder: 55
 banner:
   tag: "Live Bookings"
-  headline: "Sell and Schedule One-on-One Time"
-  description: "Offer coaching calls, mentor sessions, or office hours with bookable slots, automatic reminders, and recordings learners can revisit."
-  ctaText: "Get Started"
+  headline: "A real booking platform, sitting next to your courses"
+  description: "Edushade ships a full meeting & appointment system — bookable plans with their own slug, weekly availability, Google Calendar and Zoom OAuth, group seats, request approvals and paid sessions. The invitee gets a branded, timezone-aware booking page; you get a single dashboard for every booking that lands."
+  ctaText: "Open Your First Calendar"
   ctaTo: "/contact-sales"
+capabilityHighlights:
+  title: "Everything a serious booking flow needs, built in"
+  description: "Live Bookings runs on its own service inside Edushade — meeting plans, availability rules, slot generation, OAuth-based calendar/conference sync, lifecycle statuses, group capacity, request approvals and paid sessions all live on the same data model. One booking dashboard, one set of permissions, one source of truth."
+  capabilities:
+    - title: "Bookable Meeting Plans"
+      description: "A Calendly-style template per offering — title, public slug, duration, timezone, description, color, categories and an active flag. Each plan gets its own page at /bookings/{slug}."
+      icon: clipboardList
+    - title: "Five Meeting Mediums"
+      description: "Google Meet, Zoom, In Person, Phone Call and No Location — with the right join link, address or phone number stored on every booking."
+      icon: routing
+    - title: "Google Calendar & Zoom OAuth"
+      description: "Connect Google Calendar and Zoom from the admin under Integrations. Bookings auto-create calendar events and Zoom meetings, with Meet rooms attached when you flip has_meet on."
+      icon: clapperboardPlay
+    - title: "1-on-1, Group, Request, Paid"
+      description: "One model covers 1:1 plans, group plans (group_meeting_spot ≥ 2), request-based approvals (is_request_based_booking) and paid plans (is_collect_payment_after_confirmation)."
+      icon: notebookBookmark
+    - title: "Buffers, Notice, Deadlines"
+      description: "Per-plan policy fields: buffer before/after, minimum notice, max per day, cancel and reschedule deadlines, plus a -1 sentinel for no deadline at all."
+      icon: arrowRight
+    - title: "Eight Notification Templates"
+      description: "Booking confirmed/cancelled and meeting scheduled / reminder / started / rescheduled / cancelled / recording-available — each with email, SMS, in-app and push, ready to edit."
+      icon: diploma
 splitSections:
-  - title: "Slots, payments, and reminders — handled"
-    description: "Define availability, set a price, and let learners book the time that works for them. Edushade takes care of confirmations, reminders, and after-session recordings."
+  - title: "A meeting plan is a real, shareable product"
+    description: "Each meeting plan in Edushade has its own page at /bookings/{slug} on your branded site — title, description, color accent, category, register count and price. Slugs are unique per tenant, so /bookings/30-min-coaching is a stable URL you can put on a business card, in an email signature or on a landing page."
     lists:
-      - "Configurable session plans with duration and pricing"
-      - "Automatic confirmation, reminder, and reschedule emails"
-      - "Post-session recording delivery to attendees"
-      - "Cancellation and rescheduling without back-and-forth"
-    imgSrc: "/svgs/hero/banner.svg"
+      - "Per-plan slug, title, timezone, duration, color and description"
+      - "Categories with category-tree filtering on /bookings"
+      - "Active flag hides the plan from the public listing without deleting it"
+      - "Configurable base path — /bookings, /book, /appointments, /schedule"
+    imgSrc: "/svgs/courses/course-types.svg"
     reverse: true
+  - title: "Weekly availability that turns into real, timezone-aware slots"
+    description: "Set Monday-to-Sunday rules with multiple ranges per day for split shifts. The booking-service expands those weekly rules across whatever month an invitee is browsing, subtracts existing bookings and buffers, applies minimum-notice and max-per-day caps, and renders the resulting slots in the invitee's local timezone — or locks them to yours, your choice."
+    lists:
+      - "Multiple time ranges per weekday (e.g. 9–12 AM and 2–5 PM)"
+      - "15-minute granularity in the editor; minutes-from-midnight on the wire"
+      - "Buffers, minimum notice and max-per-day fold into slot generation"
+      - "Timezone picker on the public page, or pin to the organizer's zone"
+    imgSrc: "/svgs/courses/course-curriculum.svg"
+    reverse: false
+  - title: "Calendar and conference sync, without a Zapier in the middle"
+    description: "Connect Google Calendar from the admin under Integrations and every booking — Meet, Zoom or in-person — creates a Google Calendar event for the organizer and the invitee. Connect Zoom and the booking-service creates the Zoom meeting itself, stores the join URL and password on the booking, and wraps it inside a calendar invite with a single click."
+    lists:
+      - "Google Calendar OAuth connect and disconnect from Integrations"
+      - "Google Meet enabled by flipping has_meet on the same Google integration"
+      - "Zoom OAuth, with join URL and meeting password stored per booking"
+      - "Reschedule and cancel mirror to the calendar event automatically"
+    imgSrc: "/svgs/educator-love/4-integrated.svg"
+    reverse: true
+  - title: "A booking lifecycle that mirrors how meetings actually move"
+    description: "Every meeting schedule moves through six explicit statuses: in_schedule for confirmed bookings, requested for approval-waiting, pending for payment-waiting, rescheduled when the time changes, canceled when it stops, and expired when an unpaid booking runs out. The dashboard filters on each, and the audit pipeline records the move."
+    lists:
+      - "Six statuses: in_schedule, requested, pending, rescheduled, canceled, expired"
+      - "Group plans seat multiple invitees on the same slot (spots_left)"
+      - "Request flow: invitee proposes slots → admin confirms a final time"
+      - "Payment-gated flow: pending until the billing service confirms paid"
+    imgSrc: "/svgs/educator-love/5-scalability.svg"
+    reverse: false
+quickStart:
+  title: "From an empty calendar to a public booking page"
+  subtitle: "The whole booking system lives under Admin → Booking. Connect a calendar, build one plan, share the slug — incoming bookings show up in the schedules dashboard from the first invitee onward."
+  steps:
+    - step: 1
+      title: "Connect Google Calendar (and Zoom, if you use it)"
+      description: "Open Admin → Booking → Integrations. Click Add Calendar to OAuth into Google, then add Zoom on the Conference tab if you run Zoom sessions. Google Meet rides the same Google connection — flip has_meet on and Meet rooms attach to every google_meet booking."
+      imageAlt: "Integrations admin page with Google Calendar and Zoom OAuth tabs"
+      imageSrc: "/svgs/courses/course-create.svg"
+    - step: 2
+      title: "Create a meeting plan"
+      description: "Set a title, slug, timezone and duration. Add weekly availability rows, pick a medium (Meet, Zoom, In Person, Phone, No Location), set buffers, notice and a cancel deadline. Toggle group seats, request-based approval or payment gating if the plan needs them."
+      imageAlt: "Meeting plan create form with title, slug, timezone, duration, availability and medium"
+      imageSrc: "/svgs/courses/course-curriculum.svg"
+    - step: 3
+      title: "Share /bookings/{slug} and accept bookings"
+      description: "The plan goes live the moment is_active is true. Share the URL anywhere — invitees pick a slot in their own timezone, fill in the form, and the booking lands in your dashboard with a calendar event already on the way to both sides."
+      imageAlt: "Public branded booking page with calendar, timezone picker and time slots"
+      imageSrc: "/svgs/courses/course-publish.svg"
+faq:
+  title: "Live Bookings FAQ"
+  description: "How meeting plans, availability, mediums, integrations, the booking lifecycle, group seats, requests and paid sessions actually work inside Edushade."
+  items:
+    - question: "What is a meeting plan in Edushade?"
+      answer: "A meeting plan is a bookable template — the equivalent of a Cal.com event type or a Calendly event. It carries a title, a unique slug, a timezone, a duration, an optional description and color, a medium, weekly availability rules, plus the policy fields that govern buffers, notice, group capacity, request approvals and payment gating. Every booking is created against a meeting plan."
+    - question: "How does the public booking page work?"
+      answer: "Each meeting plan gets its own public page at /bookings/{slug} on your branded site, plus a directory at /bookings with category filters and search. The detail page renders a 6-week calendar with a timezone picker, a time-slot grid for the selected day, and a booking form for invitee + optional guests. Slots are generated in UTC and rendered in the invitee's local timezone."
+    - question: "What meeting mediums are supported?"
+      answer: "Five: Google Meet, Zoom, In Person, Phone Call and No Location. Google Meet auto-allocates a room on the calendar event. Zoom creates a real Zoom meeting and stores the join URL plus password on the booking. In Person carries a physical address. Phone Call carries a phone number. No Location is a no-op for asynchronous mediums."
+    - question: "What integrations are required?"
+      answer: "Google Calendar is the central integration — every external artifact (Meet rooms, Zoom calendar wrapping, in-person calendar invites) flows through Google Calendar. Connect it once via OAuth from Admin → Booking → Integrations. Add Zoom on the Conference tab if you run Zoom sessions. Google Meet does not need a separate connection — it ships as a has_meet flag on the same Google integration."
+    - question: "What is the difference between request-based and instant booking?"
+      answer: "Instant plans use weekly availability — invitees pick a slot and the booking is confirmed on submit. Request-based plans skip availability rules: the invitee proposes one or more preferred slots, the booking lands in the requested status, and the admin reviews and confirms a final date and time. Calendar events and join links are created at confirmation time, not at submission."
+    - question: "How do paid sessions work?"
+      answer: "Toggle is_collect_payment_after_confirmation on the meeting plan and add a price record in the billing service. New bookings against that plan land in the pending status, the booking:expiry job is scheduled, and the booking transitions to in_schedule the moment a successful payment lands. Unpaid bookings expire automatically after pending_expiry_minutes — no manual cleanup."
+    - question: "Can a single slot host multiple invitees?"
+      answer: "Yes. Set group_meeting_spot to 2 or more on the meeting plan and the public availability feed exposes spots_left per slot. The first invitee who books creates the schedule; subsequent invitees on the same slot are added as additional Invitee rows on the same booking. When spots_left hits zero, the slot disappears from the calendar."
+    - question: "What policy controls ship with each plan?"
+      answer: "Buffer before, buffer after, minimum notice, max meetings per day, cancel-before-minutes, reschedule-before-minutes, group_meeting_spot, additional guests, pending expiry, lock-meeting-plan-timezone and has-invitee-call. Most are nullable integers; -1 is the explicit no-deadline sentinel on cancel/reschedule. Every policy is enforced server-side, not just in the UI."
+    - question: "What statuses does a booking go through?"
+      answer: "Six: in_schedule (confirmed), requested (approval-waiting), pending (payment-waiting), rescheduled (time changed), canceled (stopped) and expired (unpaid bookings that ran out the timer). The admin schedules dashboard filters on each, and reschedule and cancel both mirror to the connected Google Calendar event so attendees never see a stale invite."
+    - question: "Which notifications are sent?"
+      answer: "Eight templates ship with the platform: booking confirmed, booking cancelled, meeting scheduled, meeting reminder, meeting started, meeting rescheduled, meeting cancelled and meeting recording available. Each has email, SMS, in-app and push variants, and the templates are editable from the notification settings UI — no external email tool, no Zap, no copy-paste between systems."
+    - question: "Do invitees need to sign in to book?"
+      answer: "Yes — the POST /meeting-schedules endpoint that creates a booking sits behind the user-auth middleware, so the invitee must be authenticated. Discovery (/bookings, /bookings/{slug}, the availability feed) is fully public; only the actual booking submission requires a signed-in invitee. Anyone can browse the calendar without an account."
+    - question: "Can I customize the public booking page?"
+      answer: "Yes. The booking-service ships per-user BookingPageSetting records — title, layout, background color, thumbnail, cover image — surfaced on the public page. The base path itself (/bookings, /book, /appointments, /schedule) is configurable from the website settings, so the public URL fits whatever language your team uses."
+    - question: "Who on my team can manage bookings?"
+      answer: "The booking module ships its own RBAC permissions — meeting_plan.create, meeting_plan.update, meeting_plan.delete, meeting_plan.view, plus the schedule.* and setting.* groups for the bookings dashboard and integration config. Assign them to a role and any user with that role inherits the access, scoped to the tenant."
+    - question: "How does timezone handling work?"
+      answer: "Slots are stored on the wire in UTC and as minutes-from-midnight in the plan's timezone for availability rules. The public page renders slots in the invitee's local timezone by default, with a 21-zone dropdown for overrides. Lock the picker by flipping has_lock_meeting_plan_timezone on the plan — useful when the time of a session is the time of the session, regardless of where the invitee opens the link."
+    - question: "Can I export bookings or hand them to another service?"
+      answer: "Yes. The schedules dashboard backs onto a CSV export, and the booking-service exposes a /v1/system/* surface that the billing and notification services already consume — so any internal service with a system token can read schedules, prices and invitees without going through user auth."
 ---
 
-Live bookings turn one-on-one expertise into a productized offering — without spreadsheets, calendar invites, or chasing payments.
+## Suggested visuals for this page
+
+The hero, capability cards, FAQ and quick-start steps render directly from the data above. The four split sections and the three quick-start steps each carry an image. The current build reuses the closest existing illustrations from `/svgs/courses` and `/svgs/educator-love`, but a future design pass should ship dedicated artwork. Drop the new files at the listed paths and they will swap in without any code change.
+
+**Split section 1 — `imgSrc: /svgs/courses/course-types.svg` (placeholder)**
+Suggested artwork: a public meeting-plan page mockup — title, color dot, duration ("30 min"), medium chip ("Google Meet"), category tag and a "Book a Slot" CTA — to communicate that each plan is a real, shareable product.
+
+**Split section 2 — `imgSrc: /svgs/courses/course-curriculum.svg` (placeholder)**
+Suggested artwork: a weekly availability editor on the left (Mon–Sun rows with 9–12 AM and 2–5 PM ranges), a 6-week calendar in the middle, and a time-slot column on the right ("09:30 AM", "10:00 AM", "10:30 AM" buttons).
+
+**Split section 3 — `imgSrc: /svgs/educator-love/4-integrated.svg` (placeholder)**
+Suggested artwork: an Integrations panel showing two cards — Google Calendar (with a small "Meet enabled" pill) and Zoom — both with a "Connected" status and a small profile chip showing the linked organizer.
+
+**Split section 4 — `imgSrc: /svgs/educator-love/5-scalability.svg` (placeholder)**
+Suggested artwork: a booking pipeline diagram with six stages — In Schedule → Requested → Pending → Rescheduled → Canceled → Expired — and a single booking card moving across them, with an icon for "auto-expiry timer" on the Pending stage.
+
+**Quick-start step 1 — `imageSrc: /svgs/courses/course-create.svg` (placeholder)**
+Suggested artwork: the Integrations dialog with Google Calendar and Zoom OAuth buttons, plus a small "has_meet" toggle on the Google card.
+
+**Quick-start step 2 — `imageSrc: /svgs/courses/course-curriculum.svg` (placeholder)**
+Suggested artwork: the meeting-plan create form — title, slug, timezone, duration, the weekly availability grid, the medium picker (Meet/Zoom/In-Person/Phone) and the policy section (buffers, notice, deadline).
+
+**Quick-start step 3 — `imageSrc: /svgs/courses/course-publish.svg` (placeholder)**
+Suggested artwork: the public branded booking page at /bookings/30-min-coaching — calendar with a selected date, timezone picker, time-slot grid and a "Confirm" CTA.

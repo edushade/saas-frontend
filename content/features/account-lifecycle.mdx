@@ -1,27 +1,150 @@
 ---
 featureId: "account-lifecycle"
 title: "Account Lifecycle"
-description: "Manage user states cleanly"
+description: "From the first invite to the final offboard — every step in a person's journey on your platform, handled with care and a clear paper trail."
 href: "/features/account-lifecycle"
 navGroup: "Manage Roles"
 navIcon: admin
 navOrder: 70
 banner:
   tag: "Account Lifecycle"
-  headline: "Every Account, From Invite to Offboard"
-  description: "Move users through pending, active, suspended, and deleted states with full audit history and graceful access transitions."
-  ctaText: "Get Started"
+  headline: "Every account, looked after from sign-up to sign-off"
+  description: "People come and go. They sign up, they verify, they take a break, sometimes they come back, and one day they leave. Edushade handles every one of those moments with care — clear states, friendly notifications, soft delete that gives you a way back, and an audit trail that quietly keeps everything on the record."
+  ctaText: "Walk Me Through It"
   ctaTo: "/contact-sales"
+capabilityHighlights:
+  title: "All the moments in a learner or staff member's account life"
+  description: "An account isn't just active or deleted. It moves through real stages — waiting on verification, fully active, paused for a while, suspended for a reason, gone but recoverable. Edushade gives every stage its own home, with the right tools for the admin and the right experience for the user."
+  capabilities:
+    - title: "Five Friendly States"
+      description: "Pending verification, active, inactive, suspended, deleted. Each one is a real state with a real meaning, not a flag tucked into a corner of the database."
+      icon: clipboardList
+    - title: "Welcome and Verify"
+      description: "New accounts start in pending verification. The platform sends the right email or OTP, walks the user through it, and only flips them to active once they've confirmed."
+      icon: routing
+    - title: "Pause Without Losing Anyone"
+      description: "Set someone to inactive when they're on a break, or to suspended for a policy reason. Their data stays, their access stops, and a clear reason is on the record."
+      icon: arrowRight
+    - title: "Self-Service Deactivation"
+      description: "Learners can step away on their own from /dashboard/profile. They start the deactivation themselves, the platform confirms, and they leave with their progress intact in case they come back."
+      icon: notebookBookmark
+    - title: "Soft Delete, Real Recovery"
+      description: "Deleted doesn't mean gone. The record is held, the data is preserved, and an admin can bring an account back to life when the situation calls for it."
+      icon: clapperboardPlay
+    - title: "An Audit Trail That Just Happens"
+      description: "Every state change is captured — who did it, when, on whose account. You don't have to log it yourself. Open Audit Logs and the history is right there."
+      icon: diploma
 splitSections:
-  - title: "Status changes you can defend in an audit"
-    description: "Edushade tracks the full state history of every user — who changed it, when, and why — so administrative actions stay accountable."
+  - title: "A real welcome, before the first lesson"
+    description: "Every new account starts in pending verification. The platform sends the email or SMS the user signed up with, asks them to confirm, and only moves them to active when they do. While they're waiting, the experience is calm — they know what's needed, the link or OTP is clear, and the platform tells them what's next. No half-states, no learner stuck in a tab."
     lists:
-      - "Account states: pending, active, inactive, suspended, deleted"
-      - "Soft-delete with full restoration path"
-      - "Self-service deactivation and admin-initiated suspension"
-      - "Status transitions captured in the audit trail"
-    imgSrc: "/svgs/hero/banner.svg"
+      - "Email link or OTP, whichever the user signed up with"
+      - "Configurable expiry on the verification, with a default of three attempts"
+      - "Phone verification works the same way for SMS-first users"
+      - "Once they verify, they land in their panel — learner, instructor or admin"
+    imgSrc: "/svgs/educator-love/4-integrated.svg"
     reverse: true
+  - title: "Pause when life happens, suspend when policy says so"
+    description: "Sometimes an account needs to step away. A learner takes a break for a semester. A staff member goes on leave. A policy matter comes up and access needs to stop today. Edushade keeps those situations distinct — inactive is a friendly pause, suspended is a serious one — and both are reversible without any data loss."
+    lists:
+      - "Inactive — a polite pause; access off, data fully preserved"
+      - "Suspended — access off, often with a reason on the record"
+      - "Either state can be lifted in one click when the time is right"
+      - "Notifications fire so the person knows their account changed state"
+    imgSrc: "/svgs/courses/course-publish.svg"
+    reverse: false
+  - title: "Letting someone leave without burning the bridge"
+    description: "When a person decides to leave — or when an admin needs to remove them — Edushade does it with soft delete. The account moves into a deleted state and stops working immediately. Their data, their progress, their certificates and their history all stay safe in the background. If they come back six months later (and many do), an admin can reactivate the account and they pick up where they left off, just with a fresh verification."
+    lists:
+      - "Self-service deletion from the user's own profile"
+      - "Admin-initiated removal with a clear reason on the record"
+      - "Soft delete keeps the data and the audit trail intact"
+      - "Reactivation flips the account back to pending verification"
+    imgSrc: "/svgs/courses/course-curriculum.svg"
+    reverse: true
+  - title: "Every change quietly on the record"
+    description: "You don't have to remember to log a status change. The platform does it for you. Each transition — verified, deactivated, suspended, deleted, reactivated — lands in the audit log with the actor, the target and the time. The notifications system fires the right message to the user too, so an account never quietly changes state without them knowing. No surprises on either side."
+    lists:
+      - "Audit log captures who did what and when, automatically"
+      - "Notifications go out: deactivated, reactivated, suspended, deleted, restored"
+      - "Last login, last device and last location stay on the record"
+      - "Data for soft-deleted accounts is preserved for as long as you keep the tenant"
+    imgSrc: "/svgs/educator-love/5-scalability.svg"
+    reverse: false
+quickStart:
+  title: "From the first sign-up to a clean offboard"
+  subtitle: "Most of this happens on its own. The admin only steps in for the moments that need a human — a suspension, a reactivation, a deletion request approval. The rest is built into the flow."
+  steps:
+    - step: 1
+      title: "Welcome and verify"
+      description: "Someone signs up — through self-registration, an invitation or an OAuth login. They land in pending verification, get a friendly email or OTP, and the moment they confirm, the platform flips them to active and welcomes them in."
+      imageAlt: "Verification screen with a clear OTP field and a friendly welcome message"
+      imageSrc: "/svgs/courses/course-create.svg"
+    - step: 2
+      title: "Pause, suspend or step in when needed"
+      description: "If someone needs a break or you need to stop access, switch their state from the user detail page in admin. Inactive for a friendly pause, suspended for a policy matter. Their progress is held, their notifications stop, and they get a message explaining what happened."
+      imageAlt: "User detail page with a status selector showing Active, Inactive, Suspended"
+      imageSrc: "/svgs/educator-love/4-integrated.svg"
+    - step: 3
+      title: "Offboard cleanly, leave the door open"
+      description: "When an account is closed, the platform soft-deletes it — the data is held, the audit trail is intact, and the user is told it's done. If they ever come back, an admin can reactivate the account in one click and the welcome flow starts fresh."
+      imageAlt: "Account deletion confirmation with a small note about reactivation being possible"
+      imageSrc: "/svgs/courses/course-publish.svg"
+faq:
+  title: "Account Lifecycle FAQ"
+  description: "The questions that come up when you're setting up sign-up, deactivation and offboarding for a real platform."
+  items:
+    - question: "What states can an account be in?"
+      answer: "Five — pending verification, active, inactive, suspended and deleted. Pending is the starting line. Active is the operating state. Inactive is a calm pause. Suspended is a stricter pause, usually with a reason on the record. Deleted is a soft delete that keeps the data safe for recovery."
+    - question: "How does a new account become active?"
+      answer: "It verifies. New users get an email link or an OTP — whichever they signed up with — and once they confirm, the platform flips them to active and lets them in. If they don't verify in time, they stay in pending and can request a fresh code."
+    - question: "What happens if someone never verifies?"
+      answer: "They stay in pending verification with no access. The verification carries an expiry and a max attempts setting, so a stale OTP won't keep working forever. If they come back later, they can request a fresh one — no need to start the sign-up over."
+    - question: "Can users deactivate themselves?"
+      answer: "Yes. From their profile under Account → Deletion, a learner can start the process themselves. The platform confirms what they're doing, holds the request, and the deactivation goes through with everything they've earned safely preserved in case they return."
+    - question: "What's the difference between inactive and suspended?"
+      answer: "Inactive is a friendly pause — usually triggered by the user themselves, or by an admin when someone is on a break. Suspended is a stricter state, usually because of a policy matter, with a reason on the record. Both stop access. Both can be reversed. The difference is mostly intent and tone."
+    - question: "What happens to a learner's progress when their account changes state?"
+      answer: "Nothing — it's preserved. Inactive, suspended or even soft-deleted accounts still hold the courses they took, the quizzes they completed, the certificates they earned and the time they put in. If they come back, every bit of that history comes back with them."
+    - question: "Is delete really delete?"
+      answer: "It's a soft delete. The account stops working straight away — no logins, no notifications, no access — but the record is held in the background with a deleted_at timestamp. An admin can reactivate it later if the situation calls for that, and the user picks up where they left off."
+    - question: "What does reactivation look like?"
+      answer: "An admin opens the deleted user from the People view and chooses Reactivate. The platform clears the deletion, drops the account back into pending verification with a fresh start, and asks the user to verify their email or phone again. Once they do, they're active and back in."
+    - question: "Do users get told when their state changes?"
+      answer: "Yes. The notifications system has templates for every transition — deactivated, reactivated, suspended, deleted, restored. They go out by email, SMS, in-app and push, in the user's language. An account never quietly changes state without the person knowing."
+    - question: "Is every change recorded?"
+      answer: "Every one. Status changes, role changes, permission grants, impersonation start and stop — all of them land in the audit log automatically with the actor, the target and the time. You don't have to remember to log it. Open Admin → Audit and the history is right there."
+    - question: "What if someone signs up again with the same email after deletion?"
+      answer: "The platform checks the OAuth side too — if they sign in with the same Google or GitHub account they used before deletion, the system can offer to reactivate the existing record and link the new login to it. They keep their history; you keep one clean account per person."
+    - question: "Can a tenant set its own deletion or retention policy?"
+      answer: "Yes. Edushade is multi-tenant and each organization controls its own configuration — sign-up rules, verification requirements, reactivation policy, retention. The lifecycle states are the same everywhere, but how strictly you apply them is up to you."
+    - question: "Are admins protected from being deleted accidentally?"
+      answer: "Sensitive actions are gated by permission. Deleting another admin or staff member needs the right role, and the audit trail records who took the action with all the context. There's also no one-click hard delete on the user surface — every deletion goes through soft delete first, so accidents are recoverable."
+    - question: "Does the audit log show why something changed, not just what?"
+      answer: "Where the platform takes the change with a reason — like a suspension or a deletion that asks for a note — the reason lands on the record. For automatic changes (verification timeouts, OAuth-driven reactivation, expired session cleanup), the audit entry carries the trigger so the story is still readable months later."
 ---
 
-Account Lifecycle keeps user state changes intentional, reversible, and auditable — instead of a tangle of one-off database edits.
+## Suggested visuals for this page
+
+The hero, capability cards, FAQ and quick-start steps render directly from the data above. The four split sections and the three quick-start steps each carry an image. The current build reuses the closest existing illustrations from `/svgs/courses` and `/svgs/educator-love`, but a future design pass should ship dedicated artwork. Drop the new files at the listed paths and they will swap in without any code change.
+
+**Split section 1 — `imgSrc: /svgs/educator-love/4-integrated.svg` (placeholder)**
+Suggested artwork: a sign-up to verify-to-active flow rendered as three connected cards — "Sign up" → "Verify" (with an OTP input) → "Active" (with a friendly checkmark and a learner avatar landing on their dashboard).
+
+**Split section 2 — `imgSrc: /svgs/courses/course-publish.svg` (placeholder)**
+Suggested artwork: a state ladder — Pending Verification → Active → Inactive → Suspended → Deleted, rendered as five chips in a row with a small note on each ("Just signed up", "Operating normally", "On a break", "Stopped for a reason", "Held for recovery").
+
+**Split section 3 — `imgSrc: /svgs/courses/course-curriculum.svg` (placeholder)**
+Suggested artwork: a soft-delete card on the left showing a greyed-out user record with a "Deleted — restorable" tag, and on the right a small Reactivate button paired with a new verification screen, suggesting the door being left open.
+
+**Split section 4 — `imgSrc: /svgs/educator-love/5-scalability.svg` (placeholder)**
+Suggested artwork: an audit log table showing four entries — Activated by self, Suspended by Admin Lead, Reactivated by Admin Lead, Deleted by self — each with timestamps and a short reason chip, plus a small notification preview floating beside it.
+
+**Quick-start step 1 — `imageSrc: /svgs/courses/course-create.svg` (placeholder)**
+Suggested artwork: the verification screen — friendly headline, six-digit OTP input, a small "Resend" link, and a hint about what happens once they verify.
+
+**Quick-start step 2 — `imageSrc: /svgs/educator-love/4-integrated.svg` (placeholder)**
+Suggested artwork: a user detail page in admin showing a status selector with the five states, the currently active one highlighted, and a small reason field appearing under "Suspended" when picked.
+
+**Quick-start step 3 — `imageSrc: /svgs/courses/course-publish.svg` (placeholder)**
+Suggested artwork: a deletion confirmation modal with a calm message, a "We'll keep your work safe in case you come back" line, and a small Reactivate button beside the user record on the admin side after the action.

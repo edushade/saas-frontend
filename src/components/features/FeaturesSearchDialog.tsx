@@ -228,7 +228,10 @@ export function FeaturesSearchDialog({ className }: FeaturesSearchDialogProps) {
 												<CommandItem
 													key={item.slug}
 													value={`${group.title}-${item.label}`}
-													onSelect={() => handleSelect(item.href)}
+													onSelect={() => {
+														if (item.comingSoon) return;
+														handleSelect(item.href);
+													}}
 													className="group/feat data-[selected=true]:bg-brand-200/10 rounded-xl my-0.5 px-3 py-3 cursor-pointer aria-selected:bg-brand-200/10"
 												>
 													<div className="flex w-full items-center gap-4 text-left">

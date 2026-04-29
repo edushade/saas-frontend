@@ -1,36 +1,129 @@
 ---
 featureId: "assessments-exams"
 title: "Assessments & Exams"
-description: "Evaluate learner understanding"
+description: "Graded exams with proctoring controls"
 href: "/features/assessments-exams"
 navGroup: "Build Learning"
 navIcon: calculatorMinimalistic
 navOrder: 40
 banner:
   tag: "Assessments & Exams"
-  headline: "Evaluate Learner Understanding"
-  description: "Create quizzes, exams, and assessments with flexible grading and feedback."
-  ctaText: "Learn More"
+  headline: "An exam engine, not just a quiz tool"
+  description: "Edushade ships a real assessment engine — practice, graded, survey or assessment-style quizzes; ten question builders; per-attempt timing, retake policy, proctoring controls; auto-grading, manual review, partial credit and a public merit list when you want one. Built for the moment grades actually count."
+  ctaText: "Start Your First Exam"
   ctaTo: "/contact-sales"
+capabilityHighlights:
+  title: "Everything an exam needs, in one builder"
+  description: "Edushade treats assessments as a full feature — not a flag on a quiz. The same builder powers practice quizzes, graded checks, surveys and full assessments, with a settings panel that scales from a five-question recap to a proctored final exam without switching tools."
+  capabilities:
+    - title: "Ten Question Builders"
+      description: "Multiple choice (single and multi), true or false, dropdown, fill-in-the-blank, matching, short answer, long answer, open-ended and comprehension — each with its own builder and learner preview."
+      icon: notebookBookmark
+    - title: "Four Quiz Types"
+      description: "Practice for repetition, graded for marks, survey for feedback, assessment for high-stakes — the type controls grading, scoring and how results surface."
+      icon: clipboardList
+    - title: "Auto + Manual Grading"
+      description: "Objective questions auto-grade as soon as the attempt is submitted. Subjective answers route to a manual queue with score, partial credit and instructor feedback."
+      icon: arrowRight
+    - title: "Proctoring & Security"
+      description: "Full-screen mode, copy-paste blocking, randomised question order, webcam check, screen recording and tab-switch detection — toggled per quiz when stakes are high."
+      icon: routing
+    - title: "Attempts, Cooldown & Retake Policy"
+      description: "Set max attempts, a cooldown in hours and a retake policy: immediate, after cooldown, instructor approval or no retakes — the rule applies to every learner without exceptions code."
+      icon: clapperboardPlay
+    - title: "Merit List & Certificates"
+      description: "Show a merit list to learners, issue completion certificates on a passing score, and decide per quiz whether the merit list is visible publicly or only to top scorers."
+      icon: diploma
 splitSections:
-  - title: "Exams and assessments that match how you teach"
-    description: "Build formal assessments with flexible question styles, timing, and grading approaches that fit your subject—not a one-size template."
+  - title: "Ten question types for the way you actually test"
+    description: "Pick the question shape that matches the skill — not the one closest to what your tool offers. Edushade's builder covers single and multi-select multiple choice, true or false, dropdown, fill-in-the-blank, matching, short and long answer, open-ended and comprehension. Each one has its own builder, its own learner preview, and the right grading mode by default."
     lists:
-      - "Multiple question types for recall, application, and analysis"
-      - "Time limits and availability windows for integrity"
-      - "Manual and structured grading workflows"
-      - "Clear learner instructions and attempt policies"
+      - "Six auto-gradable types: MCQ single, MCQ multiple, true or false, dropdown, fill-in-the-blank, matching"
+      - "Four manual-grading types: short answer, long answer, open-ended, comprehension"
+      - "Per-question score and negative score for negative-marking schemes"
+      - "Image, audio, video and attachment URLs on every question for richer prompts"
     imgSrc: "/svgs/courses/assesments.svg"
     reverse: true
-  - title: "Outcomes you can defend"
-    description: "Track results by cohort, course, and attempt so you can improve items and support learners who need help."
+  - title: "Time, attempts and grading rules that match a real exam"
+    description: "Set a quiz-wide time limit, optionally a per-question time limit, a warning before time runs out and a grace period at the end. Cap attempts, set a cooldown between retakes, and pick a retake policy. Auto-gradable items score on submission; subjective answers move to a manual review queue with the original answer, the rubric, and an instructor-feedback field."
     lists:
-      - "Per-learner and aggregate views of performance"
-      - "Item-level insight for refining assessments over time"
-      - "Export-friendly summaries for accreditation or review"
-      - "Ties cleanly to progress and completion reporting"
+      - "Quiz time limit up to 8 hours, with warning time and a grace period in minutes"
+      - "Max attempts and a cooldown of up to one week between retakes"
+      - "Retake policies: immediate, after cooldown, instructor approval, no retakes"
+      - "Auto-graded and manual-grading queues live side by side in admin"
+    imgSrc: "/svgs/courses/course-curriculum.svg"
+    reverse: false
+  - title: "Proctoring controls for the moment marks count"
+    description: "Edushade keeps the proctoring switches honest. Toggle full-screen mode, disable copy-paste, randomise question order, password-protect the quiz, require a webcam, require screen recording, or detect when a learner switches tabs. Each control is per-quiz, so a practice deck stays friction-free while a final exam locks down."
+    lists:
+      - "Full-screen mode with copy-paste blocking and password protection"
+      - "Randomised question order and per-attempt option shuffling"
+      - "Webcam and screen-recording requirements for high-stakes exams"
+      - "Tab-switching detection logged on the attempt record"
+    imgSrc: "/svgs/platforms/3-content.svg"
+    reverse: true
+  - title: "Feedback, merit lists and certificates after the bell"
+    description: "Once an attempt is submitted, control exactly what learners see. Show results immediately or hold them, reveal correct answers and explanations, surface a score breakdown, publish a merit list to learners, and issue a certificate when somebody crosses the passing score. Every attempt carries the score, percentage, pass-fail flag and a feedback field on its record."
+    lists:
+      - "Show results immediately, allow review, show correct answers and explanations"
+      - "Score breakdown per question and a custom completion message"
+      - "Merit list visibility toggled per quiz, for the learner and for others"
+      - "Auto-issued certificates when a learner passes the configured score"
     imgSrc: "/svgs/educator-love/2-analytics.svg"
     reverse: false
+quickStart:
+  title: "From a blank quiz to a first attempt in three steps"
+  subtitle: "The quiz builder is multi-step — basics, questions, settings — and the same flow handles a five-question practice deck or a proctored final exam. The only thing that changes is which switches you flip."
+  steps:
+    - step: 1
+      title: "Create the quiz and pick the type"
+      description: "Add a title, description and instructions. Pick a quiz type: practice, graded, survey or assessment. Set the difficulty and a thumbnail. The type drives defaults — a survey skips passing scores, an assessment surfaces proctoring."
+      imageAlt: "Quiz creation form with title, description, type selector and difficulty"
+      imageSrc: "/svgs/courses/course-create.svg"
+    - step: 2
+      title: "Build questions and set the rules"
+      description: "Add questions from the ten builders, set per-question score and negative marking, drop in images, audio or video, then move to settings — time limit, max attempts, retake policy, navigation, display, proctoring and feedback options."
+      imageAlt: "Quiz builder with question types panel, per-question scoring and the settings sidebar"
+      imageSrc: "/svgs/courses/course-curriculum.svg"
+    - step: 3
+      title: "Publish and review attempts"
+      description: "Publish the quiz, attach it to a course or learning path, and the attempts start landing in the admin. Auto-gradable items resolve instantly; subjective answers wait in the manual-review queue with score, percentage and instructor-feedback fields."
+      imageAlt: "Published quiz with attempts table, manual-grading queue and per-attempt detail"
+      imageSrc: "/svgs/courses/course-publish.svg"
+faq:
+  title: "Assessments & Exams FAQ"
+  description: "Specifics about how Edushade's quiz engine handles question types, grading, attempts, proctoring, merit lists and certificates."
+  items:
+    - question: "What is the difference between a quiz and an assessment in Edushade?"
+      answer: "They live in the same builder. A quiz has a quiz_type field with four options — practice, graded, survey and assessment. The type drives the defaults: practice is for repetition without weight, graded counts toward marks, survey collects feedback without scoring, assessment is built for high-stakes exams with proctoring on by default."
+    - question: "Which question types are supported?"
+      answer: "Ten builders are live today: multiple choice (single answer), multiple choice (multiple answers), true or false, dropdown selection, fill in the blank (exact match), matching, short answer, long answer, open-ended and comprehension. Six are auto-gradable; four route to manual review."
+    - question: "How does grading work?"
+      answer: "Every question has a score and an optional negative score. When the attempt is submitted, auto-gradable questions resolve instantly using the answer key. Subjective questions land in a manual-grading queue where instructors award the score, optionally add partial credit and write feedback. Once all answers are graded, the attempt is marked graded and the learner sees results based on your visibility settings."
+    - question: "Can I use negative marking?"
+      answer: "Yes. Each question carries both a score and a negative_score. Set the negative score per question and Edushade subtracts it on a wrong answer. The default is zero, so negative marking is opt-in per question, not platform-wide."
+    - question: "How are time limits enforced?"
+      answer: "A quiz can carry a total time limit up to eight hours and an optional per-question time limit. You also get a warning_time_minutes value to alert the learner before the deadline, and a grace_period_minutes window at the end. Once the limit is up, the attempt auto-submits with the answers saved so far."
+    - question: "Can learners retake a quiz?"
+      answer: "Yes, controlled per quiz. Set max_attempts, a cooldown_period_hours and a retake_policy. Policies are immediate, after_cooldown, instructor_approval and no_retakes. Cooldowns can be set up to one week (168 hours), and the highest scoring attempt is kept on the record."
+    - question: "What proctoring controls exist?"
+      answer: "Full-screen mode, copy-paste disable, randomised question order, password protection, webcam requirement, screen-recording requirement and tab-switch detection — all per quiz, all switchable. Each toggle is opt-in, so a practice quiz can stay relaxed while a final exam locks down."
+    - question: "Are questions or options shuffled?"
+      answer: "Both, optionally. Toggle shuffle_questions and shuffle_options on the quiz, plus a per-question shuffle_options override. Each attempt stores its own shuffle order, so two learners never see the same arrangement and reviewers can replay the exact sequence the learner saw."
+    - question: "Can a quiz be paused?"
+      answer: "Yes when allow_pause is on. Learners can pause and resume within the time window. With pause off, the timer keeps running once the attempt starts, which is the right setting for proctored exams."
+    - question: "How is a passing score set?"
+      answer: "Per quiz, as a percentage between 0 and 100 (default 70). The attempt's percentage is compared against the passing score; passed is stored as a boolean on the attempt and drives certificate issuance and merit list eligibility."
+    - question: "What is the merit list?"
+      answer: "An automatic ranking of attempts on a quiz. Two visibility flags control it: show_merit_list_to_learner and show_other_merit_list. Use them together to keep the merit list private, show only the learner their position, or publish the full ranking to everyone who attempted."
+    - question: "Are certificates issued for assessments?"
+      answer: "Yes. Toggle certificate_enabled on the quiz. When a learner crosses the passing score, a certificate is issued automatically with their score, percentage and timestamp captured on the attempt."
+    - question: "Can learners flag a problem with a question?"
+      answer: "Yes. Edushade ships a question report flow with five reasons — content clarity, visual quality, typography, technical and other — and a status pipeline of pending, reviewed, resolved and dismissed. Reports stay attached to the question for revision history."
+    - question: "What attempt data is stored?"
+      answer: "Each attempt carries the attempt number, started-at, submitted-at, time-spent, total and obtained scores, percentage, passed flag, status (in_progress, submitted, graded, expired or abandoned), auto-graded and manual-grading-required flags, instructor feedback, IP address, user agent, full submission data and the per-attempt shuffle order. All exportable as CSV from the admin."
+    - question: "Can I export attempts and quiz data?"
+      answer: "Yes. Quizzes export with title, description, type, status and access fields. Attempts export with full scoring, timing, learner identity, grading workflow fields and submission counts. Use either to back up data, audit a session or hand records to a registrar."
+    - question: "How big can a quiz get?"
+      answer: "Up to 200 questions per quiz and up to 20 options per question. Question text can be 5 to 5000 characters and option text up to 500. The validation matches the way real exams are written, not arbitrary limits."
 ---
-
-Assessments should measure real understanding. Edushade helps you design evaluations that are fair, clear, and connected to the rest of the learning experience.

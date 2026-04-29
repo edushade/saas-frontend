@@ -46,6 +46,7 @@ export function FeaturesListSections() {
 									description={item.description}
 									icon={item.icon}
 									href={item.href}
+									comingSoon={item.comingSoon}
 								/>
 							))}
 						</div>
@@ -61,6 +62,7 @@ interface FeatureListCardProps {
 	description: string;
 	icon: ElementType;
 	href: string;
+	comingSoon?: boolean;
 }
 
 function FeatureListCard({
@@ -68,6 +70,7 @@ function FeatureListCard({
 	description,
 	icon: Icon,
 	href,
+	comingSoon,
 }: FeatureListCardProps) {
 	return (
 		<article className="flex flex-col gap-4 rounded-2xl border border-border-secondary bg-white p-6 shadow-xs transition-shadow hover:shadow-sm">
@@ -93,6 +96,9 @@ function FeatureListCard({
 
 					<Link
 						to={href}
+						onClick={(e) => {
+							if (comingSoon) e.preventDefault();
+						}}
 						className="inline-flex items-center gap-1 text-lg font-medium text-brand-200 hover:underline"
 						aria-label={`Learn more about ${label}`}
 					>

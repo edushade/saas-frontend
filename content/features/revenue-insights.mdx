@@ -1,27 +1,154 @@
 ---
 featureId: "revenue-insights"
 title: "Revenue Insights"
-description: "Understand earning patterns"
+description: "How much your learning business is making, where the money's actually coming from, and what's pending — all in one place."
 href: "/features/revenue-insights"
 navGroup: "Track and Measure"
 navIcon: analyz
 navOrder: 50
 banner:
   tag: "Revenue Insights"
-  headline: "See What Your Learning Business Earns"
-  description: "Track revenue trends, top-performing programs, and pricing model performance — without exporting CSVs to a spreadsheet."
-  ctaText: "Get Started"
+  headline: "The honest read on the business behind the platform"
+  description: "Numbers in spreadsheets get stale fast. Revenue Insights gives you the view that actually matters — total revenue with the change since last month, the daily trend across courses, paths, cohorts, bundles, products and events, where the money's coming from program by program, plus the pending payments and refund requests sitting on your plate. The whole financial picture, on one page, refreshed as orders land."
+  ctaText: "Show Me the Money"
   ctaTo: "/contact-sales"
+capabilityHighlights:
+  title: "What you'd actually want to see when you check on the business"
+  description: "We built Revenue Insights around the questions a founder asks on a Monday morning. How much did we make? Is that more or less than last month? What's selling? What's not? What's stuck? Each one is a tile or a chart, and each one updates as orders come in."
+  capabilities:
+    - title: "Total Revenue, With the Change"
+      description: "The headline number — total revenue this period — paired with the change against the period before, in both percent and dollars. The first thing you read."
+      icon: clipboardList
+    - title: "Daily Trend by Program Type"
+      description: "Seven days or thirty days, broken out by courses, paths, cohorts, bundles, products, events and meeting plans. Spot which line's climbing and which is flat."
+      icon: routing
+    - title: "Where the Money Comes From"
+      description: "A clean distribution showing how your revenue splits across program types — by name, by value, by percentage of the total."
+      icon: arrowRight
+    - title: "Top Programs by Revenue"
+      description: "A leaderboard of the programs pulling in the most — courses, paths and cohorts side by side, with the parent program shown for cohort rows."
+      icon: notebookBookmark
+    - title: "Pending and Refunds at a Glance"
+      description: "What's not yet paid (pending payments) and what's owed back (refund requests) — both with counts and totals, so nothing surprises you at quarter end."
+      icon: clapperboardPlay
+    - title: "Pricing Mix — What's Actually Selling"
+      description: "How many courses are paid, how the popular pricing model breaks down (one-time, subscription, installment, free), and the average price across the catalogue."
+      icon: diploma
 splitSections:
-  - title: "Revenue you can read at a glance"
-    description: "Edushade ships a built-in revenue dashboard with the cuts that actually matter — by program, by pricing model, and over time."
+  - title: "The headline first — is the business moving the right way?"
+    description: "Open the dashboard and the headline tile is right there. Total revenue this period, the change against the period before, both in percent and absolute amount, and a simple up or down arrow so the direction is obvious. Underneath it, two smaller tiles for the things that aren't yet revenue but matter — pending payments waiting to clear, and refund requests waiting to be processed. The first ten seconds tell you whether the morning starts good or starts with work."
     lists:
-      - "Revenue trend chart with configurable time ranges"
-      - "Distribution by course, path, bundle, or product"
-      - "Pricing model breakdown — one-time, subscription, installments"
-      - "Refund, payout, and pending payment summaries"
-    imgSrc: "/svgs/hero/banner.svg"
+      - "Total revenue this period with the currency built in"
+      - "Change against the previous period (percent and amount)"
+      - "Pending payments — count and total, ready to nudge"
+      - "Refund requests — count and total, ready to review"
+    imgSrc: "/svgs/educator-love/2-analytics.svg"
     reverse: true
+  - title: "The trend, broken out by what's actually selling"
+    description: "Below the headline sits the revenue trend chart. Pick seven days for a weekly view, or thirty days for the monthly read. The chart isn't one flat line — it's broken out by program type, so courses, learning paths, cohorts, bundles, products, events and meeting plans each have their own colour and their own story. When one line climbs while another flatlines, you know exactly where the action is."
+    lists:
+      - "Seven-day or thirty-day window, switchable in one click"
+      - "Daily revenue across seven program types as separate series"
+      - "Hover any day to see the breakdown for that day"
+      - "Spot which program type is pulling the platform up"
+    imgSrc: "/svgs/educator-love/4-integrated.svg"
+    reverse: false
+  - title: "Where the money actually comes from, program by program"
+    description: "Beside the trend, two views answer the \"who's earning what\" question. The Entity Revenue Distribution shows the split — your courses brought in 42%, your bundles brought in 18%, your live events brought in 12%. The Revenue by Program table goes one level deeper — every course, learning path and cohort listed with the revenue it earned, the currency, and the parent program for cohorts so you can see the path or course they sit under. Sort by revenue, find the standouts, find the quiet earners that surprised you."
+    lists:
+      - "Distribution chart — share of revenue by program type"
+      - "Top programs table with course, path and cohort rows"
+      - "Cohort rows show their parent course or path for context"
+      - "Currency stays consistent so totals make sense"
+    imgSrc: "/svgs/courses/course-curriculum.svg"
+    reverse: true
+  - title: "Pricing mix — what shape your catalogue is actually taking"
+    description: "Revenue is one half of the picture. The other half is pricing — what you're charging for, how you're charging, and what your audience is choosing. The pricing stats card shows total entities priced (courses, paths, cohorts, bundles, products, events, meeting plans), the average price across all of them, and which pricing model is most popular — one-time, subscription, installment or free — with the percentage. Pair it with the entity-type counts and you can see whether your platform is leaning toward one product shape or another."
+    lists:
+      - "Total priced entities across the seven program types"
+      - "Average price across the catalogue"
+      - "Most popular pricing model, with the percentage"
+      - "Per-entity-type counts so you see the catalogue's shape"
+    imgSrc: "/svgs/educator-love/5-scalability.svg"
+    reverse: false
+quickStart:
+  title: "From a glance to a quarterly story in three steps"
+  subtitle: "There's nothing to set up. The numbers populate as orders come in. Open the dashboard and the picture's already there for the period you're in."
+  steps:
+    - step: 1
+      title: "Open the revenue dashboard"
+      description: "From the admin sidebar, jump to Billing → Dashboard. The total-revenue tile, the pending payments and refund requests stats, the trend chart and the distribution all greet you on one page. No first-run wizard, no setup."
+      imageAlt: "Revenue dashboard with the headline tile, two secondary tiles, a trend chart and a distribution donut"
+      imageSrc: "/svgs/courses/course-create.svg"
+    - step: 2
+      title: "Switch the trend window"
+      description: "Pick seven days for the recent picture, thirty days for the monthly read. The chart redraws and the breakdown by program type updates. Hovering any day shows the per-type values for that day — useful for finding which day a campaign actually moved the needle."
+      imageAlt: "Revenue trend chart with a 7d / 30d toggle and a hover tooltip showing per-program-type values"
+      imageSrc: "/svgs/educator-love/4-integrated.svg"
+    - step: 3
+      title: "Drill into the programs that earned"
+      description: "Scroll to the Revenue by Program table to see the standouts — your top course, your top path, your top cohort. Cohorts show their parent program so you know the context. Click any program for its own analytics — completion, engagement, revenue all in one view."
+      imageAlt: "Top programs table sorted by revenue with cohort rows showing parent program names"
+      imageSrc: "/svgs/courses/course-publish.svg"
+faq:
+  title: "Revenue Insights FAQ"
+  description: "What founders, operators and finance partners ask the first time they sit down with the numbers."
+  items:
+    - question: "What's on the dashboard when I open it?"
+      answer: "Three headline tiles up top — total revenue with the change since last period, pending payments waiting to clear, and refund requests waiting to be processed. Below that, a daily revenue trend chart with the breakdown by program type, plus a distribution view and a top-programs leaderboard. Everything you need for the first read on the business in one page."
+    - question: "How is total revenue calculated?"
+      answer: "It's the sum of all completed payments in the period, in your tenant's reporting currency. The change tile shows you both the percentage and the dollar amount of the difference against the previous period of the same length. So if you're looking at this month, you're comparing it to last month, automatically."
+    - question: "What time windows can I look at?"
+      answer: "The revenue trend supports seven-day and thirty-day windows. The headline tiles compare to the matching previous period. The distribution and top-programs views work across whatever window the dashboard is showing. For longer ranges or custom windows, the CSV export is the path."
+    - question: "How does the trend chart work?"
+      answer: "The chart breaks revenue out by program type — courses, learning paths, cohorts, bundles, products, events, meeting plans — across the days in your window. Each program type is its own line with its own colour, so you see at a glance which one is climbing, which is flat, and which is dropping. Hover any day for the exact figures."
+    - question: "Why does revenue split across so many program types?"
+      answer: "Because Edushade supports them all. A platform might sell courses, learning paths, cohorts, bundles of programs, standalone products, live events and one-on-one meeting plans — and the dashboard treats each as a first-class revenue stream so the numbers reflect what's really going on, not a flattened total."
+    - question: "What's the difference between the distribution and the top-programs table?"
+      answer: "The distribution is the macro view — what share of your revenue comes from courses versus bundles versus events. The top-programs table is the detail — every course, path and cohort with the revenue it earned, sortable by amount. Use the distribution to understand the shape of the business; use the table to find the specific programs to talk about."
+    - question: "How are cohorts handled in the top-programs view?"
+      answer: "Each cohort gets its own row with its revenue, plus the parent course or learning path it belongs to. So you can see that the spring cohort of Algebra 101 earned X, sitting under the Algebra 101 course, without losing the context. Useful when a single course runs as multiple cohorts."
+    - question: "What about pending payments?"
+      answer: "Pending is the count and total of payments that have been initiated but haven't completed yet — usually waiting on the gateway to confirm or on a manual cash payment to be activated. The dashboard surfaces them so they don't disappear, and the platform auto-cancels stale pendings on a timeout to keep things clean."
+    - question: "And refund requests?"
+      answer: "Refunds appear as a count and total on the dashboard until they're processed. From the same admin you can review each refund request, approve or reject it, and the platform fires the right notification to the learner — initiated, completed or rejected — depending on the path. Total refunded is also tracked per payment so you can't accidentally overrefund."
+    - question: "What does the pricing mix show?"
+      answer: "How many of your entities are priced (courses, paths, cohorts, bundles, products, events, meeting plans), the average price across the catalogue, and which pricing model is most popular among them — one-time, subscription, installment or free — with the percentage. Useful for understanding whether your audience is on subscriptions or buying one-off."
+    - question: "Are subscriptions and installments included?"
+      answer: "Yes. Edushade supports four pricing models — one-time, subscription, installment and free — and revenue from each flows into the same dashboard. The popular-model card tells you which way your audience is leaning; the per-program rows include subscription and installment revenue alongside one-time purchases."
+    - question: "Is the data real-time?"
+      answer: "Close to it. New payments update the totals within a minute or two. The trend chart refreshes on a short cadence. So when a big sale lands, you see it move on the dashboard. Daily aggregations smooth the noise so the trend lines stay readable, but the headline and tiles are current."
+    - question: "Can I export the data?"
+      answer: "Yes. The transactions list exports to CSV with full filters, the prices export covers the catalogue side, and individual revenue tables can be downloaded. Useful for finance reconciliation, board decks, regulator requests, or piping into your own warehouse."
+    - question: "Is the data tenant-isolated?"
+      answer: "Hard-isolated. Every payment, price and refund belongs to a single tenant; queries always filter by it; an admin on one organisation never sees another organisation's revenue, even by accident. The dashboard you see is yours alone."
+    - question: "Who can see Revenue Insights?"
+      answer: "Admins by default — specifically anyone with the price-view permission. Instructors don't see it unless you grant them the permission, which is the right default for most teams. If your organisation needs a finance role with read-only access, the Roles & Permissions builder handles that without giving them the rest of the admin."
+    - question: "Will it scale on a busy platform?"
+      answer: "Yes. The dashboard reads from indexed aggregates rather than raw transaction tables, so the page stays fast even when the platform processes thousands of orders a day. The trend chart, distribution and top-programs all paginate or sample as needed to keep the experience snappy."
 ---
 
-Revenue Insights gives founders and operators a clear read on the business behind the platform — so decisions get made on data, not gut feel.
+## Suggested visuals for this page
+
+The hero, capability cards, FAQ and quick-start steps render directly from the data above. The four split sections and the three quick-start steps each carry an image. The current build reuses the closest existing illustrations from `/svgs/educator-love` and `/svgs/courses`, but a future design pass should ship dedicated artwork. Drop the new files at the listed paths and they will swap in without any code change.
+
+**Split section 1 — `imgSrc: /svgs/educator-love/2-analytics.svg` (placeholder)**
+Suggested artwork: a three-tile headline grid — Total Revenue ($142,300, +12% / +$15,200, green up arrow) on the left, Pending Payments (24 / $8,420) and Refund Requests (3 / $640) as smaller tiles to the right.
+
+**Split section 2 — `imgSrc: /svgs/educator-love/4-integrated.svg` (placeholder)**
+Suggested artwork: a stacked area or multi-line chart for thirty days with seven coloured series — Courses, Paths, Cohorts, Bundles, Products, Events, Meeting Plans — and a 7d/30d toggle in the corner, with a hover tooltip on a peak day showing the breakdown.
+
+**Split section 3 — `imgSrc: /svgs/courses/course-curriculum.svg` (placeholder)**
+Suggested artwork: a split layout — a donut chart on the left labelled "Revenue Distribution" with seven slices, and a Top Programs table on the right with five rows showing program name, parent program chip, revenue and currency.
+
+**Split section 4 — `imgSrc: /svgs/educator-love/5-scalability.svg` (placeholder)**
+Suggested artwork: a Pricing Mix card with three blocks — All Priced Entities (134), Average Price ($89.40), Popular Model ("Subscription, 42%") — and a smaller per-entity-type counter row beneath (Course 64, Path 18, Cohort 22, Bundle 11, Event 9, Product 7, Meeting Plan 3).
+
+**Quick-start step 1 — `imageSrc: /svgs/courses/course-create.svg` (placeholder)**
+Suggested artwork: the admin sidebar with Billing → Dashboard highlighted and the page mid-load with the headline tiles fading in.
+
+**Quick-start step 2 — `imageSrc: /svgs/educator-love/4-integrated.svg` (placeholder)**
+Suggested artwork: the trend chart with the 7d/30d toggle being clicked, the chart redrawing with a hover tooltip on a peak day showing a campaign-driven spike.
+
+**Quick-start step 3 — `imageSrc: /svgs/courses/course-publish.svg` (placeholder)**
+Suggested artwork: the Top Programs table sorted by revenue with the top three rows highlighted, plus a small "Open course" arrow on each row leading into a course-level analytics view.

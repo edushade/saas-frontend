@@ -1,27 +1,150 @@
 ---
 featureId: "time-spent"
 title: "Time Spent Analytics"
-description: "Where learners actually focus"
+description: "How much time your learners really put into your courses — by lesson, by quiz, by week, by day. The honest signal of whether they're showing up."
 href: "/features/time-spent"
 navGroup: "Track and Measure"
 navIcon: calendar
 navOrder: 25
 banner:
   tag: "Time Spent"
-  headline: "See Where Learners Actually Spend Their Time"
-  description: "Per-lesson, per-quiz, and per-course time tracking turns 'progress' into something you can really act on."
-  ctaText: "Get Started"
+  headline: "Hours speak louder than logins"
+  description: "Anyone can sign in and bounce. The number that tells you whether learning is actually happening is the time people spend inside the lesson. Edushade tracks every minute — per learner, per lesson, per program — and rolls it into a clean weekly and monthly view, so you know where attention is, where it's drifting, and where to look next."
+  ctaText: "Show Me the Hours"
   ctaTo: "/contact-sales"
+capabilityHighlights:
+  title: "The metric that tells you what's really working"
+  description: "Time spent is the cleanest read on engagement you can get. It doesn't lie about attention. Edushade captures it everywhere it matters — on the lesson, on the quiz, on the assignment, on the course as a whole — and gives you the views that turn the raw seconds into something you can use."
+  capabilities:
+    - title: "Captured on Every Lesson and Quiz"
+      description: "Every video, text, audio, PDF, embed and quiz attempt logs the time the learner actually spent on it — not the time the tab was open."
+      icon: clipboardList
+    - title: "Day, Week, Month — Whichever You Need"
+      description: "Switch the trend view between daily, weekly and monthly. The same data, reshaped for a quick check or a quarterly review."
+      icon: routing
+    - title: "Hours Per Learner, Built In"
+      description: "Total hours alone tells half the story. Edushade pairs total hours with active learners, giving you average hours per learner — the figure that actually compares periods."
+      icon: arrowRight
+    - title: "Compared to the Last Period, Always"
+      description: "Every summary shows the current number next to the previous one, with a growth percentage. Trends are right there — no spreadsheet diff needed."
+      icon: notebookBookmark
+    - title: "On the Learner's Own Dashboard"
+      description: "Each learner sees their own time investment on their dashboard — total minutes, time per course, the hours they've put in this week."
+      icon: clapperboardPlay
+    - title: "Spot Lessons That Aren't Working"
+      description: "If a lesson averages five minutes when it's planned for thirty, you'll see it. Time-spent surfaces the lessons learners breeze past — or get stuck on."
+      icon: diploma
 splitSections:
-  - title: "Time as a first-class metric"
-    description: "Edushade captures time spent at every level — so you can see where learners get stuck, breeze through, or quietly drop off."
+  - title: "Real time, on the actions that count"
+    description: "Edushade logs the seconds a learner actually spends on each piece of content. A video lesson tracks watch time, not tab time — close the tab and the timer stops, come back and it picks up where it left off. A text lesson tracks active reading. A quiz tracks the seconds between starting and submitting. A PDF tracks engagement, not just download. The numbers add up to a number you can trust."
     lists:
-      - "Per-user, per-entity time tracking in seconds"
-      - "Last-activity timestamp on every progress record"
-      - "Course-wide averages for instructors and admins"
-      - "Spot lessons that are too short, too long, or too dense"
-    imgSrc: "/svgs/hero/banner.svg"
+      - "Lesson-level seconds, captured live as the learner engages"
+      - "Pause and resume on videos — time spent reflects real watch time"
+      - "Quiz attempts log the seconds from start to submission"
+      - "Text and PDF lessons track active engagement, not just opens"
+    imgSrc: "/svgs/educator-love/2-analytics.svg"
     reverse: true
+  - title: "The shape of your week, in one chart"
+    description: "Open the time-spent trends and you see the full picture — total hours your learners put in, broken down by month, week or day. Each period shows total hours, hours per learner, and how many learners actively contributed to those hours. Pick monthly for a board-deck view, weekly for a Friday review, daily for a release-week pulse. Same data, three lenses. The shape tells the story."
+    lists:
+      - "Switch between monthly, weekly and daily views with one click"
+      - "Total hours across the platform, plus hours per learner"
+      - "Active-learner count beside the hours, so the average makes sense"
+      - "Up to twenty-four months of history available on demand"
+    imgSrc: "/svgs/educator-love/4-integrated.svg"
+    reverse: false
+  - title: "A quick read on whether things are getting better"
+    description: "Hours alone don't tell you much without context. So every trends view ships with a summary tile at the top — average hours per learner this period, and the percentage change from the period before. Up means engagement is growing. Down means it's slipping. Flat means you're holding steady. You read it in five seconds, and the rest of the chart fills in the why."
+    lists:
+      - "Headline number: average hours per learner, current period"
+      - "Growth percent against the previous period, built in"
+      - "Hover any point on the chart for the exact figure"
+      - "The same comparison runs across daily, weekly and monthly views"
+    imgSrc: "/svgs/courses/course-curriculum.svg"
+    reverse: true
+  - title: "The same data, on every screen that needs it"
+    description: "Time-spent isn't just an admin chart. Each learner sees their own hours on their personal dashboard — total minutes invested, minutes per course, the hours they put in this week. Instructors see the cohort's hours and where the time is going. Admins see the platform-wide rhythm. The numbers add up the same way everywhere, so a learner's view of their own effort matches what the instructor sees of theirs. Trust by construction."
+    lists:
+      - "Learner dashboard — personal hours invested, per course"
+      - "Instructor dashboard — cohort time spent across content"
+      - "Admin trends — platform-wide hours by month, week or day"
+      - "Same numbers across all three views, no reconciliation"
+    imgSrc: "/svgs/educator-love/5-scalability.svg"
+    reverse: false
+quickStart:
+  title: "From a fresh enrollment to a full picture of your time"
+  subtitle: "There's nothing to set up. Time logs the moment a learner opens content. Open the trends view and the picture is already there — for today, this week, or the last twelve months."
+  steps:
+    - step: 1
+      title: "Open the trends view"
+      description: "From the admin sidebar, jump to Analytics → Time Spent. The summary tile at the top shows the current period's average hours per learner and the change since the previous period. The chart underneath fills in the rest."
+      imageAlt: "Time-spent trends page with a summary tile and a monthly bar chart"
+      imageSrc: "/svgs/courses/course-create.svg"
+    - step: 2
+      title: "Pick a granularity that fits your question"
+      description: "Need a quarterly read? Stay on monthly. Want a Friday review? Switch to weekly. Watching a release week? Drop to daily. The chart redraws and the summary tile updates."
+      imageAlt: "Granularity toggle with Daily / Weekly / Monthly options highlighted"
+      imageSrc: "/svgs/educator-love/4-integrated.svg"
+    - step: 3
+      title: "Read the story, then dig in"
+      description: "If hours per learner are climbing, you know what's working. If they're dipping, you can drill into a specific cohort, or check the lessons-with-low-time-spent view to find the one that's losing people. The next move flows from the chart."
+      imageAlt: "A trend chart with a dip highlighted and a 'drill into cohort' action panel"
+      imageSrc: "/svgs/courses/course-publish.svg"
+faq:
+  title: "Time Spent FAQ"
+  description: "The questions that come up the first time you treat time as a real metric."
+  items:
+    - question: "What does time spent actually measure?"
+      answer: "The seconds a learner actively engaged with content. A video tracks watch time — close the tab and the timer stops. A quiz tracks the time between starting and submitting. A text or PDF lesson tracks the time the learner was actively engaged. The total adds up to a number that reflects real attention, not idle browser tabs."
+    - question: "Where is time captured?"
+      answer: "Everywhere it matters — every lesson type (video, live, audio, text, PDF, embed), every quiz attempt, every assignment session. The platform logs a small delta to a daily learning-time log every time the learner makes meaningful progress on a piece of content."
+    - question: "What about a video — does pausing the tab pause the timer?"
+      answer: "Yes. The timer follows real engagement, not the time the tab was open. So a learner who walks away with the video paused doesn't accidentally rack up an hour they never watched. When they come back, the timer picks up where it left off."
+    - question: "Can I see hours by month, week or day?"
+      answer: "All three. The trends view has a granularity toggle — monthly is the default, weekly is good for a Friday check-in, daily is useful during a release week or a campaign. Pick one and the chart and the summary tile both reshape. Up to twenty-four months of history are available."
+    - question: "What's the difference between total hours and hours per learner?"
+      answer: "Total hours is the platform-wide sum — useful for a headline. Hours per learner is total hours divided by active learners — much more useful for comparing periods, because it accounts for the audience growing. The trends view shows both."
+    - question: "Why is the previous-period comparison important?"
+      answer: "Because the absolute number rarely tells you anything by itself. \"4,200 total hours this month\" is meaningless without context. \"Average hours per learner up 14% from last month\" is a story. Edushade builds that comparison into every summary, so the take-away is right there."
+    - question: "Do learners see their own time?"
+      answer: "Yes. Their personal dashboard shows total minutes invested, time per course, and hours this week. They see the same numbers the admin sees of them — useful for self-reflection and for managers in corporate training."
+    - question: "Can instructors see cohort-level time?"
+      answer: "Yes. The instructor dashboard shows time spent across the cohort and which content is getting the most engagement. Pair that with the question-level analytics on the progress dashboard and you get a strong read on what's working and what isn't."
+    - question: "Can I find lessons that are too short or too long?"
+      answer: "Yes. Time-spent surfaces the lessons that aren't matching their planned duration. A lesson planned for thirty minutes that averages five tells you something — either learners are skipping past, or the content needs reworking. Either way, you'd want to know."
+    - question: "Does time spent feed certificates?"
+      answer: "It can. The certificate snapshot stores the total time the learner put into the course at the moment of issuance — useful for accreditation and for learners who want a record of their effort, not just the outcome."
+    - question: "Is the data real-time?"
+      answer: "Close to it. Time logs flow in continuously as learners engage, with daily aggregates updating throughout the day. The trends view refreshes on a short cadence, so what you see is current to within a few minutes."
+    - question: "Is it accurate at scale?"
+      answer: "Yes. The time-log layer is built for high volume — every active learner adds time deltas every minute or so, and the aggregates are computed from indexed daily totals, not raw events. The trends view stays fast even on platforms with thousands of learners."
+    - question: "How is this different from Learner Analytics?"
+      answer: "Learner Analytics tells you who's showing up and how that's changing. Time Spent tells you, of the people who are showing up, how much time they're putting in. Both are aspects of engagement, and the dashboards are designed to be read together — \"are people coming back\" and \"are they leaning in once they do\"."
+    - question: "Can I export the data?"
+      answer: "Yes. The trends data drops to CSV in one click, with all the granularities (daily, weekly, monthly) available as separate exports. Useful for a board deck, a regulator who wants the source numbers, or piping the data into your own warehouse."
 ---
 
-Time spent is the cleanest signal of attention — and the first thing that tells you a lesson is working or breaking down.
+## Suggested visuals for this page
+
+The hero, capability cards, FAQ and quick-start steps render directly from the data above. The four split sections and the three quick-start steps each carry an image. The current build reuses the closest existing illustrations from `/svgs/educator-love` and `/svgs/courses`, but a future design pass should ship dedicated artwork. Drop the new files at the listed paths and they will swap in without any code change.
+
+**Split section 1 — `imgSrc: /svgs/educator-love/2-analytics.svg` (placeholder)**
+Suggested artwork: a video lesson with a play timer overlay reading 14:32 and a small "live counting" pulse, plus a side panel showing "Time so far: 23 min" climbing as the learner watches.
+
+**Split section 2 — `imgSrc: /svgs/educator-love/4-integrated.svg` (placeholder)**
+Suggested artwork: a trends chart with a granularity toggle (Daily / Weekly / Monthly) and bars rendered for the selected view, plus a small inset legend showing "Total hours" and "Hours per learner" lines.
+
+**Split section 3 — `imgSrc: /svgs/courses/course-curriculum.svg` (placeholder)**
+Suggested artwork: a summary tile at the top of the page with "Avg hours per learner: 4.2h" and a green "+14%" delta chip, with the chart muted underneath as the visual context.
+
+**Split section 4 — `imgSrc: /svgs/educator-love/5-scalability.svg` (placeholder)**
+Suggested artwork: three small dashboard tiles side by side — a learner's personal time card, an instructor's cohort time card, an admin trends panel — each showing the same number from a different angle.
+
+**Quick-start step 1 — `imageSrc: /svgs/courses/course-create.svg` (placeholder)**
+Suggested artwork: the admin sidebar with Analytics → Time Spent highlighted, and the trends page just loading with the summary tile fading in.
+
+**Quick-start step 2 — `imageSrc: /svgs/educator-love/4-integrated.svg` (placeholder)**
+Suggested artwork: the granularity toggle in mid-press, with the chart redrawing from monthly bars to weekly bars beneath it.
+
+**Quick-start step 3 — `imageSrc: /svgs/courses/course-publish.svg` (placeholder)**
+Suggested artwork: a chart with a dip in week 4 highlighted, and a small action panel beside it offering "Drill into cohort" and "Show low-engagement lessons".

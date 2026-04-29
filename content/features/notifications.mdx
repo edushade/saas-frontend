@@ -1,27 +1,131 @@
 ---
 featureId: "notifications"
 title: "Notifications"
-description: "Reach learners across channels"
+description: "Multi-channel alerts across 110 events"
 href: "/features/notifications"
 navGroup: "Deliver & Engage"
 navIcon: chatUnread
 navOrder: 45
 banner:
   tag: "Notifications"
-  headline: "Reach Every Learner, Wherever They Are"
-  description: "In-app, email, and SMS alerts keep enrollments, deadlines, and live sessions visible — without you stitching together third-party tools."
-  ctaText: "Get Started"
+  headline: "A real notification engine, not a smtp wrapper"
+  description: "Edushade ships seven channels (email, SMS, push, WhatsApp, Telegram, Slack, Discord), 110 pre-wired events across the platform, and a full settings layer with quiet hours, rate limits and per-event toggles. One engine, sixteen provider integrations, every event a learner needs to hear about."
+  ctaText: "Wire Up Notifications"
   ctaTo: "/contact-sales"
+capabilityHighlights:
+  title: "Built for the way real platforms send messages"
+  description: "Notifications in Edushade are their own service with their own model: templates per event, provider configs per channel with priority and failover, and a queue layer with retry, scheduling and quiet-hours awareness. The same engine drives transactional alerts, marketing campaigns and platform announcements."
+  capabilities:
+    - title: "Seven Channels"
+      description: "Email, SMS, push (APNs and FCM), WhatsApp, Telegram, Slack and Discord — each a first-class channel with its own template body field and its own provider stack."
+      icon: routing
+    - title: "Sixteen Provider Integrations"
+      description: "Four email providers (SendGrid, Mailgun, AWS SES, SMTP), six SMS providers (Twilio, Vonage, Plivo, BulkSMS24, HTTPSms, AWS SNS), two push providers (APNs, FCM) and four chat providers (WhatsApp, Telegram, Slack, Discord)."
+      icon: notebookBookmark
+    - title: "110 Pre-Wired Events"
+      description: "Default templates for auth, enrollment, learning progress, course management, assignments, quizzes, certificates, billing, e-commerce, engagement, bookings, cohorts, tenant admin and file events — 110 keys in total."
+      icon: clipboardList
+    - title: "Quiet Hours & Rate Limits"
+      description: "Tenant-level quiet hours with timezone, optional marketing-only scope, and per-channel rate limits — marketing per day and per week — enforced before send."
+      icon: clapperboardPlay
+    - title: "Per-Event Toggles"
+      description: "Group-level and per-event toggles let admins disable a whole category or surgically turn off a single event. Group toggle is the default; per-event override wins when set."
+      icon: arrowRight
+    - title: "Delivery & Open Tracking"
+      description: "Every send writes a delivery record. Email and push capture sent, delivered, opened, clicked and bounced events with provider, IP and user-agent on each."
+      icon: diploma
 splitSections:
-  - title: "One system. Every channel."
-    description: "Edushade ships in-app, email, and SMS delivery for every key event — enrollments, payments, certificates, live sessions, deadlines, and more."
+  - title: "Seven channels, ten provider integrations, one engine"
+    description: "Each channel is its own field on the Template — email_subject and email_body_html for email, sms_body for SMS, push_title and push_body for push, plus dedicated body fields for WhatsApp, Telegram, Slack and Discord. Provider configs sit on the tenant, with multiple providers per channel ranked by priority for automatic failover, plus a per-provider rate limit."
     lists:
-      - "In-app notifications with read state and history"
-      - "Email and SMS templates with dynamic variables"
-      - "Per-event opt-in for learners and instructors"
-      - "Built-in coverage for payments, progress, and reminders"
-    imgSrc: "/svgs/hero/banner.svg"
+      - "Email: SendGrid, Mailgun, AWS SES, SMTP"
+      - "SMS: Twilio, Vonage, Plivo, BulkSMS24, HTTPSms, AWS SNS"
+      - "Push: APNs (Apple) and FCM (Firebase)"
+      - "Chat: WhatsApp, Telegram, Slack and Discord native providers"
+    imgSrc: "/svgs/educator-love/4-integrated.svg"
     reverse: true
+  - title: "Every event the platform actually fires, already wired"
+    description: "Edushade does not ask you to write templates from scratch. It ships 110 default templates organised into fourteen categories — every meaningful event the platform already triggers has a sendable template behind it. Auth flows, enrollment lifecycle, course progression, billing events, certificate issuance, cohort schedule, and platform admin all covered out of the box."
+    lists:
+      - "Auth: registration, login, password reset, OTP, email and phone verification"
+      - "Learning: course started, completed, milestones, lesson completion, learning paths"
+      - "Billing: payments, refunds, subscriptions, installments, scholarships"
+      - "Engagement: announcements, discussions, reviews, mentions, instructor replies"
+    imgSrc: "/svgs/courses/course-types.svg"
+    reverse: false
+  - title: "Channel defaults, quiet hours and rate limits at the tenant level"
+    description: "Notification settings are tenant-scoped and channel-aware. Set a default from-name and from-email for the whole platform, an SMS sender ID, default push icon and badge — applied everywhere unless a specific notification overrides them. Configure quiet hours with start, end, timezone and a marketing-only flag, and set marketing rate limits per channel so a campaign cannot accidentally hit a learner ten times in a day."
+    lists:
+      - "Tenant-level email from-name, from-email and reply-to"
+      - "SMS sender ID and push default icon and badge"
+      - "Quiet hours with timezone, overnight ranges and marketing-only scope"
+      - "Marketing rate limits: per day and per week, per channel"
+    imgSrc: "/svgs/educator-love/3-customizable.svg"
+    reverse: true
+  - title: "Tracking, suppression, webhooks — the production layer"
+    description: "Every notification queues with a configurable max-attempts retry, every send writes a delivery log, every event lands on the notification_events table — sent, delivered, opened, clicked, bounced, failed — with provider, IP and user-agent. A suppression list captures bounces, complaints, unsubscribes and GDPR deletions. Webhook events fire on every state change so external systems stay in sync."
+    lists:
+      - "Queue with retries (max-attempts), retrying status, scheduled-at"
+      - "Event tracking: sent, delivered, opened, clicked, bounced, failed"
+      - "Suppression list with reasons (bounce, complaint, unsubscribe, GDPR)"
+      - "Webhook events for notification and campaign state changes"
+    imgSrc: "/svgs/platforms/2-progress.svg"
+    reverse: false
+quickStart:
+  title: "From provider keys to first send in three steps"
+  subtitle: "Notification settings live under their own admin section. Plug in providers, decide which channels are on, and the platform's pre-wired templates start firing on the events you already have."
+  steps:
+    - step: 1
+      title: "Plug in your providers"
+      description: "Add provider configs for the channels you want — SendGrid keys, Twilio creds, FCM service account, Slack webhook. Each channel can carry multiple providers with priority for automatic failover."
+      imageAlt: "Provider configuration panel with SendGrid, Twilio and FCM cards being added"
+      imageSrc: "/svgs/courses/course-create.svg"
+    - step: 2
+      title: "Customise templates and channel defaults"
+      description: "Open any of the 110 default templates and tweak the email subject, body, SMS copy or push body. Set tenant-wide from-name, from-email, SMS sender ID and push icon. Templates are versioned, so revisions stay traceable."
+      imageAlt: "Template editor with email, SMS and push tabs and version history sidebar"
+      imageSrc: "/svgs/courses/course-curriculum.svg"
+    - step: 3
+      title: "Tune toggles, quiet hours and rate limits"
+      description: "Disable a notification group, override a single event, set quiet hours per timezone, and cap marketing volume per day and per week. Save once and the rules apply across every send going forward."
+      imageAlt: "Settings page with notification type toggles, quiet hours panel and rate limit fields"
+      imageSrc: "/svgs/courses/course-publish.svg"
+faq:
+  title: "Notifications FAQ"
+  description: "How notifications work in Edushade — channels, providers, templates, settings, tracking and the differences from announcements."
+  items:
+    - question: "What is the notification system in Edushade?"
+      answer: "A dedicated service that sends transactional, marketing and announcement messages across seven channels. It owns its own templates, provider configs, queue, tracking and settings — separate from the platform's other services, so a billing event and a learning event ride the same engine."
+    - question: "Which channels are supported?"
+      answer: "Seven: email, SMS, push (APNs for iOS, FCM for Android and web), WhatsApp, Telegram, Slack and Discord. Each is a first-class channel with its own template body field, its own provider stack and its own delivery log."
+    - question: "Which providers can I plug in?"
+      answer: "Email: SendGrid, Mailgun, AWS SES and generic SMTP. SMS: Twilio, Vonage, Plivo, BulkSMS24, HTTPSms and AWS SNS. Push: APNs and FCM. Chat: native providers for WhatsApp, Telegram, Slack and Discord. Each tenant configures its own keys per provider."
+    - question: "Can I run multiple providers on one channel?"
+      answer: "Yes. Add multiple provider configs per channel and rank them by priority — lower number is higher priority. The dispatcher tries them in order, so a SendGrid outage falls over to AWS SES without engineering work. Each provider also carries its own rate limit (messages per minute) to honour vendor caps."
+    - question: "How many events come pre-wired?"
+      answer: "110 default templates across fourteen categories: auth, enrollment, learning progress, course management, assignments, quizzes, certificates, billing, e-commerce, engagement and community, booking and live sessions, cohorts, tenant admin, and file management. Every event the platform fires has a sendable template behind it."
+    - question: "What does a template look like?"
+      answer: "A single template carries content for every channel: email_subject, email_body_html and email_design_json (for the visual editor); sms_body; push_title and push_body; and dedicated body fields for WhatsApp, Telegram, Slack and Discord. Plus a list of dynamic variables and a version history."
+    - question: "Are templates versioned?"
+      answer: "Yes. Every save creates a TemplateVersion entry with the full content and the editor's user ID. Roll back to a previous version, compare two side by side, or audit who changed what — all from the template detail page."
+    - question: "What categories of notification exist?"
+      answer: "Three template types — Transactional, Marketing and Announcement — plus a routing category called Ephemeral for OTP, password reset and other one-shot security messages. The category drives whether the message is rate-limited, suppressed by quiet hours, or counted toward a campaign."
+    - question: "Can I disable specific notifications?"
+      answer: "Yes, at two granularities. Group-level toggles disable a whole category (e.g. 'all engagement notifications off'). Per-event overrides target a single event key (e.g. 'turn off discussion.mentioned but keep discussion.created on'). The per-event override always wins over the group toggle when both are set."
+    - question: "How do quiet hours work?"
+      answer: "Tenant-level quiet hours carry a start time, an end time and a timezone. Inside the window, notifications are held and rescheduled to the next available moment — overnight ranges (e.g. 22:00-06:00) are handled correctly. An apply-to-marketing-only flag lets transactional messages bypass the window when they need to."
+    - question: "Are there rate limits?"
+      answer: "Two layers. Provider-level rate limit caps messages per minute per provider — for vendor caps. Tenant-level marketing rate limit caps messages per learner per channel — for inbox health. Settings cover marketing per day and marketing per week, and an exclude-transactional flag keeps transactional sends out of the count."
+    - question: "What does delivery and open tracking look like?"
+      answer: "Every send writes a row to the delivery log; every observed event (sent, delivered, opened, clicked, bounced, failed) writes to the notification_events table with channel, provider, IP and user-agent. Webhooks from the providers update these records, so an opened email and a bounced SMS both surface in the same view."
+    - question: "Is there a suppression list?"
+      answer: "Yes. Suppressed contacts are kept in their own list with a reason — BOUNCE, COMPLAINT, UNSUBSCRIBE, GDPR_DELETION — and a source — USER, ADMIN, SYSTEM. The dispatcher checks suppression before every send, so a bounced address never gets retried, and a GDPR deletion is honoured platform-wide."
+    - question: "What about marketing campaigns?"
+      answer: "The same engine drives campaigns. A Campaign points at a Segment (dynamic or static), a Template, a list of channels and a schedule (immediate, scheduled or recurring with a recurrence rule). Statistics — sent, delivered, opened, clicked, bounced, failed — are tracked per campaign and per contact."
+    - question: "How is the learner inbox built?"
+      answer: "The learner sidebar carries a Bell with an unread badge (capped at 9+). Click it and a sheet opens with the in-app notification list, mark-as-read on click, mark-all-as-read in one tap, and infinite-scroll pagination. Notifications with an action_url navigate when clicked; ones without just dismiss."
+    - question: "How is this different from Announcements?"
+      answer: "Announcements (notices) live in their own service and are written by humans for a chosen audience — a course, a cohort, a role. Notifications are system-generated by events the platform already fires. The two intersect: when an instructor publishes an announcement, the notification engine fires announcement.published to the right learners through their preferred channels."
+    - question: "Are webhooks supported?"
+      answer: "Yes. Outbound webhook events fire on notification.sent, notification.delivered, notification.failed, notification.opened, notification.clicked, plus campaign.started, campaign.completed and campaign.paused. Wire them into your data warehouse, ops dashboard or any external system that needs to know."
 ---
-
-A consistent notification layer means your learners never miss the thing that matters — and you never re-write the same workflow twice.

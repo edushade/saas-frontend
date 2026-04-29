@@ -1,36 +1,152 @@
 ---
 featureId: "educator-panel"
 title: "Educator Panel"
-description: "Teaching and content control"
+description: "Educators run the same admin shell at /admin, scoped to teaching — courses, learning paths, quizzes, cohorts, learners, grading, bookings, communication and course analytics."
 href: "/features/educator-panel"
 navGroup: "Manage Roles"
 navIcon: sidebar
 navOrder: 10
 banner:
   tag: "Educator Panel"
-  headline: "Teaching and Content Control"
-  description: "Tools for educators to manage content and teach effectively."
-  ctaText: "Get Started"
+  headline: "Everything an educator needs, on the same shell as the admin"
+  description: "Edushade does not split educators off into a stripped-down side app. Instructors sign in to the same /admin shell as the platform team, and the sidebar surfaces exactly what they need to teach: programs they own, the learners enrolled in them, grading queues, the booking surface, the communication and notification stack, and the course-analytics charts that go with their work. One product, one URL, one source of truth — scoped by role."
+  ctaText: "See the Educator View"
   ctaTo: "/contact-sales"
+capabilityHighlights:
+  title: "What the educator role unlocks, end to end"
+  description: "Every sidebar item Edushade ships is gated by both `requireRoles` and `requirePermissions`. The instructor role surfaces a deliberate subset — the parts of the platform that map to teaching — and hides the parts that belong to the platform team. The sections below are exactly what an instructor sees in their menu today."
+  capabilities:
+    - title: "Course, Path & Quiz Authoring"
+      description: "Build Courses, Learning Paths and Quizzes from the same Resources menu admins use — full create flows, curriculum trees, drip rules, certificates and the seven lesson types."
+      icon: notebookBookmark
+    - title: "Cohorts, Enrollments & Learners"
+      description: "Run cohort batches under your courses, see every enrolled learner per program, manage their progress and act on the same Enrollments list the admin sees."
+      icon: routing
+    - title: "Grading Hub & Submissions"
+      description: "The Grading menu opens the platform-wide grading hub — programs, exam terms and a submissions queue — so instructors grade in one place across every course they own."
+      icon: clipboardList
+    - title: "Live Bookings & Meeting Plans"
+      description: "Create Meeting Plans and run Meeting Schedules under the Booking menu — coaching calls, mentor sessions and office hours, with the same calendar sync admins set up."
+      icon: clapperboardPlay
+    - title: "Discussion, Noticeboard & Notifications"
+      description: "Post discussions, publish noticeboard items with priority and read tracking, and manage notification campaigns within the scope of the cohorts and courses they run."
+      icon: arrowRight
+    - title: "Course Analytics & Performance"
+      description: "Open Analytics → Course Analytics, Enrollment Trends and Course Performance — the same charts the admin sees, scoped to programs the instructor is on."
+      icon: diploma
 splitSections:
-  - title: "Teach and manage content in one place"
-    description: "Educators get tools to author lessons, run sessions, grade work, and message learners—without switching between disconnected systems."
+  - title: "Same shell, sharper focus"
+    description: "Educators sign in at /admin and land on the dashboard the platform ships — greeting, Quick Actions, System Metrics, the course analytics chart, recent notices and enrollments, learning stats and a top-learners leaderboard. The sidebar groups everything under the same seven headings as the admin (Dashboard, Analytics, Resources, Sales, Booking, Communication, Platform), but the items inside resolve to a teaching-scoped subset because the platform's RBAC gates each one."
     lists:
-      - "Course authoring with structure, not just uploads"
-      - "Grading queues and learner context side by side"
-      - "Live session controls integrated with schedules"
-      - "Insights at a glance for intervention"
-    imgSrc: "/svgs/courses/instructor.svg"
-    reverse: true
-  - title: "Built for instructional workflows"
-    description: "Reduce admin time with patterns that match how teachers actually work week to week."
-    lists:
-      - "Templates and duplication for repeatable modules"
-      - "Collaboration with co-instructors and assistants"
-      - "Clear ownership of sections and materials"
-      - "Fewer context switches during the school day"
+      - "Sign in at /admin and the same dashboard renders, role-scoped"
+      - "Sidebar groups: Dashboard, Analytics, Resources, Sales, Booking, Communication, Platform"
+      - "Quick Actions and System Metrics widgets ship as part of the shell"
+      - "Items the educator does not own are hidden, not greyed out"
     imgSrc: "/svgs/build-for-teach/1.svg"
+    reverse: true
+  - title: "Authoring that mirrors how lessons are taught"
+    description: "Open Resources → Courses to launch the curriculum builder — sections on the outside, lessons / quizzes / assignments / files on the inside, drag-to-reorder, and the seven lesson types ship with the right player out of the box. Learning Paths bundle courses into journeys with prerequisites. Quizzes carry attempts, time limits, randomised order, optional security knobs and merit lists. Assignments accept text, files or quizzes. Certificates auto-issue when a learner clears the passing grade."
+    lists:
+      - "Curriculum tree with sections, lessons, quizzes, assignments and files"
+      - "Seven lesson types: video, live, audio, text, PDF, embed, iframe"
+      - "Drip and unlock rules per item, including per-learner overrides"
+      - "Auto-issued certificates with unique numbers and verification codes"
+    imgSrc: "/svgs/courses/course-curriculum.svg"
     reverse: false
+  - title: "Run the cohort, grade the work, talk to the room"
+    description: "Cohorts attached to a course let an educator run a real batch — start and end dates, weekly schedule, max seats — and the Enrollments list under Sales surfaces every learner across every program they teach. The Grading hub at /admin/settings/grading queues up assignment submissions across courses so grading is one place, not buried per-lesson. Discussion, Noticeboard and Notification under Communication keep the cohort moving without a separate tool."
+    lists:
+      - "Cohorts with dates, schedule, capacity and enrolled learners"
+      - "Enrollments list across every program the educator owns"
+      - "Grading hub with programs, exam terms and a submissions queue"
+      - "Discussion, Noticeboard and Notification, in the educator's scope"
+    imgSrc: "/svgs/educator-love/4-integrated.svg"
+    reverse: true
+  - title: "Coaching, office hours and one-on-ones — built in"
+    description: "The Booking menu under the educator's sidebar exposes Meeting Plans and Meeting Schedules — the same Calendly-style booking system that powers paid coaching sessions, group meetings and request-based approvals. Connect Google Calendar and Zoom from the platform Integrations (admin-set), and every booking lands on the educator's calendar with the right join link and the right notifications attached."
+    lists:
+      - "Bookable Meeting Plans with availability, mediums and policies"
+      - "Meeting Schedules dashboard for incoming and confirmed bookings"
+      - "Group, request-based and paid sessions on the same model"
+      - "Course Analytics, Enrollment Trends and Course Performance for review"
+    imgSrc: "/svgs/educator-love/5-scalability.svg"
+    reverse: false
+quickStart:
+  title: "From a new instructor account to a running program"
+  subtitle: "Edushade does not require a separate onboarding for educators. Once the admin invites a user with the instructor role, every step below happens inside the same /admin shell."
+  steps:
+    - step: 1
+      title: "Sign in at /admin and pick up the shell"
+      description: "The same admin URL, the same dashboard. Greeting at the top, Quick Actions, System Metrics, course analytics in the main column, learning stats and the top-learners leaderboard in the right rail."
+      imageAlt: "Admin dashboard rendered for an instructor — greeting, quick actions, system metrics, analytics chart"
+      imageSrc: "/svgs/courses/course-create.svg"
+    - step: 2
+      title: "Build a course or pick up an existing one"
+      description: "Open Resources → Courses. Create the shell, drop sections in, mix lesson types, set drip rules, add quizzes and assignments. Bundle courses into a Learning Path. Set up cohorts with dates and capacity."
+      imageAlt: "Curriculum builder with sections, mixed item types and drip rules"
+      imageSrc: "/svgs/courses/course-curriculum.svg"
+    - step: 3
+      title: "Run the cohort and watch what matters"
+      description: "Open Enrollments to see every learner. Grade in the Grading hub. Post a notice from Communication. Open Course Analytics for the chart. Take coaching calls through Meeting Plans — same panel, same week."
+      imageAlt: "Enrollments list with a grading queue and a course analytics chart visible"
+      imageSrc: "/svgs/courses/course-publish.svg"
+faq:
+  title: "Educator Panel FAQ"
+  description: "How educators sign in, what they see, what they can do, and how their experience shares the same shell as the admin."
+  items:
+    - question: "Where do educators sign in?"
+      answer: "At /admin — the same URL the platform team uses. Edushade does not split educators off into a separate side app. The admin shell loads, the same dashboard renders, and the sidebar resolves to a teaching-scoped menu because the platform's RBAC gates every item by role and permission."
+    - question: "Why is there no dedicated educator dashboard?"
+      answer: "Because the admin dashboard already gives educators what they reach for — greeting, Quick Actions, System Metrics, course analytics, recent notices, enrollments and learning stats — and shipping a second dashboard would split the same data across two surfaces. The work that does belong only to learners (streaks, leaderboards tuned to one person, my-courses) lives on the learner panel at /dashboard, where it fits the audience."
+    - question: "Which sidebar items do educators see?"
+      answer: "Dashboard, Analytics (Course Analytics, Enrollment Trends, Course Performance), Resources (Learning Paths, Courses, Quizzes, Events, Categories, Tags, Bundles, Content Bank, Grading), Sales → Enrollments, Booking (Meeting Schedules, Meeting Plans), Communication (Discussion, Noticeboard, Notification), and Platform → People → All Users / Learners. Anything below that — Billing, Audit, Settings, Website, Instructors, Admins & Staff, Roles & Permissions — is admin-only."
+    - question: "What program types can educators author?"
+      answer: "All teaching-side ones: Courses with the curriculum tree, Learning Paths that bundle courses with prerequisites, Quizzes (practice, graded, survey, assessment) and Assignments (text, file upload, quiz). Cohorts attach to courses with start and end dates, weekly schedule and a max-seats cap. Each ships its own list view, edit screen and management tabs in the same admin shell."
+    - question: "Which lesson types are available?"
+      answer: "Seven: video (HLS or MP4 with provider metadata), live (with meeting integration and password), audio, text (rich content), PDF (with a viewer), embed (third-party iframes) and iframe (custom). The curriculum builder supports all seven side by side; learners get the right player on the runner without any switch."
+    - question: "How is grading handled?"
+      answer: "Through the Grading hub at /admin/settings/grading — programs, exam terms and a submissions queue across every program the educator owns. Quizzes auto-grade where they can; assignments and free-form questions land in the queue with the learner's submission, attempt count, attached files and instructor feedback fields ready to fill."
+    - question: "Can educators see learners enrolled in their programs?"
+      answer: "Yes. Sales → Enrollments lists every learner across every program the educator is on, with progress, status and bulk actions. Platform → People → Learners gives a tenant-wide learner table, also gated by the same permissions. The instructor cannot see admins, staff or other instructors — that part of People is admin-only."
+    - question: "What about live sessions and bookings?"
+      answer: "Booking → Meeting Plans creates the bookable templates — Calendly-style — and Meeting Schedules surfaces incoming bookings. Group, request-based and paid sessions all run on the same model. The OAuth integrations themselves (Google Calendar, Zoom) are connected by an admin under Settings, but every meeting an instructor accepts uses the same calendar sync and notification stack."
+    - question: "What can educators do under Communication?"
+      answer: "Three things. Discussion lets them post and reply on threaded discussions tied to courses, paths, quizzes, events or cohorts. Noticeboard lets them publish announcements with priority, expiry, scheduling, pinning and read tracking — scoped to audiences they own. Notification covers transactional alerts; templates that ship with the platform fire automatically, and instructors with notification.send can trigger their own."
+    - question: "Which analytics do educators get?"
+      answer: "The same charts the admin sees, scoped to their programs. Course Analytics (per-course breakdown), Enrollment Trends (cohort growth) and Course Performance (completion + grade distribution) live under Analytics. The dashboard's course analytics chart and learning stats widget run on the same data, so a glance at /admin/dashboard already covers the headline metrics."
+    - question: "Can multiple educators share a course?"
+      answer: "Yes. Edushade supports instructor, co-instructor and assistant roles per course, per cohort, per learning path or per individual lesson. A guest expert can own one lesson in a cohort without getting access to the rest. Permissions stay scoped to where the role is assigned, and the People views surface every educator on a program."
+    - question: "What about reviews and feedback?"
+      answer: "Reviews fire to the instructor automatically — the review.received notification template ships with email, SMS, in-app and push variants — and the same admin Reviews tab on a course or learning path lets the instructor respond, archive or mark a review for the moderation queue. The course-level rating-enabled toggle is theirs to flip on or off per program."
+    - question: "What can educators NOT do?"
+      answer: "Billing (pricing, EMI, scholarships, transactions, refunds, subscriptions, offers), Audit (audit and activity logs), Settings (Control Panel, Holidays, Integrations, Payment Gateways), the Website builder, the Instructors and Admins & Staff views under People, and the Roles & Permissions builder. All of those live behind the admin role and admin-only permissions, so an instructor's menu hides them entirely."
+    - question: "Is the experience localized?"
+      answer: "Yes. The admin shell is fully localized — sidebar labels, page headers, table columns, button text — and pulls from the active locale. Content owned by the educator (course title, description, lesson body, notice text, FAQ items) uses the LocalizedField shape, so a translation flow is the same as on the public site."
+    - question: "What if my organization wants a different educator scope?"
+      answer: "Use Roles & Permissions on the admin side to create a custom role with whatever permissions you need — teaching assistant with grading-only, content reviewer with read-only access, lead instructor with everything plus billing visibility. The sidebar reads from the same RBAC engine, so a new role gets a new menu without a code change."
 ---
 
-The educator panel is where teaching happens: content, communication, and classroom mechanics aligned around your pedagogy.
+## Suggested visuals for this page
+
+The hero, capability cards, FAQ and quick-start steps render directly from the data above. The four split sections and the three quick-start steps each carry an image. The current build reuses the closest existing illustrations from `/svgs/courses`, `/svgs/educator-love` and `/svgs/build-for-teach`, but a future design pass should ship dedicated artwork. Drop the new files at the listed paths and they will swap in without any code change.
+
+**Split section 1 — `imgSrc: /svgs/build-for-teach/1.svg` (placeholder)**
+Suggested artwork: the admin shell rendered for an instructor — sidebar visible with the role-scoped menu (Dashboard, Analytics, Resources, Sales → Enrollments, Booking, Communication), greeting line, Quick Actions row and System Metrics widget visible. Add a small "Role: Instructor" pill near the avatar.
+
+**Split section 2 — `imgSrc: /svgs/courses/course-curriculum.svg` (placeholder)**
+Suggested artwork: the curriculum builder — section sidebar on the left with sections expanded, the lesson editor in the middle with a video lesson open and a chip showing the lesson type, drip rules pane on the right.
+
+**Split section 3 — `imgSrc: /svgs/educator-love/4-integrated.svg` (placeholder)**
+Suggested artwork: split view — Enrollments table on the left with a learner-progress column, Grading queue cards stacked on the right with submission previews and a "Mark for review" action.
+
+**Split section 4 — `imgSrc: /svgs/educator-love/5-scalability.svg` (placeholder)**
+Suggested artwork: a Meeting Plans card grid showing two plans (1:1 coaching, group session) on the left, the Meeting Schedules dashboard with incoming bookings on the right, plus a small Course Analytics line chart underneath.
+
+**Quick-start step 1 — `imageSrc: /svgs/courses/course-create.svg` (placeholder)**
+Suggested artwork: the admin dashboard rendered for an instructor — greeting at top with their name, Quick Actions row visible, System Metrics widget below, and the role-scoped sidebar on the left.
+
+**Quick-start step 2 — `imageSrc: /svgs/courses/course-curriculum.svg` (placeholder)**
+Suggested artwork: a course shell screen open — title, thumbnail upload, sections list on the left, drip-rule modal centred, with a small Cohort tab visible at the top.
+
+**Quick-start step 3 — `imageSrc: /svgs/courses/course-publish.svg` (placeholder)**
+Suggested artwork: a multi-pane view — Enrollments list on the left, Grading queue in the middle, Course Analytics line chart on the right — to communicate the day-to-day operating loop.

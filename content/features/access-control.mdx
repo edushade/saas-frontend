@@ -1,36 +1,150 @@
 ---
 featureId: "access-control"
 title: "Access Control"
-description: "Secure platform usage"
+description: "Per-entity access rules with a 69-attribute condition builder, nine targetable entity types, course-level gates and an audience preview — fail-open, audited, tenant-scoped."
 href: "/features/access-control"
 navGroup: "Manage Roles"
 navIcon: userBlock
 navOrder: 50
 banner:
   tag: "Access Control"
-  headline: "Secure Platform Usage"
-  description: "Control who can access what with security and compliance in mind."
-  ctaText: "Get Started"
+  headline: "Decide who can access every program — down to a single lesson"
+  description: "Edushade ships a real Access Control engine, not a single password field. Every course, learning path, cohort, event, bundle, section, lesson, assignment, quiz and file can carry one access rule with nested AND/OR filters across 69 user attributes — profile, location, verification, type, OAuth, activity, enrollment, completion, learning progress, quiz, purchase, engagement and device. Combine that with course-level gates (enrollment open/closed, password, max enrollments, status), enrollment-status gating and the audit trail, and you get an access surface that scales from a public freebie to an invite-only cohort without a code change."
+  ctaText: "Lock Down Your Programs"
   ctaTo: "/contact-sales"
+capabilityHighlights:
+  title: "An access engine built on real building blocks"
+  description: "Access Control in Edushade runs on a JSONB-backed access_rules table — one rule per entity, nested AND/OR groups, evaluated against the condition builder catalogue every other targeting feature uses. Course-level gates handle the simple cases (enrollment open / closed, course password, max seats, status). Enrollment status and drip rules handle the time and progression dimension. Everything is auditable, every change is fail-open, every record is tenant-scoped."
+  capabilities:
+    - title: "Per-Entity Access Rules"
+      description: "One access rule per entity, with a JSONB filter shape that supports nested AND/OR groups, an enabled toggle and an optional human description."
+      icon: clipboardList
+    - title: "Nine Targetable Entity Types"
+      description: "Course, learning path, cohort, event and bundle at the program level — plus section, lesson, assignment, quiz and file at the curriculum-item level."
+      icon: routing
+    - title: "69 User Attributes, 13 Categories"
+      description: "Profile, Location, Verification, User Type, OAuth, Activity, Enrollment, Completion, Learning Progress, Quiz, Purchase, Engagement and Device — every dimension you need to target."
+      icon: notebookBookmark
+    - title: "Course-Level Gates"
+      description: "Each course also carries enrollment_open, password_protected + password, max_enrollments and status (draft / published / archived / private) for the simpler cases that do not need a rule."
+      icon: arrowRight
+    - title: "Audience Preview Before You Save"
+      description: "Preview a rule against the live user base — total users, estimated audience size and sample users — so you know exactly who lands inside and who falls outside before you ship the rule."
+      icon: clapperboardPlay
+    - title: "Auditable and Fail-Open"
+      description: "Every save, delete, enable and disable fires an audit event. If the rule evaluator hits an error, the platform fails open — log a warning, grant access — so a buggy rule never accidentally locks your real audience out."
+      icon: diploma
 splitSections:
-  - title: "Protect sensitive learning data"
-    description: "Control access to courses, cohorts, and reports with policies designed for educational records and organizational boundaries."
+  - title: "A rule builder that goes far beyond a checkbox"
+    description: "Access rules are stored as a JSONB filters tree. The frontend renders them with a condition builder that pulls from the platform-wide field catalogue: 69 user attributes across 13 categories, with the right operator set per data type — eq / neq / contains / starts_with / ends_with / regex / in / not_in for strings, gt / gte / lt / lte / between / not_between for numbers, before / after / on / between / in_last / in_next for datetimes, geo_within_radius / within_polygon / outside_polygon for location, event_count_in_window / occurred_in_last for behaviour, plus array, boolean, enum and uuid types. AND/OR groups can nest, and time units span minutes through years."
     lists:
-      - "Enrollment-based access to content and discussions"
-      - "Org and sub-org boundaries where needed"
-      - "Secure defaults for links, downloads, and shares"
-      - "Supports compliance-minded operating models"
-    imgSrc: "/svgs/personalize/1.svg"
+      - "13 attribute categories: profile, location, verification, type, OAuth, activity, enrollment, completion, learning, quiz, purchase, engagement, device"
+      - "9 field types: string, number, boolean, enum, datetime, array, geo, event, uuid"
+      - "Operator richness: regex on strings, geo radius/polygon, event count-in-window"
+      - "Nested AND/OR groups with no depth limit"
+    imgSrc: "/svgs/educator-love/4-integrated.svg"
     reverse: true
-  - title: "Trust for learners and buyers"
-    description: "Institutions and employers expect proof that your platform treats data seriously—access control is central to that story."
+  - title: "Course-level gates for the simpler cases"
+    description: "Not every program needs a custom rule. Each course carries four direct flags that cover the most common access decisions — flip enrollment_open off to close enrollments without un-publishing, set password_protected and the access password for share-link control, configure max_enrollments to cap a paid cohort, and pick a status (draft, published, archived or private) to control public visibility. Cohorts inherit the same shape with their own start, end and seat caps."
     lists:
-      - "Consistent enforcement across panels and APIs"
-      - "Clear audit trails for sensitive actions"
-      - "Works with SSO and identity providers"
-      - "Reduces risk of cross-tenant leakage"
-    imgSrc: "/svgs/educator-love/1-intent.svg"
+      - "enrollment_open toggle — open / closed without unpublishing"
+      - "password_protected + password — gate access on a shared secret"
+      - "max_enrollments cap with a live remaining_seats counter"
+      - "Status: draft, published, archived, private (invitation-only)"
+    imgSrc: "/svgs/courses/course-publish.svg"
     reverse: false
+  - title: "Enrollment status, expiry and the time dimension"
+    description: "Access tracks the lifecycle of every enrollment — active, completed, cancelled, expired or suspended — and the platform respects each state when serving content. Time-limited access uses an expiry_date on the enrollment, with allow_extensions to grant or deny stretch requests. Drip rules layer on top: per-item unlock and lock modes (fixed date, enrollment offset, completion-based, manual, duration-after-unlock) so the same access rule can release content slowly even after a learner is in. Anonymous visitors only see entities without an enabled access rule — so a private course is genuinely private."
+    lists:
+      - "Five enrollment statuses gate content visibility automatically"
+      - "Time-limited access with expiry_date and allow_extensions"
+      - "Drip lock/unlock layered on top: 5 unlock + 4 lock modes per item"
+      - "Anonymous users only see entities without an enabled access rule"
+    imgSrc: "/svgs/courses/course-curriculum.svg"
+    reverse: true
+  - title: "Preview, enable, disable, audit — and ship with confidence"
+    description: "Before saving an access rule, the preview endpoint runs the filter against the live user base and returns total users matched, estimated audience size and a sample of matched users — so you ship with eyes open. The enabled flag toggles a rule on or off without losing the config; the description field captures why the rule exists for the next admin who reads it; soft delete keeps the history intact when a rule is retired. Every save, delete, enable and disable lands as an audit event with the actor, the entity and the timestamp."
+    lists:
+      - "Preview API: total users, estimated audience size, sample users"
+      - "Enable / disable toggle without losing the rule's filter config"
+      - "Description field on every rule, plus full audit on save / delete / toggle"
+      - "Permissions: access_rule.view to read, access_rule.manage to change"
+    imgSrc: "/svgs/educator-love/5-scalability.svg"
+    reverse: false
+quickStart:
+  title: "From open enrollment to invite-only in three steps"
+  subtitle: "Most programs only need the basic gates. The fine-grained Access Control engine is there when you need it — and it lives on the same admin shell as the rest of the platform, so the workflow is identical wherever you scope it."
+  steps:
+    - step: 1
+      title: "Set the basic gates"
+      description: "Open the program in admin. Toggle enrollment_open. Add a course password if you want a shared secret. Set max_enrollments for a hard seat cap. Pick a status — draft to hide, private to keep it invitation-only, published to make it discoverable."
+      imageAlt: "Course access settings panel with enrollment toggle, password field, max enrollments and status selector"
+      imageSrc: "/svgs/courses/course-create.svg"
+    - step: 2
+      title: "Build a fine-grained access rule"
+      description: "Open the Access Rule tab on the entity. Pick attributes from the catalogue (Country = India, Last Login in last 30 days, Completed Course X). Combine groups with AND/OR. Add a description so the next admin knows why."
+      imageAlt: "Access rule builder with field picker, operator selector and nested AND/OR groups"
+      imageSrc: "/svgs/educator-love/4-integrated.svg"
+    - step: 3
+      title: "Preview, enable, ship"
+      description: "Run Preview — the platform shows total users, estimated audience and sample matches. Toggle Enabled on. Save. The rule lands on the access_rules table, the audit log records the change, and the next access check applies it immediately."
+      imageAlt: "Audience preview panel with user count, sample list and an Enable toggle"
+      imageSrc: "/svgs/courses/course-publish.svg"
+faq:
+  title: "Access Control FAQ"
+  description: "How access rules, course-level gates, enrollment status and the audit trail come together inside Edushade."
+  items:
+    - question: "What does Access Control cover in Edushade?"
+      answer: "Three layers wired together. Course-level gates (enrollment_open, password_protected, max_enrollments, status) handle the common cases. Per-entity access rules — one row on the access_rules table per entity, with a JSONB filters tree — handle the fine-grained ones. Enrollment status and drip rules handle the time and progression dimension. Together they cover everything from a public freebie to a private invite-only cohort without a code change."
+    - question: "Which entity types can carry an access rule?"
+      answer: "Nine, in two tiers. Program-level: course, learning_path, cohort, event, bundle. Curriculum-item-level: section, lesson, assignment, quiz, file. The same model and the same admin UI cover all of them, so an access rule on a single lesson behaves the same way as one on a whole course."
+    - question: "How rich is the rule builder?"
+      answer: "Very. The condition builder pulls from a 69-attribute catalogue across 13 categories: User Profile, Location, Verification, User Type, OAuth, Activity, Enrollment, Completion, Learning Progress, Quiz, Purchase, Engagement and Device. Operators vary by field type — eq / neq / contains / starts_with / ends_with / regex / in for strings, gt / gte / lt / lte / between for numbers, before / after / in_last for dates, geo_within_radius / within_polygon / outside_polygon for location, event_count_in_window / occurred_in_last for behaviour, plus array, boolean, enum and uuid operators. Time units span minutes through years."
+    - question: "Can rules use AND/OR logic?"
+      answer: "Yes. The filters JSONB shape supports nested AND/OR groups with no depth limit, so a rule can read like (Country in [India, Bangladesh] AND Email Verified = true) OR (Last Login in last 14 days AND Completed Course X). The frontend renders the tree with a builder; the backend stores it verbatim and evaluates against the user catalogue at access time."
+    - question: "What happens for anonymous visitors?"
+      answer: "Anonymous users (no signed-in user, userID == uuid.Nil) only see entities without an enabled access rule. A program with a disabled rule, an empty filter or no rule at all is accessible to anyone. A program with an enabled, non-empty rule is invisible until they sign in and match. This makes a private course genuinely private — no leakage from the public listing."
+    - question: "What if an access rule errors during evaluation?"
+      answer: "The platform fails open. If the rule evaluator hits an error — bad JSON, missing field, broken operator — the warning is logged and access is granted. The reasoning: a buggy rule should never accidentally lock out the audience that paid for the program. Combine that with the audit log on every save and the preview API before you ship, and the cost of a failed evaluation stays low."
+    - question: "What course-level gates exist alongside access rules?"
+      answer: "Four direct flags on every course: enrollment_open (open / closed without un-publishing), password_protected + password (a shared secret on the course page), max_enrollments (a hard seat cap with a live remaining_seats counter), and status (draft, published, archived, private). Cohorts add their own start/end dates and a max-seats cap. Most programs only need these — access rules are the fine-grained tier on top."
+    - question: "How does enrollment status affect access?"
+      answer: "Five statuses on every enrollment: active, completed, cancelled, expired, suspended. Active and completed grant access; the others hide content. Time-limited enrollments carry an expiry_date and an allow_extensions flag, so a 90-day program either expires automatically or stretches with admin approval. The platform fires expiring-soon and expired notifications so a learner is not surprised by a sudden lock."
+    - question: "Can I preview a rule before saving?"
+      answer: "Yes. The preview endpoint runs the filter against the live user base and returns three things: total_users (the full audience), estimated_size (how many match the rule) and sample_users (a small sample of matched users). The admin UI surfaces all three so you can confirm the rule lands on the right people before flipping the enabled toggle."
+    - question: "Are access rule changes audited?"
+      answer: "Yes. Save, delete, enable and disable each fire an audit event with the actor, the resource type (`access_rule`), the resource ID, the entity (entity_type + entity_id), the IP address, the user agent and a timestamp. The audit-service stores them and Admin → Platform → Audit → Audit Logs surfaces them. Every privileged change to access has a paper trail."
+    - question: "How is access rule evaluation performant?"
+      answer: "The filter service uses an optimised path with a SQL query builder and a per-user cache when both are available — the first match for a user warms the cache, subsequent checks are cheap. The fallback path fetches rules without user matching for surfaces that only need the rule shape. Public listings of programs filter at the entity level: rules block entities, not entire pages, so listing performance scales with the visible set."
+    - question: "Are rules tenant-isolated?"
+      answer: "Hard-isolated. Every access_rules row carries a tenant_id; every query filters by it; no admin ever sees another tenant's rules. The user catalogue used for matching is itself tenant-scoped, so a rule against `Country = India` evaluates only against this tenant's users, never anyone else's."
+    - question: "Who on my team can manage access rules?"
+      answer: "Two permissions cover the surface. access_rule.view lets a role read the rule and the field catalogue. access_rule.manage lets a role create, update, delete and toggle rules. Combine those with course.update / cohort.update / learning_path.update for the rest of the program management surface, and an instructor can manage their own programs' access without touching anyone else's."
+    - question: "Does Access Control work with subscriptions and bundles?"
+      answer: "Yes. Bundles carry their own access rules just like courses. Subscription plans gate content separately through the billing service's content-access selector — a plan can include or exclude specific programs. The two layers compose: a learner needs to clear billing first (purchase, subscription, scholarship or bundle) and then their user attributes need to match any access rule on the entity. Both layers fail closed; together they form a real access surface."
 ---
 
-Access control is not optional for serious learning operations—it is how you protect learners, content, and your reputation.
+## Suggested visuals for this page
+
+The hero, capability cards, FAQ and quick-start steps render directly from the data above. The four split sections and the three quick-start steps each carry an image. The current build reuses the closest existing illustrations from `/svgs/educator-love` and `/svgs/courses`, but a future design pass should ship dedicated artwork. Drop the new files at the listed paths and they will swap in without any code change.
+
+**Split section 1 — `imgSrc: /svgs/educator-love/4-integrated.svg` (placeholder)**
+Suggested artwork: the access-rule builder canvas — left rail with the 13 category groups (User Profile / Location / Verification / etc.), centre with two stacked AND/OR group cards each containing a row like "Country in [India, BD]" and "Email Verified = true", and a small operator chip strip at the bottom showing regex, between, in_last and within_radius.
+
+**Split section 2 — `imgSrc: /svgs/courses/course-publish.svg` (placeholder)**
+Suggested artwork: a course Access settings card with four toggles/inputs — Enrollment Open switch, Password Protected (with a password field), Max Enrollments (number input with "12 of 50 seats remaining" hint) and Status pills (Draft / Published / Archived / Private).
+
+**Split section 3 — `imgSrc: /svgs/courses/course-curriculum.svg` (placeholder)**
+Suggested artwork: a curriculum sidebar with three lesson rows — one Active, one with a small "Unlocks May 2" chip (drip), one with a lock icon and a "Restricted" badge — plus a header showing the learner's enrollment status as Active.
+
+**Split section 4 — `imgSrc: /svgs/educator-love/5-scalability.svg` (placeholder)**
+Suggested artwork: a preview panel — Total Users (1,240), Estimated Audience (327), Sample Users (5 avatar cards with name + country flag) — and a small Audit Log strip at the bottom showing "Saved by Admin" and "Enabled by Lead Instructor".
+
+**Quick-start step 1 — `imageSrc: /svgs/courses/course-create.svg` (placeholder)**
+Suggested artwork: a course settings sidebar showing the Access section with the four basic gates wired up (toggles + inputs + status pills) and a "More: Access Rule →" link at the bottom.
+
+**Quick-start step 2 — `imageSrc: /svgs/educator-love/4-integrated.svg` (placeholder)**
+Suggested artwork: the access-rule builder mid-edit — one AND group with two rows, an "+ Add OR group" button visible, a description field at the top reading "Beta cohort — Asia + verified emails only", and a Preview Audience button at the bottom.
+
+**Quick-start step 3 — `imageSrc: /svgs/courses/course-publish.svg` (placeholder)**
+Suggested artwork: the preview pane on the right with audience stats and sample users, the Enabled toggle on, and a small "Saved — audit recorded" toast at the bottom.

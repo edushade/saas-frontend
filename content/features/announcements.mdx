@@ -1,36 +1,127 @@
 ---
 featureId: "announcements"
 title: "Announcements"
-description: "Share important updates"
+description: "Targeted notices with priority and read tracking"
 href: "/features/announcements"
 navGroup: "Deliver & Engage"
 navIcon: chatUnread
 navOrder: 40
 banner:
   tag: "Announcements"
-  headline: "Share Important Updates"
-  description: "Send announcements to learners and cohorts."
-  ctaText: "Get Started"
+  headline: "Notices the right people actually see"
+  description: "Edushade ships a real noticeboard, not just a banner field. Target by role, course, cohort, learning path, event, quiz or specific users; set priority and expiry; pin what matters; schedule what's coming; and let the learner side track what was read and what's still new."
+  ctaText: "Send Your First Notice"
   ctaTo: "/contact-sales"
+capabilityHighlights:
+  title: "A noticeboard with real audience targeting"
+  description: "Notices live in their own service with their own admin and their own learner experience. Each one carries an audience type, an audience list, a priority, an optional expiry, a pinned flag and a published-at timestamp — enough fields to send the right thing to the right people without an email blast."
+  capabilities:
+    - title: "Eight Audience Types"
+      description: "Send to everyone, a specific role, a course, a cohort, a learning path, a quiz, an event, or a hand-picked list of users — picked per notice."
+      icon: routing
+    - title: "Four Priority Levels"
+      description: "Low, normal, high and urgent. The learner side surfaces priority with an icon and colour, so a deadline reads differently from a heads-up."
+      icon: clipboardList
+    - title: "Schedule and Expiry"
+      description: "Schedule a notice for a future publish time, set an expiry so an outdated notice does not linger, and the noticeboard hides expired items automatically."
+      icon: clapperboardPlay
+    - title: "Pinned Notices"
+      description: "Pin the ones that matter most. Pinned notices stay at the top of the noticeboard regardless of how many newer notices land underneath."
+      icon: notebookBookmark
+    - title: "Read-by-User Tracking"
+      description: "Each notice carries a read tracking flag, an unread badge on the learner sidebar, and a per-user read record stamped with read-at."
+      icon: arrowRight
+    - title: "Attachments and Rich Body"
+      description: "Notices carry a title, a rich-text body, a thumbnail and any number of file attachments — pulled from the platform's own file manager."
+      icon: diploma
 splitSections:
-  - title: "Reach the right learners at the right time"
-    description: "Publish announcements to entire programs, specific cohorts, or individual courses—so updates land where they matter."
+  - title: "Target the right audience without a mailing list"
+    description: "Edushade lets you decide who sees a notice with one dropdown. Send to everyone, or scope it to a specific role, a course, a cohort, a learning path, an event, a quiz, or a hand-picked list of users. The audience picker pulls live data from the platform — no copy-paste of user IDs, no separate email tool."
     lists:
-      - "Audience targeting by cohort, course, or role"
-      - "Scheduled posts for planned communications"
-      - "Rich formatting for links, deadlines, and calls to action"
-      - "History learners can revisit when they need a reminder"
-    imgSrc: "/svgs/hero/banner.svg"
+      - "Eight audience types: all, role, course, cohort, learning_path, event, quiz, user_individual"
+      - "Audience picker pulls live records with searchable, multi-select dropdown"
+      - "Audience IDs stored as an array — multiple cohorts or courses on one notice"
+      - "Switching audience type clears the previous selection cleanly"
+    imgSrc: "/svgs/courses/course-types.svg"
     reverse: true
-  - title: "Fewer missed updates"
-    description: "Centralize critical information so learners do not hunt through email threads or chat scrollback."
+  - title: "Priority and pinning, so the urgent stays urgent"
+    description: "Not every notice deserves the same treatment. Pick a priority — low, normal, high or urgent — and the learner sees an icon and colour that match the weight of the message. Toggle the pinned flag to hold a notice at the top of the noticeboard, regardless of how many newer items follow."
     lists:
-      - "In-product surfaces for high-visibility messages"
-      - "Consistent tone and branding from your organization"
-      - "Complements live sessions and community spaces"
-      - "Administrators can coordinate cross-team messaging"
-    imgSrc: "/svgs/platforms/3-content.svg"
+      - "Low, normal, high and urgent priority levels with iconography"
+      - "Pinned notices stay at the top of the learner noticeboard"
+      - "Priority drives the icon and colour on the panel item"
+      - "Recurring flag for notices that repeat (e.g. yearly reminders)"
+    imgSrc: "/svgs/educator-love/2-analytics.svg"
     reverse: false
+  - title: "Schedule today, expire tomorrow, archive next week"
+    description: "Each notice carries its own status and lifecycle. Move from draft to published in one step, or set status to scheduled with a published_at timestamp and the notice goes live on its own. Add an expires_at to keep an outdated notice from lingering, and archive when the moment has passed — soft-delete keeps the audit trail intact."
+    lists:
+      - "Four statuses: draft, scheduled, published, archived"
+      - "published_at for time-shifted releases"
+      - "expires_at hides the notice automatically when it lapses"
+      - "Soft delete preserves notices removed from the active board"
+    imgSrc: "/svgs/platforms/2-progress.svg"
+    reverse: true
+  - title: "A learner noticeboard that actually tracks what's read"
+    description: "Learners get a dedicated noticeboard sheet with an unread badge in the sidebar — one click opens the panel, another marks the item read. The platform stores a per-user read record with the read-at timestamp, supports a mark-all-as-read shortcut, and the bell badge counts only what is actually new."
+    lists:
+      - "Unread badge on the sidebar with live count (capped at 9+)"
+      - "Sheet panel with priority icons and last-read state per item"
+      - "Mark-as-read on click, mark-all-as-read in one tap"
+      - "Per-user notice_reads record with read-at timestamp on the server"
+    imgSrc: "/svgs/educator-love/4-integrated.svg"
+    reverse: false
+quickStart:
+  title: "From draft to delivered notice in three steps"
+  subtitle: "The notice form lives under Communication in the admin. Title, body, audience, priority — set what you need and publish, schedule, or save as a draft."
+  steps:
+    - step: 1
+      title: "Write the notice"
+      description: "Add a title, write the body in the rich-text editor, drop in attachments through the file manager, and set a thumbnail. Optionally toggle pinned or recurring."
+      imageAlt: "Notice creation form with title, rich-text body editor and attachments panel"
+      imageSrc: "/svgs/courses/course-create.svg"
+    - step: 2
+      title: "Pick the audience and priority"
+      description: "Choose an audience type — all, role, course, cohort, learning path, event, quiz, or specific users — then select the records to target. Set the priority from low to urgent."
+      imageAlt: "Audience type dropdown with audience IDs picker and priority selector"
+      imageSrc: "/svgs/courses/course-curriculum.svg"
+    - step: 3
+      title: "Publish, schedule or save as draft"
+      description: "Pick a status: published goes out immediately, scheduled needs a publish-at timestamp, draft stays admin-only. Add an expires-at if the notice should disappear on a date."
+      imageAlt: "Status selector with scheduled date pickers and expiry field"
+      imageSrc: "/svgs/courses/course-publish.svg"
+faq:
+  title: "Announcements FAQ"
+  description: "How announcements work in Edushade — audience targeting, priority, scheduling, expiry, pinning and read tracking."
+  items:
+    - question: "What is an announcement in Edushade?"
+      answer: "A record on the notices table — title, rich-text body, audience type, audience IDs, priority, status, optional published_at and expires_at, plus pinned and recurring flags. The admin creates them under Communication; learners see them on a dedicated noticeboard with an unread badge in the sidebar."
+    - question: "Who can I target with a notice?"
+      answer: "Eight audiences: everyone on the platform (the empty audience type), a specific role, a course, a cohort, a learning path, an event, a quiz, or a hand-picked list of users. Audience IDs are stored as an array, so a single notice can target multiple cohorts or courses at once."
+    - question: "How do priority levels work?"
+      answer: "Four levels — low, normal, high and urgent — each with its own icon and colour on the learner panel. Priority does not change targeting; it changes how the notice presents, so a routine update reads differently from a deadline reminder."
+    - question: "Can I pin a notice?"
+      answer: "Yes. Toggle the pinned flag on the notice and it stays at the top of the noticeboard regardless of how many newer notices land underneath. Useful for ongoing reminders, semester-long policies and welcome notes."
+    - question: "Can I schedule a notice for later?"
+      answer: "Yes. Set status to scheduled and pick a published_at date and time. The notice stays out of the learner noticeboard until that moment, then flips to published on its own. Same flow for batch announcements timed to a cohort start."
+    - question: "What about an expiry date?"
+      answer: "Each notice carries an optional expires_at. Once the expiry passes, the notice drops off the active board automatically — no manual cleanup. The record itself is preserved for audit, and you can still surface it through the archive view."
+    - question: "Can a notice attach files?"
+      answer: "Yes. Notices accept any number of attachments through the platform's file manager — PDFs, images, schedules, docs. Attachments display alongside the body on the learner detail view, with download enabled."
+    - question: "How is read tracking handled?"
+      answer: "A read_tracking flag on the notice opts the message in. When a learner opens it, Edushade writes a notice_reads record with notice_id, user_id and read_at. The learner sidebar shows an unread count badge based on these records, capped at 9+."
+    - question: "Can a learner mark everything as read at once?"
+      answer: "Yes. The noticeboard sheet has a mark-all-as-read action that writes notice_reads for every unread notice in one call. The unread badge clears immediately."
+    - question: "What states does a notice go through?"
+      answer: "Four: draft (admin-only, in progress), scheduled (waiting on a published_at), published (live for the chosen audience), and archived (retired, kept for the record). The record itself is soft-deleted on removal so audit history is preserved."
+    - question: "Are notice events triggered as notifications too?"
+      answer: "Yes. Edushade ships an announcement.published notification template — email, SMS and push variants — that fires when a notice is published in a course context, so learners receive an email with the title, preview and a read-more link in addition to seeing the notice on the noticeboard."
+    - question: "What does the recurring flag do?"
+      answer: "It marks a notice as repeating — useful for yearly reminders, semester-start messages or seasonal policies. The flag carries on the record; how it surfaces depends on the consuming view, but the data shape supports recurrence at the model level."
+    - question: "Can I export notices?"
+      answer: "Yes. Notices export to CSV with full metadata — title, body, audience type, audience IDs, priority, status, published-at, expires-at, pinned, recurring, read-tracking, thumbnail and audit fields — so a campaign of notices can be backed up, audited or moved between environments."
+    - question: "How is a notice different from an in-course announcement?"
+      answer: "They are the same record. A 'notice with audience type = course' is the in-course announcement. The course detail page surfaces those filtered to its own ID; the noticeboard surfaces every notice the learner is eligible for. One model, two views."
+    - question: "Can multiple admins post notices?"
+      answer: "Yes. Each notice carries a created_by and updated_by attribution, so a coordinator, an instructor and a registrar can all post on the same platform with clear authorship on every record."
 ---
-
-Announcements keep everyone aligned—whether it is a schedule change, a new resource, or an important policy reminder.

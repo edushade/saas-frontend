@@ -1,36 +1,152 @@
 ---
 featureId: "role-permissions"
 title: "Role Permissions"
-description: "Control access levels"
+description: "295 permissions across 55 functional groups, tenant-defined roles with cloning, per-user permission overrides, and the same RBAC engine gating every API and every menu item."
 href: "/features/role-permissions"
 navGroup: "Manage Roles"
 navIcon: stars
 navOrder: 40
 banner:
   tag: "Role Permissions"
-  headline: "Control Access Levels"
-  description: "Define roles and permissions for your platform."
-  ctaText: "Learn More"
+  headline: "Granular access, tenant-scoped, end to end"
+  description: "Edushade ships 295 permissions out of the box, organised into 55 functional groups — every feature on the platform has its own permission set, and every API endpoint and every menu item is gated by the same RBAC engine. Build tenant-defined roles, clone an existing role to template a new one, assign roles to users or pin a single permission to a single user, and the access surface stays consistent everywhere."
+  ctaText: "Design Your Access Model"
   ctaTo: "/contact-sales"
+capabilityHighlights:
+  title: "A real RBAC system, not a checkbox"
+  description: "Roles, Permissions and the user-permission override pivot all live on the auth-service. A `middlewares.Can(name, pp)` guard wraps every protected route across every microservice — auth, learning, engagement, billing, booking, notification, website, tenant. The admin sidebar reads from the same engine to decide which menu items render. One source of truth, defended both at the menu and at the endpoint."
+  capabilities:
+    - title: "295 Permissions, 55 Groups"
+      description: "Every feature ships with its own permission group — user, rbac, role, course, lesson, assignment, cohort, event, quiz, review, billing, website (41 perms alone), e-commerce, audit and more. New features ship new groups."
+      icon: clipboardList
+    - title: "Tenant-Defined Roles"
+      description: "Roles live per tenant — name, label, description, status (active / inactive), guard (web / API). Every tenant builds the role set that matches their org without seeing other tenants' roles."
+      icon: routing
+    - title: "Role Cloning for Templating"
+      description: "Clone any role to template a new one — the platform copies the permission set, you adjust, you save. Useful for spinning up a TA role from an instructor template, or a moderator from an admin."
+      icon: notebookBookmark
+    - title: "Per-User Permission Overrides"
+      description: "The user_permissions pivot lets you grant or revoke a single permission to a single user without touching their role — one-off elevations, one-off reductions, no schema bending."
+      icon: arrowRight
+    - title: "Defense in Depth"
+      description: "Every API endpoint is wrapped in middlewares.Can(permission_name, pp). The admin sidebar's requireRoles + requirePermissions hides items the user cannot use. The same permission name guards both — change one, the other follows."
+      icon: clapperboardPlay
+    - title: "Multi-Tenant by Default"
+      description: "Every roles row, every role_permissions row, every user_roles row carries a tenant_id. Hard isolation at the database level — no tenant ever sees another tenant's roles, even by accident."
+      icon: diploma
 splitSections:
-  - title: "Least privilege, clearly expressed"
-    description: "Define roles that match how your organization really works—learners, instructors, TAs, reviewers, and admins each see what they need."
+  - title: "Permissions that mirror every feature on the platform"
+    description: "The auth-service ships permissions.json with 55 groups and 295 permissions, and the seeder loads them on every fresh install. The groups read like a feature catalog — user, rbac, role, permission, tenant, organization, invitation, settings, file, notification, campaign, template, segment, notice, audit, dashboard, analytics, course, curriculum, lesson, assignment, cohort, breakpoint, holiday, grading, drip_schedule, access_rule, admin, event, speaker, quiz, discussion, comment, review, reaction, engagement, certificate, category, tag, learning_path, enrollment, entity, meeting_plan, schedule, price, purchase, bundle, subscription_plan, installment_plan, scholarship, offer, ecommerce, website, migration. Each carries a label and a description, surfaced in the admin permission picker."
     lists:
-      - "Granular permissions for content, grades, and settings"
-      - "Reusable role templates for new programs"
-      - "Safer handoffs when staff change"
-      - "Reduces accidental edits and data exposure"
+      - "55 permission groups, one per feature area"
+      - "295 individual permissions out of the box"
+      - "Each permission carries a name, label, description and group"
+      - "Web and API guards on each — same name, two contexts"
     imgSrc: "/svgs/educator-love/4-integrated.svg"
     reverse: true
-  - title: "Governance that scales"
-    description: "As teams grow, roles prevent chaos: everyone knows their scope, and audits are easier."
+  - title: "Roles that fit your organization, not the platform's defaults"
+    description: "Roles are tenant-defined. Each role has a name, a guard (web by default), a status (active or inactive), a permission set and a list of users assigned to it. The platform ships six bootstrap roles to seed (super_admin, admin, user_manager, developer, moderator, auditor) but the real role design happens per tenant — instructor, lead instructor, teaching assistant, content reviewer, billing operator, support agent — whatever the org actually runs. Clone a role to template the next one, and every change is auditable."
     lists:
-      - "Separation of teaching vs administration"
-      - "Optional elevated access with clear accountability"
-      - "Supports assistants and guest facilitators"
-      - "Aligns with enterprise security expectations"
+      - "Per-tenant roles — name, label, description, status, guard"
+      - "Bootstrap seeds: super_admin, admin, user_manager, developer, moderator, auditor"
+      - "Clone an existing role to template a new variant in one call"
+      - "Soft delete preserves the role even after retirement"
     imgSrc: "/svgs/platforms/1-sidebar.svg"
     reverse: false
+  - title: "Two ways to grant — role-level and user-level"
+    description: "Edushade resolves access in two layers. role_permissions ties a permission to a role; user_roles ties a role to a user; the union of those is the role-based grant. user_permissions is the override layer — pin a single permission to a single user without changing their role. The admin RBAC API exposes both: POST /rbac/roles/:roleID/permissions/:permissionID for role-level, POST /rbac/users/:userID/permissions/:permissionID for user-level. The middleware checks both layers when deciding access."
+    lists:
+      - "role_permissions: many-to-many between roles and permissions"
+      - "user_roles: many-to-many between users and roles"
+      - "user_permissions: per-user grant on top of role-based access"
+      - "Same admin API: POST and DELETE for every assignment surface"
+    imgSrc: "/svgs/educator-love/2-analytics.svg"
+    reverse: true
+  - title: "RBAC that hides what you cannot use, not just blocks it"
+    description: "The admin sidebar config carries `requireRoles` and `requirePermissions` per item. Every microservice wraps every protected route in `middlewares.Can(permission_name, pp)`. The two layers share the same permission names, so a user without `notice.manage` cannot see Communication → Noticeboard in their menu and also cannot hit the noticeboard API. Nothing is greyed out for show — items that do not apply simply do not render. Defense in depth, with one source of truth."
+    lists:
+      - "Admin sidebar items hide when the user lacks the role + permission"
+      - "Every microservice route is wrapped in middlewares.Can(name, pp)"
+      - "Same permission name gates both menu and API — no drift"
+      - "Audit logs capture every privileged role and permission change"
+    imgSrc: "/svgs/courses/instructor.svg"
+    reverse: false
+quickStart:
+  title: "From bootstrap roles to a tenant-shaped access model"
+  subtitle: "The Roles & Permissions builder lives at /admin/users/roles. Clone, edit, assign — every step audits, every change propagates to the menu and to the APIs immediately."
+  steps:
+    - step: 1
+      title: "Pick a bootstrap role or clone one"
+      description: "Open Admin → Platform → People → Roles & Permissions. Use one of the seeded roles (admin, user_manager, developer, moderator, auditor) as a starting point, or clone the closest match to template a new one."
+      imageAlt: "Roles list with seeded roles and a Clone Role button on a row"
+      imageSrc: "/svgs/courses/course-create.svg"
+    - step: 2
+      title: "Tune the permission set"
+      description: "Open the role detail. The permission tree groups all 295 permissions by feature area. Toggle individually, toggle a whole group, or use the search to find a specific permission name. Save — the role is live."
+      imageAlt: "Role detail with grouped permission tree and per-group toggles"
+      imageSrc: "/svgs/educator-love/4-integrated.svg"
+    - step: 3
+      title: "Assign the role and add overrides"
+      description: "Pick users from People and assign the role. For one-offs, open a single user and grant a per-user permission on top — no role change required. The admin sidebar updates the moment the assignment lands; APIs accept the new access immediately."
+      imageAlt: "User detail with role chips and a per-user permission override section"
+      imageSrc: "/svgs/courses/course-publish.svg"
+faq:
+  title: "Role Permissions FAQ"
+  description: "How permissions, roles, overrides and the RBAC engine work inside Edushade."
+  items:
+    - question: "How many permissions ship out of the box?"
+      answer: "295 permissions, organised into 55 functional groups — one group per feature area. The list lives in the auth-service's permissions.json and is loaded by a seeder on a fresh install. As Edushade ships new features, new permission groups land in the same file, so the catalog grows with the platform."
+    - question: "What does a permission look like?"
+      answer: "A row on the permissions table with a name (`course.view`), a label (`View Course`), a description, a group (`course`) and a guard (`web` by default). The middleware guarding a route checks the name; the admin permission picker reads from the label, description and group. Both layers stay aligned because they share the same source."
+    - question: "How do I create a role?"
+      answer: "Open Admin → Platform → People → Roles & Permissions and use the Create Role flow, or call POST /rbac/roles. A role carries a name, a label, a description, a status (active / inactive), a guard, plus a permission set you tick on the same form. Save — the role is live and assignable to any user in the tenant."
+    - question: "Can I clone an existing role?"
+      answer: "Yes. POST /rbac/roles/:roleID/clone duplicates the source role with the same permission set. Useful for templating a TA role from an instructor, a senior moderator from a moderator, or a billing operator from an admin. Adjust the permissions on the clone and you have a new role without re-ticking 50 boxes."
+    - question: "What roles ship as bootstrap defaults?"
+      answer: "Six seeds: super_admin (no explicit permissions — special case), admin (broad permission set across user, role, tenant, file, notification, analytics, settings), user_manager (user + role assignment scope), developer (tenant + user + file + notification + analytics scope), moderator (user list + sessions + file ops + notifications + analytics view) and auditor (analytics view + export). Real role design happens per tenant on top of these — clone or build new."
+    - question: "How are roles assigned to users?"
+      answer: "Through the user_roles pivot. POST /rbac/users/:userID/roles/:roleID assigns; DELETE removes. A user can hold multiple roles — the access surface is the union. Invitations carry role_ids[] so a new user lands with the right roles already assigned the moment they accept the invitation."
+    - question: "What is a per-user permission override?"
+      answer: "A row on user_permissions that grants or revokes a single permission to a single user, independent of any role. Useful for one-off elevations (a moderator with delete access for a specific incident) or one-off reductions (an instructor who should not see analytics for one quarter). The middleware merges role-based and user-level grants when deciding access."
+    - question: "How does permission resolution actually work?"
+      answer: "On every protected request, middlewares.Can(name, pp) asks the PermissionProvider whether the user has the permission. The provider looks up the user's roles, gathers their role_permissions, adds the user_permissions overrides, and answers yes/no. The result is cached per request to keep the lookup cheap, and the same logic powers the admin sidebar's render decisions."
+    - question: "Where is RBAC enforced?"
+      answer: "Two places. Server-side: every protected route across every microservice is wrapped in middlewares.Can(permission_name, pp). Client-side: the admin sidebar config carries requireRoles + requirePermissions per item, and items hide when the user lacks them. The two share the same permission names, so a feature gated server-side is also gated in the menu — no drift, no greyed-out items."
+    - question: "Are RBAC changes audited?"
+      answer: "Yes. Role create / update / delete, permission grants and revocations, user-role assignments and impersonation events all flow through the audit-service. Admin → Platform → Audit → Audit Logs surfaces them with the actor, the target, the change and the timestamp. Activity Logs covers the broader auth event stream."
+    - question: "Is RBAC tenant-isolated?"
+      answer: "Hard-isolated. Every roles row, role_permissions row, user_roles row and user_permissions row carries a tenant_id. Queries always filter by it; the API never returns roles or permission assignments from another tenant. The 295 base permissions are global definitions, but their assignment to roles and users is fully per-tenant."
+    - question: "Can RBAC integrate with SSO or directory groups?"
+      answer: "Yes. The OAuth-linked event is tracked on the user record; tenant invitations carry role_ids[] and permission_ids[] for first-touch assignment; the system-token endpoints expose role and permission management for inter-service use. Combine those with an SSO claim mapper and a directory sync, and group-based assignments fold into the same RBAC engine."
+    - question: "How does the admin sidebar know what to hide?"
+      answer: "The sidebar config in `components/admin/partials/sidebar-navigation.ts` tags each item with `requireRoles` and `requirePermissions`. The render function checks the signed-in user's roles and permissions and skips items that fail. Custom roles automatically get a custom menu — a new role created in Roles & Permissions sees exactly the items you grant it, no code change required."
+    - question: "Can I disable a role without losing its assignments?"
+      answer: "Yes. Set the role status to `inactive`. The role still exists, the user_roles assignments still exist, but the middleware treats inactive roles as not granting any permission. Flip it back to `active` and access resumes — useful for a temporary hold during a re-org or a security review."
+    - question: "Are there web-only and API-only permissions?"
+      answer: "The guard column on roles and permissions distinguishes contexts (web by default). The same permission name can carry separate web and API guards if your tenant needs the distinction — for example, allowing a role to edit through the admin UI but not through a system-token API path. Most tenants run web-only and let the system token handle inter-service traffic."
 ---
 
-Role permissions turn “who can do what” from tribal knowledge into explicit, maintainable policy.
+## Suggested visuals for this page
+
+The hero, capability cards, FAQ and quick-start steps render directly from the data above. The four split sections and the three quick-start steps each carry an image. The current build reuses the closest existing illustrations from `/svgs/educator-love`, `/svgs/platforms` and `/svgs/courses`, but a future design pass should ship dedicated artwork. Drop the new files at the listed paths and they will swap in without any code change.
+
+**Split section 1 — `imgSrc: /svgs/educator-love/4-integrated.svg` (placeholder)**
+Suggested artwork: a permission catalog grid showing several group cards (User Management, Course Management, Notification Management, Audit, Website, Billing) with a permission count chip on each, plus a search bar at the top with `course.view` typed in.
+
+**Split section 2 — `imgSrc: /svgs/platforms/1-sidebar.svg` (placeholder)**
+Suggested artwork: the Roles & Permissions list with five rows — Admin, Lead Instructor, TA, Content Reviewer, Billing Operator — each showing a permission count and a Clone button, plus a Create Role CTA at the top.
+
+**Split section 3 — `imgSrc: /svgs/educator-love/2-analytics.svg` (placeholder)**
+Suggested artwork: a layered diagram — Roles on the left feeding into Role Permissions, User Roles in the middle linking users to roles, User Permissions on the right showing the override layer with a small diff chip ("+2 / −1").
+
+**Split section 4 — `imgSrc: /svgs/courses/instructor.svg` (placeholder)**
+Suggested artwork: a split view — admin sidebar on the left with two items greyed out (admin-only) and the rest visible (instructor-scoped); on the right, a 401 / 403 response card from the API with the same permission name circled to communicate "menu and endpoint share one rule".
+
+**Quick-start step 1 — `imageSrc: /svgs/courses/course-create.svg` (placeholder)**
+Suggested artwork: the Roles list with the seeded roles visible (Admin, User Manager, Developer, Moderator, Auditor) and a "Clone Role" action open on the Admin row, prompting for a new role name.
+
+**Quick-start step 2 — `imageSrc: /svgs/educator-love/4-integrated.svg` (placeholder)**
+Suggested artwork: a role detail page with the permission tree on the left grouped by feature, a search field at the top, and a save bar at the bottom showing "+12 added, −3 removed" since the last save.
+
+**Quick-start step 3 — `imageSrc: /svgs/courses/course-publish.svg` (placeholder)**
+Suggested artwork: a user detail page with two role chips, an "Add direct permission" pill below them, and a small "Sidebar updated" toast in the corner to communicate that the menu re-renders the moment access changes.

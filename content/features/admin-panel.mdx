@@ -1,36 +1,148 @@
 ---
 featureId: "admin-panel"
 title: "Admin Panel"
-description: "Platform level management"
+description: "One control surface for the whole platform — programs, people, billing, communications, the website, audit and system settings, all under role-based access."
 href: "/features/admin-panel"
 navGroup: "Manage Roles"
 navIcon: windowFrame
 navOrder: 20
 banner:
   tag: "Admin Panel"
-  headline: "Platform Level Management"
-  description: "Administer users, settings, and platform-wide configuration."
-  ctaText: "Learn More"
+  headline: "One platform, one control surface"
+  description: "Edushade ships a full-featured admin panel at /admin — a sidebar that groups every section the platform offers, a role-aware menu that hides what the signed-in user cannot touch, and a dashboard that opens with a greeting, quick actions, system metrics, course analytics and notices. Programs, people, billing, communication, the website, audit and settings all live one click away, in one shell."
+  ctaText: "Tour the Admin Panel"
   ctaTo: "/contact-sales"
+capabilityHighlights:
+  title: "Every section the platform ships, grouped by what you actually do"
+  description: "The admin sidebar is organised into seven groups — Dashboard, Analytics, Resources, Sales, Booking, Communication and Platform — and every item in every group is gated by both role and permission. Admins see the full menu; instructors see a teaching-scoped subset; new roles you create see exactly what you let them see."
+  capabilities:
+    - title: "Dashboard, Analytics, System Metrics"
+      description: "A landing page with quick actions, system metrics, course analytics, learning stats, notices and a top-learners leaderboard — plus dedicated analytics screens for course performance, enrollment trends and certificates."
+      icon: clipboardList
+    - title: "Programs and Content"
+      description: "Learning Paths, Courses, Quizzes, Cohorts, Events, Bundles, Categories and Tags — all with create / edit / publish / archive flows, plus a Content Bank and a Grading hub."
+      icon: notebookBookmark
+    - title: "Sales and Billing"
+      description: "Enrollments, pricing per entity, EMI plans, scholarships and applications, transactions and refunds, subscriptions and offers — every billing surface in one menu."
+      icon: clapperboardPlay
+    - title: "People and RBAC"
+      description: "All users, learners, instructors, admins and staff with their own filtered views, plus a Roles & Permissions builder for tenant-defined roles."
+      icon: routing
+    - title: "Communication and Notifications"
+      description: "Discussion threads, the noticeboard with priority and read tracking, plus a notification suite with templates, segments, campaigns, settings and audit logs."
+      icon: arrowRight
+    - title: "Platform Operations"
+      description: "The website builder for the public site, audit and activity logs, control-panel settings, holidays, integrations and payment gateways — all under the Platform group."
+      icon: diploma
 splitSections:
-  - title: "Operate the platform with confidence"
-    description: "Administrators configure the organization, oversee users, and enforce policies from a single control surface."
+  - title: "An admin dashboard that surfaces what needs attention"
+    description: "Sign in as an admin and /admin/dashboard opens with a greeting and the user's name, a Quick Actions row, a System Metrics widget and a course analytics chart in the main column. The right rail carries learning stats and the top-learners leaderboard. Notices and recent enrollments sit beneath the chart so the right items are visible without a scroll, and the Analytics group breaks out into Course Analytics, Enrollment Trends and Course Performance for a deeper look."
     lists:
-      - "Org-wide settings and branding"
-      - "Visibility into usage, enrollments, and key metrics"
-      - "Tools to support instructors and troubleshoot access"
-      - "Audit-friendly views for sensitive changes"
-    imgSrc: "/svgs/platforms/1-sidebar.svg"
+      - "Greeting + Quick Actions row at the top of /admin/dashboard"
+      - "System Metrics widget with platform-wide health and counts"
+      - "Course analytics chart, notices and enrollments in the main column"
+      - "Learning stats and a top-learners leaderboard in the right rail"
+    imgSrc: "/svgs/educator-love/2-analytics.svg"
     reverse: true
-  - title: "Scale without losing control"
-    description: "As you grow programs and teams, admin workflows stay coherent—fewer one-off fixes and shadow processes."
+  - title: "People and roles, with permissions you actually decide"
+    description: "Admin → Platform → People exposes filtered views for all users, learners only, instructors only and admins/staff only — each backed by the same data table with bulk actions and CSV export. The Roles & Permissions builder lets you create tenant-defined roles, pin granular permissions to them, and assign them to users one at a time or in bulk. The same RBAC engine gates every screen, every API and every menu item the user sees."
     lists:
-      - "Structured roles and permission models"
-      - "Bulk operations where appropriate"
-      - "Separation of admin vs teaching vs learner experiences"
-      - "Foundation for compliance and governance"
+      - "Filtered tables for All Users, Learners, Instructors, Admins & Staff"
+      - "Tenant-defined roles with granular permission picker"
+      - "Per-user permission overrides on top of role assignments"
+      - "Permissions also gate sidebar visibility, not just API access"
+    imgSrc: "/svgs/courses/instructor.svg"
+    reverse: false
+  - title: "Programs, content and grading, in one place"
+    description: "Resources groups Learning Paths, Courses, Quizzes, Events, Categories, Tags, Bundles and Products under one menu — each with its own create flow, list view, detail page and management tabs. The Content Bank stores every file the platform uses across courses, posts and templates. The Grading hub at /admin/settings/grading covers grading programs, exam terms and a submissions queue, so the team can grade in one place without bouncing between courses."
+    lists:
+      - "Courses, paths, quizzes, events, bundles and tags under one menu"
+      - "Cohorts attached to courses with their own learners, enrollments and reviews"
+      - "Content Bank for files used across courses, posts and templates"
+      - "Grading hub with programs, exam terms and a submissions queue"
+    imgSrc: "/svgs/courses/course-curriculum.svg"
+    reverse: true
+  - title: "Billing, audit, settings and the public website — all admin-controlled"
+    description: "Sales → Billing covers pricing per entity (course, cohort, learning path, bundle, event, meeting plan, product), EMI plans, scholarships and applications, subscriptions, offers, transactions and refunds. Platform → Audit ships full audit and activity logs. Settings holds the Control Panel, Holidays, Integrations and Payment Gateways. The Website item links straight into the website-builder admin so the public site, blog and booking pages live next to the platform itself."
+    lists:
+      - "Per-entity pricing, EMI, scholarships, subscriptions, offers and refunds"
+      - "Audit Logs and Activity Logs under the Audit menu"
+      - "Settings: Control Panel, Holidays, Integrations, Payment Gateways"
+      - "Website builder accessible from the same admin shell"
     imgSrc: "/svgs/educator-love/5-scalability.svg"
     reverse: false
+quickStart:
+  title: "From a fresh tenant to a running platform"
+  subtitle: "Every admin lands at /admin/dashboard. The sidebar groups the seven major areas; the dashboard surfaces what needs attention first. New tenants flow through these three steps before the first learner signs in."
+  steps:
+    - step: 1
+      title: "Tune the platform"
+      description: "Open Settings → Control Panel for org-wide configuration. Add Holidays. Connect Payment Gateways and any third-party Integrations. Open the Website item to brand the public site, blog and booking surface."
+      imageAlt: "Settings menu with Control Panel, Holidays, Integrations and Payment Gateways"
+      imageSrc: "/svgs/courses/course-create.svg"
+    - step: 2
+      title: "Set up people and roles"
+      description: "Build the roles your team needs in Platform → People → Roles & Permissions, invite admins and instructors, and let learners self-register. Use the filtered People views to keep an eye on the right slice of users."
+      imageAlt: "Roles & Permissions builder with permission tree and an invite flow on the right"
+      imageSrc: "/svgs/courses/instructor.svg"
+    - step: 3
+      title: "Ship programs and watch them run"
+      description: "Build courses, learning paths, quizzes, events and bundles under Resources. Open enrollments under Sales. Communication and Notification keep cohorts informed, and the Dashboard surfaces what needs attention day to day."
+      imageAlt: "Course list with enrollments column and a notification campaign panel below"
+      imageSrc: "/svgs/courses/course-publish.svg"
+faq:
+  title: "Admin Panel FAQ"
+  description: "How the admin shell, RBAC, programs, billing, communication, audit and settings come together inside Edushade."
+  items:
+    - question: "What does an admin see on /admin/dashboard?"
+      answer: "A greeting with the user's name, a Quick Actions row, a System Metrics widget, a course analytics chart, recent notices and enrollments in the main column, and a learning-stats card plus a top-learners leaderboard in the right rail. Behind it sits an Analytics group with Course Analytics, Enrollment Trends, Course Performance and more dedicated screens."
+    - question: "How is the sidebar organised?"
+      answer: "Seven groups: Dashboard, Analytics, Resources, Sales, Booking, Communication and Platform. Resources covers programs and content. Sales covers enrollments and billing. Booking covers meeting plans, schedules and integrations. Platform groups people, the website, audit and settings. Each item is keyed to roles and permissions so users only see what they can use."
+    - question: "How does role-based access work?"
+      answer: "Two layers. The base sidebar config carries `requireRoles` and `requirePermissions` per item — admins see the full menu, instructors see a teaching-scoped subset, custom roles see exactly what you grant. The same permissions enforce on the server, so a hidden item is also a closed API. Per-user overrides on top of roles let you grant or deny one permission to one person without changing the role."
+    - question: "Which programs are managed from the admin panel?"
+      answer: "Learning Paths, Courses, Quizzes, Cohorts, Events, Bundles, plus Categories and Tags as classification, and Products with their own taxonomies for the e-commerce side. Each ships its own list view, detail tabs and create / edit / publish / archive flows, and they all share a single Content Bank for files."
+    - question: "What does the billing surface cover?"
+      answer: "Per-entity pricing (course, cohort, learning path, bundle, event, meeting plan, product), EMI plans with active-installment views, scholarships and applications, subscriptions with active and failed views, offers with usage analytics, plus full transactions including pending, refunds and create / edit. The same admin role manages every billing screen."
+    - question: "How is communication handled?"
+      answer: "Three sub-areas under Communication. Discussion is the threaded discussion surface with audience-aware filtering. Noticeboard is the announcement system with priority, expiry, scheduling, pinning and read tracking. Notification covers transactional alerts with templates, segments, campaigns, settings and a full audit log."
+    - question: "What does the audit surface ship?"
+      answer: "Two screens under Platform → Audit. Audit Logs records every privileged change — role assignments, permission grants, settings updates and similar — with the actor, the entity and the before-after. Activity Logs records authenticated user activity for security review. Both are gated behind the audit.read permission, so only the right roles see them."
+    - question: "What lives under Settings?"
+      answer: "Four areas. Control Panel handles general org configuration. Holidays gives the platform a calendar of non-working days that other features can read. Integrations covers third-party connections. Payment Gateways covers the gateways used by the billing service. All four are admin-only, gated behind admin.settings or matching permissions."
+    - question: "Is the website builder part of the admin panel?"
+      answer: "Yes. The Website item under Platform links into the website-builder admin — pages, blocks, posts, forms, menus, settings — without leaving the same shell. The public site, blog and booking pages all flow from there, and they share the localization, SEO and theme configuration that the rest of the platform reads."
+    - question: "Can I run bulk operations?"
+      answer: "Yes. Every admin data table — users, courses, enrollments, transactions, reviews and beyond — exposes bulk-select with CSV export and bulk-delete by default. Bulk enrollment, bulk certificate issuing and bulk invitation flows live alongside the per-row actions, scoped by the same permissions."
+    - question: "Is the admin panel multi-tenant?"
+      answer: "Yes. Every entity carries a tenant_id and the entire panel is scoped at the database level — admins on one tenant cannot see data from another tenant. Tenant-level configuration (billing, notifications, site settings, roles, users, analytics tracking) is owned by each tenant's admins. Cross-tenant operations live behind a system token, not the user-facing panel."
+    - question: "Is everything localized?"
+      answer: "Yes. Sidebar labels, page headers, table columns, button text, modal copy and toasts all pull from the active locale. Content owned by the platform — courses, posts, forms, menus, blocks, SEO — uses the same `LocalizedField` shape so admins translate and the panel renders in every enabled language."
+    - question: "How does the admin panel relate to the educator and learner sides?"
+      answer: "The admin panel is the shared shell for staff. Educators sign in to the same /admin and see a teaching-scoped subset of the menu (no billing, no audit, no system settings, no website builder). Learners sign in to a separate panel at /dashboard with their own sidebar and their own personal dashboard. Each surface is a real product, wired into the same backend."
 ---
 
-The admin panel keeps your organization’s learning operation healthy: secure, observable, and ready to grow.
+## Suggested visuals for this page
+
+The hero, capability cards, FAQ and quick-start steps render directly from the data above. The four split sections and the three quick-start steps each carry an image. The current build reuses the closest existing illustrations from `/svgs/courses` and `/svgs/educator-love`, but a future design pass should ship dedicated artwork. Drop the new files at the listed paths and they will swap in without any code change.
+
+**Split section 1 — `imgSrc: /svgs/educator-love/2-analytics.svg` (placeholder)**
+Suggested artwork: the admin dashboard hero — sidebar collapsed on the left, greeting line at the top, Quick Actions row, System Metrics widget below it, a course analytics chart in the main column and a leaderboard widget in the right rail.
+
+**Split section 2 — `imgSrc: /svgs/courses/instructor.svg` (placeholder)**
+Suggested artwork: the People area with All Users / Learners / Instructors / Admins tabs, a row of avatars, and a Roles & Permissions slide-over showing the permission tree on the right.
+
+**Split section 3 — `imgSrc: /svgs/courses/course-curriculum.svg` (placeholder)**
+Suggested artwork: the Resources menu expanded — Learning Paths, Courses, Quizzes, Events, Categories, Tags, Bundles, Content Bank, Grading — with a course list rendered behind it.
+
+**Split section 4 — `imgSrc: /svgs/educator-love/5-scalability.svg` (placeholder)**
+Suggested artwork: a Settings card grid (Control Panel / Holidays / Integrations / Payment Gateways) on the left, an Audit Logs table preview on the right, with a small Website link in the corner that arrows out to the website-builder.
+
+**Quick-start step 1 — `imageSrc: /svgs/courses/course-create.svg` (placeholder)**
+Suggested artwork: the Settings → Control Panel screen with logo, brand colors, locale defaults and Payment Gateways tabs visible.
+
+**Quick-start step 2 — `imageSrc: /svgs/courses/instructor.svg` (placeholder)**
+Suggested artwork: the Roles & Permissions builder on the left and an invite-team modal on the right with email + role picker.
+
+**Quick-start step 3 — `imageSrc: /svgs/courses/course-publish.svg` (placeholder)**
+Suggested artwork: a course list with an Enrollments column and a small Notifications sheet drawer open on the right showing a campaign in flight.

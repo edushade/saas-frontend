@@ -1,27 +1,127 @@
 ---
 featureId: "course-bundles"
 title: "Course Bundles"
-description: "Group programs into packages"
+description: "Sell courses and events as one package"
 href: "/features/course-bundles"
 navGroup: "Build Learning"
 navIcon: structure
 navOrder: 65
 banner:
   tag: "Bundles"
-  headline: "Sell Learning as Packages, Not Pieces"
-  description: "Combine courses, learning paths, and products into bundles — perfect for curated tracks, all-access plans, and seasonal offers."
-  ctaText: "Get Started"
+  headline: "Sell a package, not a checkout puzzle"
+  description: "A Bundle in Edushade is a first-class sellable record — its own title, slug, thumbnail and pricing — that wraps a curated mix of courses, events and digital products. One transaction, one access grant, one record on the books."
+  ctaText: "Build a Bundle"
   ctaTo: "/contact-sales"
+capabilityHighlights:
+  title: "Bundles, modeled the way commerce actually works"
+  description: "Edushade ships bundles as their own entity in the billing service — separate from any single course. A bundle has its own status pipeline, its own pricing options, its own thumbnail and slug, and a list of entities you attach or detach without touching the underlying programs."
+  capabilities:
+    - title: "Three Resource Types"
+      description: "Mix courses, events and digital products into a single bundle. The selector pulls each from its own table and stores them in one bundle-entity list."
+      icon: notebookBookmark
+    - title: "Attach and Detach Anytime"
+      description: "Add a course on Monday, swap a digital product on Friday. Edushade keeps the bundle stable while the entity list updates — no rebuilding of the package required."
+      icon: routing
+    - title: "Four-State Status Pipeline"
+      description: "Bundles move through draft, scheduled, published and archived. Schedule a launch with a published_at date, or archive an old bundle without deleting the data."
+      icon: clapperboardPlay
+    - title: "Independent Pricing"
+      description: "Pricing options live on the bundle, separate from the items inside. Offer a free bundle, a one-shot price, or installments — without touching the source courses."
+      icon: clipboardList
+    - title: "Custom Slug for Sharing"
+      description: "Auto-generated from the title or set manually. The slug is the public URL learners land on, so a bundle reads as its own product, not a search result."
+      icon: arrowRight
+    - title: "Bulk Manage and Export"
+      description: "Bundles support filtered bulk delete and CSV export across the whole list, so an inventory of seasonal or partner packages stays manageable."
+      icon: diploma
 splitSections:
-  - title: "One bundle, many ways to learn"
-    description: "Mix and match what learners get for a single price. Bundles plug into the same checkout, access rules, and analytics as individual offerings."
+  - title: "Three resource types, one bundle, one record"
+    description: "Edushade's bundle picker opens with three tabs — Courses, Products and Events — pulling from their own tables and pushing the selection into a single bundle-entity list. Each item carries its entity type and entity ID, so the bundle keeps a clean mapping back to the source record while presenting itself as one package."
     lists:
-      - "Group courses, learning paths, and products under one price"
-      - "Attach or detach items from a bundle anytime"
-      - "Apply access rules and expiry windows per bundle"
-      - "Surface bundles directly in your website builder"
-    imgSrc: "/svgs/hero/banner.svg"
+      - "Course tab pulls from your published or draft course catalogue"
+      - "Products tab pulls from the digital-products store"
+      - "Events tab pulls from your live and recorded webinars"
+      - "Each attachment stored as a bundle_entity row with entity_type and entity_id"
+    imgSrc: "/svgs/courses/course-types.svg"
     reverse: true
+  - title: "Attach, detach, or swap without rebuilding"
+    description: "A bundle is not a static snapshot of its items. Attach a new course at any time, detach the one that no longer fits, swap a digital product for an updated edition. The bundle record stays put — its title, slug, thumbnail and pricing stay stable while the contents evolve underneath."
+    lists:
+      - "Attach an entity at any point in the bundle's lifecycle"
+      - "Detach without affecting the source course, product or event"
+      - "Resource selector shows existing selections on re-open"
+      - "Bundle's own metadata (title, slug, description) stays untouched on changes"
+    imgSrc: "/svgs/educator-love/3-customizable.svg"
+    reverse: false
+  - title: "A real status pipeline — for launches, runs and retirements"
+    description: "Bundles flow through four states: draft while you build, scheduled when published_at is set in the future, published once it goes live, and archived when you retire it. Archive instead of delete keeps the historical record — purchases, learners, revenue — exactly as they were."
+    lists:
+      - "Draft, scheduled, published and archived states with timestamps"
+      - "Schedule a published_at date for launches and seasonal offers"
+      - "Archive over delete to preserve purchase and enrollment history"
+      - "Soft delete on the record itself for full audit safety"
+    imgSrc: "/svgs/platforms/2-progress.svg"
+    reverse: true
+  - title: "Pricing that lives on the bundle, not on its parts"
+    description: "Edushade's billing layer treats bundles as their own pricing target. A bundle can be free, one-time-paid, or sold via installments — independently of how the underlying courses, events and products are priced individually. A learner who buys the bundle gets access to every entity in the list under the bundle's terms."
+    lists:
+      - "Pricing options attached directly to the bundle entity"
+      - "Free, paid and mixed-pricing bundles all supported"
+      - "Bundle pricing independent from per-item pricing on the source records"
+      - "Same checkout, offer and discount engine as individual programs"
+    imgSrc: "/svgs/educator-love/5-scalability.svg"
+    reverse: false
+quickStart:
+  title: "From idea to bundle in three steps"
+  subtitle: "The bundle builder sits in the admin alongside courses and events. Set the metadata, attach the entities, attach pricing — the public page lights up the moment you publish."
+  steps:
+    - step: 1
+      title: "Create the bundle shell"
+      description: "Title, slug (auto-generated from the title or custom), thumbnail and rich-text description. Pick draft to start, or schedule a published_at for a future launch."
+      imageAlt: "Bundle creation form with title, auto-generated slug, thumbnail and status selector"
+      imageSrc: "/svgs/courses/course-create.svg"
+    - step: 2
+      title: "Attach courses, events and digital products"
+      description: "Open the resource selector and pick across three tabs — Courses, Products, Events. Selections persist on re-open, so adjusting the contents later takes one click, not a rebuild."
+      imageAlt: "Resource selection modal with three tabs and a multi-select list of courses, products and events"
+      imageSrc: "/svgs/courses/course-curriculum.svg"
+    - step: 3
+      title: "Attach pricing and publish"
+      description: "Add free, one-time-paid or installment pricing on the bundle directly. Flip status to published — or set a published_at and let the bundle go live on its own at the scheduled time."
+      imageAlt: "Bundle pricing tab with pricing options and a publish-now or schedule toggle"
+      imageSrc: "/svgs/courses/course-publish.svg"
+faq:
+  title: "Course Bundles FAQ"
+  description: "How bundles work in Edushade — what they group, how pricing applies, status pipeline, and how they differ from learning paths."
+  items:
+    - question: "What is a bundle in Edushade?"
+      answer: "A bundle is a sellable package — its own record on the bundles table, with a title, slug, thumbnail, description, status and pricing — that wraps a set of courses, events and digital products. Buying a bundle grants the buyer access to every entity in the list under the bundle's terms."
+    - question: "What can go inside a bundle?"
+      answer: "Three resource types from the admin UI: courses, digital products and events. The bundle picker opens to three tabs and lets you select multiple from each, then stores them in a single bundle-entity list keyed by entity type and entity ID."
+    - question: "How is a bundle different from a learning path?"
+      answer: "A learning path is a curriculum — an ordered sequence of programs a learner walks through with progress tracking, prerequisites and a completion rule. A bundle is a commercial unit — a price-tagged package of items grouped for purchase. The same items can sit in a learning path and a bundle simultaneously."
+    - question: "Does each item in the bundle keep its own pricing?"
+      answer: "Yes, separately. The bundle has its own pricing options, and so does each course, event or product inside it. A learner can either buy the bundle (one transaction, all items) or any individual item at its own price — both flows live on the same platform."
+    - question: "Can I add or remove items after the bundle is published?"
+      answer: "Yes. Attach and detach are atomic operations on the bundle-entity list, independent from the bundle's metadata and pricing. The bundle record stays the same; only the contents change."
+    - question: "What happens to learners who already bought a bundle when contents change?"
+      answer: "They keep what they bought. Purchases are recorded against the bundle and the items in it at purchase time. Adding new items extends what new buyers receive; removing items does not retroactively revoke access from existing learners. The bundle is a moving target for the storefront, not for past purchases."
+    - question: "Can I schedule a bundle launch?"
+      answer: "Yes. Set the bundle status to scheduled and pick a published_at date and time. The bundle stays out of public listings until that moment, then flips to published automatically. Same flow for seasonal offers, partner promos or batch launches."
+    - question: "What pricing options are available on a bundle?"
+      answer: "Free, one-time paid and installment pricing — the same engine as courses and events. The pricing record is attached to the bundle's entity ID, so promotions, coupons and offers built on Edushade's billing system apply to bundles without extra configuration."
+    - question: "What states can a bundle be in?"
+      answer: "Four: draft (in progress, admin-only), scheduled (waiting for a published_at moment), published (live on the storefront), and archived (retired, preserved for history). The record itself is soft-deleted when removed, so audit history is never lost."
+    - question: "Can I export bundle data?"
+      answer: "Yes. Bundles support a bulk export across filtered lists, so you can pull the full inventory — title, slug, status, dates, entity counts — for backup, finance or integration with another system."
+    - question: "Can I bulk-delete bundles?"
+      answer: "Yes. The admin supports filter-based bulk delete on the bundles list. Combined with archived state, this means cleaning up an old set of seasonal bundles is one operation, not a row-by-row click-through."
+    - question: "Where does the bundle's URL come from?"
+      answer: "The slug field. Edushade auto-generates a URL-friendly slug from the title on create — lowercased, hyphenated, ASCII-safe — and you can override it before publishing. The slug becomes the public path, so a bundle reads as a product, not a search result."
+    - question: "Can a bundle be reused across cohorts or batches?"
+      answer: "The bundle itself is independent of cohorts. The courses inside the bundle can each have their own cohorts, and a learner who bought the bundle can enroll into any cohort the inner courses are running. The bundle is the commercial wrapper; cohorts continue to live on the courses."
+    - question: "Are bundles surfaced in the website builder?"
+      answer: "Yes. The website builder ships product blocks that pull from the bundle list — so a curated track or an all-access pass appears on landing pages, in feature sections and in catalogue grids the same way individual courses do."
+    - question: "Can a bundle contain another bundle?"
+      answer: "No. Bundles wrap courses, products and events directly. Nesting bundles is not a supported shape today — if you need a higher-level grouping, run two bundles side-by-side under the same offer or promotion."
 ---
-
-Bundles let creators present complete learning journeys instead of asking learners to assemble their own path.

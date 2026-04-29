@@ -1,7 +1,6 @@
-import { Card, CardContent } from '@/components/ui/card';
+import { ArrowRight } from 'lucide-react';
 import { Typography } from '@/components/ui-custom/typography';
 import { cn } from '@/lib/utils';
-import { BannerTag } from '../ui-custom/BannerTag';
 
 export interface QuickStartStepItem {
 	step: number;
@@ -47,10 +46,6 @@ const DEFAULT_STEPS: QuickStartStepItem[] = [
 	},
 ];
 
-/**
- * Numbered steps with imagery for feature pages. Driven by `quickStart` in
- * `content/features/<slug>.mdx`.
- */
 export function FeatureQuickStartSection({
 	title = DEFAULT_TITLE,
 	subtitle = DEFAULT_SUBTITLE,
@@ -80,28 +75,58 @@ export function FeatureQuickStartSection({
 					</Typography>
 				</div>
 
-				<div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
-					{steps.map((item) => (
+				<div className="relative grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+					<div
+						aria-hidden
+						className="pointer-events-none absolute top-4.5 left-0 right-0 hidden h-px md:block"
+						style={{
+							backgroundImage:
+								'repeating-linear-gradient(to right, rgba(0,102,255,0.45) 0 6px, transparent 6px 14px)',
+							WebkitMaskImage:
+								'linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%)',
+							maskImage:
+								'linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%)',
+						}}
+					/>
+
+					{steps.map((item, idx) => (
 						<div
 							key={item.step}
-							className="flex flex-col items-center text-center gap-6"
+							className="relative flex flex-col items-center text-center gap-6"
 						>
-							<BannerTag
-								tag={item.step.toString()}
-								className="flex size-8 shrink-0 items-center justify-center font-medium"
-							/>
-							<Card className="relative overflow-hidden border-border-tertiary p-0  bg-bg-secondary shadow-[0px_2px_8px_0px_rgba(10,9,11,0.06)]">
-								<CardContent className="relative z-10  p-0 ">
-									<div className="rounded-2xl shadow-2xl">
+							<div className="relative z-10 inline-flex items-center gap-2.5 rounded-full bg-white pl-1 pr-3.5 py-1 border border-border-secondary shadow-[0_4px_14px_-6px_rgba(0,102,255,0.25)]">
+								<span className="flex size-7 items-center justify-center rounded-full bg-linear-to-br from-brand-300 to-brand-200 text-white text-xs font-semibold shadow-[inset_0_-1px_2px_rgba(0,0,0,0.18),inset_0_1px_1px_rgba(255,255,255,0.4)]">
+									{item.step}
+								</span>
+								<span className="flex items-center gap-1 text-[10px] font-bold uppercase tracking-[0.16em] text-text-tertiary">
+									Step
+									{idx < steps.length - 1 && (
+										<ArrowRight className="size-3 text-brand-300/70" aria-hidden />
+									)}
+								</span>
+							</div>
+							
+							<div className="display-frame relative overflow-hidden rounded-[22px] w-full">
+								<div
+									aria-hidden
+									className="frame-inset-border inset-3 rounded-[14px]"
+								/>
+
+								<span aria-hidden className="frame-marker top-5 left-5 z-20" />
+								<span aria-hidden className="frame-marker top-5 right-5 z-20" />
+								<span aria-hidden className="frame-marker bottom-5 left-5 z-20" />
+								<span aria-hidden className="frame-marker bottom-5 right-5 z-20" />
+
+								<div className="relative z-10 pt-11 pl-11 pr-3 pb-3">
+									<div className="h-64 overflow-hidden rounded-tl-lg rounded-br-[10px] bg-white shadow-[0_18px_36px_-20px_rgba(15,60,110,0.35),0_6px_14px_-8px_rgba(15,60,110,0.18)]">
 										<img
 											src={item.imageSrc}
 											alt={item.imageAlt ?? ''}
-											aria-hidden
-											className="h-full w-full object-cover object-top"
+											className="block h-full w-full object-cover object-top"
 										/>
 									</div>
-								</CardContent>
-							</Card>
+								</div>
+							</div>
 
 							<div className="flex flex-col gap-1 items-center">
 								<Typography

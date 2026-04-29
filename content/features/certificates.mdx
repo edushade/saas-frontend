@@ -1,36 +1,125 @@
 ---
 featureId: "certificates"
 title: "Certificates"
-description: "Recognize course completion"
+description: "Auto-issued, verifiable certificates"
 href: "/features/certificates"
 navGroup: "Build Learning"
 navIcon: diploma
 navOrder: 60
 banner:
   tag: "Certificates"
-  headline: "Recognize Course Completion"
-  description: "Issue certificates and credentials when learners complete courses."
-  ctaText: "Learn More"
+  headline: "Completion that proves itself"
+  description: "Edushade issues a certificate the moment a learner crosses the finish line — a unique number, a public verification code, the grade and total time spent locked into a snapshot. Works on courses, learning paths, events and quizzes, and on cohorts when you want one."
+  ctaText: "Issue Your First Certificate"
   ctaTo: "/contact-sales"
+capabilityHighlights:
+  title: "Certificates that hold up later, not just look right today"
+  description: "Edushade does not treat the certificate as a PDF generator. It is a record — with its own number, verification code, status pipeline and snapshot of the grade, completion date and time spent. The same engine works across four entity types and ties cleanly back to the enrollment that earned it."
+  capabilities:
+    - title: "Auto-Issue on Completion"
+      description: "When a learner's enrollment crosses the program's passing rules, the certificate is issued automatically with status set to issued and an issued-at timestamp."
+      icon: arrowRight
+    - title: "Four Entity Types"
+      description: "Issued for courses, learning paths, events and quizzes. The same record shape works across all four — only the title and grade source change."
+      icon: notebookBookmark
+    - title: "Unique Number + Verification Code"
+      description: "Every certificate carries a unique certificate number and a separate verification code, so a third party can confirm authenticity without seeing the platform."
+      icon: routing
+    - title: "Snapshot Grade and Completion"
+      description: "Grade (decimal precision), completion date and total time spent are captured at issue time, so later edits to a course never change the historical record."
+      icon: clipboardList
+    - title: "Status Pipeline"
+      description: "Certificates flow through draft, issued, revoked and expired — with revoked-at and expires-at timestamps so an audit trail stays intact."
+      icon: clapperboardPlay
+    - title: "Cohort-Aware"
+      description: "When the certificate comes out of a cohort, the cohort ID is stored on the record. The same course can run multiple cohorts and the certificate keeps the right batch context."
+      icon: diploma
 splitSections:
-  - title: "Credentials learners are proud to share"
-    description: "Issue certificates when requirements are met—so completion is visible, verifiable, and aligned with your brand."
+  - title: "Issued the moment the rule is satisfied"
+    description: "Certificates do not need a manual button most of the time. When an enrollment hits the configured passing grade or completion criteria, Edushade looks up the program, snapshots the title, description, grade and completion timestamp, generates the certificate number and verification code, and writes the issued-at time. The enrollment is flagged certificate-issued so it never doubles up."
     lists:
-      - "Automatic issuance when course or path rules are satisfied"
-      - "Branded certificate layouts consistent with your organization"
-      - "Clear criteria so learners know what “done” means"
-      - "Support for programs with multiple completion paths"
+      - "Auto-issue triggered on enrollment completion with passing grade"
+      - "Idempotency check prevents duplicate certificates per enrollment"
+      - "Snapshot of title, description, grade, completion date and time spent"
+      - "Manual issue available for cases that need a human in the loop"
     imgSrc: "/svgs/educator-love/1-intent.svg"
     reverse: true
-  - title: "Trust without manual chasing"
-    description: "Reduce support tickets by tying certificates to progress data your platform already tracks."
+  - title: "One engine, four kinds of completion"
+    description: "Edushade keeps the certificate model entity-agnostic. Whether the learner finished a multi-week course, walked through a learning path, attended an event, or passed a quiz that needed a credential, the resulting certificate uses the same data shape — entity_type, entity_id, enrollment_id, grade and completion_date. No parallel feature for each program kind."
     lists:
-      - "Completion tied to lessons, assessments, and attendance where configured"
-      - "Reissue and audit-friendly records for administrators"
-      - "Works alongside cohorts and self-paced courses"
-      - "Encourages completion without gimmicks"
+      - "Course certificates issued on enrollment completion"
+      - "Learning path certificates issued when the path is finished"
+      - "Event certificates issued on attended-and-eligible participation"
+      - "Quiz certificates when certificate_enabled is on and the score passes"
     imgSrc: "/svgs/personalize/1.svg"
     reverse: false
+  - title: "A number to cite, a code to verify"
+    description: "Every issued certificate gets two identifiers: a certificate number for the learner to reference, and a separate verification code that can be shared with a third party — a hiring manager, a registrar, a regulator. The verification code is the one that proves the certificate was actually issued by your platform, without the verifier needing access to admin tools."
+    lists:
+      - "Auto-generated unique certificate number per issued record"
+      - "Separate verification code for public verification flows"
+      - "Issued-at, expires-at and revoked-at timestamps stored on the record"
+      - "Soft-delete keeps audit history even when records are removed"
+    imgSrc: "/svgs/courses/course-publish.svg"
+    reverse: true
+  - title: "Status, expiry and revocation when you need them"
+    description: "Some credentials matter for a year. Some need to be pulled back. Edushade certificates carry a four-state status pipeline — draft, issued, revoked, expired — with timestamps for issued-at, expires-at and revoked-at, so the lifecycle of a credential is captured on the record itself rather than guessed at from logs."
+    lists:
+      - "Four statuses: draft, issued, revoked, expired"
+      - "Optional expires-at for credentials that should not last forever"
+      - "Revoke flow with revoked-at timestamp for audit clarity"
+      - "Created-by and updated-by attribution on every record"
+    imgSrc: "/svgs/educator-love/2-analytics.svg"
+    reverse: false
+quickStart:
+  title: "From course completion to issued certificate, automatically"
+  subtitle: "Most certificates do not need a single click — they fall out of the existing enrollment-completion flow. The few that do live next to the issuing form."
+  steps:
+    - step: 1
+      title: "Turn on certificates for the program"
+      description: "Open the course, learning path, event or quiz and toggle certificate_enabled, set a passing grade where it applies, and decide if the certificate should expire after a fixed window."
+      imageAlt: "Program settings panel with the certificate-enabled toggle and passing-grade field"
+      imageSrc: "/svgs/courses/course-create.svg"
+    - step: 2
+      title: "Let learners earn it — or issue manually"
+      description: "When an enrollment completes with a passing grade, Edushade auto-issues. For cases that need a human (re-issuance, special recognition, manual review), use the issue endpoint with the enrollment ID and entity reference."
+      imageAlt: "Admin enrollments list showing certificate-issued column with auto-issue badges"
+      imageSrc: "/svgs/courses/course-curriculum.svg"
+    - step: 3
+      title: "Share the number, verify with the code"
+      description: "The learner gets a downloadable certificate with their unique number; you keep the verification code as the way third parties confirm authenticity. Revoke or expire from the same record when the credential should no longer count."
+      imageAlt: "Learner certificate viewer with certificate number, verification code and grade row"
+      imageSrc: "/svgs/courses/course-publish.svg"
+faq:
+  title: "Certificates FAQ"
+  description: "How Edushade issues, verifies, expires and revokes certificates across courses, learning paths, events and quizzes."
+  items:
+    - question: "What is a certificate in Edushade?"
+      answer: "A record on the certificates table that says a specific learner finished a specific entity (course, learning path, event or quiz) on a specific date, with a specific grade. It carries a unique number, a verification code and a snapshot of the completion data — not a live join. Once issued, future edits to the source program do not change the certificate."
+    - question: "Which programs can issue certificates?"
+      answer: "Four entity types are supported today: courses, learning paths, events and quizzes. The same Certificate model handles all four, with entity_type and entity_id pointing at the source record. Cohort-issued certificates additionally store the cohort ID for traceability."
+    - question: "When does a certificate get issued automatically?"
+      answer: "When the matching enrollment status flips to completed and the program's passing rules are satisfied. Edushade looks up the source entity, snapshots its title and description, captures the learner's grade and completion date, generates a number and verification code, and writes the issued-at timestamp."
+    - question: "Can I issue a certificate manually?"
+      answer: "Yes. The issue endpoint accepts an enrollment ID and the entity reference and creates a certificate record outside the auto-issue path — useful for makeup grading, special recognition, or programs where completion is decided by a human reviewer."
+    - question: "What if a learner has already received a certificate?"
+      answer: "Edushade checks for an existing certificate on the same enrollment before issuing. Duplicates are rejected with a clear error, so an enrollment cannot end up with two valid certificates by accident."
+    - question: "What is the difference between the certificate number and the verification code?"
+      answer: "The certificate number is the public reference — what a learner cites on their CV or shares in a profile. The verification code is the proof — a separate, harder-to-guess value that a third party uses to confirm the certificate is genuine. Two values, two purposes."
+    - question: "What does the certificate record actually store?"
+      answer: "Entity type and ID, optional cohort ID, learner ID and enrollment ID, title, description, status, certificate number, verification code, issued-at, expires-at and revoked-at timestamps, the snapshot grade (decimal precision), the completion date, total time spent, an optional template ID, and full audit fields (created-by, updated-by, soft delete)."
+    - question: "Can a certificate expire?"
+      answer: "Yes. Set expires_at on the record (or leave it null for evergreen credentials). The status moves to expired when the expiry date passes, and the record stays on file with the timestamp captured."
+    - question: "Can a certificate be revoked?"
+      answer: "Yes. Revocation flips the status to revoked and stamps revoked_at on the record. The record itself is not deleted — soft delete keeps the history, and the verification code stops returning a valid certificate from the public lookup."
+    - question: "How does verification work?"
+      answer: "A third party uses the verification code to confirm a certificate is genuine. The lookup returns the issued status, the snapshot grade, the completion date and the issuing entity title — enough to validate without exposing the rest of the platform."
+    - question: "Are cohort certificates different?"
+      answer: "Slightly. The certificate still references the underlying course or learning path as the entity, but the cohort_id is stored alongside so the record knows which batch the learner finished with. The same course can run multiple cohorts and the certificates stay attributable to the right run."
+    - question: "Does the grade come from the program or the snapshot?"
+      answer: "The snapshot. At issue time the learner's current_grade on the enrollment is copied onto the certificate as a decimal value. Later changes to the grading scheme do not change historical certificates."
+    - question: "What admin metrics exist for certificates?"
+      answer: "The certificates analytics view surfaces total issued, pending (completions awaiting issuance), average days from completion to issue, and the issuance rate as a percentage. All four track period-over-period trends."
+    - question: "What states does a certificate go through?"
+      answer: "Four: draft, issued, revoked and expired. Issued is the canonical happy path. Draft is used for records prepared but not yet released. Revoked and expired carry their own timestamps so a credential's full history reads cleanly off the record."
 ---
-
-Certificates close the loop on learning outcomes: learners get recognition, and your organization gets a clear signal that requirements were met.

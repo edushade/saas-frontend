@@ -1,36 +1,117 @@
 ---
 featureId: "cohorts"
 title: "Cohorts"
-description: "Run guided programs"
+description: "Run a course or learning path as a scheduled batch with seats, dates and live class days"
 href: "/features/cohorts"
 navGroup: "Build Learning"
 navIcon: notebookSquare
 navOrder: 20
 banner:
   tag: "Cohorts"
-  headline: "Run Guided Programs"
-  description: "Structure cohort-based learning with schedules, milestones, and community."
-  ctaText: "Learn More"
+  headline: "Run your course as a scheduled batch"
+  description: "A cohort is a time-bound run of a course or learning path — with start and end dates, live class days, capped seats and its own drip schedule. Same content, scheduled rhythm."
+  ctaText: "Open a Cohort"
   ctaTo: "/contact-sales"
+capabilityHighlights:
+  title: "Built for batches that start and end together"
+  description: "Edushade keeps cohorts as a first-class entity, not a tag on top of a course. Each cohort carries its own dates, schedule, seat count, drip rules and instructor roster — so you can run the same course back-to-back without copying it."
+  capabilities:
+    - title: "Time-Bound Batches"
+      description: "Set a start date, end date and a max enrollment cap. Edushade shows seats remaining and days-left in real time."
+      icon: clipboardList
+    - title: "Live Class Schedule"
+      description: "Pick days of the week and start and end times. Use a weekly, biweekly, monthly or custom cadence."
+      icon: clapperboardPlay
+    - title: "Cohort-Specific Drip"
+      description: "Layer drip schedules on top of the bound course or learning path so each batch can release content at its own pace."
+      icon: notebookBookmark
+    - title: "Late Enrollment Control"
+      description: "Toggle late enrollment on or off, and open or close a cohort independently from the underlying course."
+      icon: arrowRight
+    - title: "Multi-Instructor Roster"
+      description: "Assign instructors, co-instructors and assistants to a single cohort without affecting the parent course."
+      icon: routing
+    - title: "Cohort Completion"
+      description: "When learners finish the bound course or path, certificates issue automatically with the cohort's grade and timing in the snapshot."
+      icon: diploma
 splitSections:
-  - title: "Structure cohort programs that feel guided"
-    description: "Run time-bound programs with a shared schedule, milestones, and a sense of progression—without juggling spreadsheets."
+  - title: "A schedule that makes a batch feel like a programme"
+    description: "Every cohort carries its own dates and rhythm. Start and end dates anchor the batch, live class days and times define the weekly meet-up, and a time-unit setting handles whether you run weekly, biweekly, monthly or on a custom cadence. Days-left and remaining seats are computed and shown live."
     lists:
-      - "Cohort timelines with start and end dates learners can trust"
-      - "Milestones and checkpoints across the program"
-      - "Group visibility so everyone sees the same roadmap"
-      - "Alignment with courses and live sessions in one place"
+      - "Start date and end date with days-left countdown"
+      - "Live class days of the week, start and end time"
+      - "Time unit: weekly, biweekly, monthly, custom or none"
+      - "Computed duration in hours that reflects the live schedule"
     imgSrc: "/svgs/platforms/2-progress.svg"
     reverse: true
-  - title: "Community that supports completion"
-    description: "Give cohort members context to connect: shared announcements, discussions, and content tied to where they are in the program."
+  - title: "Watch your seats fill — and decide who can still join"
+    description: "Set a maximum enrollment cap and Edushade tracks seats remaining in real time. Late-enrollment and enrollment-open toggles let you decide whether the door stays open after the cohort starts, or whether registrations close on a fixed date — independently from the bound course."
     lists:
-      - "Cohort-scoped communication and resources"
-      - "Clear expectations tied to each phase of the program"
-      - "Easier handoffs between facilitators and assistants"
-      - "Scales from small intensives to large intakes"
+      - "Maximum enrollment cap with live seats-remaining counter"
+      - "Enrollment open and late-enrollment toggles per cohort"
+      - "Cohort-enrollment-opened and cohort-starting-soon notifications"
+      - "Total learner count and computed duration shown alongside seats"
     imgSrc: "/svgs/educator-love/5-scalability.svg"
     reverse: false
+  - title: "Drip and access, scoped to this cohort"
+    description: "Cohorts get their own drip schedules and access rules. The bound course or learning path stays as the source of truth for content, while each cohort decides when each section, lesson, assignment, quiz or file unlocks for this specific batch."
+    lists:
+      - "Drip schedule binds to the cohort, not just the course"
+      - "Targets sections, lessons, assignments, quizzes and files"
+      - "Same five unlock modes and four lock modes as courses"
+      - "Per-cohort access rules control who in the batch sees what"
+    imgSrc: "/svgs/courses/course-curriculum.svg"
+    reverse: true
+  - title: "Instructors, notifications and a clean handover"
+    description: "Add an instructor roster that's specific to this cohort — instructor, co-instructor and assistant roles all carry over. Cohort-specific notifications fire when enrollment opens and when the batch is starting soon, so learners and your team stay synced without manual reminders."
+    lists:
+      - "Per-cohort instructor, co-instructor and assistant roles"
+      - "Featured instructor highlighted on the cohort page"
+      - "Automatic cohort-enrollment-opened and starting-soon alerts"
+      - "CSV export of the full cohort with all batch metadata"
+    imgSrc: "/svgs/courses/instructor.svg"
+    reverse: false
+quickStart:
+  title: "Open a cohort in three steps"
+  subtitle: "Pick the course or learning path, set the dates and schedule, decide on seats — and the cohort is ready to take enrollments."
+  steps:
+    - step: 1
+      title: "Create the cohort and bind a programme"
+      description: "Add a title, description and thumbnail, then bind the cohort to a published course or learning path. The cohort inherits the curriculum from there."
+      imageAlt: "Cohort creation form with title, thumbnail and program binding to course or learning path"
+      imageSrc: "/svgs/courses/course-create.svg"
+    - step: 2
+      title: "Set dates, live class days and seats"
+      description: "Pick start and end dates, live class days of the week and times, the time-unit cadence, and a max enrollment cap. Layer drip rules where you want gating between items."
+      imageAlt: "Cohort schedule configuration with calendar, weekly time slots and seats input"
+      imageSrc: "/svgs/courses/course-curriculum.svg"
+    - step: 3
+      title: "Open enrollment"
+      description: "Flip enrollment open and decide whether to allow late joiners. Edushade fires the cohort-enrollment-opened notification and the seats start filling."
+      imageAlt: "Publish dialog with enrollment open and late-enrollment toggles"
+      imageSrc: "/svgs/courses/course-publish.svg"
+faq:
+  title: "Cohorts FAQ"
+  description: "Specifics about how cohorts, schedules, seats, drip rules and instructors work as a batch run of a course or learning path."
+  items:
+    - question: "What is a cohort in Edushade?"
+      answer: "A cohort is a time-bound batch that runs a course or learning path on a schedule. It has its own start and end dates, live class days, seat cap, drip rules, instructor roster and notifications — but the curriculum lives in the bound course or path, so you don't duplicate content per batch."
+    - question: "How is a cohort different from a self-paced course?"
+      answer: "A self-paced course is evergreen — anyone enrolls any time and progresses on their own schedule. A cohort is a scheduled run with fixed dates, live class days and a max-seats cap, where everyone in the batch moves together. The same course can be offered both ways."
+    - question: "Can a cohort run a course or a learning path?"
+      answer: "Either. A cohort binds to one programme — a published course or a published learning path — and inherits its curriculum. The cohort then carries the dates, schedule, seats, drip and instructor settings on top."
+    - question: "How do live class schedules work?"
+      answer: "Pick the days of the week the batch meets, set a start time and an end time, and choose a cadence: weekly, biweekly, monthly, custom or none. Edushade computes the cohort duration in hours from the schedule, and these times surface in cohort listings and notifications."
+    - question: "Can I cap how many learners join?"
+      answer: "Yes. Set a maximum enrollment cap on the cohort and Edushade tracks seats remaining in real time. Total learner count, days left and remaining seats are computed fields you can display anywhere — in the catalogue, on the cohort page, or in admin reports."
+    - question: "How does late enrollment work?"
+      answer: "Each cohort has a late-enrollment toggle separate from the enrollment-open toggle. Use them together to keep the door open after the start date, close registrations on a fixed date, or pause enrollments without unpublishing the cohort."
+    - question: "Can I run different drip rules per cohort?"
+      answer: "Yes. Drip schedules can bind directly to a cohort and target sections, lessons, assignments, quizzes or files. Each cohort can release the same curriculum on a different rhythm — strict weekly unlocks for one batch, accelerated for another — without touching the parent course."
+    - question: "Can a cohort have its own instructor roster?"
+      answer: "Yes. Edushade supports instructor, co-instructor and assistant roles assigned per cohort, in addition to whoever is on the parent course. A featured instructor can be highlighted on the cohort page so learners know who is leading their batch."
+    - question: "Are certificates issued when a cohort completes?"
+      answer: "Certificates come from the bound course or learning path. When a learner in a cohort clears the passing grade, the certificate issues with their grade, completion date and total time spent — all captured during the cohort run, with a unique number and a public verification code."
+    - question: "Can I export cohort data?"
+      answer: "Yes. Edushade ships a CSV export of cohort data — title, dates, schedule, seat counts, learner enrollments and metadata — so you can audit a batch, hand it to finance, or move records into another system whenever you need to."
 ---
-
-Cohorts turn one-off courses into guided journeys—so learners know what happens next and teams can run programs on a repeatable rhythm.

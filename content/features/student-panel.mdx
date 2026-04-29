@@ -1,36 +1,152 @@
 ---
 featureId: "student-panel"
 title: "Student Panel"
-description: "Focused learning space"
+description: "A learner workspace with a personal dashboard, the curriculum runner, assignments, exams, calendar, noticeboard, messaging, payment history and full account control."
 href: "/features/student-panel"
 navGroup: "Manage Roles"
 navIcon: userHeartRounded
 navOrder: 0
 banner:
   tag: "Student Panel"
-  headline: "Focused Learning Space"
-  description: "Dedicated experience for learners to access courses and progress."
-  ctaText: "Learn More"
+  headline: "A real workspace for learners, not a stripped-down admin"
+  description: "Edushade ships a dedicated learner experience under /dashboard — a sidebar with their courses, assignments, exams, calendar and events, a personal dashboard with performance stats and a streak, the curriculum runner that plays seven lesson types, a Discord-style messaging surface, a noticeboard, notifications, payment history, refunds and full account control. Built once, runs in every locale, looks right on mobile."
+  ctaText: "Show Me the Learner View"
   ctaTo: "/contact-sales"
+capabilityHighlights:
+  title: "Everything a learner reaches for, in one place"
+  description: "The learner panel is its own app shell — its own layout, its own sidebar, its own routes — sitting alongside the admin and educator panels. One sign-in lands on the personal dashboard; from there, every screen the learner needs is one click away."
+  capabilities:
+    - title: "Personal Dashboard"
+      description: "Performance score, ongoing courses, time spent, live class participation, quiz and assignment completion, streak, leaderboard, remaining tasks and improvement areas — at a glance."
+      icon: clipboardList
+    - title: "My Learning + Curriculum Runner"
+      description: "An enrollments hub that lists every course, learning path and cohort the learner is on, plus the runner that plays video, live, audio, text, PDF, embed and iframe lessons in order."
+      icon: notebookBookmark
+    - title: "Assignments & Exams"
+      description: "Dedicated lists for assignments and exams, the inline quiz player at /dashboard/quiz-attempt with a clean layout, attempts history and a merit list per item."
+      icon: clapperboardPlay
+    - title: "My Calendar & Events"
+      description: "A personal calendar that pulls live class times, deadlines and bookings, plus an Events tab with the workshops, sessions and webinars the learner is signed up for."
+      icon: routing
+    - title: "Noticeboard, Notifications, Messaging"
+      description: "A noticeboard sheet with read tracking, a bell icon for transactional notifications, and a Discord-style messaging surface with direct messages, servers, channels and forum topics."
+      icon: arrowRight
+    - title: "Profile, Devices, Refunds"
+      description: "Edit profile, change email, phone and password, manage trusted devices, review activity logs, request account deletion, view payment history, request refunds — all from the learner side."
+      icon: diploma
 splitSections:
-  - title: "A calm home for learning"
-    description: "Learners get a dedicated space to see courses, deadlines, progress, and messages—without admin clutter."
+  - title: "A dashboard the learner actually uses"
+    description: "The /dashboard page is not a placeholder. It opens with a greeting card and a performance score, then six stat tiles: ongoing courses, courses completed, time spent in minutes, live class participation, quizzes completed and assignments completed — each with a progress ring and a tooltip showing the underlying numbers. Below that: upcoming classes, the learner's streak with rewards, my courses, a learning statistics chart, the leaderboard, remaining quizzes, remaining assignments and improvement areas."
     lists:
-      - "Dashboard of active courses, paths, and workshops"
-      - "Upcoming sessions and due work in one view"
-      - "Progress indicators that reduce anxiety and confusion"
-      - "Mobile-friendly layouts for learning on the go"
-    imgSrc: "/svgs/user/1.svg"
+      - "Performance score, six stat tiles with progress rings"
+      - "Streak rewards and a leaderboard widget for healthy gamification"
+      - "Remaining quizzes and remaining assignments lists from open enrollments"
+      - "Improvement areas highlight where the learner is losing marks"
+    imgSrc: "/svgs/educator-love/2-analytics.svg"
     reverse: true
-  - title: "Designed for focus, not noise"
-    description: "Strip away distractions so learners spend time on lessons, assignments, and community—not hunting for links."
+  - title: "My Learning is where the curriculum actually runs"
+    description: "Open My Course and the learner sees every enrollment they're on — courses, learning paths and cohorts, with progress bars and a Continue Learning button on each. Picking one drops them into the curriculum runner: a sidebar with sections, lessons, quizzes, assignments and downloadable files, a top progress bar, bottom navigation between items, and the seven lesson types — video, live, audio, text, PDF, embed and iframe — playing inline with the right player for each."
     lists:
-      - "Clear navigation to content and assessments"
-      - "Notifications that respect attention"
-      - "Accessible patterns for diverse learners"
-      - "Consistent experience across programs"
-    imgSrc: "/svgs/educator-love/6-mobile.svg"
+      - "Enrollments list with progress, last-accessed and resume CTA"
+      - "Curriculum sidebar with sections and mixed item types"
+      - "Seven lesson types rendered inline with the right player"
+      - "Quiz attempts and assignment submissions linked from the runner"
+    imgSrc: "/svgs/courses/course-curriculum.svg"
     reverse: false
+  - title: "Stay on top of dates, notices and conversations"
+    description: "My Calendar pulls every live class time, assignment deadline, exam window and booked session into one view. The Events tab lists workshops and webinars the learner is signed up for. The noticeboard sheet shows announcements with a per-user read state and an unread badge. The notification bell handles transactional alerts. The Message surface is a Discord-style space — direct messages, servers, channels, forum threads — for cohort conversations and one-on-one chats."
+    lists:
+      - "My Calendar with live classes, deadlines, exam windows and bookings"
+      - "Events tab for workshops, webinars and one-off sessions"
+      - "Noticeboard sheet with read tracking and unread badge"
+      - "Discord-style messaging: DMs, servers, channels and forum topics"
+    imgSrc: "/svgs/educator-love/4-integrated.svg"
+    reverse: true
+  - title: "Full control over their account, their payments, their data"
+    description: "The Profile area gives the learner everything an admin would expect to manage from the back office, scoped to themselves. Edit profile fields, change email or phone with verification, rotate password, manage trusted devices, review the activity log, tune notification preferences per channel, view payment history, open an order detail, request a refund, and even start an account deletion flow — all without an admin in the loop."
+    lists:
+      - "Edit profile, email and phone with OTP verification"
+      - "Devices list, activity logs and per-channel notification preferences"
+      - "Payment history with order detail and downloadable receipts"
+      - "Refund requests and self-serve account deletion"
+    imgSrc: "/svgs/educator-love/5-scalability.svg"
+    reverse: false
+quickStart:
+  title: "From sign-in to back-on-track in three clicks"
+  subtitle: "Every learner lands at /dashboard the moment they sign in. The sidebar surfaces the rest — My Course, Assignment, Exam, My Calendar, Event, Notice Board, Notification and Payment History — so the next click is always one tap away."
+  steps:
+    - step: 1
+      title: "Land on the personal dashboard"
+      description: "Sign in and the panel opens at /dashboard with the greeting card, performance score and stat tiles up top, the streak and upcoming classes mid-page, and the leaderboard, remaining tasks and improvement areas on the right."
+      imageAlt: "Learner dashboard with performance card, six stat tiles, upcoming classes and a streak widget"
+      imageSrc: "/svgs/courses/course-create.svg"
+    - step: 2
+      title: "Pick up the next lesson"
+      description: "Open My Course, click the enrollment with progress, and the curriculum sidebar shows exactly where the learner left off. The next item is highlighted, the player loads inline, and the bottom-nav advances to the following lesson, quiz or assignment when they're done."
+      imageAlt: "Curriculum runner with section sidebar, video player and bottom navigation"
+      imageSrc: "/svgs/courses/course-curriculum.svg"
+    - step: 3
+      title: "Stay on top of everything else"
+      description: "The Calendar shows what's coming. The Noticeboard sheet shows what is new. The bell shows what landed. The Message surface keeps the cohort moving. Payment History and Refunds wait under the menu when the learner needs them."
+      imageAlt: "Calendar view with live classes and deadlines, noticeboard sheet on the right"
+      imageSrc: "/svgs/courses/course-publish.svg"
+faq:
+  title: "Student Panel FAQ"
+  description: "How the learner experience is laid out — dashboard, curriculum, assignments, exams, calendar, noticeboard, messaging, payments and account control."
+  items:
+    - question: "What does the Student Panel actually contain?"
+      answer: "Eight top-level sections in the sidebar — Overview, My Course, Assignment, Exam, My Calendar, Event, Notice Board and Notification — plus Payment History under its own group. Each opens a real route under /dashboard with its own UI, not a redirect to an admin screen. Profile and account control sit under the user menu."
+    - question: "Where do learners find their courses?"
+      answer: "Under My Course at /dashboard/enrollments. The page lists every enrollment the learner is on — courses, learning paths and cohorts — with progress, last-accessed timestamp and a Continue Learning button. Clicking through opens the curriculum runner, which loads the lesson, quiz or assignment they were on."
+    - question: "How are lessons played?"
+      answer: "The runner ships with seven lesson types rendered inline: video (HLS or MP4 with provider metadata), live (with meeting integration and password), audio, text (rich content), PDF (with viewer), embed (third-party iframes) and iframe (custom). Drip rules from the course are honoured — locked items show a lock state with the unlock condition."
+    - question: "How are quizzes and exams taken?"
+      answer: "The Exam tab lists every quiz the learner has open, with attempts, marks and time limits surfaced. The actual attempt runs at /dashboard/quiz-attempt under a clean layout — no sidebar, no clutter — with the optional security knobs (full-screen, copy-paste blocking, randomised order, webcam) honoured. Result pages link to a merit list when one is configured."
+    - question: "How are assignments handled?"
+      answer: "The Assignment tab lists every assignment due to the learner with deadline, attempts and status. Opening one shows the brief, accepts the submission — text, file upload or quiz, depending on the assignment type — tracks attempts, and links to a merit list when the cohort uses one. Instructor feedback flows back into the same view."
+    - question: "What is on the personal dashboard?"
+      answer: "A performance score, six stat tiles (ongoing courses, completed, time spent, live class attendance, quizzes completed, assignments completed) with progress rings and tooltips, upcoming classes, a streak with rewards, a my-courses card, a learning statistics chart, a leaderboard widget, remaining quizzes and assignments and an improvement areas card."
+    - question: "Are streaks and leaderboards real or cosmetic?"
+      answer: "Real. Streaks are computed from learner activity and tied to rewards visible on the dashboard. The leaderboard widget surfaces the cohort's standings and updates as quizzes and assignments are graded. Both are scoped per-tenant and per-cohort, so a learner only ranks against people in the same program."
+    - question: "What does My Calendar show?"
+      answer: "Live class times, assignment deadlines, exam windows, booked one-on-one sessions and event start times — every dated artifact the learner has skin in, in one calendar grid. The Events tab covers workshops and webinars specifically, so a learner can register, see joining details and find the recording afterwards."
+    - question: "Notice Board vs Notifications — what is the difference?"
+      answer: "Notice Board is the noticeboard surface — an editorial channel where the platform posts announcements with priority, scheduling, expiry and per-user read tracking. Notification is the transactional bell — assignment graded, certificate issued, payment successful and so on. Both have an unread badge in the sidebar; clearing one does not clear the other."
+    - question: "Is messaging built in or do learners need a separate tool?"
+      answer: "Built in. The /dashboard/message surface is a Discord-style space with direct messages between people, servers for cohorts or programs, channels inside servers for topic-based chat, and a forum sub-surface with topic threads. Cohort messaging works without a Slack or a Discord on the side."
+    - question: "Can learners see what they have paid and request refunds?"
+      answer: "Yes. Payment History at /dashboard/my-orders lists every order with status, items, totals and timestamps; clicking one opens the order detail and a downloadable receipt. The Refunds page handles refund requests directly — the learner files, the admin reviews, and the status flows back to the same screen."
+    - question: "What account controls do learners get?"
+      answer: "Edit profile, change email and phone (with OTP verification), rotate password, manage trusted devices, review the activity log, tune notification preferences per channel (email, SMS, in-app, push), and start an account deletion flow if they want out — all from /dashboard/profile/settings, no admin involvement required."
+    - question: "Does it work on mobile?"
+      answer: "Yes. The learner panel ships a bottom navigation bar on small screens, the sidebar collapses cleanly on tablet, and every page on /dashboard is laid out with a stack on mobile and a grid on desktop. The curriculum runner, quiz attempt screen and message surface are all designed for the smaller viewport too."
+    - question: "Is the learner panel localized?"
+      answer: "Yes. Every screen pulls translations from the active locale — sidebar labels, dashboard copy, stat tooltips, button text, the lot — and the platform's broader localization config (RTL, per-locale typography, region-aware date and number formatting) flows through the same way it does on the public site. A learner who switches locale gets the panel in their language without a reload artefact."
+    - question: "How does the learner side stay in sync with the admin side?"
+      answer: "Both sides are wired into the same backend services — enrollment, learning, billing, engagement, notification — so a course an admin publishes is immediately visible under My Course, an assignment graded shows up in the bell within seconds, and a refund decision lands on /dashboard/refunds without an export-import in between."
 ---
 
-The student panel puts learners first: everything they need to succeed, organized around their journey—not your internal tooling.
+## Suggested visuals for this page
+
+The hero, capability cards, FAQ and quick-start steps render directly from the data above. The four split sections and the three quick-start steps each carry an image. The current build reuses the closest existing illustrations from `/svgs/courses` and `/svgs/educator-love`, but a future design pass should ship dedicated artwork. Drop the new files at the listed paths and they will swap in without any code change.
+
+**Split section 1 — `imgSrc: /svgs/educator-love/2-analytics.svg` (placeholder)**
+Suggested artwork: the learner dashboard hero — performance score on the left, three stat tiles in a row (ongoing courses, completed, time spent) each with a progress ring, and a streak chip with a flame icon in the corner.
+
+**Split section 2 — `imgSrc: /svgs/courses/course-curriculum.svg` (placeholder)**
+Suggested artwork: the curriculum runner — a section sidebar on the left with sections expanded and the active lesson highlighted, the lesson player in the centre (video frame), and a bottom-nav bar with Previous and Next buttons.
+
+**Split section 3 — `imgSrc: /svgs/educator-love/4-integrated.svg` (placeholder)**
+Suggested artwork: a split layout — calendar grid on the left with a few coloured event blocks, a noticeboard sheet on the right with three notice cards (one pinned, one new), and a small bell badge at the top with a count.
+
+**Split section 4 — `imgSrc: /svgs/educator-love/5-scalability.svg` (placeholder)**
+Suggested artwork: a profile settings page — left rail with tabs (Edit Info, Email, Phone, Password, Devices, Activity Logs, Notifications, Deletion), a form on the right showing the Edit Info tab with name, avatar and bio fields.
+
+**Quick-start step 1 — `imageSrc: /svgs/courses/course-create.svg` (placeholder)**
+Suggested artwork: the dashboard landing — greeting card on top, performance + stat tiles below, with the sidebar visible on the left showing Overview, My Course, Assignment, Exam, My Calendar.
+
+**Quick-start step 2 — `imageSrc: /svgs/courses/course-curriculum.svg` (placeholder)**
+Suggested artwork: the My Course list with three enrollment cards (course, learning path, cohort) each with a progress bar and a Continue Learning button.
+
+**Quick-start step 3 — `imageSrc: /svgs/courses/course-publish.svg` (placeholder)**
+Suggested artwork: a calendar view with two upcoming live class blocks, the noticeboard sheet open on the right with an unread notice highlighted, and a bell with a small "3" badge.

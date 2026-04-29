@@ -1,36 +1,128 @@
 ---
 featureId: "recorded-lessons"
 title: "Recorded Lessons"
-description: "Offer self paced learning"
+description: "Self-paced lessons in five formats"
 href: "/features/recorded-lessons"
 navGroup: "Deliver & Engage"
 navIcon: clapperboardPlay
 navOrder: 0
 banner:
   tag: "Recorded Lessons"
-  headline: "Offer Self Paced Learning"
-  description: "Host video lessons and let learners progress at their own pace."
-  ctaText: "Get Started"
+  headline: "Five formats, one curriculum tree"
+  description: "Recorded lessons in Edushade are not just videos — they are video, audio, text, PDF and embedded iframes, all sitting in the same curriculum next to live classes and quizzes. Self-host or paste a URL, and the platform's own player tracks watch time, resume position and completion automatically."
+  ctaText: "Start Building Lessons"
   ctaTo: "/contact-sales"
+capabilityHighlights:
+  title: "Self-paced content, properly tracked"
+  description: "Edushade ships its own player and progress engine — so a video lesson is not just an embedded iframe. Watch position is tracked second by second, resume restores the learner where they left off, and the same engine handles audio, PDFs, rich text and external embeds without separate plugins."
+  capabilities:
+    - title: "Five Recorded Formats"
+      description: "Video, audio, text, PDF and iframe — each with its own builder, learner viewer and progress shape. One lesson model, five ways to deliver it."
+      icon: notebookBookmark
+    - title: "Self-Hosted or Direct URL"
+      description: "Upload video and audio to the platform's storage, or paste any direct URL. Both paths play through the same in-platform player."
+      icon: clapperboardPlay
+    - title: "Resume from Last Position"
+      description: "Watch position is persisted per learner, both in local storage and on the server, so a half-finished video picks up exactly where it left off — on any device."
+      icon: arrowRight
+    - title: "Per-Lesson Attachments"
+      description: "Each lesson can carry its own attachments — slides, datasets, worksheets — pulled from the platform's file manager and shown alongside the content."
+      icon: clipboardList
+    - title: "Built-in Player with Sprite Thumbnails"
+      description: "Vidstack-based video player with seek thumbnails, 10-second skip controls, HLS support and a Plyr skin option — no third-party embed required."
+      icon: routing
+    - title: "Position-Tracked Progress"
+      description: "Status flows through not_started, in_progress and completed, with last_position in seconds and total time_spent — feeding the same engine that drives certificates."
+      icon: diploma
 splitSections:
-  - title: "Self-paced learning that still feels structured"
-    description: "Publish recorded lessons inside clear modules so on-demand content does not become a disorganized library."
+  - title: "Five formats for the way recorded content actually works"
+    description: "Most platforms call recorded lessons 'videos' and stop there. Edushade ships five distinct formats — video, audio, text, PDF and iframe — each with its own builder in the admin and its own viewer on the learner side. Mix them inside the same course section: a video lecture, an audio walkthrough, a rich-text recap, a PDF reference and an embedded interactive demo can all sit in one module without juggling tools."
     lists:
-      - "Video and rich media alongside text and downloads"
-      - "Progress markers learners can resume from any device"
-      - "Optional gates so prerequisites still apply on demand"
-      - "Consistent player and layout across your catalog"
-    imgSrc: "/svgs/courses/course-curriculum.svg"
+      - "Video — self-hosted file or direct URL, with poster image and seek thumbnails"
+      - "Audio — for podcasts, narrated lessons and language audio"
+      - "Text — rich-text editor with formatting, lists, links and embeds"
+      - "PDF — uploaded documents with a tracked viewer"
+      - "Iframe — embed external content with progress tracking via postMessage"
+    imgSrc: "/svgs/courses/course-types.svg"
     reverse: true
-  - title: "Scale without losing quality"
-    description: "Record once and reach many—while still guiding learners through a deliberate sequence."
+  - title: "Self-hosted or direct URL — your choice"
+    description: "For video and audio lessons, pick the host type: Self Hosted means the file lives in the platform's own storage, with sprite thumbnails generated for seeking. Direct URL means you paste any URL — your CDN, an HLS stream, an existing hosted file — and the same player handles it. The learner experience is identical; only the upload step changes."
     lists:
-      - "Playlists and modules that mirror how you teach live"
-      - "Captions and materials attached to the right moment"
-      - "Analytics on watch patterns to improve content"
-      - "Pairs with live classes for hybrid programs"
-    imgSrc: "/svgs/educator-love/6-mobile.svg"
+      - "Self-hosted upload through the integrated file manager"
+      - "Direct URL support for any video or audio source"
+      - "HLS streaming detected automatically and routed to native HLS"
+      - "One in-platform player for both paths — no third-party embed switching"
+    imgSrc: "/svgs/educator-love/4-integrated.svg"
     reverse: false
+  - title: "A player built for learning, not just playback"
+    description: "The video player is a Vidstack-based component with sprite thumbnails, 10-second forward and backward seek buttons, and a default skin that fits the platform — plus an optional Plyr skin for a different look. Captions, multiple quality tracks and HLS streams all work out of the box, and the small-screen layout keeps the play button centered with seek controls on either side."
+    lists:
+      - "Vidstack-based video and audio players with HLS support"
+      - "Sprite thumbnails on the seek bar for quick scrubbing"
+      - "Two skin options — Vidstack default or Plyr — picked per player"
+      - "10-second skip controls and small-screen layout tuned for mobile"
+    imgSrc: "/svgs/platforms/3-content.svg"
+    reverse: true
+  - title: "Progress that picks up where the learner left off"
+    description: "Every recorded lesson tracks progress per learner. The status moves through not_started, in_progress and completed; last_position records exactly where the playback or scroll stopped; time_spent accumulates total engagement in seconds. When a learner returns, the lesson resumes from the last position automatically — local storage handles offline-first restore, the server keeps the canonical record across devices."
+    lists:
+      - "Three-state progress: not_started, in_progress, completed"
+      - "Last position in seconds for video and audio resume"
+      - "Time spent in seconds, accumulated across sessions"
+      - "Per-attempt metadata stored as JSONB for type-specific data"
+    imgSrc: "/svgs/educator-love/2-analytics.svg"
+    reverse: false
+quickStart:
+  title: "From upload to enrollable lesson in three steps"
+  subtitle: "The lesson builder lives next to the curriculum tree. Pick the format, drop in the content, save — and the lesson is part of the course immediately."
+  steps:
+    - step: 1
+      title: "Pick a lesson format"
+      description: "Open the lesson modal and choose one of the five formats: Video, Audio, Text, PDF or Iframe. The form changes shape based on what you pick."
+      imageAlt: "Lesson type selector with five format cards: Video, Audio, Text, PDF and Iframe"
+      imageSrc: "/svgs/courses/course-create.svg"
+    - step: 2
+      title: "Add the content"
+      description: "For video and audio, choose Self Hosted to upload or Direct URL to paste a link. For text, write in the rich-text editor. For PDF, upload through the file manager. For iframe, paste the embed URL. Optionally attach files for download."
+      imageAlt: "Video lesson form with self-hosted upload and direct URL options plus attachments section"
+      imageSrc: "/svgs/courses/course-curriculum.svg"
+    - step: 3
+      title: "Save and place in the curriculum"
+      description: "Save the lesson and drag it into the right section of the curriculum tree. Apply drip rules if needed — fixed date, enrollment offset, or completion-based — and the lesson is ready for enrolled learners."
+      imageAlt: "Curriculum tree with the new lesson placed inside a section, drip rule badge on the side"
+      imageSrc: "/svgs/courses/course-publish.svg"
+faq:
+  title: "Recorded Lessons FAQ"
+  description: "How recorded lessons work in Edushade — formats, hosting, the in-platform player, progress tracking and resume."
+  items:
+    - question: "What counts as a recorded lesson?"
+      answer: "Anything that is consumed asynchronously — video, audio, text, PDF or iframe. Each is a Lesson with its own lesson_type, sitting in the curriculum tree alongside live classes and quizzes. The platform ships a builder and a viewer for each of the five types."
+    - question: "Which formats are supported?"
+      answer: "Five today: video (self-hosted or direct URL), audio (podcasts and narrated content), text (rich-text editor with formatting), PDF (uploaded documents) and iframe (embed external content with progress tracking)."
+    - question: "Can I self-host video and audio?"
+      answer: "Yes. The lesson builder offers two options for video and audio: Self Hosted uploads the file to the platform's storage through the integrated file manager; Direct URL accepts any URL — your own CDN, an existing hosted file, or an HLS stream. Both paths play through the same in-platform player."
+    - question: "Does the player support HLS streaming?"
+      answer: "Yes. URLs ending in .m3u8 are detected automatically and routed through native HLS playback. Multi-quality streams work without configuration; the player picks the right rendition for the learner's connection."
+    - question: "What about captions and chapters?"
+      answer: "The Vidstack base supports captions and chapter tracks; configure them on your encoded source. Sprite thumbnails for the seek bar are wired up out of the box when a sprite URL is provided alongside the video."
+    - question: "Can a learner resume where they left off?"
+      answer: "Yes. The platform tracks the watch position locally (local storage, per-device, immediate) and remotely (learning_progress.last_position in seconds, on the server, cross-device). When the learner returns, the player seeks to the last known position automatically."
+    - question: "Is progress tracked for every format?"
+      answer: "Yes, with format-appropriate logic. Video and audio track last_position in seconds. PDF, text and iframe lessons track scroll/interaction-based progress. All five funnel into the same learning_progress table with status — not_started, in_progress, completed — and a time_spent counter in seconds."
+    - question: "Can a lesson have attachments?"
+      answer: "Yes. Each lesson carries an attachments list pulled from the file manager — slides, worksheets, datasets, transcripts. Attachments display alongside the main content on the learner page, with download enabled."
+    - question: "Can I assign multiple instructors to a recorded lesson?"
+      answer: "Yes. instructor_ids on the lesson is an array of platform users, so a guest expert can own one specific lesson without getting access to the rest of the course. The instructor list surfaces on the lesson page automatically."
+    - question: "How does iframe progress work?"
+      answer: "Iframe lessons accept an embed URL and load it inside the in-platform viewer. Progress tracking goes through useIframeProgress, which listens for postMessage events from the embedded content — so an interactive activity that posts a 'completed' event marks the lesson done. Otherwise, time-on-screen drives the progress percentage."
+    - question: "Can recorded lessons be locked behind drip rules?"
+      answer: "Yes. Recorded lessons are curriculum items, so all drip and prerequisite logic applies. Lock a video behind a quiz pass, release a PDF on a fixed date, or make a text recap available only after the live class is completed — the same engine that drives drip on live classes drives it on recordings."
+    - question: "What player skins are available?"
+      answer: "Two: Vidstack default (the platform's own skin) and Plyr (a Vidstack-Plyr layout). The skin is set per player instance, so a brand-aligned default can run alongside a Plyr-styled player on a different page if needed."
+    - question: "Can lessons exist outside a course?"
+      answer: "Lessons live inside courses through the curriculum builder. For standalone, sellable recorded content not tied to a curriculum, use Digital Products or Course Bundles to package and sell — and the lessons themselves stay inside their parent course."
+    - question: "What does a learning_progress record look like for a recorded lesson?"
+      answer: "It carries entity_type='lesson', the lesson UUID as entity_id, the user UUID, status (not_started / in_progress / completed), progress_percentage (decimal up to 100), time_spent in seconds, last_position in seconds (for video and audio), started_at and completed_at timestamps, last_accessed_at, and a JSONB metadata field for type-specific extras like watched-segments."
+    - question: "Can I export progress data?"
+      answer: "Yes. The learning_progress table is queryable per program, per lesson and per learner, with all timing, status and position fields included. Pull a section's worth of records to see who watched what, or a course's worth to feed analytics dashboards or accreditation reports."
 ---
-
-Recorded lessons give flexibility; Edushade gives structure so self-paced never means “on your own with a pile of videos.”

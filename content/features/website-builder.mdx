@@ -1,36 +1,127 @@
 ---
 featureId: "website-builder"
 title: "Website Builder"
-description: "Design pages without code"
+description: "Block-based site builder"
 href: "/features/website-builder"
 navGroup: "Build Learning"
 navIcon: build
 navOrder: 80
 banner:
   tag: "Website Builder"
-  headline: "Design Your Academy Without Touching Code"
-  description: "Compose pages from modular blocks, swap themes in a click, and publish landing pages that look as polished as the courses behind them."
-  ctaText: "Get Started"
+  headline: "A real site, not a settings page"
+  description: "Edushade ships its own block-based website builder — pages, posts, forms, menus, themes, locales and versions. Compose pages from 40+ blocks, theme them in OKLCH, run them in multiple languages, and publish without touching a contractor or a theme marketplace."
+  ctaText: "Open the Builder"
   ctaTo: "/contact-sales"
+capabilityHighlights:
+  title: "Block-based, multilingual, version-controlled"
+  description: "The website builder is a full content system on top of the platform — not a glorified header editor. Pages are localized, blocks are versioned, previews can be password-protected, themes ship in light and dark, and every page can swap its own header, footer or announcement bar without affecting the rest."
+  capabilities:
+    - title: "40+ Base Blocks"
+      description: "Hero, columns, grid, gallery, accordion, tabs, stats, timeline, form, video, quote, table, chart and dozens more — composable, reorderable, with per-block style controls."
+      icon: notebookBookmark
+    - title: "Per-Page Layout Slots"
+      description: "Pick a header, footer and announcement block per page, or hide them entirely. The same site can carry a marketing landing page and a stripped-down checkout funnel."
+      icon: routing
+    - title: "Light + Dark Themes"
+      description: "OKLCH colour values for both themes, a radius scale, typography (sans, serif, mono) and a default-theme preference — saved on the tenant, applied across the site."
+      icon: diploma
+    - title: "Multi-Locale with RTL"
+      description: "Enable any number of locales, each with a flag, fallback, RTL flag and per-locale typography overrides. Titles, meta and content are localized per page and per post."
+      icon: arrowRight
+    - title: "Versioning, Auto-Save and Previews"
+      description: "Every page and post carries a numbered version history with names and notes. Generate a preview link with optional expiry and password protection, share with stakeholders, ship when approved."
+      icon: clapperboardPlay
+    - title: "Forms, Posts and Menus"
+      description: "Localized blog posts with tags, drag-and-drop forms with submissions tracking, and nested navigation menus — all part of the same site, not separate plugins."
+      icon: clipboardList
 splitSections:
-  - title: "Block-based pages, polished by default"
-    description: "Build pages from modular blocks — hero, text, image, video, gallery, columns, forms — and reuse them across your site."
+  - title: "40+ blocks plus templated sections for learning use cases"
+    description: "The block library starts with the basics — heading, paragraph, image, video, columns, grid, hero, gallery, accordion, tabs, form, table, code, chart, timeline, stats, quote, rating and dozens more — and adds learning-specific templated blocks on top: course catalogues, cohort schedules, event countdowns, curriculum trees, instructor lists, enrollment panels and pricing grids. Every block carries its own style controls, responsive breakpoints and per-block animations."
     lists:
-      - "Drag-and-drop blocks with per-block style controls"
-      - "Reusable blocks library so updates propagate everywhere"
-      - "Custom headers and footers on a per-page basis"
-      - "Auto-save versioning with named, restorable history"
-    imgSrc: "/svgs/hero/banner.svg"
+      - "40 base block types covering layout, content, media, data and interaction"
+      - "Specialized blocks for courses, cohorts, events, instructors and pricing"
+      - "Drag-and-drop reorder with multi-select and bulk actions"
+      - "Per-block responsive overrides at separate breakpoints"
+    imgSrc: "/svgs/courses/course-types.svg"
     reverse: true
-  - title: "Themes that match your brand, instantly"
-    description: "Pick a theme preset, refine the palette, and ship a site that looks designed — not templated."
+  - title: "Themes that follow your brand, not your template"
+    description: "Theme settings live on the tenant, not on a stylesheet. Pick light and dark colour palettes in OKLCH for accurate hue control, set a single radius scale that flows through every block, choose a font for each role (sans, serif, mono) with letter-spacing, and tell the site whether to default to light, dark or system. Locales can override typography on top — useful when an English deck and an Arabic deck need different fonts."
     lists:
-      - "Light and dark theme palettes with OKLCH precision"
-      - "Typography settings per locale (e.g., Arabic vs. English)"
-      - "Border-radius and density tokens you can tune in one place"
-      - "Preview generation with expiry and password protection"
-    imgSrc: "/svgs/platforms/3-content.svg"
+      - "OKLCH colours for both light and dark themes (light required, dark optional)"
+      - "Border radius 0–2 scale propagated across every block"
+      - "Typography (sans, serif, mono) with letter-spacing per role"
+      - "Per-locale typography overrides for scripts that need different fonts"
+    imgSrc: "/svgs/educator-love/3-customizable.svg"
     reverse: false
+  - title: "Multi-locale, RTL-aware, with proper fallbacks"
+    description: "Localization is built in, not bolted on. Define your enabled locales with code, label, flag and RTL flag, pick a primary locale, set fallbacks per locale, and the URL structure (subdirectory) is set in one place. Page titles, meta titles, meta descriptions and post content are stored as localized JSON fields, so a single page renders correctly in every active language without duplicate records to manage."
+    lists:
+      - "Enable any number of locales with code, label, flag emoji and RTL"
+      - "Primary locale and per-locale fallback for missing translations"
+      - "Localized title, meta title, meta description and content per page"
+      - "Default date, time, number, currency and timezone formats per site"
+    imgSrc: "/svgs/educator-love/4-integrated.svg"
+    reverse: true
+  - title: "Versions, previews, and a publishing flow that does not lose work"
+    description: "Every page and post gets a numbered version history. Save a version with a name and notes, or let the auto-save tick along quietly — the auto-save flag distinguishes the two. Generate a preview link any time: public, password-protected, or expiring after a set time. The publishing workflow ships with draft, published and archived states, and the soft-delete keeps the historical data intact when a record is removed."
+    lists:
+      - "Numbered version history per page and post with name and notes"
+      - "Auto-save flag separates checkpoints from manual saves"
+      - "Preview links with public toggle, password and expiry"
+      - "Draft / published / archived status pipeline with soft delete"
+    imgSrc: "/svgs/platforms/2-progress.svg"
+    reverse: false
+quickStart:
+  title: "From blank canvas to published page in three steps"
+  subtitle: "The builder lives next to your courses in the admin. Start from a template or an empty page, drop in blocks, theme the site, and publish — all in the same workspace."
+  steps:
+    - step: 1
+      title: "Create the page"
+      description: "Pick a template or start blank. Set localized title, meta title and meta description, choose a slug, and decide whether the page uses the default header, footer and announcement bar — or its own."
+      imageAlt: "Page creation form with title, slug, meta fields, status selector and layout-slot toggles"
+      imageSrc: "/svgs/courses/course-create.svg"
+    - step: 2
+      title: "Compose with blocks and theme the site"
+      description: "Drag blocks in from the library, edit them in place with the side panel, set responsive overrides per breakpoint, and adjust the site theme — colours, radius, typography — from the design settings."
+      imageAlt: "Page editor with block library on the left, canvas in the middle and style panel on the right"
+      imageSrc: "/svgs/courses/course-curriculum.svg"
+    - step: 3
+      title: "Preview, version, publish"
+      description: "Save a version with a name and notes when the page is at a milestone. Generate a preview link to share — password-protected if needed, expiring if you want — and flip status to published when it is ready."
+      imageAlt: "Publishing dialog with version history, preview link generator and status selector"
+      imageSrc: "/svgs/courses/course-publish.svg"
+faq:
+  title: "Website Builder FAQ"
+  description: "How the Edushade website builder works — pages, blocks, themes, locales, versions, previews and how it integrates with the rest of the platform."
+  items:
+    - question: "What is the website builder in Edushade?"
+      answer: "It is a block-based content system built into the platform — pages, posts, forms, menus, themes, locales and versions all live in the same admin alongside your courses. Output is a real public site for the tenant: marketing pages, blog, contact forms, navigation, the lot."
+    - question: "How many block types are there?"
+      answer: "Forty base block types — heading, paragraph, image, video, hero, columns, grid, gallery, accordion, tabs, form, table, code, chart, timeline, stats, quote, rating, list, link, button, card, carousel, modal, lightbox, embed, audio, divider, spacer, stack, flex, container, dropdown, progress, section, row, column, tooltip and a couple more. Each one has its own style controls, responsive overrides and animation settings."
+    - question: "Are there learning-specific blocks?"
+      answer: "Yes. On top of the base blocks, the platform ships templated blocks built for an academy: course detail layouts, course list grids, cohort selectors, cohort schedules, cohort countdowns, event blocks, curriculum trees, enrollment panels, pricing grids, FAQ blocks, instructor lists, testimonial sections and more — pre-wired to the underlying course, cohort and event data."
+    - question: "Can I run the site in multiple languages?"
+      answer: "Yes. Add as many locales as you want — each with a code, label, flag emoji, RTL flag and an optional fallback locale. Page titles, meta and content fields are localized per record, so the same page serves the right language without duplicate rows."
+    - question: "Does it support right-to-left languages?"
+      answer: "Yes. Set is_rtl on the locale and the site renders right-to-left for that language. Combined with per-locale typography overrides, an English landing page can run on Inter while the Arabic version runs on a script-appropriate font without compromise."
+    - question: "How does the theming work?"
+      answer: "Theme settings live on the tenant. Define a light palette in OKLCH (required) and a dark palette (optional), set a border-radius scale between 0 and 2, pick fonts for sans, serif and mono with letter-spacing per role, and choose whether the default theme should be light, dark or system-controlled."
+    - question: "Can pages have different headers or footers?"
+      answer: "Yes. The site has a default header, footer and announcement bar, and any page can either point to a different one (per-page IDs) or hide each of the three independently. A landing page can run header-only; a checkout page can run none of the three."
+    - question: "How are versions handled?"
+      answer: "Every page and post is versioned automatically. Versions carry a number, an optional name, optional notes, and an auto_save flag that separates background checkpoints from named saves. Roll back to any version, compare two versions side by side, and the live page is always the latest published one."
+    - question: "Can I share a draft for review without publishing?"
+      answer: "Yes — generate a preview. Each preview snapshot stores its own data, supports an optional password and an optional expiry timestamp, and can be flagged public or kept private. Stakeholders open the link without seeing the rest of the platform."
+    - question: "Does the builder include a blog?"
+      answer: "Yes. Posts have a slug, localized title, excerpt and content, a featured image, an author, tags and the same draft / published / archived status pipeline as pages. Posts version the same way, preview the same way, and publish through the same flow."
+    - question: "What about forms?"
+      answer: "Forms are first-class records — name, slug, localized title and description, a configurable fields array, settings JSON, an active / inactive status, and a submissions table that counts entries per form. Drop a form block into any page or wire it directly into a flow."
+    - question: "Can I build navigation menus?"
+      answer: "Yes. Menus are stored on the platform with nested items, and the site reads them through the header and footer blocks. Build a primary navigation, a footer link list, or both — the same nesting model handles a single-level header and a two-level mega menu."
+    - question: "What states does a page move through?"
+      answer: "Three: draft (in progress), published (live on the public site) and archived (retired but kept on file). Posts share the same pipeline. Forms use a separate two-state model — active and inactive — since a form does not have a publish moment in the same way a page does."
+    - question: "Can I export the page or back it up?"
+      answer: "The version history is the backup — every save, manual or auto, is on the record with its data snapshot. Roll back at any time, or compare two versions to see exactly what changed. For a full tenant export, the site settings, pages, posts, menus and forms are all retrievable from the website-service API."
+    - question: "Does the builder integrate with the rest of the platform?"
+      answer: "Yes. The course, cohort, event and product blocks read live data from the platform — so a course detail block on a landing page surfaces the published curriculum, enrollment panel, pricing and instructors of an actual course, not a static copy. Update the course; the site updates with it."
 ---
-
-The Website Builder turns a learning platform into a real brand presence — no contractor, no theme marketplace, no compromises.

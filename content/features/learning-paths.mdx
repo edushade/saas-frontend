@@ -1,36 +1,117 @@
 ---
 featureId: "learning-paths"
 title: "Learning Paths"
-description: "Guide learner progression"
+description: "Connect courses into a sequenced programme with shared progress and certification"
 href: "/features/learning-paths"
 navGroup: "Build Learning"
 navIcon: routing
 navOrder: 10
 banner:
   tag: "Learning Paths"
-  headline: "Guide Learner Progression"
-  description: "Define paths and sequences to guide learners through your content."
-  ctaText: "Learn More"
+  headline: "Connect your courses into one programme"
+  description: "Group multiple courses into a single path, unlock the next one when a learner finishes the previous, and run the whole programme self-paced or as a cohort. Same enrollment, same certificate, one journey."
+  ctaText: "Start Building Your Path"
   ctaTo: "/contact-sales"
+capabilityHighlights:
+  title: "What learning paths actually do in Edushade"
+  description: "A learning path is a wrapper around your existing courses. Edushade keeps each course intact — its own curriculum, its own assessments, its own instructors — and lets you sequence them into a programme that learners enroll in once and complete as one."
+  capabilities:
+    - title: "Multi-Course Programmes"
+      description: "Bundle two, three or twenty published courses into a single path with shared title, summary, thumbnail and completion message."
+      icon: routing
+    - title: "Course-by-Course Unlock"
+      description: "When a learner finishes one course, the next one opens — with a notification — so the order you set is the order they take."
+      icon: arrowRight
+    - title: "Self-Paced or Cohort-Based"
+      description: "Run a path evergreen, or schedule it as a cohort with start and end dates and a max-seats cap."
+      icon: notebookBookmark
+    - title: "Path-Level Certificates"
+      description: "Issue a certificate when the whole programme is completed, each with a unique number and a public verification code."
+      icon: diploma
+    - title: "Drip & Access Rules"
+      description: "Reuse the same drip schedules, access rules and password protection that power individual courses inside the path."
+      icon: clipboardList
+    - title: "Mixed Lesson Types"
+      description: "Each course in the path can use its own lesson mix — video, live, audio, text, PDF, embed, iframe — without forcing one format on the programme."
+      icon: clapperboardPlay
 splitSections:
-  - title: "Guide learners through a deliberate sequence"
-    description: "Define paths that connect courses, milestones, and optional branches—so progression is visible and intentional."
+  - title: "Build programmes from the courses you already have"
+    description: "A learning path adds a programme layer on top of Edushade courses. The courses inside keep their own curriculum, instructors and pricing — the path supplies the title, summary, thumbnail, completion message and certificate that wrap the whole journey."
     lists:
-      - "Ordered steps with unlock rules you configure"
-      - "Mix self-paced and cohort elements in one journey"
-      - "Path-level messaging for context at each stage"
-      - "Clear “you are here” orientation for learners"
+      - "Add any published course as a step in the path"
+      - "Path-level title, summary, thumbnail, language and difficulty"
+      - "Tags and categories so paths show up in catalogue and search"
+      - "Computed duration that rolls up the courses inside"
     imgSrc: "/svgs/courses/course-types.svg"
     reverse: true
-  - title: "Programs, not random enrollments"
-    description: "Paths help teams package offerings: onboarding, certification tracks, and role-based curricula."
+  - title: "Course-by-course progression that respects prerequisites"
+    description: "When a learner finishes one course, Edushade fires a course-unlock notification and opens the next one. Combined with drip schedules, paths give you precise control over how a programme moves — from a tightly gated certification track to an open self-study route."
     lists:
-      - "Reuse path templates across intakes or partners"
-      - "Dependencies between paths and standalone courses"
-      - "Reporting on path completion, not only single courses"
-      - "Easier to communicate outcomes to stakeholders"
-    imgSrc: "/svgs/platforms/2-progress.svg"
+      - "Course-unlock notification when a prerequisite course completes"
+      - "Drip schedules carry across to courses inside the path"
+      - "Per-learner overrides, not just programme-wide rules"
+      - "Programme started and programme completed notifications"
+    imgSrc: "/svgs/courses/course-curriculum.svg"
     reverse: false
+  - title: "Track progress at the programme level"
+    description: "Edushade tracks progress percentage and score percentage at the path level — not just inside each course — so programme managers can see who is halfway through onboarding, who is stalled, and who has earned the certificate, without exporting and joining spreadsheets."
+    lists:
+      - "Progress percentage and score percentage per learner"
+      - "Last accessed at, last lesson, current grade rolled up"
+      - "Remaining seats and total enrollments visible at a glance"
+      - "CSV export of path data, enrollments and metadata"
+    imgSrc: "/svgs/platforms/2-progress.svg"
+    reverse: true
+  - title: "Cohorts, instructors and access — same controls as a course"
+    description: "Bind a learning path to a cohort to run it as a scheduled batch with weekly live class days and a max enrollment cap. Add instructors, co-instructors and assistants at the path level, and reach for the same access rules and password protection you already use on individual courses."
+    lists:
+      - "Cohort binding with start and end dates, weekly schedule and seats"
+      - "Instructor, co-instructor and assistant roles assignable per path"
+      - "Per-path access rules and password protection"
+      - "Discussion forum and ratings togglable per path"
+    imgSrc: "/svgs/courses/instructor.svg"
+    reverse: false
+quickStart:
+  title: "Ship a programme in three steps"
+  subtitle: "Create the wrapper, drop in your courses, and pick how you want to run it. The path inherits the curriculum, drip rules and assessments from the courses you add."
+  steps:
+    - step: 1
+      title: "Create the path shell"
+      description: "Add a title, summary, thumbnail, language and difficulty. Pick self-paced or cohort-based — settings stay editable later."
+      imageAlt: "Learning path creation form with title, summary and type"
+      imageSrc: "/svgs/courses/course-create.svg"
+    - step: 2
+      title: "Add courses in the order you want them taken"
+      description: "Pick from your published courses, drag them into sequence and configure drip rules where you want learners gated between courses."
+      imageAlt: "Path builder with courses arranged in sequence"
+      imageSrc: "/svgs/courses/course-curriculum.svg"
+    - step: 3
+      title: "Publish and bind a cohort if you need one"
+      description: "Publish the path so it shows in the catalogue and starts accepting enrollments. Bind a cohort to run it as a scheduled batch."
+      imageAlt: "Publish dialog with enrollment and cohort settings"
+      imageSrc: "/svgs/courses/course-publish.svg"
+faq:
+  title: "Learning Paths FAQ"
+  description: "Specifics about how learning paths, course-unlock logic, drip rules, certificates and cohorts work together inside Edushade."
+  items:
+    - question: "What is a learning path in Edushade?"
+      answer: "A learning path is a programme wrapper around two or more existing courses. It carries its own title, summary, thumbnail, completion message, certificate and pricing — but the courses inside keep their own curriculum, assessments and instructors. Learners enroll in the path once, and Edushade tracks them across every course it contains."
+    - question: "How is a learning path different from a single course?"
+      answer: "A course holds a curriculum tree of sections, lessons, quizzes, assignments and files. A path holds courses. Use a course when the content is one continuous module, and a path when you want to bundle multiple courses — for example an onboarding programme, a multi-stage certification track or a role-based curriculum."
+    - question: "How does course unlock work inside a path?"
+      answer: "When a learner completes one course, Edushade fires a course-unlock notification and opens the next course in the sequence. You can layer drip rules on top — fixed dates, days after enrollment, prerequisite completion or manual unlocks — so progression is exactly as strict or as flexible as you need."
+    - question: "Can a learning path be self-paced and cohort-based?"
+      answer: "A path runs as either self-paced or cohort-based, the same way a course does. Self-paced means evergreen enrollment and learner-controlled pacing. Cohort-based means a scheduled batch with start and end dates, weekly live class days and times, late-enrollment toggle and a max enrollment cap."
+    - question: "Are certificates issued at the path level?"
+      answer: "Yes. Turn the certificate toggle on for the path, and Edushade issues one when a learner completes the entire programme. The certificate carries a unique number and a public verification code, with optional expiration. Individual courses inside the path can still issue their own certificates if you want both."
+    - question: "How is progress tracked across multiple courses?"
+      answer: "Edushade tracks progress percentage and score percentage at the path level, alongside last accessed at, last lesson and current grade rolled up across the courses inside. Programme managers see one row per learner per path, instead of stitching together per-course reports."
+    - question: "Can I assign instructors to a learning path?"
+      answer: "Yes. Edushade supports instructor, co-instructor and assistant roles at the path level — and the same roles continue to work inside each course in the path. A featured instructor can be highlighted on the path landing page."
+    - question: "Can a learning path be sold?"
+      answer: "Yes. Paths integrate with Edushade billing the same way courses do — one-time price, subscription, installment plan, or free. You can also include paths in a bundle alongside courses, cohorts and other products, and apply coupons or automatic offers to them."
+    - question: "What states does a learning path go through before learners see it?"
+      answer: "Paths move from draft to published, with archived as an additional state. The published_at timestamp is recorded automatically. Learners see paths only once they are published and enrollment is open."
+    - question: "Can I export learning path data?"
+      answer: "Yes. Edushade ships a CSV export of all learning path data — metadata, component courses, enrollments, progress and certificate records — so you can back up, audit, or move data into another system whenever you need to."
 ---
-
-Learning paths turn your catalog into journeys—learners see the map, and your team can run repeatable programs with less manual coordination.

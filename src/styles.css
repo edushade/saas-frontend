@@ -56,7 +56,7 @@ code {
   --es-nav-h:        72px;
   --es-max-w:        1280px;
   --es-section-px:   80px;
-  --es-section-py:   clamp(3rem, 8vw, 5rem);
+  --es-section-py:   clamp(2.5rem, 5vw, 4rem);
   --es-section-pt:    64px;
 
   --bg-primary: #ffffff;
@@ -249,6 +249,18 @@ code {
   50% { opacity: 0.85; }
 }
 
+/* Feature hero — staggered editorial rise */
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+/* Soft expanding ring for live-status dot */
+@keyframes hero-ping-soft {
+  0%   { transform: scale(0.6); opacity: 0.7; }
+  80%  { transform: scale(2.2); opacity: 0; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -413,5 +425,133 @@ code {
     background:
       linear-gradient(180deg, #f0f9ff 0%, #e0f2fe 50%, #bae6fd 100%);
   }
- 
+
+  /* ─── Feature Hero — utilities (no extra gradients) ─── */
+
+  /* Dot grid — 22px lattice, faded toward edges with a soft mask */
+  .bg-hero-dotgrid {
+    background-image: radial-gradient(rgba(0, 62, 156, 0.16) 1px, transparent 1.4px);
+    background-size: 22px 22px;
+    background-position: 0 0;
+    -webkit-mask-image: radial-gradient(ellipse 70% 55% at 50% 45%, #000 30%, transparent 80%);
+            mask-image: radial-gradient(ellipse 70% 55% at 50% 45%, #000 30%, transparent 80%);
+  }
+
+  /* Solid pill used for the eyebrow (live-tag row) — matches site card style */
+  .pill-eyebrow {
+    background: #ffffff;
+    border: 1px solid var(--border-secondary);
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+  }
+
+  /* Device frame around the hero video — solid white card, single border */
+  .hero-device-frame {
+    background: #ffffff;
+    border: 1px solid var(--border-secondary);
+    box-shadow:
+      0 24px 48px -28px rgba(15, 23, 42, 0.18),
+      0 8px 16px -10px rgba(15, 23, 42, 0.10);
+  }
+
+  /* Display frame — soft sky panel with vertical light bands and pearl dots
+     at each corner. Used to wrap feature imagery as a mounted display. */
+  .display-frame {
+    background:
+      repeating-linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0) 0px,
+        rgba(255, 255, 255, 0.08) 47.15px,
+        rgba(255, 255, 255, 0.22) 85.33px
+      ),
+      linear-gradient(110deg, #CFEAFB 0%, #9CD4F6 55%, #B6DFF9 100%);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.55),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.32),
+      0 28px 50px -30px rgba(15, 60, 110, 0.28),
+      0 12px 24px -14px rgba(15, 60, 110, 0.18);
+  }
+
+  /* Frame corner marker — translucent circle with a white "+" icon, sits on
+     each corner of .frame-inset-border (Figma-style frame handle). Smaller
+     on mobile to keep the design proportional to narrower cards. */
+  .frame-marker {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow:
+      inset 0 0.5px 0 rgba(255, 255, 255, 0.45),
+      0 1px 3px rgba(15, 60, 110, 0.18);
+  }
+  .frame-marker::before,
+  .frame-marker::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    background: #ffffff;
+    border-radius: 1px;
+  }
+  .frame-marker::before {
+    width: 5px;
+    height: 1px;
+  }
+  .frame-marker::after {
+    width: 1px;
+    height: 5px;
+  }
+  @media (min-width: 640px) {
+    .frame-marker {
+      width: 18px;
+      height: 18px;
+    }
+    .frame-marker::before {
+      width: 7px;
+      height: 1.5px;
+    }
+    .frame-marker::after {
+      width: 1.5px;
+      height: 7px;
+    }
+  }
+
+  /* Inset translucent panel inside .display-frame — looks transparent, but
+     carries a designed glass surface: soft top-left highlight gradient, a
+     diagonal inner sheen, and a layered border (bright outer rim + faint
+     inner rim) for real depth instead of a single hairline. */
+  .frame-inset-border {
+    position: absolute;
+    border-radius: 18px;
+    background:
+      linear-gradient(
+        158deg,
+        rgba(255, 255, 255, 0.28) 0%,
+        rgba(255, 255, 255, 0.08) 35%,
+        rgba(255, 255, 255, 0) 60%,
+        rgba(46, 116, 175, 0.10) 100%
+      );
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.6),
+      inset 0 1px 0 rgba(255, 255, 255, 0.55),
+      inset 0 0 0 2px rgba(255, 255, 255, 0.08),
+      inset 0 -1px 0 rgba(46, 116, 175, 0.18);
+    pointer-events: none;
+  }
+
+  /* Subtle floating chip over the device frame — solid white, no gradient */
+  .hero-chip {
+    background: #ffffff;
+    border: 1px solid var(--border-secondary);
+    box-shadow: 0 8px 18px -10px rgba(15, 23, 42, 0.18);
+  }
+
+  /* Animations driven by CSS */
+  .animate-hero-rise {
+    animation: hero-rise 0.7s cubic-bezier(0.2, 0.65, 0.2, 1) both;
+  }
+  .animate-hero-ping-soft {
+    animation: hero-ping-soft 2.2s ease-out infinite;
+  }
 }

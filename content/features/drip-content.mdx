@@ -1,27 +1,125 @@
 ---
 featureId: "drip-content"
 title: "Drip Content"
-description: "Release lessons on schedule"
+description: "Schedule when each item unlocks"
 href: "/features/drip-content"
 navGroup: "Build Learning"
 navIcon: calendar
 navOrder: 35
 banner:
   tag: "Drip Content"
-  headline: "Release Content on Your Schedule"
-  description: "Unlock lessons gradually based on time, enrollment date, or completion of prerequisites — keep learners pacing forward without overwhelm."
-  ctaText: "Get Started"
+  headline: "Release content on the rhythm you teach to"
+  description: "Drip in Edushade is not a single switch. Each curriculum item carries its own unlock rule and an optional lock rule, and you can override either one for a single learner — so an evergreen course, a strict weekly cohort and a corporate path can all run on the same platform without copying content around."
+  ctaText: "Set up Drip Schedules"
   ctaTo: "/contact-sales"
+capabilityHighlights:
+  title: "Drip rules at every level you actually need them"
+  description: "Edushade gives drip three levels of control — program, item and user — and four unlock modes paired with four lock modes. Pick a program-wide strategy in one click, override individual items where the rule does not fit, and re-schedule for specific learners when somebody needs a different window."
+  capabilities:
+    - title: "Four Unlock Modes"
+      description: "Make content available immediately, on a fixed date, a number of days after enrollment, or after a prerequisite item is completed."
+      icon: arrowRight
+    - title: "Four Lock Modes"
+      description: "Optionally lock content again — no lock, on a fixed date, after an enrollment offset, or after a duration since unlock — so time-boxed access is a setting, not a workaround."
+      icon: clipboardList
+    - title: "Three Levels of Control"
+      description: "Program-level strategy, per-item overrides and per-user re-schedules. The same curriculum can pace differently for different cohorts and different learners."
+      icon: routing
+    - title: "Five Content Types"
+      description: "Sections, lessons, quizzes, assignments and downloadable files all carry their own drip schedule, not just lessons."
+      icon: notebookBookmark
+    - title: "Works on Courses, Paths and Cohorts"
+      description: "Drip rules bind to courses, learning paths and cohorts — the same engine, the same shapes, no parallel feature for each program type."
+      icon: clapperboardPlay
+    - title: "Per-Learner Re-Scheduling"
+      description: "Give specific learners a new unlock or lock date without touching the program rule — handy for late joiners, makeup access and extended deadlines."
+      icon: diploma
 splitSections:
-  - title: "Pace learning the way you teach"
-    description: "Choose how each lesson, quiz, or assignment becomes available — from fixed dates to enrollment offsets to prerequisite chains."
+  - title: "Pick a strategy that fits the whole program"
+    description: "Start at the program level. Choose Immediate to open everything on enrollment, Fixed Date to release the entire curriculum on a specific date and time, Completion-Based to make learners progress in order, or Custom when you need item-by-item rules. The strategy applies to the bound course, learning path or cohort and shows a one-line summary of what learners will experience."
     lists:
-      - "Fixed-date unlocks for cohort schedules"
-      - "Enrollment-offset unlocks (N days after a learner joins)"
-      - "Completion-based unlocks tied to prerequisites"
-      - "Manual unlocks for instructor-paced delivery"
-    imgSrc: "/svgs/hero/banner.svg"
+      - "Immediate, Fixed Date, Completion-Based and Custom strategies"
+      - "Program-level rule applies to courses, learning paths and cohorts"
+      - "Plain-language strategy descriptions on the admin screen"
+      - "Save once and the schedule applies across the curriculum tree"
+    imgSrc: "/svgs/courses/course-curriculum.svg"
     reverse: true
+  - title: "Override individual items when one rule does not fit"
+    description: "Most curriculum items follow the program rule, but a few rarely do. With item-level overrides you can pin a single section to a date, gate one quiz behind a prerequisite, or make one downloadable file available days after enrollment — without changing the program-wide setting. Edushade lists every item with an override in one place so the exceptions stay visible."
+    lists:
+      - "Per-item unlock: Immediate, Fixed Date, Enrollment Offset, Completion-Based"
+      - "Item-level overrides shown in a dedicated panel with edit and remove"
+      - "Bulk-edit drip across multiple items in one go"
+      - "Pick a prerequisite from any item in the curriculum tree"
+    imgSrc: "/svgs/educator-love/3-customizable.svg"
+    reverse: false
+  - title: "Lock content when it should not stay open forever"
+    description: "Unlock rules decide when learners get in. Lock rules decide when they cannot anymore. Set a fixed lock date for a deadline, lock content a number of days after enrollment, or close access a duration after the item unlocks — the closing-window equivalent of a self-paced rule. Drip badges on the learner side show locked, closed and prerequisite states with the right copy automatically."
+    lists:
+      - "Lock on a fixed date, an enrollment offset or duration after unlock"
+      - "Lock dates supported up to 365 days for both enrollment and unlock offsets"
+      - "Locked, closed and prerequisite states surface as learner-side badges"
+      - "Lock rules are optional — pair them only with the unlock rules that need them"
+    imgSrc: "/svgs/platforms/2-progress.svg"
+    reverse: true
+  - title: "Re-schedule for specific learners, not the whole course"
+    description: "When one learner needs a different window — a late joiner, a paused enrollment, a makeup deadline — Edushade lets you create a user-level override on a single curriculum item. Pick the users, set new unlock and lock dates, save. The default schedule keeps running for everyone else, the override runs only for the people you selected, and the panel shows you exactly who has a custom window."
+    lists:
+      - "Re-schedule unlock_at and lock_at for a specific list of learners"
+      - "User-level overrides listed with name, email and target item"
+      - "Edit or remove an override anytime — learners fall back to the default"
+      - "Audit fields capture who created and last updated each override"
+    imgSrc: "/svgs/educator-love/5-scalability.svg"
+    reverse: false
+quickStart:
+  title: "From open content to scheduled drip in three steps"
+  subtitle: "The Drip Schedule manager lives next to your curriculum builder. Pick a program-wide strategy, override the items that need it, then re-schedule for individual learners when something changes."
+  steps:
+    - step: 1
+      title: "Pick the program strategy"
+      description: "Open the Drip Schedule tab and choose Immediate, Fixed Date, Completion-Based or Custom. Edushade shows a plain-language summary so you know exactly what learners will see when they enroll."
+      imageAlt: "Drip schedule strategy picker with four cards: Immediate, Fixed Date, Completion-Based and Custom"
+      imageSrc: "/svgs/courses/course-create.svg"
+    - step: 2
+      title: "Override individual items"
+      description: "For the items that need a different rule, open the drip editor on a single item or use bulk-edit on a selection. Set unlock and lock modes — fixed date, enrollment offset, completion-based or duration after unlock."
+      imageAlt: "Per-item drip editor with unlock and lock mode radios and a prerequisite picker"
+      imageSrc: "/svgs/courses/course-curriculum.svg"
+    - step: 3
+      title: "Re-schedule for specific learners"
+      description: "If a learner needs their own window, add a user-level override — pick the curriculum item, choose the learners, set new unlock and lock dates. Everyone else keeps following the program-wide schedule."
+      imageAlt: "User-level override dialog with item picker, user picker and unlock and lock date pickers"
+      imageSrc: "/svgs/courses/course-publish.svg"
+faq:
+  title: "Drip Content FAQ"
+  description: "How drip schedules work in Edushade — strategies, overrides, lock rules and per-learner re-scheduling across courses, learning paths and cohorts."
+  items:
+    - question: "What is drip content in Edushade?"
+      answer: "Drip is the rule that decides when a curriculum item — section, lesson, quiz, assignment or downloadable file — becomes available to a learner, and optionally when it locks again. Each rule lives next to the item it controls and binds to the program (course, learning path or cohort) it belongs to."
+    - question: "Which programs can use drip?"
+      answer: "All three program types: courses, learning paths and cohorts. The drip engine is the same across them, so the rule shapes you learn for a course apply to a cohort and a learning path without anything new to remember."
+    - question: "What unlock modes are supported?"
+      answer: "Four: Immediate (no rule, content opens on enrollment), Fixed Date (opens on a specific date and time), Enrollment Offset (opens a number of days after the learner enrolls) and Completion-Based (opens after a prerequisite curriculum item is completed). Per-item rules can use any of the four; the program-level strategy exposes Immediate, Fixed Date, Completion-Based and Custom."
+    - question: "What lock modes are supported?"
+      answer: "Four: No Lock, Fixed Date, Enrollment Offset (lock a number of days after enrollment) and Duration After Unlock (lock a number of days after the item became available to that specific learner). Lock is optional — pair it only with the items that need a closing window."
+    - question: "Can I set drip rules per item or only program-wide?"
+      answer: "Both. Pick a program-level strategy first — Immediate, Fixed Date, Completion-Based or Custom — and that becomes the default for every item. Then override individual items when the program rule does not fit. Custom mode means every item carries its own rule from the start."
+    - question: "Which content types can carry a drip rule?"
+      answer: "Five: section, lesson, quiz, assignment and file. A section drip applies to the section as a whole; the items inside follow the program rule unless they have their own override."
+    - question: "How does completion-based unlock work?"
+      answer: "On a completion-based item, you pick another curriculum item from the same program as the prerequisite. The item stays locked until the learner completes the prerequisite, then unlocks for them. Each learner progresses on their own timeline because completion is tracked per learner."
+    - question: "Can I edit drip rules in bulk?"
+      answer: "Yes. Switch the curriculum tree into bulk mode, select the items that should follow the same rule, and apply unlock and lock settings once. The same dialog handles single-item edits, so the experience is consistent whether you are touching one item or twenty."
+    - question: "What happens when a learner hits a locked item?"
+      answer: "They see a locked badge with the right reason — a release date for fixed-date and enrollment-offset rules, the prerequisite name for completion-based rules, or a closed badge if the lock window has passed. Learner-side messaging is automatic; you do not write copy for each rule."
+    - question: "Can I give a single learner a different schedule?"
+      answer: "Yes. User-level overrides let you re-schedule a specific item for a specific list of learners — new unlock date, new lock date, only for those users. The default schedule keeps running for everyone else, and the override is listed in its own panel so it stays visible and editable."
+    - question: "How are user-level overrides different from item-level overrides?"
+      answer: "An item-level override changes the rule for that item across every learner in the program. A user-level override changes the rule for that item only for the specific learners you select. Item-level handles 'this lesson is different'; user-level handles 'this learner needs a different window'."
+    - question: "Do drip rules work with cohort schedules?"
+      answer: "Yes. A cohort can carry its own drip rules on top of the bound course or learning path, so two cohorts can run the same curriculum on different rhythms — one strict weekly, one accelerated — without duplicating content. The cohort's rules apply only to learners enrolled in that cohort."
+    - question: "Are drip rules counted in audit history?"
+      answer: "Yes. Every drip schedule carries created-by, updated-by, created-at and updated-at fields, plus soft-delete on removal. Changes to overrides are attributable, and a removed override falls back to the next rule up — item-level if there is one, otherwise the program-level strategy."
+    - question: "Do the drip rules show up in reports?"
+      answer: "The drip configuration lives in the curriculum builder; learner state — unlocked, locked, closed and pending-prerequisite — is reflected in the curriculum sidebar and learner progress views. The schedule itself is exportable as part of the program metadata when needed."
 ---
-
-Drip content keeps learners engaged with paced releases that match how a course is meant to be taught.

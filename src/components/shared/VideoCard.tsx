@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { VideoWatchIcon } from '@/assets/icons';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -16,10 +16,48 @@ export function VideoCard({
 }) {
 	const videoRef = useRef<HTMLVideoElement>(null);
 	const [playing, setPlaying] = useState(false);
+	const [isFullscreen, setIsFullscreen] = useState(false);
 
 	function handlePlay() {
 		videoRef.current?.play();
 	}
+
+	// Detect fullscreen so we can swap object-cover (good for inline marketing
+	// tile) → object-contain (correct letterboxing in fullscreen, especially on
+	// portrait mobile screens where object-cover crops the sides off).
+	useEffect(() => {
+		const video = videoRef.current;
+		if (!video) return;
+
+		function syncFullscreen() {
+			const standardEl = document.fullscreenElement;
+			const webkitEl = (
+				document as Document & { webkitFullscreenElement?: Element | null }
+			).webkitFullscreenElement;
+			setIsFullscreen(standardEl === video || webkitEl === video);
+		}
+
+		// iOS Safari uses video-element-scoped fullscreen events instead of the
+		// document fullscreenchange event.
+		function handleIosBegin() {
+			setIsFullscreen(true);
+		}
+		function handleIosEnd() {
+			setIsFullscreen(false);
+		}
+
+		document.addEventListener('fullscreenchange', syncFullscreen);
+		document.addEventListener('webkitfullscreenchange', syncFullscreen);
+		video.addEventListener('webkitbeginfullscreen', handleIosBegin);
+		video.addEventListener('webkitendfullscreen', handleIosEnd);
+
+		return () => {
+			document.removeEventListener('fullscreenchange', syncFullscreen);
+			document.removeEventListener('webkitfullscreenchange', syncFullscreen);
+			video.removeEventListener('webkitbeginfullscreen', handleIosBegin);
+			video.removeEventListener('webkitendfullscreen', handleIosEnd);
+		};
+	}, []);
 
 	return (
 		<div
@@ -31,8 +69,12 @@ export function VideoCard({
 			<video
 				ref={videoRef}
 				controls
+				playsInline
 				src={src}
-				className="h-full w-full object-cover"
+				className={cn(
+					'h-full w-full',
+					isFullscreen ? 'object-contain bg-black' : 'object-cover',
+				)}
 				aria-label={alt}
 				onPlay={() => setPlaying(true)}
 				onPause={() => setPlaying(false)}

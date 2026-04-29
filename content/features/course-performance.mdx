@@ -1,27 +1,150 @@
 ---
 featureId: "course-performance"
 title: "Course Performance"
-description: "See how each course performs"
+description: "Which courses are actually working, which ones quietly aren't, and how to tell the difference at a glance."
 href: "/features/course-performance"
 navGroup: "Track and Measure"
 navIcon: info
 navOrder: 35
 banner:
   tag: "Course Performance"
-  headline: "Know Which Courses Earn Their Keep"
-  description: "Enrollment trends, completion rates, average progress, and score distribution — for every course, in one place."
-  ctaText: "Get Started"
+  headline: "The honest read on which courses are pulling their weight"
+  description: "Every course on your platform is either earning its keep or quietly costing you. Course Performance brings the picture into focus — completion, engagement, satisfaction, ratings — for every course at the same time. The headline tells you how the catalogue is doing overall. The table tells you which course needs your attention this week."
+  ctaText: "Show Me the Data"
   ctaTo: "/contact-sales"
+capabilityHighlights:
+  title: "The numbers that tell you which course to fix and which to celebrate"
+  description: "We built Course Performance around two questions every operator eventually asks. \"How is the catalogue doing as a whole?\" — that's the headline. \"Which course needs attention?\" — that's the table. Open the page and both answers are right in front of you."
+  capabilities:
+    - title: "Catalogue-Wide Headline"
+      description: "Average completion, average engagement, the count of high-performing courses, the total catalogue size — each next to last period's number, with the growth percentage built in."
+      icon: clipboardList
+    - title: "Twelve-Month Trend"
+      description: "A monthly chart of completion and satisfaction across the whole catalogue. The shape tells you whether the platform is improving or drifting."
+      icon: routing
+    - title: "A Course at a Time"
+      description: "The performance table lists every course, its parent program if it has one, total enrolled, total completed, average rating, average progress, plus completion, engagement and satisfaction scores."
+      icon: notebookBookmark
+    - title: "Spot the Standouts and the Stragglers"
+      description: "Sort by completion to find the courses crushing it. Sort by engagement to find the ones losing learners. Sort by satisfaction to find the ones quietly disappointing people."
+      icon: arrowRight
+    - title: "Cohort-Aware"
+      description: "Filter to a specific cohort to see how the same course is doing batch by batch. The second-term batch of a course can outperform the first — and now you'll know."
+      icon: clapperboardPlay
+    - title: "Exportable for the Board"
+      description: "Filter the table, hit Export, and the CSV is ready for a board update, a leadership review or a quarterly content audit."
+      icon: diploma
 splitSections:
-  - title: "Course-level signal, not noise"
-    description: "Edushade rolls per-learner activity into course-wide metrics so you can spot the courses that need work and the ones worth doubling down on."
+  - title: "The headline answers the catalogue question first"
+    description: "Open the page and four numbers greet you — the average completion rate across every course, the average engagement, how many courses qualify as high-performing, and how many courses you have in total. Each one shows the current period's number next to the previous period's, with the growth percentage. So you don't just see \"completion is at 58%\". You see \"completion is at 58%, up 6% from last quarter\". The story is right there."
     lists:
-      - "Enrollment count over time per course"
-      - "Completion rate and average progress across learners"
-      - "Score distribution to flag confusing assessments"
-      - "Per-cohort comparison for the same course"
-    imgSrc: "/svgs/hero/banner.svg"
+      - "Average completion rate across the catalogue, with growth percent"
+      - "Average engagement score, with growth percent"
+      - "Count of high-performing courses (the standouts)"
+      - "Total course count for context"
+    imgSrc: "/svgs/educator-love/2-analytics.svg"
     reverse: true
+  - title: "The trend chart for the bigger picture"
+    description: "Underneath the headline sits a twelve-month line chart with two lines — completion and satisfaction. Together they tell you the rhythm of the platform. A flat completion line and a falling satisfaction line is a story. A rising satisfaction line catching up to completion is a different story. The chart is granular enough to act on, broad enough to share with leadership."
+    lists:
+      - "Twelve months of completion across the catalogue"
+      - "Twelve months of satisfaction (rolled up from learner reviews)"
+      - "Both lines on the same chart for easy comparison"
+      - "Hover any month for the exact figures"
+    imgSrc: "/svgs/educator-love/4-integrated.svg"
+    reverse: false
+  - title: "A course-by-course table that names names"
+    description: "Below the chart, the performance table lists every course on the platform with the numbers that matter — total enrolled, total completed, average rating, average progress, completion percentage, engagement percentage, satisfaction percentage. Each course shows its parent program when it lives inside one, so a course in a learning path or a cohort isn't lost in the list. Sort by any column. Filter to the cohort or program you care about. The course that needs your attention this week becomes obvious."
+    lists:
+      - "Every course with enrolled and completed counts"
+      - "Average rating, average progress, completion, engagement, satisfaction"
+      - "Parent program shown for courses inside a path or cohort"
+      - "Sortable and filterable down to a cohort or program"
+    imgSrc: "/svgs/courses/course-curriculum.svg"
+    reverse: true
+  - title: "From the chart to the action — without leaving the page"
+    description: "Course Performance is built for the moment you decide to do something. Spot a course with strong completion but weak satisfaction? It's working but not delighting — time to revisit the content. Spot a course with weak completion across cohorts? The drop-off is a pattern, not a one-off. Spot a course running with a tiny enrolled count? Maybe the marketing isn't finding it. The numbers are pointing somewhere — the next move is yours."
+    lists:
+      - "Sort the table by completion, engagement or satisfaction"
+      - "Drill into any course for its individual performance view"
+      - "Compare two cohorts of the same course to see what changed"
+      - "Export the filtered set to CSV for a meeting deck"
+    imgSrc: "/svgs/educator-love/5-scalability.svg"
+    reverse: false
+quickStart:
+  title: "From the catalogue glance to a content decision in three minutes"
+  subtitle: "There's nothing to set up. The performance table is already populated the moment you have learners moving through your courses. Open the page and the answer is waiting."
+  steps:
+    - step: 1
+      title: "Open Course Performance"
+      description: "From the admin sidebar, jump to Analytics → Course Performance. The four headline tiles greet you with the current period's numbers and last period's beside them, plus the twelve-month trend chart underneath."
+      imageAlt: "Course Performance page with the four headline tiles and the trend chart"
+      imageSrc: "/svgs/courses/course-create.svg"
+    - step: 2
+      title: "Sort the table to find what's interesting"
+      description: "Below the chart, sort the performance table by whatever question you're asking. Sort by completion to find the standouts. Sort by satisfaction to find the quiet underperformers. Sort by enrolled count to find the courses that aren't getting traffic."
+      imageAlt: "Course performance table being sorted by Satisfaction column"
+      imageSrc: "/svgs/educator-love/4-integrated.svg"
+    - step: 3
+      title: "Pick a course, decide what to do"
+      description: "Click into a course for its individual performance view — the same metrics, scoped to that one course, plus the cohort-by-cohort breakdown. Now you know whether it's a content issue, a cohort issue or a marketing issue. Act on it, then come back next week and see if the number moved."
+      imageAlt: "Individual course performance page with cohort breakdown and a What Changed action panel"
+      imageSrc: "/svgs/courses/course-publish.svg"
+faq:
+  title: "Course Performance FAQ"
+  description: "What people ask the first time they look at the catalogue's numbers."
+  items:
+    - question: "What does 'completion rate' mean here?"
+      answer: "The share of enrolled learners on a course who have crossed the finish line — completed every required curriculum item, passed any required quizzes, turned in any required assignments. The headline tile averages it across the whole catalogue; the per-course row shows it for each course."
+    - question: "What is 'engagement' on this page?"
+      answer: "A blended score capturing how active the enrolled learners are on a course — how many are showing up, how much time they're putting in, how often they return. It isn't a click count or a login number; it's a synthesised read on whether the course is keeping people interested."
+    - question: "Where does 'satisfaction' come from?"
+      answer: "From learner reviews and ratings. The platform aggregates the star ratings on each course and rolls them into a percentage, so the satisfaction column reflects what learners actually said — not a proxy. The twelve-month trend smooths week-to-week noise into a readable line."
+    - question: "What counts as a 'high-performing' course?"
+      answer: "A course whose completion, engagement and satisfaction all sit comfortably above the catalogue's median — the courses that consistently work. The count gives you a quick read on how many of your titles fall into that bucket, with the growth percent showing whether the bucket is filling up over time."
+    - question: "Why is the previous-period comparison built into every tile?"
+      answer: "Because raw numbers don't tell you whether things are getting better. \"58% completion\" sounds OK or terrible depending on whether last quarter was 50% or 65%. The comparison pulls the read into focus — the question becomes \"are we improving\", not just \"how are we doing\"."
+    - question: "What's in the per-course table?"
+      answer: "Every course on the platform with: program type (course, learning path, cohort), parent program when it sits inside one, total enrolled, total completed, average rating, average progress, completion %, engagement %, satisfaction %. Sortable by any column, filterable down to a cohort or program."
+    - question: "Can I drill into one course?"
+      answer: "Yes. Click into any course from the table and you'll see the individual performance view — the same metrics scoped to that one course, plus a cohort-by-cohort breakdown when the course has multiple cohorts. The detail tells you whether a problem is on the course as a whole or specific to one batch."
+    - question: "Can I compare two cohorts of the same course?"
+      answer: "Yes. The individual course view lays out every cohort that's run that course with its own row of numbers. Spring vs Autumn, batch 1 vs batch 2, beginner cohort vs advanced cohort — the comparison is a glance, not a project."
+    - question: "What about courses that haven't started yet?"
+      answer: "They appear in the table with the metrics they have — enrollment count if there's been any, zeros where data hasn't accumulated yet. Once learners start engaging, the numbers fill in. Brand-new courses don't pollute the average; they're weighted by their actual enrollment."
+    - question: "Can I export the table?"
+      answer: "Yes. Filter the table to whatever slice you want, hit Export, and the CSV lands ready for a board update, a content audit or a quarterly leadership review. The numbers in the file match what's on the screen."
+    - question: "Is the data real-time?"
+      answer: "Close to real-time. Completion, engagement and satisfaction roll up from the underlying activity within minutes. The twelve-month trend is rebuilt as new data comes in, so the chart you see now reflects the most recent month's read."
+    - question: "How is this different from Learner Analytics?"
+      answer: "Learner Analytics asks \"how are people doing?\" — engagement, growth, retention across all your learners. Course Performance asks \"how are our courses doing?\" — same data, courses are the unit. Both views are designed to be read together."
+    - question: "Who can see Course Performance?"
+      answer: "Admins by default, plus instructors with the analytics-view permission scoped to their programs. An instructor sees the courses they teach; a platform admin sees the catalogue. The permission model keeps sensitive numbers in front of the right people."
+    - question: "Will it scale on a large catalogue?"
+      answer: "Yes. The performance table reads from indexed aggregates so a catalogue with hundreds of courses and tens of thousands of learners stays fast. The headline metrics are pre-computed; the table sorts and filters in milliseconds."
 ---
 
-Course Performance answers the question every operator eventually asks: which courses are actually working, and which ones look fine but quietly underperform.
+## Suggested visuals for this page
+
+The hero, capability cards, FAQ and quick-start steps render directly from the data above. The four split sections and the three quick-start steps each carry an image. The current build reuses the closest existing illustrations from `/svgs/educator-love` and `/svgs/courses`, but a future design pass should ship dedicated artwork. Drop the new files at the listed paths and they will swap in without any code change.
+
+**Split section 1 — `imgSrc: /svgs/educator-love/2-analytics.svg` (placeholder)**
+Suggested artwork: a four-tile headline grid — Average Completion (58%), Average Engagement (71%), High-Performing Courses (24 of 86), Total Courses (86). Each carries a smaller "vs. last period" delta with arrows.
+
+**Split section 2 — `imgSrc: /svgs/educator-love/4-integrated.svg` (placeholder)**
+Suggested artwork: a twelve-month line chart with two lines — Completion in one colour, Satisfaction in another — crossing the calendar with a small inset showing the latest month's exact values on hover.
+
+**Split section 3 — `imgSrc: /svgs/courses/course-curriculum.svg` (placeholder)**
+Suggested artwork: a course performance table with five rows — course title, parent program chip, enrolled, completed, rating star row, completion bar, engagement bar, satisfaction bar — and a sort-by Completion arrow at the column header.
+
+**Split section 4 — `imgSrc: /svgs/educator-love/5-scalability.svg` (placeholder)**
+Suggested artwork: an individual course detail page with the same metrics on the left and a cohort-by-cohort breakdown table on the right, plus a small Compare Cohorts toggle and an Export CSV button at the corner.
+
+**Quick-start step 1 — `imageSrc: /svgs/courses/course-create.svg` (placeholder)**
+Suggested artwork: the admin sidebar with Analytics → Course Performance highlighted, the page mid-load with four KPI tiles fading in.
+
+**Quick-start step 2 — `imageSrc: /svgs/educator-love/4-integrated.svg` (placeholder)**
+Suggested artwork: the table column header for Satisfaction being clicked, with rows reordering smoothly to show the lowest scores at the top.
+
+**Quick-start step 3 — `imageSrc: /svgs/courses/course-publish.svg` (placeholder)**
+Suggested artwork: an individual course view with cohort rows showing different completion bars, plus a small "What Changed" or "Compare With" action button at the side.

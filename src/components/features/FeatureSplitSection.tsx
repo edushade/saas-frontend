@@ -1,8 +1,6 @@
 import { CheckRightIcon } from '@/assets/icons';
 import { cn } from '@/lib/utils';
 import { Button } from '../ui/button';
-import { Card, CardContent } from '../ui/card';
-import { CardShadeOverlay } from '../ui-custom/card-shade-overlay';
 import { Typography } from '../ui-custom/typography';
 
 export interface FeatureSplitSectionProps {
@@ -64,23 +62,38 @@ export default function FeatureSplitSection({
 						</div>
 					</div>
 
-					<Card
+					<div
 						className={cn(
-							'relative overflow-hidden border-border-tertiary p-0 shadow-none lg:block bg-[linear-gradient(0deg,#7ADEFF_0%,#DDF7FF_100%)]',
+							'display-frame relative overflow-hidden rounded-[20px] sm:rounded-[28px]',
 							reverse ? 'lg:order-1' : 'lg:order-2',
 						)}
 					>
-						<CardShadeOverlay className="backdrop-blur-[100px] bg-[repeating-linear-gradient(180deg,rgba(255,255,255,0)_0px,rgba(255,255,255,0.1)_47.15px,rgba(255,255,255,0.3)_85.33px)]" />
-						<CardContent className="relative z-10  p-0">
-							<div className="h-auto min-h-0 rounded-2xl shadow-2xl ">
+						{/* Smaller inset on mobile keeps the frame proportional. */}
+						<div
+							aria-hidden
+							className="frame-inset-border inset-3 sm:inset-4 rounded-[12px] sm:rounded-[18px]"
+						/>
+
+						{/* Markers shift inward on mobile to stay on the smaller inset
+						    border arc. Marker size itself is responsive in styles.css
+						    (14px → 18px at sm+). */}
+						<span aria-hidden className="frame-marker top-4.5 left-4.5 sm:top-6.5 sm:left-6.5 z-20" />
+						<span aria-hidden className="frame-marker top-4.5 right-4.5 sm:top-6.5 sm:right-6.5 z-20" />
+						<span aria-hidden className="frame-marker bottom-4.5 left-4.5 sm:bottom-6.5 sm:left-6.5 z-20" />
+						<span aria-hidden className="frame-marker bottom-4.5 right-4.5 sm:bottom-6.5 sm:right-6.5 z-20" />
+
+						{/* Tighter offset padding on mobile (24px gap from inset border
+						    on top/left), expands to 30px on sm+. */}
+						<div className="relative z-10 pt-9 pl-9 pr-3 pb-3 sm:pt-13 sm:pl-13 sm:pr-4 sm:pb-4">
+							<div className="overflow-hidden rounded-tl-lg sm:rounded-tl-xl rounded-br-[10px] sm:rounded-br-[14px] bg-white shadow-[0_18px_36px_-20px_rgba(15,60,110,0.35),0_6px_14px_-8px_rgba(15,60,110,0.18)]">
 								<img
 									src={imgSrc}
 									alt="Dashboard"
-									className="h-full w-full object-cover object-top"
+									className="block h-auto w-full"
 								/>
 							</div>
-						</CardContent>
-					</Card>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>

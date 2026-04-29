@@ -1,36 +1,152 @@
 ---
 featureId: "completion-reports"
 title: "Completion Reports"
-description: "Track learning outcomes"
+description: "Who finished what, how long it took, and how this term compares to last — with the export ready when finance, HR or your accreditor calls."
 href: "/features/completion-reports"
 navGroup: "Track and Measure"
 navIcon: widget6
 navOrder: 30
 banner:
   tag: "Completion Reports"
-  headline: "Track Learning Outcomes"
-  description: "Reports on course and path completion and outcomes."
-  ctaText: "Get Started"
+  headline: "The whole story of who's finishing — and how it's trending"
+  description: "Whether you're answering a board question, prepping an accreditation pack or just trying to figure out which course is actually delivering, completion is the answer that matters most. Edushade keeps it honest — overall completion, in-progress, not-started, average time to finish, the trend over time, the breakdown by difficulty, and a list of who just crossed the finish line."
+  ctaText: "Show Me the Numbers"
   ctaTo: "/contact-sales"
+capabilityHighlights:
+  title: "What's actually on the page when you open it"
+  description: "Completion reports earn their keep when the answer is one click away, not three exports deep. Edushade puts the four numbers that matter at the top, the trend underneath, the breakdown next to it, and the people who just finished right there — so a board update is a screenshot, not a project."
+  capabilities:
+    - title: "Four KPIs at the Top"
+      description: "Overall completion, in-progress, not-started, and average time to complete — each next to last period's number, so the trend is visible immediately."
+      icon: clipboardList
+    - title: "Completion Over Time"
+      description: "A weekly trend showing completed, in-progress and not-started learners side by side — the rhythm of the cohort, charted clean."
+      icon: routing
+    - title: "Breakdown by Course Level"
+      description: "How completion looks across beginner, intermediate and advanced courses — so you can spot where the curve gets steep."
+      icon: arrowRight
+    - title: "Who Just Finished"
+      description: "A live list of recent completions — student, course, the day they crossed the line — useful for shout-outs and certificate handover."
+      icon: notebookBookmark
+    - title: "Filterable Across Cohorts"
+      description: "Pick a cohort, a program, a date range — the whole report rescopes. Term-by-term comparisons are a dropdown, not a separate tool."
+      icon: clapperboardPlay
+    - title: "Exportable When Someone Asks"
+      description: "Drop the filtered report to CSV in one click. Send it to finance, HR, the accreditor or the board — no spreadsheet wrangling."
+      icon: diploma
 splitSections:
-  - title: "Prove outcomes at program level"
-    description: "Summarize who finished courses, paths, and requirements—ready for leadership, sponsors, and compliance conversations."
+  - title: "The four numbers a stakeholder always wants"
+    description: "When someone walks in and asks \"how are we doing?\", these are the numbers they actually want. Overall completion — the share of enrolled learners who finished. In-progress — the share who are working through it now. Not-started — the share who enrolled and haven't moved. Average time to complete — the typical journey length. Each one sits next to the previous period's number, with the percentage change. The picture is right there in the first card row."
     lists:
-      - "Completion by cohort, course, and path"
-      - "Criteria-aware reporting tied to your rules"
-      - "Export formats for finance and HR partners"
-      - "Historical archives for accreditation cycles"
-    imgSrc: "/svgs/platforms/2-progress.svg"
+      - "Overall completion percentage with a previous-period comparison"
+      - "In-progress share — people currently working through the course"
+      - "Not-started share — people who enrolled but haven't begun"
+      - "Average time to complete, period over period"
+    imgSrc: "/svgs/educator-love/2-analytics.svg"
     reverse: true
-  - title: "Less manual reconciliation"
-    description: "When completion is tracked in-platform, reporting becomes a pull, not a project."
+  - title: "The shape of a cohort, week by week"
+    description: "The completion progression chart traces three lines across the calendar — completed, in-progress, not-started — week by week. You see exactly when the curve starts climbing, where the plateau hits, and how long the long tail of stragglers lasts. Pair it with the previous-cohort version side by side and you can answer \"is this term better than last term\" without leaving the page."
     lists:
-      - "Aligned with certificates and attendance where configured"
-      - "Role-based access to sensitive summaries"
-      - "Supports internal and external audits"
-      - "Helps justify renewals and expansion"
+      - "Three trend lines: completed, in-progress, not-started"
+      - "Weekly grain — granular enough for cohort week-by-week reads"
+      - "Filterable by cohort, program and date range"
+      - "Useful for spotting where in a course people stall out"
+    imgSrc: "/svgs/educator-love/4-integrated.svg"
+    reverse: false
+  - title: "Where in your catalogue is the completion really happening?"
+    description: "Not every course finishes at the same rate, and that's a useful thing to know. The completion-by-level breakdown shows you how beginner, intermediate and advanced courses are doing side by side. Maybe your beginner courses crush it but your advanced ones drop off — that tells you something. Maybe one cohort's intermediate courses are quietly outperforming. The chart makes it visible without an analyst in the loop."
+    lists:
+      - "Completion percentage broken out by difficulty level"
+      - "Compare beginner, intermediate and advanced at one glance"
+      - "Spot the level that's pulling the average up — or down"
+      - "Pairs with the trend line for a story across time and rigour"
+    imgSrc: "/svgs/courses/course-curriculum.svg"
+    reverse: true
+  - title: "The people who just made it"
+    description: "Completion isn't just a number, it's a moment. The Recent Completions card lists the learners who just crossed the finish line — name, course, the day it happened. Use it for a shout-out in the cohort channel. Use it to time the certificate handover. Use it to celebrate a moment that's easy to lose in a dashboard. And when the auditor asks for the list, the same card exports cleanly."
+    lists:
+      - "Live list of learners who just completed a program"
+      - "Student name, the course they finished, the date"
+      - "Useful for cohort shout-outs and certificate moments"
+      - "Exports straight to CSV for compliance and reporting"
     imgSrc: "/svgs/educator-love/5-scalability.svg"
     reverse: false
+quickStart:
+  title: "From a dashboard glance to a stakeholder-ready export"
+  subtitle: "There's nothing to wire up. Completion is tracked the moment a learner finishes a curriculum item, and the report's ready as soon as you have learners moving through your programs."
+  steps:
+    - step: 1
+      title: "Open Completion Reports"
+      description: "From the admin sidebar, jump to Analytics → Completion. The four KPIs greet you with the current period's numbers next to last period's, so the trend is visible the moment the page renders."
+      imageAlt: "Completion reports page with four KPI tiles and the trend chart loading"
+      imageSrc: "/svgs/courses/course-create.svg"
+    - step: 2
+      title: "Filter to the slice you need"
+      description: "Pick a cohort, a program or a date range. The whole report rescopes — KPI tiles, trend chart, by-level breakdown, recent completions. \"How did the spring cohort do?\" is a one-click answer."
+      imageAlt: "Filter row with cohort dropdown, program selector and a date range picker"
+      imageSrc: "/svgs/educator-love/4-integrated.svg"
+    - step: 3
+      title: "Export when someone asks"
+      description: "Hit Export. The CSV lands ready for finance, HR, a regulator or your board. No reformatting, no manual calculation. The same numbers you read on the screen are the numbers in the file."
+      imageAlt: "Export button with a CSV icon, plus a small toast saying 'Report ready'"
+      imageSrc: "/svgs/courses/course-publish.svg"
+faq:
+  title: "Completion Reports FAQ"
+  description: "What people actually ask when they need completion data they can stand behind."
+  items:
+    - question: "What does 'completion' mean here?"
+      answer: "A learner has finished all the curriculum items required by the course or path — lessons watched, quizzes passed at the configured threshold, assignments turned in. The platform marks them complete the moment the last requirement is satisfied. Soft requirements are honoured; you don't get marked complete on a half-done course."
+    - question: "What four numbers are at the top of the page?"
+      answer: "Overall completion (the share who finished), in-progress (the share working through it now), not-started (the share who enrolled but haven't moved), and average time to complete (how long the typical journey takes). Each one shows the current period next to the previous period, with the percentage change."
+    - question: "Why is the previous-period comparison useful?"
+      answer: "Because raw numbers don't tell you whether things are getting better. \"42% completion\" sounds OK or terrible depending on whether last term was 50% or 30%. The comparison is built into every tile so the read isn't \"how are we doing\", it's \"are we doing better\"."
+    - question: "Can I filter to a specific cohort?"
+      answer: "Yes. The filter row at the top lets you pick a cohort, a program and a date range. The whole report — KPIs, trend chart, by-level breakdown, recent completions — rescopes to that slice. Term-by-term and program-by-program comparisons are a dropdown, not a separate tool."
+    - question: "What's the trend chart actually showing?"
+      answer: "Three lines across the calendar — completed, in-progress, not-started — week by week. You can see when the curve starts climbing, where it plateaus, and how long the tail of stragglers lasts. Useful for understanding the shape of a cohort, not just the final number."
+    - question: "What's the by-level breakdown?"
+      answer: "Completion percentage broken out by course difficulty — beginner, intermediate, advanced. Useful for spotting where the curve gets steep. Maybe your beginner courses crush it but your advanced ones drop off — the chart makes it visible without an analyst."
+    - question: "What does 'recent completions' show?"
+      answer: "A live list of learners who just finished a program — name, course, the day they completed. Use it for a shout-out in the cohort channel, time the certificate handover, or celebrate a moment that's easy to lose in a dashboard. The list also exports cleanly when an auditor asks for the records."
+    - question: "Can I export the report?"
+      answer: "Yes — one click. The CSV lands with everything currently on the page (the filtered KPIs, trend, by-level, recent completions) ready to send to finance, HR, an accreditor or a board. No reformatting required."
+    - question: "Does this work for learning paths?"
+      answer: "Yes. Completion reports cover both single courses and learning paths. A path completion fires the same way as a course completion — the platform recognises when all required courses inside the path are done and marks the path complete."
+    - question: "How is completion related to certificates?"
+      answer: "Tightly. The same event that marks a learner complete also fires the certificate (when certificates are enabled on the course). The certificate snapshot stores the learner's grade, completion date and total time spent — useful for accreditation and for the learner's own record."
+    - question: "Can I see who hasn't started?"
+      answer: "Yes. The not-started number on the KPI tile is clickable — drill in and you'll see a list of learners who enrolled but never opened a lesson. That's your re-engagement list. A friendly nudge often turns half of them into completers."
+    - question: "What if a learner completes, then comes back to revisit a lesson?"
+      answer: "They stay marked complete. The platform doesn't undo a completion when someone goes back to revisit content — the completion event is tied to the moment they crossed the threshold, with its own timestamp. Time-spent keeps adding up if they keep engaging, but the report still shows them as complete."
+    - question: "Is the data live?"
+      answer: "Close to live. Completion events update the report's underlying numbers within a few minutes of the moment a learner crosses the line. The trend chart smooths to weekly grain so day-to-day noise doesn't drown the signal."
+    - question: "Who can see Completion Reports?"
+      answer: "Admins by default, plus instructors with the analytics-view permission scoped to their programs. The view is gated by role, so a teaching assistant can see the cohorts they teach while platform admins see the whole picture."
+    - question: "How is this different from Progress Tracking?"
+      answer: "Progress Tracking is the in-flight view — where every learner is right now, at the lesson level. Completion Reports is the outcome view — how many crossed the line, how long it took, how this term compares to last. Different questions, same source data."
 ---
 
-Completion reports translate learning activity into credible outcomes—without rebuilding the story every quarter.
+## Suggested visuals for this page
+
+The hero, capability cards, FAQ and quick-start steps render directly from the data above. The four split sections and the three quick-start steps each carry an image. The current build reuses the closest existing illustrations from `/svgs/educator-love` and `/svgs/courses`, but a future design pass should ship dedicated artwork. Drop the new files at the listed paths and they will swap in without any code change.
+
+**Split section 1 — `imgSrc: /svgs/educator-love/2-analytics.svg` (placeholder)**
+Suggested artwork: a four-tile KPI grid — Overall Completion (62%), In Progress (28%), Not Started (10%), Avg Time to Complete (12 days). Each tile carries a smaller "vs. last period" delta with arrows.
+
+**Split section 2 — `imgSrc: /svgs/educator-love/4-integrated.svg` (placeholder)**
+Suggested artwork: a weekly progression chart with three lines (Completed in green, In Progress in amber, Not Started in grey) crossing the calendar, plus a small inset showing two cohorts overlaid for comparison.
+
+**Split section 3 — `imgSrc: /svgs/courses/course-curriculum.svg` (placeholder)**
+Suggested artwork: a horizontal bar chart with three rows — Beginner (78%), Intermediate (54%), Advanced (32%) — each bar with a number on the right and a small "vs. previous" delta.
+
+**Split section 4 — `imgSrc: /svgs/educator-love/5-scalability.svg` (placeholder)**
+Suggested artwork: a Recent Completions card with five rows — avatar, learner name, course title, "Today" / "Yesterday" / "2 days ago" date — and a small Export CSV button at the corner.
+
+**Quick-start step 1 — `imageSrc: /svgs/courses/course-create.svg` (placeholder)**
+Suggested artwork: the admin sidebar with Analytics → Completion highlighted, the page mid-load with the four KPI tiles fading in.
+
+**Quick-start step 2 — `imageSrc: /svgs/educator-love/4-integrated.svg` (placeholder)**
+Suggested artwork: the filter row with a cohort dropdown opened ("Spring 2026"), a program selector and a date range chip showing the last 90 days.
+
+**Quick-start step 3 — `imageSrc: /svgs/courses/course-publish.svg` (placeholder)**
+Suggested artwork: an Export button being clicked, with a brief CSV preview floating into a download tray and a small "Report ready" toast.

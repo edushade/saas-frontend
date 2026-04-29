@@ -181,6 +181,20 @@ const featureQuickStartSchema = z
 	})
 	.optional();
 
+const faqItemSchema = z.object({
+	question: z.string(),
+	answer: z.string(),
+});
+
+/** Optional per-feature FAQ block; falls back to global FAQ when omitted. */
+const featureFaqSchema = z
+	.object({
+		title: z.string().optional(),
+		description: z.string().optional(),
+		items: z.array(faqItemSchema),
+	})
+	.optional();
+
 /** Hero banner for `/features/:slug` (matches `FeatureBanner` / `FeatureBannerContent` fields except `slug`). */
 const featureDetailBannerSchema = z.object({
 	tag: z.string(),
@@ -198,6 +212,7 @@ const featureDetailsSchema = z.object({
 	navGroup: z.string(),
 	navIcon: navFeatureIconKey,
 	navOrder: z.number().int().optional().default(0),
+	comingSoon: z.boolean().optional().default(false),
 	content: z.string(),
 	mdx: z.string().optional(),
 	slug: z.string().optional(),
@@ -205,6 +220,7 @@ const featureDetailsSchema = z.object({
 	splitSections: z.array(featureSplitSectionSchema).optional().default([]),
 	capabilityHighlights: featureCapabilityHighlightsSchema,
 	quickStart: featureQuickStartSchema,
+	faq: featureFaqSchema,
 });
 
 const featureDetails = defineCollection({

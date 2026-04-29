@@ -1,27 +1,152 @@
 ---
 featureId: "cohort-insights"
 title: "Cohort Insights"
-description: "Compare batch outcomes"
+description: "How each batch is actually performing — enrollments, progress, completion, ratings — and how this term compares to the last."
 href: "/features/cohort-insights"
 navGroup: "Track and Measure"
 navIcon: notebookSquare
 navOrder: 45
 banner:
   tag: "Cohort Insights"
-  headline: "See How Each Cohort Actually Performs"
-  description: "Compare progress, completion, and engagement across cohorts so you know which schedules, instructors, and formats work best."
-  ctaText: "Get Started"
+  headline: "Every batch tells a story — Cohort Insights helps you read it"
+  description: "A cohort is more than a list of names. It's a real moment in your platform's life — a group of learners moving through the same course on the same schedule. Cohort Insights gives each batch its own picture: how many enrolled, how far they've come, how many finished, how they're rating the experience. Then it lays the next batch alongside the last, so the lessons carry forward."
+  ctaText: "Show Me a Cohort"
   ctaTo: "/contact-sales"
+capabilityHighlights:
+  title: "What you'd want to know about a batch you're running"
+  description: "Cohort Insights answers the questions a teacher actually asks about a batch they're running. How full is it? How are they doing? When does it end? Did the last batch do better or worse? Are there patterns we should bring forward to the next one? Each question is a tile or a chart on the same page."
+  capabilities:
+    - title: "Per-Cohort Analytics"
+      description: "Open any cohort and you get its own analytics — enrollment count, completion rate, dates, schedule — without leaving the cohort page."
+      icon: clipboardList
+    - title: "Seat Utilisation at a Glance"
+      description: "How full is the cohort? The seat counter shows enrolled out of capacity, plus remaining seats — so you know whether to keep enrolling or close the gates."
+      icon: routing
+    - title: "Cohort-by-Cohort Comparison"
+      description: "Lay two cohorts of the same course side by side and the differences pop. Same content, different schedule, different instructor — the numbers say which combination worked."
+      icon: arrowRight
+    - title: "Drill Into the Learners"
+      description: "Open the cohort's Learners tab to see every enrolled learner, their progress, their grades, their last activity. The numbers come from real people you can name."
+      icon: notebookBookmark
+    - title: "Schedule-Aware"
+      description: "Each cohort's start, end and weekly schedule sit alongside the metrics, so you read the numbers in the context of the calendar that produced them."
+      icon: clapperboardPlay
+    - title: "Patterns Across Runs"
+      description: "Run the same course as a cohort term after term and the picture compounds — the same metrics, the same shape, the same questions answered for every run."
+      icon: diploma
 splitSections:
-  - title: "Cohort-by-cohort comparison"
-    description: "Edushade rolls up activity at the cohort level so you can spot the batches that thrive — and quickly diagnose the ones that struggle."
+  - title: "A cohort isn't just a label — it's its own story"
+    description: "Open a cohort in the admin and you get its own analytics view. Enrollment count and how it's grown. Completion rate as people start finishing. The cohort's name, its start date and its end date sitting at the top so the timing context never disappears. The full picture, scoped to one batch, all on one page. No filtering through a platform-wide chart to find the cohort you care about — the cohort already has its own home."
     lists:
-      - "Side-by-side completion and progress rates per cohort"
-      - "Schedule and seat utilization at a glance"
-      - "Drill into individual learner outcomes within a cohort"
-      - "Track recurring patterns across multiple runs of the same program"
-    imgSrc: "/svgs/hero/banner.svg"
+      - "Per-cohort analytics on the cohort's own page"
+      - "Enrollment count, completion rate, dates and schedule together"
+      - "Cohort name and program context surfaced clearly"
+      - "Updated as enrollments and completions roll in"
+    imgSrc: "/svgs/educator-love/2-analytics.svg"
     reverse: true
+  - title: "How full is the room?"
+    description: "Cohorts have seats. Seat utilisation is one of the most useful operational reads you can have — it tells you whether to keep enrolling, close enrollment, or open a second cohort. The dashboard surfaces the count clearly: enrolled out of capacity, remaining seats, percentage filled. When the cohort fills up, the platform respects the cap and stops new enrollments automatically. When seats are still open, you can keep recruiting with confidence."
+    lists:
+      - "Enrolled count next to the cohort's seat capacity"
+      - "Remaining seats updated live as enrollments come in"
+      - "Hard cap honoured — no over-enrollment by accident"
+      - "Visible across the cohort listing and the cohort detail"
+    imgSrc: "/svgs/courses/course-curriculum.svg"
+    reverse: false
+  - title: "The same course, two batches — what changed?"
+    description: "The most useful insight in cohort analytics is comparison. Run the same course in spring and autumn, and the two cohorts give you something to learn from. Maybe the autumn batch had a different instructor and completion jumped six points. Maybe the spring batch started later in the term and engagement dipped. The platform keeps each cohort's metrics on its own page — open them side by side and the differences make themselves obvious. Same content, different surroundings, different result."
+    lists:
+      - "Each cohort holds its own historical metrics"
+      - "Open two cohorts in two tabs for an honest side-by-side"
+      - "The course performance view also lays them out cohort-by-cohort"
+      - "Spot the schedule, instructor or format that's actually working"
+    imgSrc: "/svgs/educator-love/4-integrated.svg"
+    reverse: true
+  - title: "From the cohort number to the actual learners"
+    description: "Numbers are useful, but a 65% completion rate is really a list of people. The Learners tab on every cohort opens that list — every enrolled learner with their progress, their grades, their last activity. Sort by progress to find who's behind. Sort by last activity to find who's gone quiet. Reach out to one learner directly, or send a notice to the whole cohort. The dashboard isn't just analytics — it's the door into action."
+    lists:
+      - "Per-cohort Learners tab with every enrolled person"
+      - "Progress, grade and last-activity per learner"
+      - "Sortable by progress, status, last activity, name"
+      - "Notice send and direct messaging available from the same page"
+    imgSrc: "/svgs/educator-love/5-scalability.svg"
+    reverse: false
+quickStart:
+  title: "From a fresh cohort to a clear read on how it's doing"
+  subtitle: "There's nothing to set up. The cohort starts tracking the moment a learner enrolls. Open the cohort and the picture's right there."
+  steps:
+    - step: 1
+      title: "Open the cohort"
+      description: "From Resources → Cohorts in the admin, pick the cohort you want to look at. The detail page greets you with its name, the parent program, the start and end dates, and the seat count — so the timing and capacity context is set immediately."
+      imageAlt: "Cohort detail page header with name, dates, seat counter and a tabs row"
+      imageSrc: "/svgs/courses/course-create.svg"
+    - step: 2
+      title: "Read the cohort's analytics"
+      description: "The Analytics tab on the cohort shows enrollment count, completion rate and the cohort's own performance metrics. Compare it to the parent course's other cohorts to see whether this batch is matching, beating or trailing the historical pattern."
+      imageAlt: "Cohort analytics tab with enrollment count, completion rate and a per-cohort comparison"
+      imageSrc: "/svgs/educator-love/4-integrated.svg"
+    - step: 3
+      title: "Drop into the learners when you need to act"
+      description: "If the numbers tell you something needs attention, open the Learners tab. Sort by progress to find who's behind, by last activity to find who's gone quiet. Reach out one learner at a time, or send a notice to the whole cohort. The action and the data live on the same page."
+      imageAlt: "Cohort learners tab with progress bars, last-activity dates and a Send Notice action"
+      imageSrc: "/svgs/courses/course-publish.svg"
+faq:
+  title: "Cohort Insights FAQ"
+  description: "What teachers and program managers usually want to know about reading cohort data."
+  items:
+    - question: "What does a cohort actually contain?"
+      answer: "A cohort is a time-bound batch of a course or learning path — start date, end date, weekly schedule, capacity and a list of enrolled learners. Cohort Insights gives you the analytics for that specific batch: how many enrolled, how far they've come, how many finished, plus the schedule and capacity so you read the numbers in context."
+    - question: "Where do I find a cohort's analytics?"
+      answer: "On the cohort's own page in admin. Open Resources → Cohorts → pick a cohort, and the Analytics tab is right there. You don't have to filter through a platform-wide dashboard to find one batch — every cohort has its own home with its own numbers."
+    - question: "What metrics does each cohort show?"
+      answer: "Enrollment count, completion rate, the cohort name and parent program, start and end dates, and weekly schedule. As the batch progresses, those numbers fill in — completed counts climb, the rate adjusts, the picture builds. The performance view rolls cohort-level engagement, satisfaction and ratings up too."
+    - question: "How does seat utilisation work?"
+      answer: "Each cohort can carry a max-enrollment cap. The dashboard shows enrolled out of capacity and remaining seats live, so you know at a glance whether to keep enrolling or close the gates. The platform respects the cap automatically — no accidental over-enrollment when a cohort fills up."
+    - question: "Can I compare two cohorts of the same course?"
+      answer: "Yes. Each cohort keeps its own metrics, so the comparison is open-two-tabs simple. The course performance view also lays out every cohort that's run that course as its own row, with the same metrics across all of them — completion, engagement, satisfaction, ratings, enrolled, completed. Differences pop the moment you see them side by side."
+    - question: "What about comparing across multiple runs of the same program?"
+      answer: "That's the point. Run a course as a spring cohort and an autumn cohort and you have a real before-and-after — same content, different surroundings. Run it three times and the pattern becomes signal, not noise. The cohort-by-cohort breakdown surfaces every run with its own numbers, so the trajectory is right there."
+    - question: "Can I see the individual learners inside a cohort?"
+      answer: "Yes. Every cohort has a Learners tab with the full enrolled list — name, progress, status, grade and last activity. Sort by any column. Open one learner for their full progress detail. From the same page you can send a notice or message a learner directly when the number tells you to."
+    - question: "What if a cohort hasn't started yet?"
+      answer: "Then it shows what it has — the enrollments rolling in, capacity, schedule. Once the cohort starts and learners begin engaging, the metrics fill in. The dashboard handles a cohort gracefully whether it's on day one or day fifty."
+    - question: "Can I export the cohort's data?"
+      answer: "Yes. The cohort's Learners list exports to CSV, and the platform-wide cohort listing has a bulk export too. Useful for cohort-by-cohort post-mortems, term-end reporting, and the kind of comparisons that benefit from being in a spreadsheet alongside other data."
+    - question: "How do schedule fields work on a cohort?"
+      answer: "A cohort carries a start date and an end date, plus a weekly schedule (the days and times the cohort runs, when relevant). Those fields are surfaced alongside the analytics so you read the numbers in the context of the calendar that produced them — \"completion is at 40% in week 3\" reads very differently from \"completion is at 40% in week 8\"."
+    - question: "Can different cohorts have different instructors?"
+      answer: "Yes. Edushade's instructor model lets you assign instructors at the cohort level — so the spring cohort can have a different lead from the autumn cohort. Cohort Insights makes the comparison meaningful: same content, different instructor, real performance data on each."
+    - question: "Is the data live?"
+      answer: "Close to live. Enrollment counts update the moment someone joins. Completion rates update as learners finish. The cohort detail reflects the current state of the batch within minutes of the underlying activity."
+    - question: "How is this different from Course Performance?"
+      answer: "Course Performance is the catalogue view — every course on the platform with its overall numbers. Cohort Insights is the batch view — one specific run of a course. A course is a template; a cohort is a real moment in time. Both views are designed to be read together."
+    - question: "Who can see Cohort Insights?"
+      answer: "Admins by default, plus instructors with the cohort-view permission scoped to programs they teach. So an instructor running a single cohort sees their cohort's data; a platform admin sees every cohort. The role-based access keeps sensitive numbers in front of the right people."
+    - question: "Will it work for big cohorts?"
+      answer: "Yes. Cohort analytics are scoped to one batch's enrollments, so even a cohort with a thousand learners stays fast. The drill into the Learners tab is paginated and sortable so a long list is still readable."
 ---
 
-Cohort Insights turns each batch into a measurable experiment — so the next cohort always launches smarter than the last.
+## Suggested visuals for this page
+
+The hero, capability cards, FAQ and quick-start steps render directly from the data above. The four split sections and the three quick-start steps each carry an image. The current build reuses the closest existing illustrations from `/svgs/educator-love` and `/svgs/courses`, but a future design pass should ship dedicated artwork. Drop the new files at the listed paths and they will swap in without any code change.
+
+**Split section 1 — `imgSrc: /svgs/educator-love/2-analytics.svg` (placeholder)**
+Suggested artwork: a cohort detail header — cohort name "Spring 2026 — Algebra 101", date range chip, weekly schedule chip — and a row of three KPI tiles below: Enrolled (84), Completion Rate (52%), Sessions Held (12).
+
+**Split section 2 — `imgSrc: /svgs/courses/course-curriculum.svg` (placeholder)**
+Suggested artwork: a seat utilisation card — a horizontal bar showing 84 of 100 seats, with the remaining 16 in a light shade and a "16 seats left" label, plus a small "Cap honoured automatically" footnote.
+
+**Split section 3 — `imgSrc: /svgs/educator-love/4-integrated.svg` (placeholder)**
+Suggested artwork: two cohort cards laid out side by side — Spring 2026 (52%) and Autumn 2025 (46%) — with arrows pointing to the differences in instructor and schedule.
+
+**Split section 4 — `imgSrc: /svgs/educator-love/5-scalability.svg` (placeholder)**
+Suggested artwork: a cohort Learners table with five rows — avatar, name, progress bar, last activity ("3 days ago"), grade pill — plus a "Send Notice to Cohort" button at the top right.
+
+**Quick-start step 1 — `imageSrc: /svgs/courses/course-create.svg` (placeholder)**
+Suggested artwork: the cohort detail page header showing name, parent program ("Algebra 101"), date range, weekly schedule and a tabs row (Overview / Analytics / Learners / Settings).
+
+**Quick-start step 2 — `imageSrc: /svgs/educator-love/4-integrated.svg` (placeholder)**
+Suggested artwork: the cohort Analytics tab with enrollment trend, completion rate, and a small "Compare with previous cohort" toggle showing both cohorts overlaid.
+
+**Quick-start step 3 — `imageSrc: /svgs/courses/course-publish.svg` (placeholder)**
+Suggested artwork: the cohort Learners tab sorted by Last Activity, with two rows highlighted as "8 days ago" and a Reach Out button on each.

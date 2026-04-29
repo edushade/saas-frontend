@@ -1,36 +1,152 @@
 ---
 featureId: "assessment-results"
 title: "Assessment Results"
-description: "Review learner performance"
+description: "Every quiz and exam attempt in one clean view — scores, time, attempts, what they got right, what they missed, and what to teach again next time."
 href: "/features/assessment-results"
 navGroup: "Track and Measure"
 navIcon: cupStar
 navOrder: 20
 banner:
   tag: "Assessment Results"
-  headline: "Review Learner Performance"
-  description: "View and analyze assessment and exam results."
-  ctaText: "Learn More"
+  headline: "More than a score — the story behind every attempt"
+  description: "A grade in a column doesn't tell you much. Edushade keeps the full story of every quiz and exam attempt — the time they took, the questions they nailed, the ones they missed, the ones they skipped, and how they did compared to the rest of the class. Pass-fail is just the beginning. The detail is where teaching happens."
+  ctaText: "Show Me a Real Result"
   ctaTo: "/contact-sales"
+capabilityHighlights:
+  title: "Every result, the way teachers actually need to see it"
+  description: "Most LMS report cards stop at the score. Edushade gives you the score, the time, the per-question breakdown, the attempt history, the leaderboard against the cohort, and the place to leave instructor feedback that lands in the learner's inbox the same day. It's the difference between marking and teaching."
+  capabilities:
+    - title: "Score, Time, Pass/Fail at a Glance"
+      description: "Every attempt opens with the headline numbers — total score, percentage, time spent, pass or fail — so you can scan a class fast."
+      icon: clipboardList
+    - title: "Per-Question Breakdown"
+      description: "How many they got right, how many wrong, how many partial, how many they skipped. The picture beneath the percentage."
+      icon: routing
+    - title: "Auto-Graded Plus the Human Touch"
+      description: "Multiple choice, true/false, matching, ordering, fill-in-the-blank, numeric, hotspot — all auto-graded. The free-form ones land in the grading queue for instructor review."
+      icon: arrowRight
+    - title: "A History of Attempts, Not One Snapshot"
+      description: "Every attempt a learner takes is on the record — number, score, time, what changed each time. Improvement is right there to read."
+      icon: notebookBookmark
+    - title: "Merit Lists and Leaderboards"
+      description: "See how every learner did across the cohort — ranks, distributions, the questions everyone struggled with. The class story, not just the individual one."
+      icon: clapperboardPlay
+    - title: "Feedback That Reaches the Learner"
+      description: "Leave a note on an attempt. The platform packages it as a quiz-graded notification and sends it to the learner the same day."
+      icon: diploma
 splitSections:
-  - title: "Performance in one coherent view"
-    description: "Review scores, attempts, and feedback across quizzes and exams—without exporting to spreadsheets for every question."
+  - title: "An attempt page that actually teaches you something"
+    description: "Open any quiz attempt and the headline is right there — total score, percentage, time spent, pass or fail. Underneath it, a clean breakdown of how many questions they answered correctly, how many they got wrong, how many were partial, how many they skipped, and how many are still pending an instructor review. Below that, every question with the learner's answer, the correct answer and the explanation. There's no spreadsheet to export to read what happened."
     lists:
-      - "Per-learner histories with attempt context"
-      - "Class and cohort distributions for difficult items"
-      - "Manual grading workflows where human judgment matters"
-      - "Links back to the learning objectives you care about"
+      - "Headline numbers: score, percentage, time spent, pass or fail"
+      - "Counts: correct, incorrect, partial, skipped, pending"
+      - "Question-by-question detail with the learner's answer and the right one"
+      - "Per-question explanation when the instructor added one"
     imgSrc: "/svgs/courses/assesments.svg"
     reverse: true
-  - title: "Support remediation and recognition"
-    description: "Use results to tutor struggling learners and to validate mastery for certificates or advancement."
+  - title: "Auto-graded where it can be, instructor-graded where it should be"
+    description: "Most question types grade themselves the moment a learner submits — multiple choice, true/false, matching, ordering, fill-in-the-blank with multiple acceptable answers, numeric with tolerance, math expressions, hotspots on an image. The platform handles them. The ones that need a person — short essays, free-form math, anything you've marked for manual review — land in the grading queue with the learner's submission, the time they spent and a feedback box ready to fill. One workflow, one queue."
     lists:
-      - "Identify topics that need reteaching"
-      - "Track improvement across retakes where allowed"
-      - "Share summaries with stakeholders who need proof"
-      - "Pairs with progress and completion reporting"
-    imgSrc: "/svgs/educator-love/2-analytics.svg"
+      - "Auto-graded: MCQ single + multi, T/F, matching, ordering, fill-in-blank, numeric, math, hotspot"
+      - "Manual review for free-form questions or anything marked for it"
+      - "Grading queue across every program the instructor owns, in one place"
+      - "Per-question scoring and partial-credit support out of the box"
+    imgSrc: "/svgs/educator-love/4-integrated.svg"
     reverse: false
+  - title: "A history of attempts, so you see growth, not just the latest score"
+    description: "When a quiz allows multiple attempts, every one is on the record. Open the learner and you'll see attempt one, attempt two, attempt three — with the scores, the times, the questions they got differently each time. The shape of improvement is right there to read. And because the shuffle order is stored per attempt, you can revisit exactly the version of the quiz they took, with the same question order they saw."
+    lists:
+      - "Every attempt stored with its number, score and time"
+      - "Compare attempts side by side to see what improved"
+      - "Shuffled question order is reproducible per attempt"
+      - "Cooldown between retakes and max-attempts caps are honoured"
+    imgSrc: "/svgs/educator-love/2-analytics.svg"
+    reverse: true
+  - title: "From the individual to the class, in one click"
+    description: "The same data tells the cohort story. Open the merit list and you'll see how every learner ranked, with their score and percentile. Open the leaderboard for the public version. Open the question-level analytics on the progress dashboard and you'll spot the question that tripped half the class up — the one that needs a re-teach, not just a re-take. Notifications close the loop too: completed, passed, failed, all attempts exhausted, manually graded — each fires to the learner on the channel they have on."
+    lists:
+      - "Merit list per quiz with rank, score and percentile"
+      - "Leaderboard option for public, cohort-wide visibility"
+      - "Question-level cohort analytics — find the troublesome questions"
+      - "Notifications: completed, passed, failed, attempts exhausted, graded"
+    imgSrc: "/svgs/educator-love/5-scalability.svg"
+    reverse: false
+quickStart:
+  title: "From a learner submitting to you having taught something new"
+  subtitle: "Most of this happens on its own. The instructor only steps in for the questions that need judgement — and even then, the workflow is one queue, one feedback box, one save."
+  steps:
+    - step: 1
+      title: "Learner submits the attempt"
+      description: "Auto-graded questions are scored the moment they hit submit. The platform calculates the percentage, marks pass or fail, and writes the attempt. The learner sees their result on the result page if you've allowed it — or waits if you haven't."
+      imageAlt: "Quiz result screen with score, percentage, time spent and a per-question breakdown"
+      imageSrc: "/svgs/courses/course-create.svg"
+    - step: 2
+      title: "Review the manual ones, leave feedback"
+      description: "Open the grading queue under the program. Pick up the attempts marked for manual review, work through the open questions, leave feedback in the box. Save. The platform recalculates the percentage and fires the graded notification to the learner."
+      imageAlt: "Grading queue with three attempts open, a feedback box and a Save button"
+      imageSrc: "/svgs/educator-love/4-integrated.svg"
+    - step: 3
+      title: "Read the cohort story, teach what's missing"
+      description: "Pull up the merit list to see the spread. Look at the per-question stats to find the one half the class missed. Plan the next session around that question — the data is right there, no spreadsheet needed."
+      imageAlt: "Merit list with rank distribution and a per-question difficulty chart"
+      imageSrc: "/svgs/courses/course-publish.svg"
+faq:
+  title: "Assessment Results FAQ"
+  description: "What teachers usually want to know before they trust a platform with grading."
+  items:
+    - question: "What does an attempt actually capture?"
+      answer: "Everything — the start time, the submission time, the time spent, the obtained score versus total, the percentage, pass or fail, plus per-question status (correct, incorrect, partial, skipped, pending review). The IP and device are also captured for audit. Every detail you'd need to reconstruct what happened."
+    - question: "Which questions auto-grade?"
+      answer: "Most of them. Multiple choice with one or multiple correct answers, true/false, matching pairs, ordering or sequencing, fill-in-the-blank with multiple acceptable answers and per-blank case sensitivity, numeric answers with a tolerance range, math expressions, and hotspot click-on-image. The platform handles all of those without an instructor lifting a finger."
+    - question: "What about free-form questions?"
+      answer: "They land in the grading queue. The instructor opens the attempt, reads the response, scores it, and leaves feedback. Save, and the platform recalculates the overall percentage and fires the quiz-graded notification to the learner so they know it's been reviewed."
+    - question: "Can a learner retake a quiz?"
+      answer: "If you've allowed it, yes. Each quiz has a max-attempts setting and an optional cooldown between retakes. Every attempt is its own record — the platform never overwrites an old attempt with a new one — so you always have the history. The result you grade against can be the latest, the highest or whichever your program rules say."
+    - question: "How is the percentage calculated?"
+      answer: "Obtained score divided by total score, times one hundred. The total score is the sum of every question's marks. Partial credit is supported on question types that allow it (matching pairs, fill-in-the-blank with per-blank scoring, multi-answer multiple choice), so a learner who gets two of four blanks right doesn't get zero on that question."
+    - question: "Can I see how the rest of the class did?"
+      answer: "Yes. The merit list shows rank, score and percentile across every learner who took the quiz. If you've turned on the leaderboard, learners see it too — useful for healthy competition. The progress dashboard's quiz comparison view goes a layer deeper, surfacing question-by-question stats so you can spot which questions tripped the class up."
+    - question: "Will learners see their answers right away?"
+      answer: "Up to you. The quiz settings let you decide whether to show results immediately on submission, whether to reveal the correct answers, whether to show explanations per question and whether to allow review of the attempt afterwards. You can keep it tight for an exam and open for a practice quiz on the same platform."
+    - question: "What about quiz security for higher-stakes exams?"
+      answer: "Quizzes can require full-screen mode, block copy-paste, require webcam or screen recording, randomise question and answer order per attempt, and flag tab switching when it happens. The shuffle order is stored per attempt, so you can review exactly the version a learner saw if a question is contested."
+    - question: "Do learners get notified when their result is in?"
+      answer: "Yes. Five notifications fire automatically — completed (the attempt was submitted), passed (they cleared the threshold), failed (they didn't), all attempts exhausted (they've used their last try), and graded (an instructor finished a manual review). Each goes out by email, in-app, SMS or push, depending on what they have on."
+    - question: "Can I leave instructor feedback on an attempt?"
+      answer: "Yes — there's a feedback field on every attempt. Whatever you write is included in the quiz-graded notification, so the learner reads it the same day. Pair it with the per-question explanation field on the quiz itself and learners get both the right answer and the why."
+    - question: "What if a quiz issues a certificate?"
+      answer: "Certificates fire the moment a learner crosses the passing score on a graded quiz. The certificate is unique-numbered and verifiable through the platform's verification code, and the learner gets the certificate-issued notification automatically."
+    - question: "Can I export results?"
+      answer: "Yes. Per-quiz attempt lists and per-cohort merit lists both export to CSV. Use them for grade-book reconciliation, an external transcript system, or a board update."
+    - question: "Does this work for surveys too?"
+      answer: "Yes — surveys are one of the four quiz types Edushade ships, alongside practice, graded and assessment. Surveys collect responses without grading, so the result page on a survey shows the response distribution rather than a percentage. Same engine, different mode."
+    - question: "What can I do with the question-level data?"
+      answer: "More than you'd think. The progress dashboard surfaces a quiz comparison view that lays out every learner's score on every quiz side by side — the question half the class missed shows up immediately. Use it to plan the next session, refine the question, or simply re-teach the topic with the data in hand."
+    - question: "Is it auditable?"
+      answer: "Yes. Every grading action — manual scoring, feedback edits, attempt resets — lands in the audit log with the actor, the attempt and the timestamp. Combined with the per-attempt IP and device capture, the platform gives you a paper trail you can defend in front of an exam board or a regulator."
 ---
 
-Assessment results close the loop between evaluation and instruction—so data drives teaching, not just grades.
+## Suggested visuals for this page
+
+The hero, capability cards, FAQ and quick-start steps render directly from the data above. The four split sections and the three quick-start steps each carry an image. The current build reuses the closest existing illustrations from `/svgs/courses` and `/svgs/educator-love`, but a future design pass should ship dedicated artwork. Drop the new files at the listed paths and they will swap in without any code change.
+
+**Split section 1 — `imgSrc: /svgs/courses/assesments.svg` (placeholder)**
+Suggested artwork: a quiz attempt detail page — score (84%), pass badge, time (12:34), four count chips (Correct 17 / Incorrect 2 / Partial 1 / Skipped 0), and a single expanded question card below with the learner's answer marked correct and an explanation underneath.
+
+**Split section 2 — `imgSrc: /svgs/educator-love/4-integrated.svg` (placeholder)**
+Suggested artwork: split layout — a row of nine question-type icons on the left (MCQ, T/F, Matching, Ordering, Fill-in-blank, Numeric, Math, Hotspot, Free-form), and a grading queue card on the right with three pending attempts and a Feedback textarea on the active one.
+
+**Split section 3 — `imgSrc: /svgs/educator-love/2-analytics.svg` (placeholder)**
+Suggested artwork: a learner's attempt history — three attempt rows with their numbers (1, 2, 3), scores (62%, 74%, 88%), times spent and a small "improvement" arrow climbing to the right.
+
+**Split section 4 — `imgSrc: /svgs/educator-love/5-scalability.svg` (placeholder)**
+Suggested artwork: a merit list table on the left with ranks, names and percentiles, plus a question-difficulty bar chart on the right highlighting one question with a red bar reading "67% missed".
+
+**Quick-start step 1 — `imageSrc: /svgs/courses/course-create.svg` (placeholder)**
+Suggested artwork: a learner-side quiz result screen — confetti chip for "Passed", a percentage circle, the per-question breakdown stacked underneath.
+
+**Quick-start step 2 — `imageSrc: /svgs/educator-love/4-integrated.svg` (placeholder)**
+Suggested artwork: the grading queue with one attempt open — student name, the open question, a feedback textarea with text being typed, and a Save & Notify button.
+
+**Quick-start step 3 — `imageSrc: /svgs/courses/course-publish.svg` (placeholder)**
+Suggested artwork: a teacher's view of the cohort merit list with a small per-question heatmap below it, one question highlighted as "needs re-teach".

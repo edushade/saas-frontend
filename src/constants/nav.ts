@@ -15,6 +15,7 @@ export interface NavFeatureItem {
 	icon: ElementType;
 	slug: string;
 	href: string;
+	comingSoon?: boolean;
 }
 
 export interface NavFeatureGroup {

@@ -1,36 +1,152 @@
 ---
 featureId: "user-management"
 title: "User Management"
-description: "Manage learners and teams"
+description: "A full user record with verification, sessions, OAuth, type flags, social, geo and audit — plus role-aware admin views, invitations, bulk export and impersonation."
 href: "/features/user-management"
 navGroup: "Manage Roles"
 navIcon: userGroupRounded
 navOrder: 30
 banner:
   tag: "User Management"
-  headline: "Manage Learners and Teams"
-  description: "Invite, organize, and manage learners and team members."
-  ctaText: "Get Started"
+  headline: "One user record, every detail you need, scoped per tenant"
+  description: "Edushade ships a real user system, not a thin wrapper around an auth provider. Every user carries a tenant-scoped unique ID, a full profile, an account lifecycle with five states, multi-factor verification, per-device sessions with geo and device metadata, OAuth links across four providers, three type flags (admin, instructor, learner), six social links and a complete audit trail. The admin shell exposes filtered People views, bulk export and CSV-backed analytics out of the box."
+  ctaText: "Manage Your People"
   ctaTo: "/contact-sales"
+capabilityHighlights:
+  title: "Everything an LMS user record actually needs"
+  description: "User Management runs on the auth-service users table, with the verification, session, OAuth and audit pipelines living in the same service. The admin sidebar surfaces filtered views per type, the People → Roles & Permissions builder ties into the same RBAC engine that gates every API, and the invitation flow on the tenant-service ships role and permission preassignments out of the box."
+  capabilities:
+    - title: "A Full User Profile"
+      description: "Email, phone, username, name, avatar, bio, professional summary, designation, expertise, gender, date of birth, address, geo, timezone and locale — all on one record, all editable from the admin."
+      icon: clipboardList
+    - title: "Five-State Lifecycle"
+      description: "pending_verification → active → inactive / suspended / deleted. Every state transition is auditable, soft delete preserves history, and reactivation is a single click."
+      icon: routing
+    - title: "Sessions Across Devices"
+      description: "Per-device session records with device type, brand, OS, browser, IP geo (continent / country / city / ISP), timezone and language detection — plus revoke-one and revoke-all actions."
+      icon: notebookBookmark
+    - title: "OAuth and Multi-Factor"
+      description: "Link Google, Facebook, Apple and GitHub from the user record. Email and phone verification with OTP, configurable expiry and max-attempts. New-device login alerts ship by default."
+      icon: clapperboardPlay
+    - title: "Filtered People Views"
+      description: "Admin → Platform → People exposes All Users, Learners, Instructors and Admins & Staff as separate filtered tables, each with bulk-select, CSV export and bulk delete on the same data model."
+      icon: arrowRight
+    - title: "Invitations and Impersonation"
+      description: "Token-based invitations carry role and permission preassignments and expire automatically. Admin impersonation lets support sign in as a learner to debug, with a clean stop endpoint."
+      icon: diploma
 splitSections:
-  - title: "Onboard and organize people cleanly"
-    description: "Invite learners, educators, and staff; group them into cohorts and teams; and keep contact data consistent across programs."
+  - title: "One record, every dimension you actually need"
+    description: "The users table is not a stub. Account fields (email, phone, username, password, name, avatar) sit alongside profile fields (bio, professional summary, designation, expertise, gender, DOB, address), geo fields (continent, country, city, state, timezone, locale), three boolean type flags (is_admin, is_instructor, is_learner), six social links and OAuth provider IDs for Google, Facebook, Apple and GitHub. Every field is exportable; every field is auditable; every field is locale-aware."
     lists:
-      - "Invites and self-signup flows you can align to your process"
-      - "Bulk import where large intakes are common"
-      - "Profile fields suited to education, not generic CRMs"
-      - "Deactivate and archive without losing history"
+      - "Account: email, phone, username, password, name, avatar"
+      - "Profile: bio, professional summary, designation, expertise, gender, DOB, address"
+      - "Geo: continent, country, city, state, timezone, locale (auto-detected)"
+      - "Three type flags: is_admin, is_instructor, is_learner"
     imgSrc: "/svgs/user/2.svg"
     reverse: true
-  - title: "Less operational drag"
-    description: "Reduce back-and-forth when someone needs access, a role change, or a reset—handled with clear admin tools."
+  - title: "Verification, sessions and security — built in"
+    description: "Edushade ships email and phone OTP verification with configurable expiry and a default max-attempts of three, plus dedicated email-change and phone-change verification flows. Every session is its own row with device type, brand, model, OS, browser, IP geo (continent, country, city, region, latitude, longitude, ISP, ASN), timezone and language detection. JWT access tokens carry a JTI, refresh tokens rotate per device, and a new-device login alert fires automatically on the first session from a new device."
     lists:
-      - "Search and filters across users and enrollments"
-      - "Consistent mapping between people and programs"
-      - "Supports multi-department and multi-brand setups"
-      - "Foundation for SSO and directory integrations"
-    imgSrc: "/svgs/user/3.svg"
+      - "Email + phone OTP, email/phone change flows, configurable expiry"
+      - "JWT with JTI and per-device refresh-token rotation"
+      - "Per-session device + IP geo metadata, including ISP and ASN"
+      - "New-device login alert fires the first time a session lands on a new device"
+    imgSrc: "/svgs/educator-love/4-integrated.svg"
     reverse: false
+  - title: "The admin People surface, filtered for the right job"
+    description: "Admin → Platform → People surfaces four data tables on the same model. All Users is the full tenant. Learners filters where is_learner is true. Instructors filters where is_instructor is true. Admins & Staff filters where is_admin is true. Each table ships row-level edit and delete plus bulk export and bulk delete, gated by user.list, user.view, user.export and user.delete. CSV export carries every field — unique ID, name, email, phone, status, verification flags, type flags, last login and audit timestamps — and bulk delete is a single tracked action."
+    lists:
+      - "Four filtered People tables: All / Learners / Instructors / Admins & Staff"
+      - "Bulk-select with CSV export and bulk delete on every table"
+      - "Tenant-scoped unique IDs with type-aware prefixes"
+      - "Per-tenant user analytics: stats, growths, overview, filter values"
+    imgSrc: "/svgs/courses/instructor.svg"
+    reverse: true
+  - title: "Invitations and impersonation, for real-world support"
+    description: "The tenant-service invitations table carries an email, a token, an expires_at, an optional message — and crucially, role_ids and permission_ids arrays. When the invitee accepts, the platform creates the user and the role/permission assignments in one transaction. For support, the auth-service ships a real impersonation flow at /auth/impersonate/:user_id (gated by admin.users) and /auth/impersonate/stop, so an admin can sign in as a learner to debug and exit cleanly without juggling sessions."
+    lists:
+      - "Token-based invitations with role + permission preassignment"
+      - "Statuses: pending, accepted, expired, cancelled — with explicit expiry"
+      - "Custom invitation message per recipient"
+      - "Impersonation flow with clean stop, audited via admin.users permission"
+    imgSrc: "/svgs/educator-love/5-scalability.svg"
+    reverse: false
+quickStart:
+  title: "From inviting a user to running role-aware operations"
+  subtitle: "Every step lives in the admin shell at /admin/users. Invitations, lifecycle changes, role assignments and impersonation all share the same data model and the same audit trail."
+  steps:
+    - step: 1
+      title: "Invite or import users"
+      description: "Open Admin → Platform → People. Use the invitation flow to email a user with role and permission preassignments — they accept, the user record is created, the assignments land. Bulk export from any People view to move data in or out via CSV."
+      imageAlt: "Admin People view with an invitation modal showing email, role picker and permission picker"
+      imageSrc: "/svgs/courses/course-create.svg"
+    - step: 2
+      title: "Manage profile, sessions and access"
+      description: "Open a user. Edit profile fields. Inspect device sessions with geo and revoke any one or all of them. Link or unlink OAuth providers. Move them through the lifecycle (pending → active → inactive → suspended → deleted) without losing history."
+      imageAlt: "User detail page with sessions table, OAuth links and lifecycle status selector"
+      imageSrc: "/svgs/user/2.svg"
+    - step: 3
+      title: "Run role-aware filtering and analytics"
+      description: "Switch between Learners, Instructors and Admins & Staff for filtered views. Open the user analytics overview for stats and growths. Export selected rows to CSV. When support needs deeper context, impersonate a user, debug, and stop the session in one click."
+      imageAlt: "Analytics overview tile with growths chart and a People list filtered by Learners"
+      imageSrc: "/svgs/courses/course-publish.svg"
+faq:
+  title: "User Management FAQ"
+  description: "How users are stored, verified, sessioned, invited, exported and supported across the platform."
+  items:
+    - question: "What does Edushade store on a user record?"
+      answer: "Account fields (email, phone, username, password, name, avatar), profile fields (bio, professional summary, designation, expertise, gender, date of birth, address), geo fields (continent, country, city, state, timezone, locale, auto-detected from session), three type flags (is_admin, is_instructor, is_learner), six social links (LinkedIn, Twitter, Facebook, Instagram, YouTube, website) and OAuth provider IDs for Google, Facebook, Apple and GitHub. Everything is tenant-scoped and exportable to CSV."
+    - question: "What is the user lifecycle?"
+      answer: "Five states: pending_verification → active → inactive / suspended / deleted. New users start in pending_verification until they confirm their email or phone; active is the operating state; inactive and suspended are reversible holds; deleted is a soft delete that preserves the audit trail. Reactivation is a single status change, no data loss."
+    - question: "How does verification work?"
+      answer: "Email verification via a token-based link or via OTP delivered by email or SMS. Phone verification via OTP. Dedicated change flows for email and phone — when a user changes either, the new value goes through its own verification before it replaces the old one. Verification carries a status (pending, verified, expired, failed) with configurable expiry and a default max-attempts of three."
+    - question: "How are sessions handled?"
+      answer: "JWT access tokens with a JTI, plus refresh tokens that rotate per device. Each session is its own row carrying device type, brand, model, OS, browser, architecture, IP geo (continent, country, city, region, latitude, longitude, ISP, ASN), timezone and language. The admin can list every active session for a user and revoke a single session or all sessions in one call. A new-device login alert notification fires automatically on the first session from an unfamiliar device."
+    - question: "Which OAuth providers are supported?"
+      answer: "Four: Google, Facebook, Apple and GitHub. The admin can link or unlink any provider from the user detail page (POST /users/:user_id/oauth/link, /unlink), and OAuth login on the public side links to the same record. The OAuth-linked event is tracked on the notification system so the user gets an in-app, email or push alert when a provider is added."
+    - question: "How do invitations work?"
+      answer: "An admin opens the invitation flow, picks an email, optionally writes a message, and selects role_ids and permission_ids to preassign. The platform stores a row on the invitations table (organization_id, tenant_id, email, token, role_ids, permission_ids, invited_by, expires_at, status), emails the invitee a token-bearing link, and tracks accept / expire / cancel as explicit statuses. On acceptance, the user record is created and the assignments are made in one transaction."
+    - question: "Can I import users in bulk?"
+      answer: "Yes. The admin People views ship CSV export by default (every field on the user record), so bulk roundtrips are straightforward. Bulk delete is a one-call action gated by user.delete. The same audit pipeline records the bulk operation, so the admin trail does not lose individual records."
+    - question: "What user analytics are available?"
+      answer: "Five admin endpoints under /users: /stats for headline counts, /filter-values for distinct values across filterable fields, /field-values for per-field distributions, /analytics/growths for time-series growth and /analytics/overview for a quick-stats card. Permissions are gated through user.view; the admin dashboard reads from the same endpoints."
+    - question: "What is the unique ID on a user record?"
+      answer: "A per-tenant identifier, generated automatically when a user is inserted. The generator runs on the BeforeAppendModel hook with awareness of is_admin / is_instructor / is_learner, so the prefix encodes the user's primary type. The unique ID is editable from the admin and exposed on the CSV export — useful for cross-system reconciliation when you have an existing identity scheme."
+    - question: "How does impersonation work?"
+      answer: "POST /auth/impersonate/:user_id, gated by the admin.users permission. The admin gets a token that signs them in as the target user, with the impersonation context preserved server-side so the original admin can be restored. POST /auth/impersonate/stop clears it. The audit trail records every impersonation start and stop, so support actions on a user account are always reviewable."
+    - question: "Are users tenant-isolated?"
+      answer: "Yes. Every users row carries tenant_id, every query filters by it, and there is no cross-tenant view in the user-facing admin. If the same person belongs to two organizations on Edushade, they hold two user records (one per tenant) with two unique IDs and two sets of role and permission assignments. System-token endpoints exist for inter-service operations, not user-facing cross-tenant access."
+    - question: "Can a user have direct permissions on top of their role?"
+      answer: "Yes. The user_permissions pivot table on the auth-service stores a user-level grant that sits on top of role-based permissions. The admin can grant or revoke a single permission to a single user without changing their role — useful for one-off elevations (a moderator with delete access for a specific incident) or one-off reductions. The platform's RBAC engine checks both layers when resolving access."
+    - question: "Are profile fields localized?"
+      answer: "User-controlled fields like bio and professional summary are free-text, but the platform stores the user's preferred locale (auto-detected from session, overridable in the profile) and uses it for every notification, email and rendered label. Geo fields auto-populate from the IP geo lookup on each new session, so timezone, country and city are accurate without the user filling them in."
+    - question: "What audit data does the platform record?"
+      answer: "created_at, updated_at and deleted_at on every user — soft delete preserves history. Last-login-at and last-login-IP on the user record. Every session lifetime tracked (created, last refresh, revoked). The audit-service captures privileged changes (role assignments, permission grants, status changes) with the actor, the target and the before/after, exposed under Admin → Platform → Audit → Audit Logs."
+    - question: "Can self-registration be turned off for some tenants?"
+      answer: "Yes. Tenant-level configuration covers signup behavior, and an admin can run an invitation-only tenant where every user lands through the invitation flow. The combination of tenant settings, role-based access and the invitations table covers everything from open self-signup to lockstep invite-only without changing the data model."
 ---
 
-User management is the backbone of every program: get the right people into the right experiences with less manual overhead.
+## Suggested visuals for this page
+
+The hero, capability cards, FAQ and quick-start steps render directly from the data above. The four split sections and the three quick-start steps each carry an image. The current build reuses the closest existing illustrations from `/svgs/user`, `/svgs/courses` and `/svgs/educator-love`, but a future design pass should ship dedicated artwork. Drop the new files at the listed paths and they will swap in without any code change.
+
+**Split section 1 — `imgSrc: /svgs/user/2.svg` (placeholder)**
+Suggested artwork: a user record card with three columns — Account (email, phone, username, avatar), Profile (bio, designation, expertise pills) and Geo (country flag, city, timezone) — and a row of three type-flag chips (Admin / Instructor / Learner) at the top.
+
+**Split section 2 — `imgSrc: /svgs/educator-love/4-integrated.svg` (placeholder)**
+Suggested artwork: a sessions table with three rows — each showing a device chip (Mac / iPhone / Windows), an OS+browser line, a country flag with city and a Revoke button — plus a small "New device login alert sent" toast at the top.
+
+**Split section 3 — `imgSrc: /svgs/courses/instructor.svg` (placeholder)**
+Suggested artwork: the People area with a left rail of four tabs (All Users, Learners, Instructors, Admins & Staff) and a data table with avatar, name, email, status badge, last login and a bulk-actions bar at the top showing Export CSV + Delete.
+
+**Split section 4 — `imgSrc: /svgs/educator-love/5-scalability.svg` (placeholder)**
+Suggested artwork: split layout — invitation modal on the left with email, role and permission pickers and an expiry chip; impersonation banner on the right showing "Acting as Jane Doe — Stop Impersonating" with a small admin avatar.
+
+**Quick-start step 1 — `imageSrc: /svgs/courses/course-create.svg` (placeholder)**
+Suggested artwork: the People view with the invitation modal opened — email field, role selector and a permission tree, plus a small message field and an "Expires in 7 days" chip.
+
+**Quick-start step 2 — `imageSrc: /svgs/user/2.svg` (placeholder)**
+Suggested artwork: a user detail page with profile fields on the left, sessions table on the right with three device rows and a Revoke All button, plus an OAuth section showing Google + GitHub linked.
+
+**Quick-start step 3 — `imageSrc: /svgs/courses/course-publish.svg` (placeholder)**
+Suggested artwork: an analytics overview card (active users, signups this week, growth %) above a Learners filter view, with two rows checked and a CSV Export action visible in the bulk-actions bar.

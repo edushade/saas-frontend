@@ -1,36 +1,125 @@
 ---
 featureId: "workshops"
 title: "Workshops"
-description: "Host focused sessions"
+description: "Standalone live, recorded or offline sessions"
 href: "/features/workshops"
 navGroup: "Build Learning"
 navIcon: testTube
 navOrder: 30
 banner:
   tag: "Workshops"
-  headline: "Host Focused Sessions"
-  description: "Deliver hands-on workshops with materials, assignments, and follow-up."
-  ctaText: "Get Started"
+  headline: "One focused session, run end-to-end"
+  description: "A workshop in Edushade is a standalone session — live, pre-recorded or in-person — with its own registration, capacity, speakers and recording. No course wrapper required, just one room you fill, run and follow up on."
+  ctaText: "Schedule a Workshop"
   ctaTo: "/contact-sales"
+capabilityHighlights:
+  title: "Workshops, treated as their own thing"
+  description: "Edushade ships workshops as a first-class entity, separate from courses and cohorts. Each one carries its own schedule, registration, capacity, access rules, speakers and follow-up — so a one-off masterclass, a recurring office hour and an in-person bootcamp can all live on the same platform without bending the course builder around them."
+  capabilities:
+    - title: "Three Session Formats"
+      description: "Run live, share a pre-recorded session, or host in person. Each format gets the fields it actually needs — meeting URL, recording URL or venue."
+      icon: clapperboardPlay
+    - title: "Built-in Meeting Providers"
+      description: "Wire up Google Meet, Zoom, Microsoft Teams or Jitsi. Learners join from their dashboard and the join time is captured for attendance."
+      icon: routing
+    - title: "Capacity & Registration Deadlines"
+      description: "Set a max-participants cap and a separate registration deadline. Edushade enforces both at sign-up and tracks remaining seats live."
+      icon: clipboardList
+    - title: "Recurring Schedules"
+      description: "Run a workshop daily, weekly, monthly or yearly with an interval and an end date. Each occurrence becomes its own instance with its own recording and attendance."
+      icon: notebookBookmark
+    - title: "Speakers & Co-Hosts"
+      description: "Add multiple speakers to one workshop, mark a primary host, and surface them on the registration page so attendees know who they are showing up for."
+      icon: arrowRight
+    - title: "Public, Private or Password-Protected"
+      description: "Open a workshop to anyone, keep it invite-only, or gate it behind a password — toggled per workshop, not platform-wide."
+      icon: diploma
 splitSections:
-  - title: "Workshops that stay focused and actionable"
-    description: "Deliver short, high-impact sessions with materials, tasks, and follow-ups organized around a single outcome."
+  - title: "Live, recorded or in-person — pick the format that fits"
+    description: "Edushade workshops support three event types out of the box. Live sessions ask for a meeting provider and a join URL. Recorded sessions take a video URL and play on the date you set. Offline workshops capture a venue. The registration flow stays the same regardless of which format you pick — only the join experience changes."
     lists:
-      - "Dedicated workshop structure separate from long courses"
-      - "Pre-session materials and post-session recap in one flow"
-      - "Assignments and exercises sized for a workshop window"
-      - "Clear enrollment and capacity for limited seats"
-    imgSrc: "/svgs/build-for-teach/1.svg"
+      - "Live, recorded and offline event types inside one builder"
+      - "Provider presets for Google Meet, Zoom, Microsoft Teams and Jitsi"
+      - "Recording URL field for replays and pre-recorded sessions"
+      - "Venue field for in-person workshops with a clear address slot"
+    imgSrc: "/svgs/courses/course-types.svg"
     reverse: true
-  - title: "From session to follow-through"
-    description: "Capture outcomes during the workshop and give learners a path to apply what they learned afterward."
+  - title: "Registration that protects the room"
+    description: "Every workshop carries its own registration deadline, capacity cap and access mode — independent from everything else on the platform. Limit a masterclass to 30 seats, lock a corporate session to invited attendees, or open a public webinar to the world. Registration count and participant count are tracked separately so you can see who signed up versus who actually showed up."
     lists:
-      - "Collect submissions and feedback in context"
-      - "Link workshops to broader courses or paths"
-      - "Reusable templates for recurring workshop formats"
-      - "Reporting on attendance and engagement"
-    imgSrc: "/svgs/educator-love/3-customizable.svg"
+      - "Max-participants cap from 0 (unlimited) up to 50,000"
+      - "Start time and registration deadline as two separate fields"
+      - "Public, private (invite-only) or password-protected access"
+      - "UTM source, medium, campaign, term and content stored per participant"
+    imgSrc: "/svgs/educator-love/5-scalability.svg"
     reverse: false
+  - title: "Materials before, recording after"
+    description: "Hand attendees what they need before the session and where to find the replay after. An intro video plays on the registration page, a rich-text description sets context, and joining instructions deliver the link, password or venue when the time comes. Drop in the recording URL after the session and the same workshop page turns into the catch-up page."
+    lists:
+      - "Thumbnail, summary and full rich-text description per workshop"
+      - "Intro video URL with optional duration shown alongside"
+      - "Rich-text joining instructions surfaced to registered attendees"
+      - "Recording URL published after the session for on-demand replays"
+    imgSrc: "/svgs/courses/course-curriculum.svg"
+    reverse: true
+  - title: "Run the same workshop on a schedule"
+    description: "Recurring workshops are a real thing in Edushade, not a manual copy job. Pick daily, weekly, monthly or yearly with an interval, an end date or a max-occurrence count, and the platform spawns an instance for each run. Each instance carries its own status, recording and attendance — and a single date can be overridden for a one-off exception without touching the parent series."
+    lists:
+      - "Frequency: daily, weekly, monthly or yearly with a custom interval"
+      - "End on a fixed date or after a maximum number of occurrences"
+      - "Per-instance status: scheduled, live, completed or cancelled"
+      - "Per-instance recording URL, title and joining-instruction overrides"
+    imgSrc: "/svgs/platforms/2-progress.svg"
+    reverse: false
+quickStart:
+  title: "From draft to first registration in three steps"
+  subtitle: "The workshop builder walks through four ordered steps — basics, schedule, audience and media — and publishes the registration page the moment you flip the status to published."
+  steps:
+    - step: 1
+      title: "Add the basics"
+      description: "Title, summary, full description, thumbnail, categories and the speakers who will lead the session — each on its own card in the first step of the builder."
+      imageAlt: "Workshop builder step one with title, summary, description, thumbnail and speakers panel"
+      imageSrc: "/svgs/courses/course-create.svg"
+    - step: 2
+      title: "Set the schedule and pick the format"
+      description: "Pick a start time, registration deadline, timezone and duration. Choose live with a meeting provider, recorded with a video URL, or offline with a venue. Optionally turn it into a recurring series."
+      imageAlt: "Schedule and type step with date and time pickers, event type radios and provider selection"
+      imageSrc: "/svgs/courses/course-curriculum.svg"
+    - step: 3
+      title: "Cap the audience and publish"
+      description: "Set a max-participants limit, choose between public, private or password-protected access, drop in joining instructions and an intro video — then flip the status to published. The workshop page goes live and registrations open."
+      imageAlt: "Audience access and media step with max participants, access type, joining instructions and publish status"
+      imageSrc: "/svgs/courses/course-publish.svg"
+faq:
+  title: "Workshops FAQ"
+  description: "How workshops work inside Edushade — sessions, registrations, attendance, recurring schedules and how they differ from courses and cohorts."
+  items:
+    - question: "What is a workshop in Edushade?"
+      answer: "A workshop is a standalone session with its own start time, registration deadline, capacity cap, speakers and access rules. It is not a sub-resource of a course — you can run a one-off webinar, a recurring office hour or an in-person bootcamp without ever creating a course around it."
+    - question: "How is a workshop different from a course or a cohort?"
+      answer: "A course is a curriculum of lessons, quizzes and assignments that learners progress through over time. A cohort is a scheduled batch of a course or learning path. A workshop is a single session — one room, one date, one outcome. Workshops live alongside courses on the platform, not inside them."
+    - question: "What session formats are supported?"
+      answer: "Three formats: live, recorded and offline. Live workshops integrate with a meeting provider and capture a join URL. Recorded workshops play a video URL at the scheduled time. Offline workshops capture a venue and use the same registration and attendance flow as the other two."
+    - question: "Which meeting providers can I connect?"
+      answer: "Google Meet, Zoom, Microsoft Teams, Jitsi and a generic other option for anything else with a join URL. The provider is picked per workshop, so you can run one session on Zoom and the next on Meet without changing anything platform-wide."
+    - question: "Can I cap how many people register?"
+      answer: "Yes. Each workshop has a max-participants field that accepts anywhere from 0 (unlimited) up to 50,000. Once the cap is hit, registration closes automatically. Registration count and participant count are tracked separately, so you can see who signed up versus who actually showed up."
+    - question: "How does registration work?"
+      answer: "Registration is required by default and captures name, email, phone, company and designation, plus UTM source, medium, campaign, term and content for marketing attribution. You can also bulk-import participants by user IDs or by file, and export the full list as CSV, XLSX or JSON whenever you need to."
+    - question: "Can a workshop be recurring?"
+      answer: "Yes. Turn on recurring and pick a frequency — daily, weekly, monthly or yearly — with an interval, an end date and a max-occurrence count. Each occurrence becomes its own instance with its own status, recording and attendee numbers. A single date can be overridden for a one-off exception without changing the parent series."
+    - question: "How is attendance tracked?"
+      answer: "Each participant carries a status — registered, attended, missed or cancelled — plus joined-at and left-at timestamps. When a learner clicks join from the dashboard, Edushade records the join time and updates the status. For offline sessions, status can be updated manually or in bulk from the participants table."
+    - question: "Can I charge for a workshop?"
+      answer: "Yes. Workshops can carry one or more pricing options, and each participant record stores the chosen pricing and a payment status — pending, paid, failed or refunded. Free, paid and mixed-pricing workshops are all supported."
+    - question: "What about chat, Q&A and other interactive features?"
+      answer: "Live workshops have allow-chat and allow-Q-and-A toggles that decide whether those tools are enabled inside the meeting provider you connect. The interaction itself happens in the provider; Edushade is where you decide who gets in, what is on, and what happens before and after the room opens."
+    - question: "Can I add multiple speakers to one workshop?"
+      answer: "Yes. Workshops support a many-speaker model with a primary-speaker flag — useful when you have a host plus guest experts on the same session. Speakers are selected from your platform users and surface on the registration page automatically."
+    - question: "What happens after a workshop ends?"
+      answer: "Drop the recording URL in and the workshop page turns into the replay page. Recorded events open the recording on the published date, and live events surface a recording link to participants once you publish it. Attendance, join times and the full participant list stay on the workshop record for reporting."
+    - question: "Can I export workshop data?"
+      answer: "Yes. Edushade ships full export for both workshops and their participants — title, schedule, registration counts, participant counts, attendance status, payment status and UTM tracking included. Bulk import for participants is also supported, so you can pull a list out, edit it offline, and push it back."
+    - question: "What states can a workshop be in?"
+      answer: "Workshops move through draft, published, completed and cancelled. Recurring instances carry their own status — scheduled, live, completed or cancelled — so the parent series and the individual runs can move independently when something changes mid-stream."
 ---
-
-Workshops are ideal for deep dives, onboarding intensives, and skills sprints—Edushade keeps the format tight so facilitators spend time teaching, not admin.

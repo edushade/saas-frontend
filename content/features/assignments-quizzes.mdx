@@ -1,36 +1,127 @@
 ---
 featureId: "assignments-quizzes"
-title: "Assignments & Quizzes"
-description: "Reinforce learning outcomes"
+title: "Assignments"
+description: "Open-ended work with manual review"
 href: "/features/assignments-quizzes"
 navGroup: "Build Learning"
 navIcon: clipboardList
 navOrder: 50
 banner:
-  tag: "Assignments & Quizzes"
-  headline: "Reinforce Learning Outcomes"
-  description: "Assign work and quizzes to reinforce concepts and track completion."
-  ctaText: "Get Started"
+  tag: "Assignments"
+  headline: "Open-ended work, with a real review loop"
+  description: "Assignments in Edushade are for the work that does not fit a multiple-choice grid — written responses, file uploads, projects, drafts. Set a deadline, attach the brief, mark out of any total, leave feedback, and return submissions when a learner needs another pass."
+  ctaText: "Create an Assignment"
   ctaTo: "/contact-sales"
+capabilityHighlights:
+  title: "Built for the work that needs a human eye"
+  description: "Assignments live next to lessons in your curriculum, but they do not pretend to be quizzes. The same builder handles a single-paragraph reflection and a multi-file capstone, with a deadline window, pass-fail marking and a manual grading workflow that keeps feedback visible to the learner."
+  capabilities:
+    - title: "Text + File Submissions"
+      description: "Learners write a rich-text response, upload files, or do both. Edushade keeps the answer and the attachments together on one submission record."
+      icon: notebookBookmark
+    - title: "Start and End Window"
+      description: "A required start time and end time anchor every assignment. Edushade validates the dates, shows countdown timers to learners, and surfaces a Missed badge when the window closes without a submission."
+      icon: clapperboardPlay
+    - title: "Total + Passing Marks"
+      description: "Set the marks out of any total and a passing threshold. Edushade enforces that passing cannot exceed total, and tracks the score per submission."
+      icon: clipboardList
+    - title: "Manual Grading Loop"
+      description: "Each submission moves through submitted, graded and returned. Award a score, leave feedback, add private comments and return for revision when needed."
+      icon: arrowRight
+    - title: "Merit List (Optional)"
+      description: "Toggle a per-assignment merit list — visible to the learner alone, or to everyone who submitted — when ranking adds something to the experience."
+      icon: diploma
+    - title: "Course or Cohort Scoped"
+      description: "Submissions carry program_type and program_id, so the same assignment can be reused across cohorts and the records stay sorted by where the work actually happened."
+      icon: routing
 splitSections:
-  - title: "Practice that reinforces every lesson"
-    description: "Assign quizzes and tasks that sit next to the content they support—so learners know why the work matters and when it is due."
+  - title: "Two ways to turn work in — text, files, or both"
+    description: "Some assignments are essays. Some are screenshots. Most are a paragraph plus a PDF. Edushade does not force a choice. The learner gets a rich-text editor for the written part and a file picker for everything else, and both land on the same submission record so a grader sees the whole answer in one place."
     lists:
-      - "Quizzes for quick checks and assignments for deeper work"
-      - "Due dates and late policies you control"
-      - "File, text, and media submissions where appropriate"
-      - "Rubric-friendly feedback loops for educators"
+      - "Rich-text response with formatting, lists and links"
+      - "Multi-file uploads through the platform's file manager"
+      - "Both kept on a single submission record per attempt"
+      - "Submission attachments and instructor attachments shown side by side"
     imgSrc: "/svgs/courses/assesments.svg"
     reverse: true
-  - title: "Visibility for educators and learners"
-    description: "Everyone sees submission status, feedback, and grades in context—reducing email back-and-forth."
+  - title: "A clear window — and a clear consequence when it closes"
+    description: "Every assignment has a start time and an end time. Edushade validates that the end is after the start, and the learner side surfaces a countdown to the deadline while the assignment is open. Once the window closes without a submission, the assignment shows up in the learner's history as missed — no ambiguity, no manual cleanup."
     lists:
-      - "Learner dashboard of open and completed work"
-      - "Grading queues for instructors and assistants"
-      - "Comments and revisions when you want iteration"
-      - "Links to related lessons and resources"
-    imgSrc: "/svgs/platforms/3-content.svg"
+      - "Start date and end date both required, validated end-after-start"
+      - "Countdown to start before it opens, countdown to deadline once open"
+      - "Missed badge applied automatically when the window closes empty"
+      - "Attempt number recorded on every submission so retries stay traceable"
+    imgSrc: "/svgs/courses/course-curriculum.svg"
     reverse: false
+  - title: "Marks, feedback and a return-for-revision path"
+    description: "Set the marks out of any total — Edushade keeps passing marks in step so passing can never be greater than total. Submissions arrive with status submitted; an instructor awards a score, writes rich feedback for the learner and optional private comments, and the status moves to graded. When a submission needs another pass, return it and the learner sees the feedback inline before re-submitting."
+    lists:
+      - "Total marks (min 1) and passing marks validated against total"
+      - "Decimal scoring up to two places per submission"
+      - "Feedback shown to the learner, comments kept private to the team"
+      - "Return-for-revision path with attempt-number tracking on resubmission"
+    imgSrc: "/svgs/platforms/3-content.svg"
+    reverse: true
+  - title: "Optional merit list, always-on program scope"
+    description: "Two switches decide who sees the merit list: one for the submitting learner, one for everyone else who submitted. Both are off by default — turn them on per assignment when ranking adds something. Every submission also carries the program type and program ID, so the same assignment plugged into two cohorts keeps clean, separable records when you need them."
+    lists:
+      - "Per-assignment merit list visibility — to the learner, to others, or off"
+      - "Submissions stamped with program_type (course or cohort) and program_id"
+      - "Reusable assignment definitions across courses, cohorts and learning paths"
+      - "CSV export of assignment metadata for backup or audit"
+    imgSrc: "/svgs/educator-love/2-analytics.svg"
+    reverse: false
+quickStart:
+  title: "From a brief to a graded submission in three steps"
+  subtitle: "The assignment builder lives inside the curriculum tree. Drop one in next to the lesson it supports, set the window and the marks, attach the brief, then publish — submissions start landing the moment the start time hits."
+  steps:
+    - step: 1
+      title: "Create the assignment"
+      description: "Add a title, write rich-text instructions, attach reference files learners will need (briefs, datasets, templates). Edushade stores them with the assignment so the brief and the answer never live in different places."
+      imageAlt: "Assignment creation modal with title, instructions, attachments and date pickers"
+      imageSrc: "/svgs/courses/course-create.svg"
+    - step: 2
+      title: "Set the window and the marks"
+      description: "Pick the start date-time and the end date-time, set total marks and passing marks. Optionally turn on the merit list for the learner and for others. Save as draft or publish straight away."
+      imageAlt: "Date and marks panel with merit list switches and a draft/published toggle"
+      imageSrc: "/svgs/courses/course-curriculum.svg"
+    - step: 3
+      title: "Grade and return"
+      description: "Submissions land in the grading queue with the learner's text and files in one view. Award a score, leave feedback, add private comments, and either mark it graded or return it for revision."
+      imageAlt: "Submission detail view with text response, attachments, score, feedback and comments fields"
+      imageSrc: "/svgs/courses/course-publish.svg"
+faq:
+  title: "Assignments FAQ"
+  description: "How assignments work in Edushade — submissions, grading, deadlines, attempts and where they sit in your courses and cohorts."
+  items:
+    - question: "What is an assignment in Edushade?"
+      answer: "An assignment is a piece of open-ended work — written, uploaded, or both — with a start time, an end time and a marks total. It is graded manually by an instructor or assistant, and the grade carries a score, learner-visible feedback and optional private comments."
+    - question: "How is an assignment different from a quiz or assessment?"
+      answer: "Quizzes and assessments are objective: they ask multiple choice, true-or-false, fill-in-the-blank style questions and grade themselves. Assignments are subjective: a learner produces something — an essay, a file, a project — and a person reads it. Both live in the same curriculum tree, but the workflow is different."
+    - question: "What can a learner submit?"
+      answer: "Two things, side by side: a rich-text response and any number of file uploads. The text and the files land on the same submission record, so grading happens in one view rather than across tabs."
+    - question: "Can I attach files to the assignment brief?"
+      answer: "Yes. Use the platform's file manager to add briefs, datasets, templates or rubrics. Edushade stores those attachments on the assignment itself, separate from learner uploads, so the brief and the answer never get confused."
+    - question: "How are deadlines enforced?"
+      answer: "Every assignment has a required start_at and end_at. Edushade validates that end is after start, shows learners a countdown until the window opens and another until it closes, and applies a missed state when the window closes without a submission."
+    - question: "How are marks set?"
+      answer: "Two fields: total_marks and passing_marks. Total has to be at least 1; passing cannot exceed total. The score on each submission is stored as a decimal with up to two places, so partial credit is precise."
+    - question: "Who can grade submissions?"
+      answer: "Anyone with the right role on the program — instructor, co-instructor or assistant. The grader's user ID is stamped onto the submission, and the graded-at timestamp is captured automatically."
+    - question: "What status can a submission be in?"
+      answer: "Three states: submitted (the learner has turned it in), graded (a grader has scored and posted feedback), and returned (the grader sent it back for another pass). Returning a submission keeps the previous attempt and adds a new one with an incremented attempt number."
+    - question: "What is the difference between feedback and comments?"
+      answer: "Feedback is shown to the learner alongside the grade — it is the explanation of why they scored what they scored. Comments are private to the team and useful for grading notes, calibration, or context the learner does not need to see."
+    - question: "Can a learner resubmit?"
+      answer: "If a submission is returned, yes — the learner sees the feedback inline and submits again, which creates a new submission record with the next attempt number. This keeps the full history of what changed across revisions."
+    - question: "What about the merit list?"
+      answer: "Two opt-in switches per assignment: show_merit_list_to_learner shows the learner their own ranking, and show_other_merit_list opens that ranking to everyone who submitted. Both are off by default — turn them on when ranking adds something to the experience."
+    - question: "Where do assignments live in the curriculum?"
+      answer: "Inside a course's section tree, alongside lessons, quizzes and downloadable files. Submissions are stamped with the program type — course or cohort — and the program ID, so the same assignment can be reused across cohort runs while keeping the records separable."
+    - question: "Can drip rules apply to assignments?"
+      answer: "Yes. Drip schedules target sections, lessons, quizzes, assignments and files, so an assignment can be locked until a prerequisite item is completed, scheduled to a fixed date, or held until a number of days after enrollment. The same drip engine that controls lessons controls assignments."
+    - question: "Can I export assignment data?"
+      answer: "Yes. Edushade ships a CSV export of every assignment's full record — title, instructions, status, dates, attempts, time limit, marks, merit-list settings and order index — so you can back up, audit or move records into another system."
+    - question: "What states can an assignment itself be in?"
+      answer: "Draft, published or archived. Draft assignments are visible to admins only; published assignments open up at the start time; archived assignments stay in the data for reference but are removed from active curricula."
 ---
-
-Assignments and quizzes turn passive viewing into active learning—Edushade keeps the loop tight between instruction, practice, and feedback.

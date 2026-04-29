@@ -1,36 +1,150 @@
 ---
 featureId: "progress-tracking"
 title: "Progress Tracking"
-description: "Follow learner completion"
+description: "See where every learner is in real time — what they've finished, where they're stuck, and who could use a nudge before the deadline."
 href: "/features/progress-tracking"
 navGroup: "Track and Measure"
 navIcon: pieChart3
 navOrder: 0
 banner:
   tag: "Progress Tracking"
-  headline: "Follow Learner Completion"
-  description: "Track progress through courses and learning paths."
-  ctaText: "Learn More"
+  headline: "Know exactly where every learner is, the moment you look"
+  description: "Course progress shouldn't feel like a guessing game. Edushade follows each learner step by step — which lessons they've watched, how much time they spent, which quizzes they passed and where they paused mid-way — and turns that into a picture you can read in seconds. The same data is right there for the learner too, so they always know where they left off."
+  ctaText: "Show Me the Picture"
   ctaTo: "/contact-sales"
+capabilityHighlights:
+  title: "Built for the questions teachers actually ask"
+  description: "Progress isn't just a percentage on a card. It's the answer to \"who's on track?\", \"who's stuck?\", \"is anyone falling behind?\" and \"are we close to graduation?\" — and Edushade is built around those questions, not around a chart library."
+  capabilities:
+    - title: "Real-Time, Not Yesterday's Snapshot"
+      description: "Every lesson watched, every quiz submitted, every assignment turned in updates progress the moment it happens — no overnight job, no refresh delay."
+      icon: clipboardList
+    - title: "Four Honest States"
+      description: "Not started, in progress, paused, completed. Each lesson, quiz and assignment carries the state that matches reality — not an averaged blob."
+      icon: routing
+    - title: "Time, Position, Last Activity"
+      description: "How long they spent. Where they paused on a video. The last time they opened anything. The little signals that tell you who needs a check-in."
+      icon: arrowRight
+    - title: "Cohort and Section Roll-Ups"
+      description: "Open the dashboard and pick a cohort or a section. The numbers re-stack to that view, so a TA running one batch sees their batch, not the whole program."
+      icon: notebookBookmark
+    - title: "Friendly Nudges When People Stall"
+      description: "Inactive too long? They get a gentle reminder. Hit a milestone? They get the cheer. Finish the course? Their certificate fires automatically."
+      icon: clapperboardPlay
+    - title: "Same Data, Three Audiences"
+      description: "Learners see their own progress on their dashboard. Instructors see the cohort. Admins see the platform. One source of truth, three views."
+      icon: diploma
 splitSections:
-  - title: "See completion as it happens"
-    description: "Track lesson completion, module progress, and path milestones so you know who is on track—and who needs support."
+  - title: "A clear picture of where each learner stands"
+    description: "Open the program in admin and the progress dashboard greets you with three things at once — a histogram of how many learners have finished how many lessons, a trend line showing completed / in-progress / not-started over time, and a student-detail table that lists every learner alongside their score on every quiz in the program. Filter by section to zoom in. Pick a cohort to scope to one batch. The numbers move with you."
     lists:
-      - "Learner and instructor views of the same truth"
-      - "Progress tied to rules you define, not vague percentages"
-      - "Works for self-paced and cohort schedules"
-      - "Feeds certificates and reporting automatically"
-    imgSrc: "/svgs/platforms/2-progress.svg"
-    reverse: true
-  - title: "Intervene before drop-off"
-    description: "Patterns in progress data help teams reach out early instead of discovering failure at the end."
-    lists:
-      - "At-risk signals based on pacing and submissions"
-      - "Cohort rollups for facilitators"
-      - "Historical comparison across intakes"
-      - "Supports academic and corporate training contexts"
+      - "Histogram: how many learners have finished how many lessons"
+      - "Completion trend over time — completed, in progress, not started"
+      - "Student-detail table with quiz scores side by side"
+      - "Filter by section, cohort or learning path on the same view"
     imgSrc: "/svgs/educator-love/2-analytics.svg"
+    reverse: true
+  - title: "Progress lives at the lesson level, not just the course level"
+    description: "A course's progress percentage is the average of every item inside it — which means you can pop open one student and see exactly which lessons they've watched, which quizzes they've passed, which assignments are still open, and how long they spent on each. No wondering whether 40% means \"half-finished video\" or \"one out of three sections\". The detail is right there."
+    lists:
+      - "Per-lesson, per-quiz, per-assignment, per-file progress records"
+      - "Time spent and last position on every video lesson"
+      - "Score and attempt count alongside quiz progress"
+      - "Last activity timestamp so you know when they were last in"
+    imgSrc: "/svgs/courses/course-curriculum.svg"
     reverse: false
+  - title: "Notifications that close the loop without a manager in the middle"
+    description: "Progress data isn't just pretty in a dashboard. It triggers the right message at the right moment — a quick welcome the day they start, a milestone cheer halfway through, a friendly nudge if they go quiet for a while, and the certificate the moment they cross the finish line. Instructors hear when a learner finishes too, so a long course doesn't end in silence."
+    lists:
+      - "Course started — short welcome to the learner"
+      - "Course milestone reached — cheer at the percentage you pick"
+      - "Course inactive — gentle nudge if they've been away"
+      - "Course completed — celebration to the learner, heads-up to the instructor"
+    imgSrc: "/svgs/educator-love/4-integrated.svg"
+    reverse: true
+  - title: "Same numbers, three audiences, no spreadsheet diff"
+    description: "Learners see their own progress on their personal dashboard — every course they're in, where they left off, how much time they've put in. Instructors see the cohort they teach, with a leaderboard, a remaining-tasks list and the quiz comparison that helps them spot the question everyone's getting wrong. Admins see the platform — the macro story, the trends, the milestones that fire on their own. Three views, one source of truth."
+    lists:
+      - "Learner dashboard: my courses, time spent, what's next"
+      - "Instructor dashboard: cohort progress, quiz comparison, top learners"
+      - "Admin analytics: course-level completion, enrollment trends, performance"
+      - "Certificates fire on completion automatically — no separate workflow"
+    imgSrc: "/svgs/educator-love/5-scalability.svg"
+    reverse: false
+quickStart:
+  title: "From the first lesson to the certificate, all on its own"
+  subtitle: "There's nothing to set up. Once a learner is enrolled, the platform tracks everything they do and surfaces the right view to the right person."
+  steps:
+    - step: 1
+      title: "Enroll the learner"
+      description: "Add them to the course, learning path or cohort. The progress record is created with them — not started, zero time, no stale state. From here, every lesson they open updates their record automatically."
+      imageAlt: "Course detail with a fresh enrollment row showing 0% and 'not started'"
+      imageSrc: "/svgs/courses/course-create.svg"
+    - step: 2
+      title: "Watch progress build itself"
+      description: "Lessons, quizzes, assignments — every action updates progress the moment it happens. The learner sees their bar climb on their dashboard. The instructor sees their cohort move on theirs. Admins see the trend line bend the right way."
+      imageAlt: "Dashboard with a progress bar increasing, completion trend line and an active learner row"
+      imageSrc: "/svgs/educator-love/4-integrated.svg"
+    - step: 3
+      title: "Spot who needs a hand"
+      description: "Open the cohort. Sort by progress. Look for the people sitting at the bottom for too long. Reach out before the deadline — the platform's already firing inactive reminders, but the human nudge is the one that lands."
+      imageAlt: "Cohort progress table sorted by progress with two learners flagged as inactive"
+      imageSrc: "/svgs/courses/course-publish.svg"
+faq:
+  title: "Progress Tracking FAQ"
+  description: "The questions teachers and admins ask the first time they sit down with the dashboard."
+  items:
+    - question: "What gets tracked?"
+      answer: "Everything a learner does inside the course — lessons opened, video positions, time spent, quiz attempts, assignment submissions and downloaded files. Each item carries its own progress record so the picture is detailed, not vague."
+    - question: "Is the data real-time?"
+      answer: "Yes. Progress updates the moment a learner finishes a lesson, submits a quiz or turns in an assignment. There's no overnight job to wait for. Open the dashboard and you're seeing the latest number."
+    - question: "What does 'progress' actually mean for a course?"
+      answer: "It's the share of curriculum items the learner has completed — lessons finished, quizzes passed, assignments turned in. So 60% on a course means they've cleared 60% of the items inside it, not that they finished 60% of one video."
+    - question: "Can I see exactly where someone is, not just the percentage?"
+      answer: "Yes. Open the learner from the cohort or course view and you'll see every lesson, quiz and assignment with its own status — completed, in progress, not started or paused — plus time spent and the last activity timestamp."
+    - question: "What about videos — does it remember where they paused?"
+      answer: "Yes. Each video lesson stores the last position, so when a learner comes back, they pick up where they left off. Time spent on the lesson is captured separately, so a five-minute video they revisited three times shows fifteen minutes of engagement, not five."
+    - question: "Do learners see their own progress?"
+      answer: "Absolutely. Their dashboard at /dashboard shows every course they're in, with progress bars, time-spent counters, what's coming next and a continue-learning button that drops them right back where they paused. It's the same data the admin sees, just scoped to them."
+    - question: "Can I roll progress up to a cohort or section?"
+      answer: "Yes. The dashboard has a section picker and a cohort filter. Choose either and the histogram, the trend line and the student-detail table re-scope to that slice. A TA running one batch sees their batch, not the whole program."
+    - question: "Does completion trigger anything automatically?"
+      answer: "Yes — and it should. The certificate fires the moment a learner crosses the passing grade, the learner gets a celebration, and the instructor gets a heads-up so the moment isn't lost in a dashboard. Milestone cheers along the way are configurable per course."
+    - question: "What if someone goes quiet?"
+      answer: "The platform tracks last activity on every enrollment. If a learner hasn't been around for a while, an inactive-reminder notification fires automatically. You can also sort the cohort table by last activity in the admin and reach out personally — sometimes a five-minute message saves a learner."
+    - question: "Does it work for both self-paced and cohort courses?"
+      answer: "Yes. The same progress engine powers both. A self-paced learner moves at their own speed — every step still tracked. A cohort moves on a schedule — the trend line reads it as a clean wave. The dashboard handles either shape without a separate setup."
+    - question: "Can I compare quiz performance across the cohort?"
+      answer: "Yes. The student-detail table on the progress dashboard lays out every learner's score on every quiz side by side, so you can spot the quiz that's tripping people up — or the section that's coasting through. It's the question \"who got which question wrong?\" answered in one view."
+    - question: "What about learning paths — does progress chain across courses?"
+      answer: "Yes. A learning path's progress aggregates across the courses inside it. The platform also fires a learning-path-started notification when the first course begins, a course-unlocked event when the next one becomes available, and a learning-path-completed celebration when the whole journey is done."
+    - question: "Is the data exportable?"
+      answer: "Yes. Every cohort and program-level table supports CSV export — pull the entire progress snapshot for a class, a cohort or a learning path in one click. Useful for a quick review with a stakeholder, a regulator or a compliance team."
+    - question: "Will this work for a really large program?"
+      answer: "Yes. The progress engine scales to thousands of learners per program. Real-time updates fire on the action's own thread; reads come from indexed data so the dashboard stays quick. Filtering by section or cohort keeps even the biggest programs readable."
 ---
 
-Progress tracking connects daily activity to outcomes—so no learner disappears into the cracks of a large program.
+## Suggested visuals for this page
+
+The hero, capability cards, FAQ and quick-start steps render directly from the data above. The four split sections and the three quick-start steps each carry an image. The current build reuses the closest existing illustrations from `/svgs/courses` and `/svgs/educator-love`, but a future design pass should ship dedicated artwork. Drop the new files at the listed paths and they will swap in without any code change.
+
+**Split section 1 — `imgSrc: /svgs/educator-love/2-analytics.svg` (placeholder)**
+Suggested artwork: the progress dashboard with three blocks — a histogram on the left ("Students completed N subjects"), a stacked area trend line in the middle (Completed / In progress / Not started over the last six weeks), and a student-detail table on the right with avatars and quiz score chips.
+
+**Split section 2 — `imgSrc: /svgs/courses/course-curriculum.svg` (placeholder)**
+Suggested artwork: a single learner's curriculum view — sections expanded with lesson rows, each row showing a status pill (Done / Watching / Paused / Locked), time spent, and a tiny last-position chip on a video row.
+
+**Split section 3 — `imgSrc: /svgs/educator-love/4-integrated.svg` (placeholder)**
+Suggested artwork: a vertical notification timeline — "Welcome, Sara!", "Halfway there 🎉", "We've missed you", "Course completed — your certificate is ready" — each with a different sender avatar and channel chip (email / in-app / push).
+
+**Split section 4 — `imgSrc: /svgs/educator-love/5-scalability.svg` (placeholder)**
+Suggested artwork: a three-pane composite — a learner's personal dashboard on the left, an instructor's cohort dashboard in the middle, and an admin analytics screen on the right, each surfacing the same numbers from a different angle.
+
+**Quick-start step 1 — `imageSrc: /svgs/courses/course-create.svg` (placeholder)**
+Suggested artwork: a fresh enrollment row in a course's Enrollments tab — name + email + a "0% — not started" chip — with a small note "Tracking begins now".
+
+**Quick-start step 2 — `imageSrc: /svgs/educator-love/4-integrated.svg` (placeholder)**
+Suggested artwork: a learner's progress bar climbing from 20% → 60% with a small live-update toast, alongside a cohort dashboard ticker showing "+3 lessons completed in the last hour".
+
+**Quick-start step 3 — `imageSrc: /svgs/courses/course-publish.svg` (placeholder)**
+Suggested artwork: a cohort table sorted by progress with two rows highlighted as inactive (red dot + "8 days ago"), and a small reach-out chip on each.
